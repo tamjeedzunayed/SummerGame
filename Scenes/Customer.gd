@@ -1,19 +1,33 @@
 extends CharacterBody2D
 
-@onready var navigation_agent_2d = $NavigationAgent2D
+@onready var navigation_agent = $NavigationAgent2D
+@onready var animated_sprite = $AnimatedSprite2D
 
-const SPEED = 130.0
+const SPEED : float = 130.0
 
-func _physics_process(delta):
-	var dir : Vector2 = to_local(navigation_agent_2d.get_next_path_position()).normalized()
-	
-	if !navigation_agent_2d.is_navigation_finished():
-		velocity = lerp(velocity, dir * SPEED, 0.1);
+func _physics_process(_delta):
+	var dir : Vector2
+	if !navigation_agent.is_navigation_finished():
+		dir = to_local(navigation_agent.get_next_path_position()).normalized()
 	else:
-		velocity = lerp(velocity, Vector2.ZERO, 0.1)
+		dir = Vector2.ZERO
+	
+	
+	if (dir.dot(Vector2.UP) > 0.7):
+		animated_sprite.play("up")
+	elif (dir.dot(Vector2.RIGHT) > 0.5):
+		animated_sprite.play("left")
+		animated_sprite.flip_h = true
+	elif (dir.dot(Vector2.LEFT) > 0.5):
+		animated_sprite.play("left")
+		animated_sprite.flip_h = false
+	else:
+		animated_sprite.play("down")
+		
+	velocity = lerp(velocity, dir * SPEED, 0.1);
 	
 	move_and_slide()
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("LMB"):
-		navigation_agent_2d.target_position = get_global_mouse_position()
+		navigation_agent.target_position = get_global_mouse_position()
