@@ -1,0 +1,7 @@
+NavigationAgent2D
+AnimatedSprite2D
+Sprite2D
+CollisionShape2D
+CharacterBody2D
+Camera2D
+TileMap
