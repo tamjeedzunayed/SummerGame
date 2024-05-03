@@ -27,6 +27,11 @@ LMB={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Customers"
+
 [navigation]
 
 2d/default_edge_connection_margin=20.0

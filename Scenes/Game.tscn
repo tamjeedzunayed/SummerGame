@@ -1,8 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://b4owwtwmb8duo"]
+[gd_scene load_steps=19 format=3 uid="uid://b4owwtwmb8duo"]
 
 [ext_resource type="Texture2D" uid="uid://l7vvuai5pdli" path="res://Assets/prison-architect-sprite-space-station-13-prison-c43b8f1941c16edd6cac73192e80d559.png" id="1_bbl8v"]
-[ext_resource type="Script" path="res://Scenes/Customer.gd" id="2_dkv5h"]
-[ext_resource type="Texture2D" uid="uid://cfg5nynjdkbv1" path="res://Assets/NicePng_prison-architect-png_3739415_upscaled.png" id="3_i30cy"]
+[ext_resource type="Script" path="res://Scenes/GameState.gd" id="1_jg3b3"]
+[ext_resource type="Script" path="res://Scenes/Stock.gd" id="3_7mufq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_p1mti"]
 vertices = PackedVector2Array(7, 7, -7, 7, -7, -7, 7, -7)
@@ -2267,52 +2267,31 @@ terrain_set_2/terrain_0/color = Color(0, 0.440437, 0.455443, 1)
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_02xc7")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f5lkr"]
-atlas = ExtResource("3_i30cy")
-region = Rect2(1200, 1425, 75, 75)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lwim3"]
-atlas = ExtResource("3_i30cy")
-region = Rect2(1350, 1425, 75, 75)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1qudo"]
-atlas = ExtResource("3_i30cy")
-region = Rect2(1275, 1425, 75, 75)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_o57ov"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f5lkr")
-}],
-"loop": true,
-"name": &"down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lwim3")
-}],
-"loop": true,
-"name": &"left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1qudo")
-}],
-"loop": true,
-"name": &"up",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7s6lh"]
-radius = 8.0
-height = 17.7
-
 [node name="Game" type="Node2D"]
 
+[node name="GameState" type="Node" parent="."]
+script = ExtResource("1_jg3b3")
+
+[node name="Timer" type="Timer" parent="GameState"]
+
+[node name="Button" type="Button" parent="GameState/Timer"]
+z_index = 5
+custom_minimum_size = Vector2(15, 10)
+offset_left = 55.0
+offset_top = -95.0
+offset_right = 65.0
+offset_bottom = -85.0
+
+[node name="CustSpawnRate" type="Timer" parent="GameState"]
+wait_time = 5.0
+autostart = true
+
+[node name="Customers" type="Node" parent="."]
+unique_name_in_owner = true
+
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(1.52588e-05, 0)
+scale = Vector2(1, 1)
 tile_set = SubResource("TileSet_b1j5n")
 format = 2
 layer_0/name = "Ground"
@@ -2322,24 +2301,17 @@ layer_1/navigation_enabled = false
 layer_1/tile_data = PackedInt32Array(-3, 131072, 0, 65533, 0, 0, 131069, 0, 0, 196605, 0, 0, 262141, 131072, 1, 262142, 65536, 0, 262143, 65536, 0, 196608, 65536, 0, 196609, 196608, 1, 131073, 0, 0, 65537, 0, 0, 1, 0, 0, -65535, 196608, 0, -2, 65536, 2, -65536, 65536, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1.52588e-05, 0)
+scale = Vector2(1, 1)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(224, 68)
-scale = Vector2(0.77, 0.77)
-motion_mode = 1
-wall_min_slide_angle = 0.0
-script = ExtResource("2_dkv5h")
+[node name="Stock" type="Node" parent="."]
+script = ExtResource("3_7mufq")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(0, -14)
-scale = Vector2(0.64, 0.64)
-sprite_frames = SubResource("SpriteFrames_o57ov")
-animation = &"left"
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, 2)
+color = Color(0.20486, 0.210171, 0.208868, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, -0.31)
-shape = SubResource("CapsuleShape2D_7s6lh")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
-time_horizon_obstacles = 0.27
-debug_enabled = true
+[connection signal="timeout" from="GameState/Timer" to="GameState" method="_on_timer_timeout"]
+[connection signal="timeout" from="GameState/CustSpawnRate" to="GameState" method="_on_cust_spawn_rate_timeout"]
