@@ -1,11 +1,13 @@
 extends Node
 
+@onready var game_state = $"."
+@onready var label = $PanelContainer/GridContainer/Label
 
 @onready var customers = %Customers
 @onready var cust_spawn_rate = $CustSpawnRate
 
 @onready var clock = $Timer
-@onready var clockButton = $Timer/Button
+@onready var clockButton = $PanelContainer/MarginContainer/GridContainer/Button
 
 
 @onready var canvas_modulate = %CanvasModulate
@@ -36,7 +38,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	clockButton.text = str(round(clock.time_left))
+	var secs = fmod(clock.time_left,60)
+	var mins = fmod(clock.time_left, 60*60) / 60
+	var time_passed = "%02d : %02d" % [mins,secs]
+	clockButton.text  = time_passed
 	pass
 
 

@@ -1,5 +1,3 @@
 res://default_env.tres
 res://Scenes/Game.tscn
 res://Scenes/GameState.gd
-res://Scenes/customer.tscn
-res://Scenes/Stock.gd

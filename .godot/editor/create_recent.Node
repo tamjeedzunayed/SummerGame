@@ -1,11 +1,15 @@
-Button
+MarginContainer
+TextureRect
 Label
+GridContainer
+PanelContainer
+Sprite2D
+Button
 CanvasModulate
 Node
 Timer
 NavigationAgent2D
 AnimatedSprite2D
-Sprite2D
 CollisionShape2D
 CharacterBody2D
 Camera2D
