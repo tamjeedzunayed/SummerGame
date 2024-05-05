@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dsjolhbn3kocc"]
 
-[ext_resource type="Script" path="res://Scenes/Customer.gd" id="1_bno8w"]
+[ext_resource type="Script" path="res://_Scripts/Customer.gd" id="1_3klsv"]
 [ext_resource type="Texture2D" uid="uid://cfg5nynjdkbv1" path="res://Assets/NicePng_prison-architect-png_3739415_upscaled.png" id="2_n50m4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f5lkr"]
@@ -52,7 +52,7 @@ scale = Vector2(0.77, 0.77)
 collision_layer = 2
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_bno8w")
+script = ExtResource("1_3klsv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
@@ -66,4 +66,3 @@ shape = SubResource("CapsuleShape2D_7s6lh")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 time_horizon_obstacles = 0.27
-debug_enabled = true

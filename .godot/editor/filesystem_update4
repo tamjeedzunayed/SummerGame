@@ -1,3 +1,6 @@
 res://default_env.tres
 res://Scenes/Game.tscn
-res://Scenes/GameState.gd
+res://_Scripts/Customer.gd
+res://_Scripts/GameState.gd
+res://Scenes/customer.tscn
+res://Scenes/furniture.tscn

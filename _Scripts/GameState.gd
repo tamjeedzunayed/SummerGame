@@ -1,38 +1,39 @@
 extends Node
 
-@onready var game_state = $"."
-@onready var label = $PanelContainer/GridContainer/Label
 
+@onready var furnitures = $"../Furnitures"
 @onready var customers = %Customers
 @onready var cust_spawn_rate = $CustSpawnRate
 
 @onready var clock = $Timer
 @onready var clockButton = $PanelContainer/MarginContainer/GridContainer/Button
 
-
 @onready var canvas_modulate = %CanvasModulate
-
+@onready var animation_player : AnimationPlayer = canvas_modulate.get_child(0)
+@onready var ground_tile_map : TileMap = $"../GroundTileMap"
 
 
 const CUSTSPAWNRATE = 5
 const CUSINCRATE = 1
 const QUOTINCRATE = 100
-const DAYTIME = 12
+@export var DAY_TIME_LENGTH : float = 12.
 
 var isDay:bool = true
 var numCustomers = 0
 var rating = 5
 var endOfDayQuota = 0
 
-var customerPath = preload("res://Scenes/customer.tscn")
-
+var customerResource = preload("res://Scenes/customer.tscn")
+var furnitureResource = preload("res://Scenes/furniture.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	cust_spawn_rate.wait_time = CUSTSPAWNRATE
-	clock.wait_time = DAYTIME
+	clock.wait_time = DAY_TIME_LENGTH
 	clock.start()
-
+	animation_player.speed_scale = 1./DAY_TIME_LENGTH
+	animation_player.play("Day animation")
+	
 	pass # Replace with function body.
 
 
@@ -50,11 +51,10 @@ func _on_timer_timeout():
 	print(isDay)
 	
 	if (isDay):
-		clock.wait_time = DAYTIME
+		clock.wait_time = DAY_TIME_LENGTH
 		day()
 	else:
-		@warning_ignore("integer_division")
-		clock.wait_time = DAYTIME/3
+		clock.wait_time = DAY_TIME_LENGTH/3.
 		night()
 	clock.start()
 	pass # Replace with function body.
@@ -62,19 +62,28 @@ func _on_timer_timeout():
 func day():
 	numCustomers += CUSINCRATE
 	endOfDayQuota += QUOTINCRATE
-	canvas_modulate.visible = false
+	animation_player.play("Day animation")
 	
 func night():
 	for customer in customers.get_children():
 		customer.queue_free()
-	canvas_modulate.visible = true
+	#canvas_modulate.visible = true
 		
 
 func _on_cust_spawn_rate_timeout():
 	if (isDay):
-		var newCustomer = customerPath.instantiate()
+		var newCustomer = customerResource.instantiate()
 		newCustomer.position = Vector2(5, 10)
 		customers.add_child(newCustomer)
 		
 	
 	pass # Replace with function body.
+
+func _input(event):
+	if Input.is_action_just_pressed("LMB"):
+		var click_pos_on_map = ground_tile_map.local_to_map(event.position)
+		var furniture : Node2D= furnitureResource.instantiate()
+		furniture.position = Vector2(click_pos_on_map*32) + Vector2(16,16)
+		furnitures.add_child(furniture)
+		print(click_pos_on_map)
+		ground_tile_map.get_cell_tile_data(0, click_pos_on_map - Vector2i(18, 10)).get_navigation_polygon(0).get_polygon(0).clear()
