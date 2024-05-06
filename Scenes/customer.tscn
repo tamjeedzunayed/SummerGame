@@ -47,7 +47,7 @@ radius = 8.0
 height = 17.7
 
 [node name="customer" type="CharacterBody2D"]
-position = Vector2(224, 68)
+y_sort_enabled = true
 scale = Vector2(0.77, 0.77)
 collision_layer = 2
 motion_mode = 1

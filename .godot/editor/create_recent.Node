@@ -1,4 +1,5 @@
 Node
+Area2D
 AnimatedSprite2D
 Sprite2D
 TileMap
@@ -11,4 +12,3 @@ PanelContainer
 Button
 CanvasModulate
 Timer
-NavigationAgent2D

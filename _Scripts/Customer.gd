@@ -9,6 +9,7 @@ func _physics_process(_delta):
 	var dir : Vector2
 	if !navigation_agent.is_navigation_finished():
 		dir = to_local(navigation_agent.get_next_path_position()).normalized()
+		print(position.y)
 	else:
 		dir = Vector2.ZERO
 	
@@ -29,5 +30,5 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _input(_event):
-	if Input.is_action_just_pressed("LMB"):
+	if Input.is_action_just_pressed("RMB"):
 		navigation_agent.target_position = get_global_mouse_position()
