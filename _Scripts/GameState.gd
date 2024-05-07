@@ -11,6 +11,7 @@ extends Node
 @onready var canvas_modulate : CanvasModulate = $CanvasModulate
 @onready var animation_player : AnimationPlayer = canvas_modulate.get_child(0)
 @onready var ground_tile_map : TileMap = $GroundTileMap
+@onready var shop = $Shop
 
 
 const CUSTSPAWNRATE = 5
@@ -28,6 +29,7 @@ var furnitureResource = preload("res://Scenes/furniture.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	shop.offset = Vector2(64, -546)
 	cust_spawn_rate.wait_time = CUSTSPAWNRATE
 	clock.wait_time = DAY_TIME_LENGTH
 	clock.start()
@@ -48,12 +50,15 @@ func _process(_delta):
 
 func _on_timer_timeout():
 	isDay = !isDay
-	
+	shop.itsDay = isDay
+	if (shop.inView && isDay):
+		shop.get_child(1).play("TransOut")
+	shop.get_child(2).disabled = isDay
 	if (isDay):
 		clock.wait_time = DAY_TIME_LENGTH
 		day()
 	else:
-		clock.wait_time = DAY_TIME_LENGTH/3.
+		clock.wait_time = DAY_TIME_LENGTH/3
 		night()
 	clock.start()
 	pass # Replace with function body.
