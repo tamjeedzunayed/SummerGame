@@ -53,7 +53,8 @@ func _on_timer_timeout():
 	shop.itsDay = isDay
 	if (shop.inView && isDay):
 		shop.get_child(1).play("TransOut")
-	shop.get_child(2).disabled = isDay
+		shop.inView = false
+	#shop.get_child(2).disabled = isDay
 	if (isDay):
 		clock.wait_time = DAY_TIME_LENGTH
 		day()

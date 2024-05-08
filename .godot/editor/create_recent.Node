@@ -1,3 +1,6 @@
+Label
+ProgressBar
+Panel
 VBoxContainer
 ScrollContainer
 VScrollBar
@@ -9,15 +12,3 @@ TabBar
 VFlowContainer
 TabContainer
 AnimationPlayer
-Panel
-CanvasLayer
-Node
-Area2D
-AnimatedSprite2D
-Sprite2D
-TileMap
-TextureRect
-Label
-PanelContainer
-CanvasModulate
-Timer

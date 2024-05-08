@@ -1,38 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctvukuon84qhw"]
+[gd_scene load_steps=10 format=3 uid="uid://ctvukuon84qhw"]
 
 [ext_resource type="Script" path="res://shop.gd" id="1_tf1v1"]
-
-[sub_resource type="Theme" id="Theme_stqna"]
-
-[sub_resource type="Animation" id="Animation_b7g7h"]
-resource_name = "TransIn"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(64, -546), Vector2(64, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_a2435"]
-resource_name = "TransOut"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(64, 0), Vector2(64, -546)]
-}
+[ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://new_theme.tres" id="2_h2720"]
+[ext_resource type="Texture2D" uid="uid://bnv25ufanej1o" path="res://Assets/Connect1.png" id="2_wxcw6"]
+[ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="3_st4tx"]
+[ext_resource type="Texture2D" uid="uid://cy5n1ghxlk2x6" path="res://Assets/Connect2.png" id="4_ibqq8"]
 
 [sub_resource type="Animation" id="Animation_ggbdo"]
 length = 0.001
@@ -49,6 +21,36 @@ tracks/0/keys = {
 "values": [Vector2(64, 32)]
 }
 
+[sub_resource type="Animation" id="Animation_b7g7h"]
+resource_name = "TransIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, -546), Vector2(64, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a2435"]
+resource_name = "TransOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, 0), Vector2(64, -546)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tt3mk"]
 _data = {
 "RESET": SubResource("Animation_ggbdo"),
@@ -63,60 +65,353 @@ follow_viewport_enabled = true
 script = ExtResource("1_tf1v1")
 
 [node name="Panel" type="Panel" parent="."]
+self_modulate = Color(0.385493, 0.385492, 0.385492, 1)
 custom_minimum_size = Vector2(1024, 576)
-offset_right = 200.0
-offset_bottom = 200.0
+offset_right = 950.0
+offset_bottom = 576.0
+theme = ExtResource("2_h2720")
 
 [node name="TabContainer" type="TabContainer" parent="Panel"]
 layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 544.0
+theme = ExtResource("2_h2720")
 tab_alignment = 1
 drag_to_rearrange_enabled = true
 
-[node name="Supply Connections" type="MarginContainer" parent="Panel/TabContainer"]
-modulate = Color(0.372549, 0.258824, 0, 1)
+[node name="Supply Connections" type="Panel" parent="Panel/TabContainer"]
 layout_mode = 2
-theme = SubResource("Theme_stqna")
+theme = ExtResource("2_h2720")
+
+[node name="Supply Connections" type="MarginContainer" parent="Panel/TabContainer/Supply Connections"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_h2720")
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/TabContainer/Supply Connections"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections"]
 layout_mode = 2
+theme = ExtResource("2_h2720")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TabContainer/Supply Connections/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme = ExtResource("2_h2720")
+theme_override_constants/separation = 25
 
-[node name="Guy" type="Button" parent="Panel/TabContainer/Supply Connections/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(984, 75)
+[node name="Guy" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 85)
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_h2720")
+icon = ExtResource("2_wxcw6")
+expand_icon = true
 
-[node name="Guy2" type="Button" parent="Panel/TabContainer/Supply Connections/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(984, 75)
-layout_mode = 2
+[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = -10.5
+offset_right = -69.0
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("2_h2720")
+value = 25.0
 
-[node name="Guy3" type="Button" parent="Panel/TabContainer/Supply Connections/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(984, 75)
-layout_mode = 2
+[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 11.0
+offset_right = 195.0
+offset_bottom = 34.0
+scale = Vector2(1.54761, 1.54761)
+theme = ExtResource("2_h2720")
+text = "Guy 1 name"
 
-[node name="Guy4" type="Button" parent="Panel/TabContainer/Supply Connections/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(984, 75)
+[node name="Label" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy"]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 16.0
+offset_right = 870.0
+offset_bottom = 39.0
+theme = ExtResource("2_h2720")
+theme_override_colors/font_color = Color(0.695503, 0.695503, 0.695503, 1)
+text = "Sells: low level stuff"
+
+[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 50.0
+offset_right = 238.0
+offset_bottom = 73.0
+text = "Rep Level:"
+
+[node name="Guy2" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 85)
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_h2720")
+icon = ExtResource("4_ibqq8")
+expand_icon = true
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = -10.5
+offset_right = -69.0
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("2_h2720")
+value = 10.0
+
+[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy2"]
+offset_left = 103.0
+offset_top = 11.0
+offset_right = 195.0
+offset_bottom = 34.0
+scale = Vector2(1.54761, 1.54761)
+theme = ExtResource("2_h2720")
+text = "Guy 2 name"
+
+[node name="Label" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy2"]
+offset_left = 719.0
+offset_top = 16.0
+offset_right = 870.0
+offset_bottom = 39.0
+theme = ExtResource("2_h2720")
+theme_override_colors/font_color = Color(0.695503, 0.695503, 0.695503, 1)
+text = "Sells: low level stuff"
+
+[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy2"]
+offset_left = 103.0
+offset_top = 50.0
+offset_right = 238.0
+offset_bottom = 73.0
+text = "Rep Level:"
+
+[node name="Guy3" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 85)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_h2720")
+disabled = true
+icon = ExtResource("3_st4tx")
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = -10.5
+offset_right = -69.0
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("2_h2720")
+
+[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy3"]
+offset_left = 103.0
+offset_top = 11.0
+offset_right = 195.0
+offset_bottom = 34.0
+scale = Vector2(1.54761, 1.54761)
+theme = ExtResource("2_h2720")
+text = "Guy 3 name"
+
+[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy3"]
+offset_left = 103.0
+offset_top = 50.0
+offset_right = 238.0
+offset_bottom = 73.0
+text = "Rep Level:"
+
+[node name="Guy4" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 85)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_h2720")
+disabled = true
+icon = ExtResource("3_st4tx")
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = -10.5
+offset_right = -69.0
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("2_h2720")
+
+[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy4"]
+offset_left = 103.0
+offset_top = 11.0
+offset_right = 195.0
+offset_bottom = 34.0
+scale = Vector2(1.54761, 1.54761)
+theme = ExtResource("2_h2720")
+text = "Guy 4 name"
+
+[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy4"]
+offset_left = 103.0
+offset_top = 50.0
+offset_right = 238.0
+offset_bottom = 73.0
+text = "Rep Level:"
+
+[node name="Guy5" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 85)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_h2720")
+disabled = true
+icon = ExtResource("3_st4tx")
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = -10.5
+offset_right = -69.0
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("2_h2720")
+
+[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy5"]
+offset_left = 103.0
+offset_top = 11.0
+offset_right = 195.0
+offset_bottom = 34.0
+scale = Vector2(1.54761, 1.54761)
+theme = ExtResource("2_h2720")
+text = "Guy 5 name"
+
+[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy5"]
+offset_left = 103.0
+offset_top = 50.0
+offset_right = 238.0
+offset_bottom = 73.0
+text = "Rep Level:"
+
+[node name="Guy6" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 85)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_h2720")
+disabled = true
+icon = ExtResource("3_st4tx")
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = -10.5
+offset_right = -69.0
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("2_h2720")
+
+[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy6"]
+offset_left = 103.0
+offset_top = 11.0
+offset_right = 195.0
+offset_bottom = 34.0
+scale = Vector2(1.54761, 1.54761)
+theme = ExtResource("2_h2720")
+text = "Guy 6 name"
+
+[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy6"]
+offset_left = 103.0
+offset_top = 50.0
+offset_right = 238.0
+offset_bottom = 73.0
+text = "Rep Level:"
+
+[node name="Guy7" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 85)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_h2720")
+disabled = true
+icon = ExtResource("3_st4tx")
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = -10.5
+offset_right = -69.0
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("2_h2720")
+
+[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy7"]
+offset_left = 103.0
+offset_top = 11.0
+offset_right = 195.0
+offset_bottom = 34.0
+scale = Vector2(1.54761, 1.54761)
+theme = ExtResource("2_h2720")
+text = "Guy 7 name"
+
+[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy7"]
+offset_left = 103.0
+offset_top = 50.0
+offset_right = 238.0
+offset_bottom = 73.0
+text = "Rep Level:"
 
 [node name="Appliances" type="VFlowContainer" parent="Panel/TabContainer"]
 visible = false
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
+theme = ExtResource("2_h2720")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")
-speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_tt3mk")
 }
+speed_scale = 2.0
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1
@@ -125,7 +420,6 @@ offset_left = 256.0
 offset_top = 544.0
 offset_right = -248.064
 offset_bottom = 576.0
-disabled = true
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
