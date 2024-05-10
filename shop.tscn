@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctvukuon84qhw"]
+[gd_scene load_steps=9 format=3 uid="uid://ctvukuon84qhw"]
 
 [ext_resource type="Script" path="res://shop.gd" id="1_tf1v1"]
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://new_theme.tres" id="2_h2720"]
-[ext_resource type="Texture2D" uid="uid://bnv25ufanej1o" path="res://Assets/Connect1.png" id="2_wxcw6"]
+[ext_resource type="PackedScene" uid="uid://ckjwrd0go50j1" path="res://Scenes/guy.tscn" id="3_2uhnb"]
 [ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="3_st4tx"]
-[ext_resource type="Texture2D" uid="uid://cy5n1ghxlk2x6" path="res://Assets/Connect2.png" id="4_ibqq8"]
 
 [sub_resource type="Animation" id="Animation_ggbdo"]
 length = 0.001
@@ -95,310 +94,228 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections"]
+[node name="GridContainer" type="GridContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections"]
+layout_mode = 2
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer"]
+custom_minimum_size = Vector2(250, 470)
 layout_mode = 2
 theme = ExtResource("2_h2720")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer"]
 layout_mode = 2
 theme = ExtResource("2_h2720")
+theme_override_constants/separation = 10
+
+[node name="Guy" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_2uhnb")]
+layout_mode = 2
+
+[node name="Guy2" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_2uhnb")]
+layout_mode = 2
+
+[node name="Guy3" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_2uhnb")]
+layout_mode = 2
+
+[node name="Guy4" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_2uhnb")]
+layout_mode = 2
+
+[node name="Guy5" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_2uhnb")]
+layout_mode = 2
+
+[node name="Guy6" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_2uhnb")]
+layout_mode = 2
+
+[node name="Items On Sale" type="Control" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer"]
+layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Guy" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(700, 85)
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_h2720")
-icon = ExtResource("2_wxcw6")
-expand_icon = true
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.72
 
-[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.7
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 190.0
-offset_top = -10.5
-offset_right = -69.0
-offset_bottom = -8.5
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-theme = ExtResource("2_h2720")
-value = 25.0
-
-[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy"]
-layout_mode = 0
-offset_left = 103.0
-offset_top = 11.0
-offset_right = 195.0
-offset_bottom = 34.0
-scale = Vector2(1.54761, 1.54761)
-theme = ExtResource("2_h2720")
-text = "Guy 1 name"
-
-[node name="Label" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy"]
-layout_mode = 0
-offset_left = 719.0
-offset_top = 16.0
-offset_right = 870.0
-offset_bottom = 39.0
-theme = ExtResource("2_h2720")
-theme_override_colors/font_color = Color(0.695503, 0.695503, 0.695503, 1)
-text = "Sells: low level stuff"
-
-[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy"]
-layout_mode = 0
-offset_left = 103.0
-offset_top = 50.0
-offset_right = 238.0
-offset_bottom = 73.0
-text = "Rep Level:"
-
-[node name="Guy2" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(700, 85)
+[node name="Label" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_h2720")
-icon = ExtResource("4_ibqq8")
-expand_icon = true
+text = "Andrew Tate 
 
-[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.7
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 190.0
-offset_top = -10.5
-offset_right = -69.0
-offset_bottom = -8.5
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-theme = ExtResource("2_h2720")
-value = 10.0
+Reputation Level:
+"
 
-[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy2"]
-offset_left = 103.0
-offset_top = 11.0
-offset_right = 195.0
-offset_bottom = 34.0
-scale = Vector2(1.54761, 1.54761)
-theme = ExtResource("2_h2720")
-text = "Guy 2 name"
-
-[node name="Label" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy2"]
-offset_left = 719.0
-offset_top = 16.0
-offset_right = 870.0
-offset_bottom = 39.0
-theme = ExtResource("2_h2720")
-theme_override_colors/font_color = Color(0.695503, 0.695503, 0.695503, 1)
-text = "Sells: low level stuff"
-
-[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy2"]
-offset_left = 103.0
-offset_top = 50.0
-offset_right = 238.0
-offset_bottom = 73.0
-text = "Rep Level:"
-
-[node name="Guy3" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(700, 85)
+[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_h2720")
-disabled = true
-icon = ExtResource("3_st4tx")
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.1
+theme_override_constants/outline_size = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy3"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.7
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 190.0
-offset_top = -10.5
-offset_right = -69.0
-offset_bottom = -8.5
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-theme = ExtResource("2_h2720")
-
-[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy3"]
-offset_left = 103.0
-offset_top = 11.0
-offset_right = 195.0
-offset_bottom = 34.0
-scale = Vector2(1.54761, 1.54761)
-theme = ExtResource("2_h2720")
-text = "Guy 3 name"
-
-[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy3"]
-offset_left = 103.0
-offset_top = 50.0
-offset_right = 238.0
-offset_bottom = 73.0
-text = "Rep Level:"
-
-[node name="Guy4" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(700, 85)
+[node name="ItemList" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_h2720")
-disabled = true
-icon = ExtResource("3_st4tx")
+size_flags_vertical = 3
 
-[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy4"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.7
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 190.0
-offset_top = -10.5
-offset_right = -69.0
-offset_bottom = -8.5
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-theme = ExtResource("2_h2720")
-
-[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy4"]
-offset_left = 103.0
-offset_top = 11.0
-offset_right = 195.0
-offset_bottom = 34.0
-scale = Vector2(1.54761, 1.54761)
-theme = ExtResource("2_h2720")
-text = "Guy 4 name"
-
-[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy4"]
-offset_left = 103.0
-offset_top = 50.0
-offset_right = 238.0
-offset_bottom = 73.0
-text = "Rep Level:"
-
-[node name="Guy5" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(700, 85)
+[node name="MarginContainer" type="MarginContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_h2720")
-disabled = true
-icon = ExtResource("3_st4tx")
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy5"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.7
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 190.0
-offset_top = -10.5
-offset_right = -69.0
-offset_bottom = -8.5
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-theme = ExtResource("2_h2720")
-
-[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy5"]
-offset_left = 103.0
-offset_top = 11.0
-offset_right = 195.0
-offset_bottom = 34.0
-scale = Vector2(1.54761, 1.54761)
-theme = ExtResource("2_h2720")
-text = "Guy 5 name"
-
-[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy5"]
-offset_left = 103.0
-offset_top = 50.0
-offset_right = 238.0
-offset_bottom = 73.0
-text = "Rep Level:"
-
-[node name="Guy6" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(700, 85)
+[node name="Item container" type="GridContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_h2720")
-disabled = true
-icon = ExtResource("3_st4tx")
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4
 
-[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy6"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.7
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 190.0
-offset_top = -10.5
-offset_right = -69.0
-offset_bottom = -8.5
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-theme = ExtResource("2_h2720")
-
-[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy6"]
-offset_left = 103.0
-offset_top = 11.0
-offset_right = 195.0
-offset_bottom = 34.0
-scale = Vector2(1.54761, 1.54761)
-theme = ExtResource("2_h2720")
-text = "Guy 6 name"
-
-[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy6"]
-offset_left = 103.0
-offset_top = 50.0
-offset_right = 238.0
-offset_bottom = 73.0
-text = "Rep Level:"
-
-[node name="Guy7" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(700, 85)
+[node name="Button" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer/Item container"]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_h2720")
-disabled = true
-icon = ExtResource("3_st4tx")
 
-[node name="ProgressBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy7"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.7
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 190.0
-offset_top = -10.5
-offset_right = -69.0
-offset_bottom = -8.5
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-theme = ExtResource("2_h2720")
+[node name="Button2" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer/Item container"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
 
-[node name="Name" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy7"]
-offset_left = 103.0
-offset_top = 11.0
-offset_right = 195.0
-offset_bottom = 34.0
-scale = Vector2(1.54761, 1.54761)
-theme = ExtResource("2_h2720")
-text = "Guy 7 name"
+[node name="Button3" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer/Item container"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
 
-[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/ScrollContainer/VBoxContainer/Guy7"]
-offset_left = 103.0
-offset_top = 50.0
-offset_right = 238.0
-offset_bottom = 73.0
-text = "Rep Level:"
+[node name="Button4" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer/Item container"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer/Item container"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer/Item container"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer/Item container"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Button8" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer/Item container"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Button9" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer/Item container"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Button10" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer/Item container"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Button11" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer/Item container"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Button12" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer/Item container"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList"]
+custom_minimum_size = Vector2(143, 0)
+layout_mode = 2
+
+[node name="Item Information" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer"]
+layout_mode = 2
+text = "
+
+
+Tools
+
+Price:
+Sell Value:
+Exp:"
+
+[node name="Buy" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Buy"
+
+[node name="Control" type="Control" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_st4tx")
+
+[node name="Control" type="Control" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Discount Upgrade" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Discount Upgrade"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_st4tx")
+expand_mode = 3
+
+[node name="Discount Bar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Discount Upgrade"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Sell Value Upgrade" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Sell Value Upgrade"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_st4tx")
+expand_mode = 3
+
+[node name="Sell Value Bar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Sell Value Upgrade"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Shopping Cart Upgrade" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Shopping Cart Upgrade"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_st4tx")
+expand_mode = 3
+
+[node name="Shopping Cart Bar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Shopping Cart Upgrade"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="New Item" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Unlock New Item"
 
 [node name="Appliances" type="VFlowContainer" parent="Panel/TabContainer"]
 visible = false
@@ -408,10 +325,10 @@ theme = ExtResource("2_h2720")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")
+speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_tt3mk")
 }
-speed_scale = 2.0
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1
@@ -422,4 +339,6 @@ offset_right = -248.064
 offset_bottom = 576.0
 metadata/_edit_use_anchors_ = true
 
+[connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/VBoxContainer/Guy" to="." method="_on_guy_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/VBoxContainer/Guy2" to="." method="_on_guy_2_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
