@@ -1,8 +1,13 @@
 res://default_env.tres
-res://Scenes/guy.tscn
+res://Scenes/Game.tscn
 res://_Scripts/Customer.gd
 res://_Scripts/GameState.gd
-res://new_theme.tres
 res://shop.tscn
-res://Scenes/Game.tscn
+res://new_theme.tres
 res://shop.gd
+res://Scenes/guy.tscn
+res://_Scripts/shop.gd
+res://Scenes/shop.tscn
+res://Scenes/SupplyConnect.gd
+res://_Scripts/SupplyConnect.gd
+res://Scenes/Item.tscn

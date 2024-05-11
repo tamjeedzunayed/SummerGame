@@ -1,6 +1,9 @@
+TextureRect
+Button
+Node
+ResourcePreloader
 Control
 ReferenceRect
-Button
 MarginContainer
 HBoxContainer
 ProgressBar
@@ -9,12 +12,3 @@ VBoxContainer
 GridContainer
 ItemList
 TextureProgressBar
-TextureRect
-Panel
-Node
-ScrollContainer
-VScrollBar
-TabBar
-VFlowContainer
-TabContainer
-AnimationPlayer
