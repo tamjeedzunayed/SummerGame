@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://ckcnikthw33yf"]
 
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://new_theme.tres" id="1_fkctf"]
 [ext_resource type="Texture2D" uid="uid://d30jk178yditc" path="res://Assets/Seller.png" id="2_s58ia"]
 [ext_resource type="Script" path="res://_Scripts/Seller.gd" id="3_go7r6"]
 [ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="4_yskyy"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ctw10"]
+resource_local_to_scene = false
 
 [node name="Seller" type="Button"]
 custom_minimum_size = Vector2(225, 75)
@@ -12,6 +15,7 @@ size_flags_vertical = 3
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_fkctf")
 toggle_mode = true
+button_group = SubResource("ButtonGroup_ctw10")
 text = "Name"
 icon = ExtResource("2_s58ia")
 alignment = 0
