@@ -1,11 +1,16 @@
 extends Node
+class_name Item 
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+#attributes:
+@export var price: float 
+@export var sellPrice: float 
+@export var expe: float 
+@export var icon: CompressedTexture2D
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#constructor:
+func _init (priceC: float, sellPriceC: float, expC: float, iconC: CompressedTexture2D):
+	price = priceC
+	sellPrice = sellPriceC
+	expe = expC
+	icon = iconC

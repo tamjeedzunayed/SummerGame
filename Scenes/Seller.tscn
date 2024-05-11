@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://new_theme.tres" id="1_fkctf"]
+[ext_resource type="Texture2D" uid="uid://d30jk178yditc" path="res://Assets/Seller.png" id="2_s58ia"]
+[ext_resource type="Script" path="res://_Scripts/Seller.gd" id="3_go7r6"]
+[ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="4_yskyy"]
+
+[node name="Seller" type="Button"]
+custom_minimum_size = Vector2(225, 75)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_fkctf")
+toggle_mode = true
+text = "Name"
+icon = ExtResource("2_s58ia")
+alignment = 0
+expand_icon = true
+script = ExtResource("3_go7r6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 44.0
+offset_right = 215.0
+offset_bottom = 69.0
+texture = ExtResource("4_yskyy")
+expand_mode = 3
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
