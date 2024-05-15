@@ -17,7 +17,7 @@ extends Node
 const CUSTSPAWNRATE = 5
 const CUSINCRATE = 1
 const QUOTINCRATE = 100
-@export var DAY_TIME_LENGTH : float = 12.
+@export var DAY_TIME_LENGTH : float = 200.
 
 var isDay:bool = true
 var numCustomers = 0

@@ -13,8 +13,15 @@ const SHOVEL = preload("res://Assets/Shovel.png")
 @onready var big_seller_pic_display = %BigSellerPicDisplay
 @onready var item_container = %"Item container"
 @onready var discount_bar = %"Discount Bar"
+@onready var discount_button = %"Discount Button"
 @onready var sell_value_bar = %"Sell Value Bar"
 @onready var shopping_cart_bar = %"Shopping Cart Bar"
+@onready var exp_points = $"Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/EXP points"
+@onready var exp_icon = $"Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/EXPIcon"
+@onready var expPoints = 0
+
+
+const MULTIPLYER = 2
 const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,6 +51,12 @@ func setSellerInfo(SellerInfo):
 	discount_bar.value = SellerInfo.discountUpgrade * 10
 	sell_value_bar.value = SellerInfo.itemQualityUpgrade * 10
 	shopping_cart_bar.value = SellerInfo.cartUpgrade * 10
+	expPoints = SellerInfo.expPoints
+	if (SellerInfo.expPoints):
+		exp_points.text = "EXP Points: " + str(SellerInfo.expPoints)
+		exp_icon.texture = preload("res://Exp.png")
+	
+		
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -61,3 +74,31 @@ func _on_button_pressed():
 
 
 
+
+
+func _on_cred_bar_value_changed(value):
+	if(value == cred_bar.max_value):
+		cred_bar.value = 0
+		cred_bar.max_value *= MULTIPLYER
+		expPoints += 1
+		exp_points.text = "EXP Points: " + str(expPoints)
+		exp_icon.texture = preload("res://Exp.png")
+	pass # Replace with function body.
+
+
+func _on_add_to_cart_pressed():
+	cred_bar.value += 10
+	pass # Replace with function body.
+
+
+func _on_discount_button_pressed():
+	if (expPoints && discount_bar.value != discount_bar.max_value):
+		expPoints -= 1
+		discount_bar.value += 1
+		updateCredBar()	
+	pass # Replace with function body.
+
+func updateCredBar():
+	exp_points.text = "EXP Points: " + str(expPoints)
+	exp_icon.texture = preload("res://Exp.png")
+	pass

@@ -7,7 +7,7 @@ extends Button
 @export var discountUpgrade : int = 0
 @export var itemQualityUpgrade : int = 0
 @export var cartUpgrade : int = 0
-
+@export var expPoints : int = 0
 
 signal seller_pressed(SellerInfo)
 
@@ -30,5 +30,6 @@ func _on_pressed():
 						"discountUpgrade":discountUpgrade,
 						"itemQualityUpgrade":itemQualityUpgrade,
 						"level":level,
+						"expPoints":expPoints,
 						"icon":icon})
 	pass # Replace with function body.

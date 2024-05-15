@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctvukuon84qhw"]
+[gd_scene load_steps=15 format=3 uid="uid://ctvukuon84qhw"]
 
 [ext_resource type="Script" path="res://_Scripts/shop.gd" id="1_tf1v1"]
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://new_theme.tres" id="2_h2720"]
 [ext_resource type="PackedScene" uid="uid://ckcnikthw33yf" path="res://Scenes/Seller.tscn" id="3_jd3nf"]
 [ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="3_st4tx"]
 [ext_resource type="Texture2D" uid="uid://dra4q88xff4ge" path="res://Assets/Construction_Guy.png" id="5_j18lq"]
+[ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://DiscountIcon.png" id="5_sn8pk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8if7"]
 bg_color = Color(0.419608, 0.556863, 0.682353, 1)
@@ -198,11 +199,34 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.72
 
-[node name="Label" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "
-Reputation Level:
+Reputation Level:                                                                                                               
 "
+vertical_alignment = 2
+
+[node name="Control" type="Control" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="EXP points" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+vertical_alignment = 2
+
+[node name="EXPIcon" type="TextureRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+expand_mode = 1
 
 [node name="CredBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -293,20 +317,26 @@ layout_mode = 2
 
 [node name="Discount Upgrade" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 8
 
-[node name="TextureRect2" type="TextureRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Discount Upgrade"]
+[node name="Discount Button" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Discount Upgrade"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("3_st4tx")
-expand_mode = 3
+icon = ExtResource("5_sn8pk")
+expand_icon = true
 
 [node name="Discount Bar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Discount Upgrade"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_vertical = 8
+max_value = 4.0
 
 [node name="Sell Value Upgrade" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="TextureRect2" type="TextureRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Sell Value Upgrade"]
 layout_mode = 2
@@ -318,9 +348,11 @@ expand_mode = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="Shopping Cart Upgrade" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="TextureRect2" type="TextureRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Shopping Cart Upgrade"]
 layout_mode = 2
@@ -347,10 +379,10 @@ theme = ExtResource("2_h2720")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")
+speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_tt3mk")
 }
-speed_scale = 2.0
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1
@@ -361,4 +393,7 @@ offset_right = -248.064
 offset_bottom = 576.0
 metadata/_edit_use_anchors_ = true
 
+[connection signal="value_changed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/CredBar" to="." method="_on_cred_bar_value_changed"]
+[connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer/Add to Cart" to="." method="_on_add_to_cart_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Discount Upgrade/Discount Button" to="." method="_on_discount_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
