@@ -1,5 +1,5 @@
 extends Node
-class_name Item 
+class_name Item
 
 
 #attributes:

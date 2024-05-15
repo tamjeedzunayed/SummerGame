@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ckcnikthw33yf"]
 
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://new_theme.tres" id="1_fkctf"]
-[ext_resource type="Texture2D" uid="uid://d30jk178yditc" path="res://Assets/Seller.png" id="2_s58ia"]
+[ext_resource type="Texture2D" uid="uid://dra4q88xff4ge" path="res://Assets/Construction_Guy.png" id="2_o4ah1"]
 [ext_resource type="Script" path="res://_Scripts/Seller.gd" id="3_go7r6"]
 [ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="4_yskyy"]
 
@@ -17,7 +17,7 @@ theme = ExtResource("1_fkctf")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_ctw10")
 text = "Name"
-icon = ExtResource("2_s58ia")
+icon = ExtResource("2_o4ah1")
 alignment = 0
 expand_icon = true
 script = ExtResource("3_go7r6")

@@ -1,6 +1,7 @@
-Seller
-Control
+ItemButton
 Label
+Container
+Control
 Panel
 Node
 TextureRect
@@ -11,6 +12,3 @@ MarginContainer
 HBoxContainer
 ProgressBar
 VBoxContainer
-GridContainer
-ItemList
-TextureProgressBar

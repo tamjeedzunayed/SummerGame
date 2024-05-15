@@ -7,16 +7,9 @@ extends Button
 @export var discountUpgrade : int = 0
 @export var itemQualityUpgrade : int = 0
 @export var cartUpgrade : int = 0
-@onready var big_seller_pic_display = %BigSellerPicDisplay
-@onready var cred_bar = %CredBar
-@onready var label = %Label
-@onready var item_container = %"Item container"
-@onready var discount_bar = $"../../../Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Discount Upgrade/Discount Bar"
-@onready var sell_value_bar = $"../../../Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Sell Value Upgrade/Sell Value Bar"
-@onready var shopping_cart_bar = $"../../../Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Shopping Cart Upgrade/Shopping Cart Bar"
 
-const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 
+signal seller_pressed(SellerInfo)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,22 +24,11 @@ func _process(_delta):
 	#items = ItemsList
 
 func _on_pressed():
-	for child in item_container.get_children():
-		child.queue_free()
-	
-	cred_bar.value = cred
-	big_seller_pic_display.texture = icon
-	var buttonGroup = ButtonGroup.new()
-	label.text = text + " 
-	
-Reputation Level:"
-	for item in items:
-		var newButton = ITEM_IN_SHOP_BUTTON.instantiate()
-		newButton.itemHeld = item
-		newButton.button_group = buttonGroup
-		item_container.add_child(newButton)
-	
-	discount_bar.value = discountUpgrade * 10
-	sell_value_bar.value = itemQualityUpgrade * 10
-	shopping_cart_bar.value = cartUpgrade * 10
+	seller_pressed.emit({"items": items, 
+						"cred":cred, 
+						"cartUpgrade":cartUpgrade, 
+						"discountUpgrade":discountUpgrade,
+						"itemQualityUpgrade":itemQualityUpgrade,
+						"level":level,
+						"icon":icon})
 	pass # Replace with function body.

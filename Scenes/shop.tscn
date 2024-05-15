@@ -1,10 +1,58 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctvukuon84qhw"]
+[gd_scene load_steps=14 format=3 uid="uid://ctvukuon84qhw"]
 
 [ext_resource type="Script" path="res://_Scripts/shop.gd" id="1_tf1v1"]
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://new_theme.tres" id="2_h2720"]
 [ext_resource type="PackedScene" uid="uid://ckcnikthw33yf" path="res://Scenes/Seller.tscn" id="3_jd3nf"]
 [ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="3_st4tx"]
-[ext_resource type="Texture2D" uid="uid://d30jk178yditc" path="res://Assets/Seller.png" id="5_kod10"]
+[ext_resource type="Texture2D" uid="uid://dra4q88xff4ge" path="res://Assets/Construction_Guy.png" id="5_j18lq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8if7"]
+bg_color = Color(0.419608, 0.556863, 0.682353, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkuuu"]
+bg_color = Color(0.658824, 0.2, 0.2, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6x21"]
+bg_color = Color(0.407843, 0.490196, 0.180392, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b32sj"]
+bg_color = Color(0.419608, 0.556863, 0.682353, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="Animation" id="Animation_ggbdo"]
 length = 0.001
@@ -120,6 +168,10 @@ cartUpgrade = 1
 [node name="Seller2" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_jd3nf")]
 layout_mode = 2
 
+[node name="Seller3" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_jd3nf")]
+layout_mode = 2
+disabled = true
+
 [node name="Items On Sale" type="Control" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -147,10 +199,8 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.72
 
 [node name="Label" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
-text = "Andrew Tate 
-
+text = "
 Reputation Level:
 "
 
@@ -160,7 +210,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 size_flags_stretch_ratio = 3.1
-theme_override_constants/outline_size = 2
 value = 89.0
 
 [node name="ItemList" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
@@ -188,6 +237,7 @@ custom_minimum_size = Vector2(143, 0)
 layout_mode = 2
 
 [node name="Item Information" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Tool
 
@@ -200,16 +250,20 @@ Total:"
 [node name="Add to Cart" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8if7")
 text = "Add to Cart"
 
 [node name="Remove from Cart" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_rkuuu")
 text = "Remove from Cart"
 
 [node name="Buy" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_j6x21")
 text = "Buy"
 
 [node name="Control" type="Control" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
@@ -225,11 +279,16 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("5_kod10")
+texture = ExtResource("5_j18lq")
 expand_mode = 5
 
+[node name="Label2" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Andrew Tate"
+horizontal_alignment = 1
+
 [node name="Control" type="Control" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 
 [node name="Discount Upgrade" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
@@ -242,6 +301,7 @@ texture = ExtResource("3_st4tx")
 expand_mode = 3
 
 [node name="Discount Bar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Discount Upgrade"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
@@ -255,6 +315,7 @@ texture = ExtResource("3_st4tx")
 expand_mode = 3
 
 [node name="Sell Value Bar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Sell Value Upgrade"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
@@ -268,12 +329,14 @@ texture = ExtResource("3_st4tx")
 expand_mode = 3
 
 [node name="Shopping Cart Bar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Shopping Cart Upgrade"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
 [node name="New Item" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_b32sj")
 text = "Unlock New Item"
 
 [node name="Appliances" type="VFlowContainer" parent="Panel/TabContainer"]

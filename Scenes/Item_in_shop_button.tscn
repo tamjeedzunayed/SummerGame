@@ -4,9 +4,11 @@
 [ext_resource type="Script" path="res://_Scripts/Item_in_shop_button.gd" id="2_u76ss"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_cn8cc"]
+allow_unpress = true
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(75, 75)
+mouse_default_cursor_shape = 2
 toggle_mode = true
 button_mask = 7
 button_group = SubResource("ButtonGroup_cn8cc")

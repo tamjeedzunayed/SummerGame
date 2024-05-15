@@ -9,3 +9,4 @@ res://Scenes/Game.tscn
 res://Scenes/Seller.tscn
 res://_Scripts/Item_in_shop_button.gd
 res://Scenes/Item_in_shop_button.tscn
+res://_Scripts/Item.gd
