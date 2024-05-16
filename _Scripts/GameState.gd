@@ -85,7 +85,7 @@ func _on_cust_spawn_rate_timeout():
 	pass # Replace with function body.
 
 func _input(_event):
-	if Input.is_action_just_pressed("LMB"):
+	if Input.is_action_just_pressed("LMB") && false:
 		var click_pos_on_map = ground_tile_map.local_to_map(get_window().get_mouse_position())
 		
 		if	ground_tile_map.get_cell_tile_data(1, click_pos_on_map - Vector2i(18, 10)) != null:

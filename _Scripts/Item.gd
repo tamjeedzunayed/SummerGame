@@ -9,7 +9,8 @@ class_name Item
 @export var icon: CompressedTexture2D
 
 #constructor:
-func _init (priceC: float, sellPriceC: float, expC: float, iconC: CompressedTexture2D):
+func _init (nameP: String, priceC: float, sellPriceC: float, expC: float, iconC: CompressedTexture2D):
+	name = nameP
 	price = priceC
 	sellPrice = sellPriceC
 	expe = expC

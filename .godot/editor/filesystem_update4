@@ -1,11 +1,12 @@
 res://default_env.tres
-res://Scenes/Game.tscn
+res://Scenes/shop.tscn
 res://_Scripts/Customer.gd
 res://_Scripts/GameState.gd
-res://_Scripts/Seller.gd
 res://_Scripts/shop.gd
-res://_Scripts/SupplyConnect.gd
 res://new_theme.tres
+res://_Scripts/Seller.gd
+res://Scenes/Game.tscn
 res://Scenes/Seller.tscn
+res://_Scripts/Item_in_shop_button.gd
 res://Scenes/Item_in_shop_button.tscn
-res://Scenes/shop.tscn
+res://_Scripts/Item.gd
