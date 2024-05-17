@@ -2,7 +2,7 @@ extends Button
 
 @onready var label = $Label
 @export var itemHeld : Item 
-@onready var item_information = $"../../../VBoxContainer/Item Information"
+
 var amount := 0:
 	set(value):
 		amount = value

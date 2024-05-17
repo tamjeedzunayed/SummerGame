@@ -10,3 +10,6 @@ res://Scenes/Seller.tscn
 res://_Scripts/Item_in_shop_button.gd
 res://Scenes/Item_in_shop_button.tscn
 res://_Scripts/Item.gd
+res://Scenes/Supply Connections.gd
+res://_Scripts/Supply Connections.gd
+res://_Scripts/SellerList.gd
