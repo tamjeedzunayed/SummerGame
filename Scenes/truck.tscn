@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d057xfji7ceku"]
+
+[ext_resource type="Script" path="res://_Scripts/Truck.gd" id="1_00r2n"]
+[ext_resource type="Texture2D" uid="uid://bjoremrnfpkgx" path="res://truck.png" id="2_f4xvq"]
+
+[node name="Truck" type="Node"]
+script = ExtResource("1_00r2n")
+
+[node name="TruckBody" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(456, 35)
+rotation = -5.19759
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_f4xvq")
