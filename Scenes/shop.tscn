@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ctvukuon84qhw"]
+[gd_scene load_steps=17 format=3 uid="uid://ctvukuon84qhw"]
 
 [ext_resource type="Script" path="res://_Scripts/shop.gd" id="1_tf1v1"]
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://new_theme.tres" id="2_h2720"]
@@ -70,6 +70,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(64, 32)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StorageFull:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.6, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../StorageFull:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(666, 339)]
+}
 
 [sub_resource type="Animation" id="Animation_b7g7h"]
 resource_name = "TransIn"
@@ -101,9 +125,50 @@ tracks/0/keys = {
 "values": [Vector2(64, 0), Vector2(64, -546)]
 }
 
+[sub_resource type="Animation" id="Animation_xv4di"]
+resource_name = "StorageFull"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../StorageFull:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(666, 339), Vector2(668, 273)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StorageFull:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.6, 0, 0, 1), Color(0.6, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../StorageFull:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tt3mk"]
 _data = {
 "RESET": SubResource("Animation_ggbdo"),
+"StorageFull": SubResource("Animation_xv4di"),
 "TransIn": SubResource("Animation_b7g7h"),
 "TransOut": SubResource("Animation_a2435")
 }
@@ -307,6 +372,7 @@ layout_mode = 2
 text = "Total: $0"
 
 [node name="Add to Cart" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_t8if7")
@@ -417,10 +483,10 @@ theme = ExtResource("2_h2720")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")
-speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_tt3mk")
 }
+speed_scale = 2.0
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1
@@ -430,6 +496,15 @@ offset_top = 544.0
 offset_right = -248.064
 offset_bottom = 576.0
 metadata/_edit_use_anchors_ = true
+
+[node name="StorageFull" type="Label" parent="."]
+visible = false
+offset_left = 666.0
+offset_top = 339.0
+offset_right = 782.0
+offset_bottom = 362.0
+theme_override_colors/font_color = Color(0.6, 0, 0, 1)
+text = "Storage is Full !"
 
 [connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer/Add to Cart" to="Panel/TabContainer/Supply Connections" method="_on_add_to_cart_pressed"]
 [connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer/Remove from Cart" to="Panel/TabContainer/Supply Connections" method="_on_remove_from_cart_pressed"]

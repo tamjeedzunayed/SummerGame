@@ -1,14 +1,131 @@
-[gd_scene load_steps=3 format=3 uid="uid://d057xfji7ceku"]
+[gd_scene load_steps=11 format=3 uid="uid://bddx65vxgottu"]
 
 [ext_resource type="Script" path="res://_Scripts/Truck.gd" id="1_00r2n"]
-[ext_resource type="Texture2D" uid="uid://bjoremrnfpkgx" path="res://truck.png" id="2_f4xvq"]
+[ext_resource type="Texture2D" path="res://truck.png" id="2_f4xvq"]
 
-[node name="Truck" type="Node"]
+[sub_resource type="Animation" id="Animation_unjym"]
+resource_name = "Drive_Truck_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.659755, 0.870551, 1.00001),
+"update": 2,
+"values": [Vector2(556, 797), Vector2(556, 637.228), Vector2(556, 537)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Truck/Button:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hlhv7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(556, 797)]
+}
+
+[sub_resource type="Animation" id="Animation_abjsc"]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1.93187, 1),
+"update": 0,
+"values": [Vector2(556, 537), Vector2(556, 797)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Truck/Button:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Truck")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"getItemsInCart"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nw75j"]
+_data = {
+"Drive_Truck_in": SubResource("Animation_unjym"),
+"Drive_Truck_out": SubResource("Animation_abjsc"),
+"RESET": SubResource("Animation_hlhv7")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bnua1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ufrf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhx7n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1lrw"]
+
+[node name="Truck" type="Node2D"]
+position = Vector2(556, 797)
 script = ExtResource("1_00r2n")
 
 [node name="TruckBody" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(456, 35)
-rotation = -5.19759
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_f4xvq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_nw75j")
+}
+speed_scale = 0.5
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(51, 125)
+offset_left = -26.0
+offset_top = -86.0
+offset_right = 24.0
+offset_bottom = 39.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bnua1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7ufrf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bhx7n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q1lrw")
+disabled = true

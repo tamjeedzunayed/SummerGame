@@ -1,7 +1,6 @@
 extends Node
 class_name Item
 
-
 #attributes:
 @export var price: float 
 @export var sellPrice: float 

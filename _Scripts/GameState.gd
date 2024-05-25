@@ -6,14 +6,15 @@ extends Node
 @onready var cust_spawn_rate = $CustSpawnRate
 
 @onready var clock = $Timer
-@onready var clockButton = $PanelContainer/MarginContainer/GridContainer/Button
+@onready var clockButton = $CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button
 
 @onready var canvas_modulate : CanvasModulate = $CanvasModulate
-@onready var animation_player : AnimationPlayer = canvas_modulate.get_child(0)
+@onready var Canvas_animation_player : AnimationPlayer = canvas_modulate.get_child(0)
 @onready var ground_tile_map : TileMap = $GroundTileMap
 @onready var shop = $Shop
+@onready var truck = $Truck
 
-
+var incRate : float = 1.05
 const CUSTSPAWNRATE = 5
 const CUSINCRATE = 1
 const QUOTINCRATE = 100
@@ -24,6 +25,8 @@ var numCustomers = 0
 var rating = 5
 var endOfDayQuota = 0
 
+var DriverSalary := 10
+
 var customerResource = preload("res://Scenes/customer.tscn")
 var furnitureResource = preload("res://Scenes/furniture.tscn")
 
@@ -33,18 +36,24 @@ func _ready():
 	cust_spawn_rate.wait_time = CUSTSPAWNRATE
 	clock.wait_time = DAY_TIME_LENGTH
 	clock.start()
-	animation_player.speed_scale = 1./DAY_TIME_LENGTH
-	animation_player.play("Day animation")
+	Canvas_animation_player.speed_scale = 1./DAY_TIME_LENGTH
+	Canvas_animation_player.play("Day animation")
+
+	shop.connect("ItemsBought", itemsBought)
+	
+	
 	
 	pass # Replace with function body.
 
-
+func itemsBought(items):
+	truck.addToCart(items)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var secs = fmod(clock.time_left,60)
 	var mins = fmod(clock.time_left, 60*60) / 60
 	var time_passed = "%02d : %02d" % [mins,secs]
-	clockButton.text  = time_passed
+	clockButton.text = time_passed
 	pass
 
 
@@ -65,11 +74,14 @@ func _on_timer_timeout():
 	pass # Replace with function body.
 
 func day():
+	truck.day()
+	DriverSalary = DriverSalary*incRate
 	numCustomers += CUSINCRATE
 	endOfDayQuota += QUOTINCRATE
-	animation_player.play("Day animation")
+	Canvas_animation_player.play("Day animation")
 	
 func night():
+	truck.night()
 	for customer in customers.get_children():
 		customer.queue_free()
 	#canvas_modulate.visible = true

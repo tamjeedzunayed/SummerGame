@@ -14,12 +14,25 @@ extends Panel
 @onready var expPoints = 0
 @onready var total_label = %TotalLabel
 @onready var seller_name_label = %SellerNameLabel
+@onready var add_to_cart = %"Add to Cart"
 
+signal ItemsBought(Items : Dictionary)
+signal StorageFull
 var ItemButtonGroup = ButtonGroup.new()
 var SellerButtonGroup :=  ButtonGroup.new()
 const MULTIPLYER = 1
 const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
-var cart : Array[Item]
+var cart : Dictionary
+var storageCapacity := 10
+var storageCapacityUsed := 0:
+	set(value):
+		if (value) == storageCapacity:
+			add_to_cart.disabled = true
+			StorageFull.emit()
+		else:
+			add_to_cart.disabled = false
+		storageCapacityUsed = value
+		
 var cartTotal := 0:
 	set(value):
 		total_label.text = "Total: $" + str(value)
@@ -83,16 +96,23 @@ func setItemInfo(_toggled):
 
 func _on_add_to_cart_pressed():
 	if (ItemButtonGroup.get_pressed_button().amount != 10):
-		cart.append(ItemButtonGroup.get_pressed_button().itemHeld)
+		if cart.has(ItemButtonGroup.get_pressed_button().itemHeld):
+			cart[ItemButtonGroup.get_pressed_button().itemHeld] += 1 
+		else:
+			cart[ItemButtonGroup.get_pressed_button().itemHeld] = 1
 		ItemButtonGroup.get_pressed_button().amount += 1
 		cartTotal += ItemButtonGroup.get_pressed_button().itemHeld.price
+		storageCapacityUsed += 1
 	pass # Replace with function body.
 
 func _on_remove_from_cart_pressed():
 	if (ItemButtonGroup.get_pressed_button().amount != 0):
-		cart.erase(ItemButtonGroup.get_pressed_button().itemHeld)
+		cart[ItemButtonGroup.get_pressed_button().itemHeld] -= 1
+		if cart[ItemButtonGroup.get_pressed_button().itemHeld] == 0:
+			cart.erase(ItemButtonGroup.get_pressed_button().itemHeld)
 		ItemButtonGroup.get_pressed_button().amount -= 1
 		cartTotal -= ItemButtonGroup.get_pressed_button().itemHeld.price
+		storageCapacityUsed -= 1
 		
 	pass # Replace with function body.
 	
@@ -102,13 +122,11 @@ func _on_discount_button_pressed():
 		currentSeller.expPoints -= 1
 		discount_bar.value = currentSeller.discountUpgrade
 		exp_points.text = "EXP Points: " + str(SellerButtonGroup.get_pressed_button().expPoints)
-		
-	
 
 func _on_buy_pressed():
 	var totalXpAdded := 0.
-	for item in cart:
-		totalXpAdded += item.expe
+	for item in cart.keys():
+		totalXpAdded += item.expe * cart[item]
 	for itemButton in ItemButtonGroup.get_buttons():
 		itemButton.amount = 0
 	currentSeller.cred += totalXpAdded
@@ -122,6 +140,8 @@ func _on_buy_pressed():
 		exp_points.text = "EXP Points: " + str(currentSeller.expPoints)
 		exp_icon.texture = preload("res://Assets/Exp.png")
 	currentSeller.cred = currentSeller.cred % int(cred_bar.max_value)
+	
+	ItemsBought.emit(cart)
 	
 	cart.clear()
 	

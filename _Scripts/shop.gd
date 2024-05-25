@@ -4,7 +4,21 @@ extends CanvasLayer
 @onready var button = $Button
 @export var itsDay = false
 @export var inView = false
+@onready var supply_connections = $"Panel/TabContainer/Supply Connections"
 
+signal ItemsBought(items)
+
+func _ready():
+	supply_connections.connect("ItemsBought", itemsBought)
+	supply_connections.connect("StorageFull", storageFull)
+
+func storageFull():
+	if animation_player.is_playing():
+		animation_player.stop()
+	animation_player.play("StorageFull")
+
+func itemsBought(items):
+	ItemsBought.emit(items)
 
 func _on_button_pressed():
 	if(inView):

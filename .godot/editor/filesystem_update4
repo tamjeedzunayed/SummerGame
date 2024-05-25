@@ -1,10 +1,14 @@
 res://default_env.tres
+res://Scenes/truck.tscn
 res://_Scripts/Customer.gd
 res://_Scripts/GameState.gd
 res://_Scripts/Seller.gd
 res://_Scripts/shop.gd
 res://new_theme.tres
-res://Truck.gd
-res://truck.tscn
-res://Scenes/truck.tscn
+res://_Scripts/Item.gd
+res://Scenes/Game.tscn
+res://Scenes/Seller.tscn
+res://Scenes/Item_in_shop_button.tscn
+res://Scenes/shop.tscn
+res://_Scripts/Supply Connections.gd
 res://_Scripts/Truck.gd
