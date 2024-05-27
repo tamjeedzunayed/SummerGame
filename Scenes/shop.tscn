@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ctvukuon84qhw"]
+[gd_scene load_steps=19 format=3 uid="uid://ctvukuon84qhw"]
 
 [ext_resource type="Script" path="res://_Scripts/shop.gd" id="1_tf1v1"]
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://new_theme.tres" id="2_h2720"]
@@ -172,6 +172,10 @@ _data = {
 "TransIn": SubResource("Animation_b7g7h"),
 "TransOut": SubResource("Animation_a2435")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uah3n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_30jlt"]
 
 [node name="Shop" type="CanvasLayer"]
 offset = Vector2(64, 32)
@@ -483,10 +487,10 @@ theme = ExtResource("2_h2720")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")
-speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_tt3mk")
 }
+speed_scale = 2.0
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1
@@ -495,7 +499,8 @@ offset_left = 256.0
 offset_top = 544.0
 offset_right = -248.064
 offset_bottom = 576.0
-metadata/_edit_use_anchors_ = true
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uah3n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_30jlt")
 
 [node name="StorageFull" type="Label" parent="."]
 visible = false

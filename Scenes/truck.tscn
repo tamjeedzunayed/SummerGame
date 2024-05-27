@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bddx65vxgottu"]
 
 [ext_resource type="Script" path="res://_Scripts/Truck.gd" id="1_00r2n"]
-[ext_resource type="Texture2D" uid="uid://bjoremrnfpkgx" path="res://truck.png" id="2_f4xvq"]
+[ext_resource type="Texture2D" uid="uid://bjoremrnfpkgx" path="res://Assets/truck.png" id="2_0efcm"]
 
 [sub_resource type="Animation" id="Animation_unjym"]
 resource_name = "Drive_Truck_in"
@@ -76,11 +76,11 @@ script = ExtResource("1_00r2n")
 [node name="TruckBody" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_f4xvq")
+texture = ExtResource("2_0efcm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
-speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_nw75j")
 }
+speed_scale = 0.5

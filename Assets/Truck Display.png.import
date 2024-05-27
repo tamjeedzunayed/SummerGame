@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://72bhjdka7vrv"
-path="res://.godot/imported/Construction Guy (2).png-d05a7469c5773e7446cd220c5711fe38.ctex"
+uid="uid://vewapv5lwp7f"
+path="res://.godot/imported/Truck Display.png-31e1d385244dbda1285dfa81766855b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Construction Guy (2).png"
-dest_files=["res://.godot/imported/Construction Guy (2).png-d05a7469c5773e7446cd220c5711fe38.ctex"]
+source_file="res://Assets/Truck Display.png"
+dest_files=["res://.godot/imported/Truck Display.png-31e1d385244dbda1285dfa81766855b5.ctex"]
 
 [params]
 

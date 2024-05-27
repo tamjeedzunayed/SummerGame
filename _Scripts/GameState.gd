@@ -13,7 +13,7 @@ extends Node
 @onready var ground_tile_map : TileMap = $GroundTileMap
 @onready var shop = $Shop
 @onready var truck = $Truck
-@onready var truck_item_list = %TruckItemList
+@onready var truck_storage = $TruckStorage
 
 const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 
@@ -43,19 +43,18 @@ func _ready():
 	Canvas_animation_player.play("Day animation")
 
 	shop.connect("ItemsBought", itemsBought)
-	shop.connect("item_for_truck", updateTruckStorage)
+	truck.connect("item_for_truck", updateTruckStorage)
 	
-	
+	day()
 	
 	pass # Replace with function body.
 
 func itemsBought(items):
 	truck.addToCart(items)
+
 func updateTruckStorage(storage):
-	for item in storage.keys:
-		var newButton = ITEM_IN_SHOP_BUTTON.instantiate()
-		newButton.itemHeld = item 
-		truck_item_list.add_child(newButton)
+	truck_storage.hello(storage)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var secs = fmod(clock.time_left,60)
@@ -71,7 +70,6 @@ func _on_timer_timeout():
 	if (shop.inView && isDay):
 		shop.get_child(1).play("TransOut")
 		shop.inView = false
-	#shop.get_child(2).disabled = isDay
 	if (isDay):
 		clock.wait_time = DAY_TIME_LENGTH
 		day()
@@ -87,11 +85,15 @@ func day():
 	numCustomers += CUSINCRATE
 	endOfDayQuota += QUOTINCRATE
 	Canvas_animation_player.play("Day animation")
+	shop.get_node("Button").disabled = true
+	
 	
 func night():
 	truck.night()
 	for customer in customers.get_children():
 		customer.queue_free()
+	shop.get_node("Button").disabled = false
+		
 	#canvas_modulate.visible = true
 		
 
