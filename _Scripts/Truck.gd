@@ -8,6 +8,8 @@ var supplyRunDuration := 0
 @onready var truck_body = %TruckBody
 @onready var animation_player = $AnimationPlayer
 
+signal item_for_truck(storage)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_player.speed_scale = 0.5
@@ -54,4 +56,9 @@ func night():
 	if supplyRunDuration == 0:
 		animation_player.play("Drive_Truck_in")
 		onSupplyRun = false
+	pass
+
+func add_items_to_Truck_Storage():
+	if (!storage.is_empty()):
+		emit_signal("item_for_truck", storage)
 	pass

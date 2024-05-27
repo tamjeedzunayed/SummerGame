@@ -95,36 +95,6 @@ tracks/2/keys = {
 "values": [Vector2(666, 339)]
 }
 
-[sub_resource type="Animation" id="Animation_b7g7h"]
-resource_name = "TransIn"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:offset")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(64, -546), Vector2(64, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_a2435"]
-resource_name = "TransOut"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:offset")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(64, 0), Vector2(64, -546)]
-}
-
 [sub_resource type="Animation" id="Animation_xv4di"]
 resource_name = "StorageFull"
 length = 2.0
@@ -163,6 +133,36 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_b7g7h"]
+resource_name = "TransIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, -546), Vector2(64, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a2435"]
+resource_name = "TransOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, 0), Vector2(64, -546)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tt3mk"]
@@ -483,10 +483,10 @@ theme = ExtResource("2_h2720")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")
+speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_tt3mk")
 }
-speed_scale = 2.0
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1
@@ -502,7 +502,7 @@ visible = false
 offset_left = 666.0
 offset_top = 339.0
 offset_right = 782.0
-offset_bottom = 362.0
+offset_bottom = 365.0
 theme_override_colors/font_color = Color(0.6, 0, 0, 1)
 text = "Storage is Full !"
 

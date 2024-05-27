@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpp1nl5y6yhb1"]
+
+[ext_resource type="Script" path="res://Scenes/TruckStorage.gd" id="1_kxf8m"]
+
+[sub_resource type="Animation" id="Animation_sltqg"]
+resource_name = "TruckStorage_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck Storage:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1182, 0), Vector2(352, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lc4o6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck Storage:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1182, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p357m"]
+resource_name = "TruckStorage_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck Storage:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(352, 0), Vector2(1182, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v2fko"]
+_data = {
+"RESET": SubResource("Animation_lc4o6"),
+"TruckStorage_in": SubResource("Animation_sltqg"),
+"TruckStorage_out": SubResource("Animation_p357m")
+}
+
+[node name="Truck Storage" type="Panel"]
+offset_left = 1182.0
+offset_top = 1.0
+offset_right = 1982.0
+offset_bottom = 322.0
+script = ExtResource("1_kxf8m")
+
+[node name="Truck Storage Button" type="Button" parent="."]
+custom_minimum_size = Vector2(30, 320)
+layout_mode = 0
+offset_left = -30.0
+offset_bottom = 320.0
+
+[node name="Truck Storage Button Label" type="Label" parent="Truck Storage Button"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 320.0
+offset_right = 322.0
+offset_bottom = 349.0
+rotation = 4.71239
+text = "Truck Storage
+"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TruckItemList" type="GridContainer" parent="MarginContainer/HBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_v2fko")
+}
+
+[connection signal="pressed" from="Truck Storage Button" to="." method="_on_truck_storage_button_pressed"]

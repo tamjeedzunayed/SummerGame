@@ -1,8 +1,18 @@
-Label
-WorldEnvironment
 Button
-CanvasLayer
+Item
+ScrollContainer
+VSlider
+GridContainer
+Panel
+HBoxContainer
+MarginContainer
 AnimationPlayer
+Label
+VBoxContainer
+VFlowContainer
+ItemList
+WorldEnvironment
+CanvasLayer
 Node2D
 Sprite2D
 Node
@@ -10,5 +20,4 @@ ProgressBar
 TextureProgressBar
 Control
 TextureRect
-HBoxContainer
 Container

@@ -13,12 +13,15 @@ extends Node
 @onready var ground_tile_map : TileMap = $GroundTileMap
 @onready var shop = $Shop
 @onready var truck = $Truck
+@onready var truck_item_list = %TruckItemList
+
+const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 
 var incRate : float = 1.05
 const CUSTSPAWNRATE = 5
 const CUSINCRATE = 1
 const QUOTINCRATE = 100
-@export var DAY_TIME_LENGTH : float = 200.
+@export var DAY_TIME_LENGTH : float = 10.
 
 var isDay:bool = true
 var numCustomers = 0
@@ -40,6 +43,7 @@ func _ready():
 	Canvas_animation_player.play("Day animation")
 
 	shop.connect("ItemsBought", itemsBought)
+	shop.connect("item_for_truck", updateTruckStorage)
 	
 	
 	
@@ -47,7 +51,11 @@ func _ready():
 
 func itemsBought(items):
 	truck.addToCart(items)
-	
+func updateTruckStorage(storage):
+	for item in storage.keys:
+		var newButton = ITEM_IN_SHOP_BUTTON.instantiate()
+		newButton.itemHeld = item 
+		truck_item_list.add_child(newButton)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var secs = fmod(clock.time_left,60)
