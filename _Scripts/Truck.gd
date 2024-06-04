@@ -1,6 +1,7 @@
 extends Node
 
 var health := 10
+
 var storage : Dictionary  = {} 
 var cart : Dictionary = {}
 var onSupplyRun : bool = true

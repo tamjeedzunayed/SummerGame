@@ -5,7 +5,14 @@ extends CanvasLayer
 @export var itsDay = false
 @export var inView = false
 @onready var supply_connections = $"Panel/TabContainer/Supply Connections"
-
+var storageCapacity :
+	get:
+		return supply_connections.storageCapacity
+		
+var storageCapacityUsed :
+	get: 
+		return supply_connections.storageCapacityUsed
+		
 signal ItemsBought(items)
 
 func _ready():

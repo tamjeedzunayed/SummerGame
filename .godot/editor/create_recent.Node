@@ -1,3 +1,8 @@
+Label
+Panel
+VBoxContainer
+HBoxContainer
+MarginContainer
 AnimationPlayer
 Control
 Button
@@ -5,10 +10,5 @@ Item
 ScrollContainer
 VSlider
 GridContainer
-Panel
-HBoxContainer
-MarginContainer
-Label
-VBoxContainer
 VFlowContainer
 ItemList

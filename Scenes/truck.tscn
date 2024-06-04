@@ -80,7 +80,7 @@ texture = ExtResource("2_0efcm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
+speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_nw75j")
 }
-speed_scale = 0.5

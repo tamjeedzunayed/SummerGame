@@ -53,7 +53,12 @@ func itemsBought(items):
 	truck.addToCart(items)
 
 func updateTruckStorage(storage):
-	truck_storage.hello(storage)
+	truck_storage.setItems(storage)
+	truck_storage.truckHealth = truck.health
+	truck_storage.DriverSalary = DriverSalary
+	truck_storage.Capacity = shop.storageCapacity
+	truck_storage.UsedCapacity = shop.storageCapacityUsed
+	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -120,3 +125,5 @@ func _input(_event):
 		
 		ground_tile_map.set_cell(1, click_pos_on_map - Vector2i(18, 10), 1, ground_tile_map.get_cell_atlas_coords(0, click_pos_on_map - Vector2i(18, 10)))
 		ground_tile_map.erase_cell(0, click_pos_on_map - Vector2i(18, 10))
+
+	

@@ -1,6 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://b54cvp76thoub"]
+[gd_scene load_steps=9 format=3 uid="uid://b54cvp76thoub"]
 
 [ext_resource type="Script" path="res://_Scripts/TruckStorage.gd" id="1_b82mf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdnmd"]
+bg_color = Color(0.207843, 0, 0.00784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u467o"]
+bg_color = Color(0, 0.294118, 0.168627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2pmm"]
+bg_color = Color(0.223529, 0.698039, 0.466667, 1)
 
 [sub_resource type="Animation" id="Animation_8uh80"]
 resource_name = "Panel_In"
@@ -17,21 +26,6 @@ tracks/0/keys = {
 "values": [Vector2(1148, 8), Vector2(351, 8)]
 }
 
-[sub_resource type="Animation" id="Animation_knwe0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1148, 8)]
-}
-
 [sub_resource type="Animation" id="Animation_kndj8"]
 resource_name = "Panel_Out"
 tracks/0/type = "value"
@@ -45,6 +39,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(353, 8), Vector2(1148, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_knwe0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1148, 8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgdo0"]
@@ -97,6 +106,86 @@ layout_mode = 2
 [node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_wdnmd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u467o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer/MarginContainer/Panel"]
+layout_mode = 2
+offset_right = 368.0
+offset_bottom = 128.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer/MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Truck Health" type="Label" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer/MarginContainer/Panel/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Truck Health:"
+
+[node name="Driver Salary" type="Label" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer/MarginContainer/Panel/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Driver Salary:
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer/MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Used Capacity" type="Label" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer/MarginContainer/Panel/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Used Capacity:
+"
+
+[node name="Capacity" type="Label" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer/MarginContainer/Panel/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Capacity:
+"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ItemTruckPanel" type="Panel" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2pmm")
+
+[node name="ItemDisplayed" type="Label" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer/MarginContainer2/ItemTruckPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 21.0
+offset_top = 14.0
+offset_right = 112.0
+offset_bottom = 66.0
+text = "Item Name:
+Price:
+"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -110,9 +199,9 @@ size_flags_vertical = 3
 columns = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_mgdo0")
 }
-speed_scale = 1.5
 
 [connection signal="pressed" from="Truck Storage Button" to="." method="_on_truck_storage_button_pressed"]

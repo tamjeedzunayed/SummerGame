@@ -5,10 +5,3 @@ res://_Scripts/GameState.gd
 res://_Scripts/Seller.gd
 res://_Scripts/shop.gd
 res://new_theme.tres
-res://Scenes/Game.tscn
-res://Scenes/Seller.tscn
-res://Scenes/Item_in_shop_button.tscn
-res://Scenes/shop.tscn
-res://Scenes/truck.tscn
-res://Scenes/TruckStorage.gd
-res://_Scripts/Truck.gd
