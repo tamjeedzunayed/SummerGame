@@ -13,7 +13,7 @@ extends Node
 @onready var ground_tile_map : TileMap = $GroundTileMap
 @onready var shop = $Shop
 @onready var truck = $Truck
-@onready var truck_storage = $TruckStorage
+@onready var truck_storage = $"Truck Storage"
 
 const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 
@@ -73,7 +73,7 @@ func _on_timer_timeout():
 	isDay = !isDay
 	shop.itsDay = isDay
 	if (shop.inView && isDay):
-		shop.get_child(1).play("TransOut")
+		#shop.get_child(1).play("TransOut")
 		shop.inView = false
 	if (isDay):
 		clock.wait_time = DAY_TIME_LENGTH

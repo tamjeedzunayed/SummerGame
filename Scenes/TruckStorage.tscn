@@ -15,7 +15,7 @@ bg_color = Color(0.223529, 0.698039, 0.466667, 1)
 resource_name = "Panel_In"
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
@@ -25,12 +25,36 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1148, 8), Vector2(351, 8)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_left")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.544067, -797.544]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset_right")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [840.0, 2.0]
+}
 
 [sub_resource type="Animation" id="Animation_kndj8"]
 resource_name = "Panel_Out"
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
@@ -39,6 +63,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(353, 8), Vector2(1148, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_left")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-797, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset_right")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, 840]
 }
 
 [sub_resource type="Animation" id="Animation_knwe0"]
@@ -55,6 +103,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1148, 8)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-0.544067]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgdo0"]
 _data = {
@@ -63,37 +135,37 @@ _data = {
 "RESET": SubResource("Animation_knwe0")
 }
 
-[node name="Truck Storage" type="Panel"]
+[node name="TruckStorage" type="Panel"]
+anchors_preset = -1
+anchor_left = 0.999
+anchor_top = 0.26
+anchor_right = 0.999
+anchor_bottom = 0.26
 offset_left = 1148.0
 offset_top = 8.0
-offset_right = 1948.0
+offset_right = 1150.54
 offset_bottom = 329.0
 script = ExtResource("1_b82mf")
 
 [node name="Truck Storage Button" type="Button" parent="."]
-custom_minimum_size = Vector2(30, 320)
-layout_mode = 0
-offset_left = -30.0
-offset_bottom = 320.0
-
-[node name="Truck Storage Button Label" type="Label" parent="Truck Storage Button"]
-layout_mode = 0
-offset_left = 1.0
+custom_minimum_size = Vector2(320, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.038
+anchor_right = -0.038
+anchor_bottom = 0.997
+offset_left = 0.362001
 offset_top = 320.0
-offset_right = 322.0
-offset_bottom = 349.0
-rotation = 4.71239
-text = "Truck Storage
-"
-horizontal_alignment = 1
-vertical_alignment = 2
+offset_right = 320.362
+offset_bottom = 30.963
+rotation = -1.5708
+text = "Truck Storage"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchors_preset = -1
+offset_right = 799.0
+offset_bottom = 321.0
 grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -199,9 +271,9 @@ size_flags_vertical = 3
 columns = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_mgdo0")
 }
+speed_scale = 1.5
 
 [connection signal="pressed" from="Truck Storage Button" to="." method="_on_truck_storage_button_pressed"]

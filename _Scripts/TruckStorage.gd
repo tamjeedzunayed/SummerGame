@@ -32,6 +32,7 @@ const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
+	animation_player.play("Panel_Out")	
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
