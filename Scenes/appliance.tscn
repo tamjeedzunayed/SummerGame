@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj3y7h604clrj"]
+
+[ext_resource type="Texture2D" uid="uid://cxwbu2n6mty54" path="res://Assets/shovel Appliance.png" id="1_cokac"]
+[ext_resource type="Script" path="res://appliance.gd" id="2_dagwc"]
+
+[node name="Appliance" type="TextureButton"]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 76.0
+offset_bottom = 77.0
+texture_normal = ExtResource("1_cokac")
+texture_pressed = ExtResource("1_cokac")
+texture_hover = ExtResource("1_cokac")
+texture_disabled = ExtResource("1_cokac")
+texture_focused = ExtResource("1_cokac")
+stretch_mode = 0
+script = ExtResource("2_dagwc")
+
+[node name="ApplianceStorageBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.013
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 75.025
+offset_bottom = 26.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = -1.5708

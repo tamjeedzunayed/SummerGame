@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var navigation_agent = $NavigationAgent2D
 @onready var animated_sprite = $AnimatedSprite2D
-
+var shopingList: Array[Item] = []
 const SPEED : float = 130.0
 
 func _physics_process(_delta):
