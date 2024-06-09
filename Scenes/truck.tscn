@@ -70,7 +70,7 @@ _data = {
 }
 
 [node name="Truck" type="Node2D"]
-position = Vector2(556, 537)
+position = Vector2(556, 797)
 script = ExtResource("1_00r2n")
 
 [node name="TruckBody" type="Sprite2D" parent="."]
@@ -80,7 +80,7 @@ texture = ExtResource("2_0efcm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
+speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_nw75j")
 }
-speed_scale = 0.5

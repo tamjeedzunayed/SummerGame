@@ -3,7 +3,10 @@ extends CharacterBody2D
 @onready var navigation_agent = $NavigationAgent2D
 @onready var animated_sprite = $AnimatedSprite2D
 var shopingList: Array[Item] = []
+var heldItems: Array[Item] = []
 const SPEED : float = 130.0
+
+signal findAppliance(appliance_type)
 
 func _physics_process(_delta):
 	var dir : Vector2
@@ -32,3 +35,10 @@ func _physics_process(_delta):
 func _input(_event):
 	if Input.is_action_just_pressed("RMB"):
 		navigation_agent.target_position = get_global_mouse_position()
+		
+func goThroughShopingList():
+	for item in shopingList:
+		navigation_agent.target_position = applianceForItem(item.applianceType)
+		
+func applianceForItem(appliance_type):
+	pass

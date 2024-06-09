@@ -1,4 +1,4 @@
-extends TextureButton
+extends Sprite2D
 
 @onready var label = $Label
 @export var appliance : Appliance 
@@ -7,11 +7,7 @@ signal capacity_changed(new_capacity) # this will be called when the appliance.c
 signal usedCapacity_changed(new_capacity)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	texture_normal = appliance.icon
-	texture_pressed = appliance.icon
-	texture_hover = appliance.icon
-	texture_disabled = appliance.icon
-	texture_focused = appliance.icon
+	texture = appliance.icon
 	appliance.connect("capacity_changed", _on_capacity_changed)
 	appliance.connect("usedCapacity_changed", _on_usedCapacity_changed) # connects the signal "usedCapacity_changed" to the function _on_usedCapacity_changed
 	pass # Replace with function body.

@@ -1,33 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj3y7h604clrj"]
+[gd_scene load_steps=4 format=3 uid="uid://dtnpsxnnisi5i"]
 
+[ext_resource type="Script" path="res://_Scripts/applianceSceneScript.gd" id="1_6moga"]
 [ext_resource type="Texture2D" uid="uid://cxwbu2n6mty54" path="res://Assets/shovel Appliance.png" id="1_cokac"]
-[ext_resource type="Script" path="res://appliance.gd" id="2_dagwc"]
 
-[node name="Appliance" type="TextureButton"]
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 76.0
-offset_bottom = 77.0
-texture_normal = ExtResource("1_cokac")
-texture_pressed = ExtResource("1_cokac")
-texture_hover = ExtResource("1_cokac")
-texture_disabled = ExtResource("1_cokac")
-texture_focused = ExtResource("1_cokac")
-stretch_mode = 0
-script = ExtResource("2_dagwc")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w13ty"]
+size = Vector2(74, 76)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(71, 32)
+script = ExtResource("1_6moga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("RectangleShape2D_w13ty")
 
 [node name="ApplianceStorageBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.013
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 75.025
-offset_bottom = 26.0
+offset_left = 38.0
+offset_top = 38.0
+offset_right = 114.0
+offset_bottom = 65.0
 grow_horizontal = 0
 grow_vertical = 0
 rotation = -1.5708
+
+[node name="ApplianceTexture" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_cokac")
