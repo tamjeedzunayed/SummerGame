@@ -36,11 +36,10 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func setItems(storage):
-	print("hello")
 	for child in truck_item_list.get_children():
 		child.queue_free()
 	for item in storage.keys():
@@ -59,7 +58,7 @@ func _on_truck_storage_button_pressed():
 		truck_storage_in_display = false
 	pass # Replace with function body.
 
-func setItemInfo(toggled):
+func setItemInfo(_toggled):
 	var itemToggled = ItemButtonGroup.get_pressed_button()
 	item_displayed.text = "Item Name: " + str(itemToggled.itemHeld.name) + "\n" + "Sell Price: " + str(itemToggled.itemHeld.sellPrice)
 	pass

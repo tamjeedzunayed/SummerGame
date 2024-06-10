@@ -65,3 +65,6 @@ position = Vector2(0, -0.31)
 shape = SubResource("CapsuleShape2D_7s6lh")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]

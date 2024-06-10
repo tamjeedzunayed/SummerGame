@@ -1,49 +1,49 @@
-2a60927148abd1d33b818b535e306557
-::res://::1717886013
-default_env.tres::Environment::1010482005889987726::1717886007::0::1::::<><>::
-icon.png::CompressedTexture2D::1490490034315510654::1714688269::1714688269::1::::<><>::
-new_theme.tres::Theme::4918620257944766601::1717882321::0::1::::<><>::
-README.md::TextFile::-1::1714688269::0::1::::<><>::
-::res://Assets/::1717801277
-button.png::CompressedTexture2D::167873666538175567::1714873213::1714873218::1::::<><>::
-Clock.png::CompressedTexture2D::2717500191348627495::1714858477::1714858479::1::::<><>::
-Connect1.png::CompressedTexture2D::3343921574653184598::1715227139::1715227139::1::::<><>::
-Connect2.png::CompressedTexture2D::6520141025882135225::1715227139::1715227139::1::::<><>::
-Construction_Guy.png::CompressedTexture2D::8354263543719586652::1715806514::1715806514::1::::<><>::
-DiscountIcon.png::CompressedTexture2D::51105848474435858::1715925226::1715925226::1::::<><>::
-Drill.png::CompressedTexture2D::6394049970384808972::1715925226::1715925226::1::::<><>::
-Exp.png::CompressedTexture2D::4643494046043888335::1715925226::1715925226::1::::<><>::
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1718058269
+default_env.tres::Environment::1010482005889987726::1718058269::0::1::::<><>::
+icon.png::CompressedTexture2D::1490490034315510654::1714462949::1714591362::1::::<><>::
+new_theme.tres::Theme::4918620257944766601::1717996884::0::1::::<><>::
+README.md::TextFile::-1::1714593587::0::1::::<><>::
+::res://Assets/::1717992657
+button.png::CompressedTexture2D::167873666538175567::1715123807::1715123807::1::::<><>::
+Clock.png::CompressedTexture2D::2717500191348627495::1714860454::1714860454::1::::<><>::
+Connect1.png::CompressedTexture2D::3343921574653184598::1715125614::1715125617::1::::<><>::
+Connect2.png::CompressedTexture2D::6520141025882135225::1715132650::1715132654::1::::<><>::
+Construction_Guy.png::CompressedTexture2D::8354263543719586652::1715745649::1715745651::1::::<><>::
+DiscountIcon.png::CompressedTexture2D::51105848474435858::1715812165::1715816994::1::::<><>::
+Drill.png::CompressedTexture2D::6394049970384808972::1715817028::1715817039::1::::<><>::
+Exp.png::CompressedTexture2D::4643494046043888335::1715812165::1715816994::1::::<><>::
 kljhl2stsf731.webp::CompressedTexture2D::1270972310152326506::0::0::1::::<><>::
-MoneyBag.png::CompressedTexture2D::8236296588918252593::1714857224::1714857230::1::::<><>::
-NicePng_prison-architect-png_3739415.png::CompressedTexture2D::2637625587369472960::1714688269::1714688269::1::::<><>::
-NicePng_prison-architect-png_3739415_upscaled.png::CompressedTexture2D::5138017858260663880::1714688269::1714688269::1::::<><>::
-prison-architect-sprite-space-station-13-prison-c43b8f1941c16edd6cac73192e80d559.png::CompressedTexture2D::839450977539537378::1714688269::1714688269::1::::<><>::
-Seller.png::CompressedTexture2D::9176724844242065376::1715389762::1715389766::1::::<><>::
-Shovel and seller.png::CompressedTexture2D::3524113322113200130::1715389644::1715389647::1::::<><>::
-shovel Appliance.png::CompressedTexture2D::6432698954159347441::1717801273::1717801277::1::::<><>::
-Shovel.png::CompressedTexture2D::7669608019297972580::1715806514::1715389766::1::::<><>::
-Truck Display.png::CompressedTexture2D::1483559822925571809::1716788327::1717391299::1::::<><>::
-truck.png::CompressedTexture2D::3048061554184699187::1717391299::1717391299::1::::<><>::
-::res://Scenes/::1717886013
-appliance.tscn::PackedScene::8520631118908060308::1717886007::0::1::::<><>::uid://cxwbu2n6mty54<>res://Scenes/applianceSceneScript.gd
-customer.tscn::PackedScene::8442110687818851054::1715399191::0::1::::<><>::res://_Scripts/Customer.gd<>uid://cfg5nynjdkbv1
-furniture.tscn::PackedScene::4832465722402415804::1715399191::0::1::::<><>::uid://sdwy04n24suc
-Game.tscn::PackedScene::4452174531536859482::1717882335::0::1::::<><>::uid://l7vvuai5pdli<>res://_Scripts/GameState.gd<>uid://beym3i1li6le2<>uid://dplyupkvmvj5j<>uid://sdwy04n24suc<>uid://dsjolhbn3kocc<>uid://ctvukuon84qhw<>uid://bddx65vxgottu<>uid://b54cvp76thoub
-Item_in_shop_button.tscn::PackedScene::5441933758589530931::1717800139::0::1::::<><>::uid://dhjhlaagihgka<>res://_Scripts/Item_in_shop_button.gd
-Seller.tscn::PackedScene::5479662721465215109::1717797543::0::1::::<><>::uid://cccu7slchsi8h<>uid://dra4q88xff4ge<>res://_Scripts/Seller.gd<>uid://dplyupkvmvj5j
-shop.tscn::PackedScene::6151014599868633820::1717798322::0::1::::<><>::res://_Scripts/shop.gd<>uid://cccu7slchsi8h<>res://_Scripts/Supply Connections.gd<>uid://ckcnikthw33yf<>uid://dplyupkvmvj5j<>uid://y0x88bcu3ac<>uid://dra4q88xff4ge
-Sprite2D.gd::GDScript::-1::1717882321::0::1::::<>Sprite2D<>::
-truck.tscn::PackedScene::2604633807509060694::1717798322::0::1::::<><>::res://_Scripts/Truck.gd<>uid://bjoremrnfpkgx
-TruckStorage.tscn::PackedScene::4552112722077515817::1717798322::0::1::::<><>::res://_Scripts/TruckStorage.gd
-::res://_Scripts/::1717886013
-Appliance.gd::GDScript::-1::1717805886::0::1::::Appliance<>Node<>::
-applianceSceneScript.gd::GDScript::-1::1717882321::0::1::::<>StaticBody2D<>::
-Customer.gd::GDScript::-1::1717886007::0::1::::<>CharacterBody2D<>::
-GameState.gd::GDScript::-1::1717882320::0::1::::<>Node<>::
-Item.gd::GDScript::-1::1717805273::0::1::::Item<>Node<>::
-Item_in_shop_button.gd::GDScript::-1::1717805273::0::1::::<>Button<>::
-Seller.gd::GDScript::-1::1717882320::0::1::::<>Button<>::
-shop.gd::GDScript::-1::1717882320::0::1::::<>CanvasLayer<>::
-Supply Connections.gd::GDScript::-1::1717805564::0::1::::<>Panel<>::
-Truck.gd::GDScript::-1::1717805274::0::1::::<>Node<>::
-TruckStorage.gd::GDScript::-1::1717805274::0::1::::<>Control<>::
+MoneyBag.png::CompressedTexture2D::8236296588918252593::1714860454::1714860454::1::::<><>::
+NicePng_prison-architect-png_3739415.png::CompressedTexture2D::2637625587369472960::1714596228::1714596230::1::::<><>::
+NicePng_prison-architect-png_3739415_upscaled.png::CompressedTexture2D::5138017858260663880::1715132557::1714596882::1::::<><>::
+prison-architect-sprite-space-station-13-prison-c43b8f1941c16edd6cac73192e80d559.png::CompressedTexture2D::839450977539537378::1714591795::1714591797::1::::<><>::
+Seller.png::CompressedTexture2D::9176724844242065376::1715403334::1715403334::1::::<><>::
+Shovel and seller.png::CompressedTexture2D::3524113322113200130::1715403334::1715403334::1::::<><>::
+shovel Appliance.png::CompressedTexture2D::6432698954159347441::1717992657::1717992657::1::::<><>::
+Shovel.png::CompressedTexture2D::7669608019297972580::1715746097::1715746100::1::::<><>::
+Truck Display.png::CompressedTexture2D::1483559822925571809::1716788438::1716788443::1::::<><>::
+truck.png::CompressedTexture2D::3048061554184699187::1716010791::1716791926::1::::<><>::
+::res://Scenes/::1718058269
+appliance.tscn::PackedScene::8520631118908060308::1718058269::0::1::::<><>::res://_Scripts/applianceSceneScript.gd<>uid://sdwy04n24suc::::res://Assets/kljhl2stsf731.webp
+customer.tscn::PackedScene::8442110687818851054::1718058269::0::1::::<><>::res://_Scripts/Customer.gd<>uid://cfg5nynjdkbv1::::res://Assets/NicePng_prison-architect-png_3739415_upscaled.png
+furniture.tscn::PackedScene::4832465722402415804::1718058269::0::1::::<><>::uid://sdwy04n24suc::::res://Assets/kljhl2stsf731.webp
+Game.tscn::PackedScene::4452174531536859482::1718058268::0::1::::<><>::uid://l7vvuai5pdli::::res://Assets/prison-architect-sprite-space-station-13-prison-c43b8f1941c16edd6cac73192e80d559.png<>res://_Scripts/GameState.gd<>uid://beym3i1li6le2::::res://Assets/Clock.png<>uid://dplyupkvmvj5j::::res://Assets/MoneyBag.png<>uid://sdwy04n24suc::::res://Assets/kljhl2stsf731.webp<>uid://dtnpsxnnisi5i::::res://Scenes/appliance.tscn<>uid://ctvukuon84qhw::::res://Scenes/shop.tscn<>uid://bddx65vxgottu::::res://Scenes/truck.tscn<>uid://b54cvp76thoub::::res://Scenes/TruckStorage.tscn
+Item_in_shop_button.tscn::PackedScene::5441933758589530931::1718058268::0::1::::<><>::uid://dhjhlaagihgka::::res://Assets/Shovel.png<>res://_Scripts/Item_in_shop_button.gd
+Seller.tscn::PackedScene::5479662721465215109::1718058268::0::1::::<><>::uid://cccu7slchsi8h::::res://new_theme.tres<>uid://dra4q88xff4ge::::res://Assets/Construction_Guy.png<>res://_Scripts/Seller.gd<>uid://dplyupkvmvj5j::::res://Assets/MoneyBag.png
+shop.tscn::PackedScene::6151014599868633820::1718058268::0::1::::<><>::res://_Scripts/shop.gd<>uid://cccu7slchsi8h::::res://new_theme.tres<>res://_Scripts/Supply Connections.gd<>uid://ckcnikthw33yf::::res://Scenes/Seller.tscn<>uid://dplyupkvmvj5j::::res://Assets/MoneyBag.png<>uid://y0x88bcu3ac::::res://Assets/DiscountIcon.png<>uid://dra4q88xff4ge::::res://Assets/Construction_Guy.png
+Sprite2D.gd::GDScript::-1::1717992657::0::1::::<>Sprite2D<>::
+truck.tscn::PackedScene::2604633807509060694::1718058269::0::1::::<><>::res://_Scripts/Truck.gd<>uid://bjoremrnfpkgx::::res://Assets/truck.png
+TruckStorage.tscn::PackedScene::4552112722077515817::1718058269::0::1::::<><>::res://_Scripts/TruckStorage.gd
+::res://_Scripts/::1718058268
+Appliance.gd::GDScript::-1::1718058190::0::1::::Appliance<>Node<>::
+applianceSceneScript.gd::GDScript::-1::1718055109::0::1::::<>StaticBody2D<>::
+Customer.gd::GDScript::-1::1718058268::0::1::::<>CharacterBody2D<>::
+GameState.gd::GDScript::-1::1718058077::0::1::::<>Node<>::
+Item.gd::GDScript::-1::1718055975::0::1::::Item<>Node<>::
+Item_in_shop_button.gd::GDScript::-1::1715923173::0::1::::<>Button<>::
+Seller.gd::GDScript::-1::1717996884::0::1::::<>Button<>::
+shop.gd::GDScript::-1::1717996884::0::1::::<>CanvasLayer<>::
+Supply Connections.gd::GDScript::-1::1717992657::0::1::::<>Panel<>::
+Truck.gd::GDScript::-1::1717699718::0::1::::<>Node<>::
+TruckStorage.gd::GDScript::-1::1718056726::0::1::::<>Control<>::

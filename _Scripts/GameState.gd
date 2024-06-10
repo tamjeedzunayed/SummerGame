@@ -14,8 +14,10 @@ extends Node
 @onready var shop = $Shop
 @onready var truck = $Truck
 @onready var truck_storage = $"Truck Storage"
+@onready var appliances = $Appliances
 
 const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
+
 
 var incRate : float = 1.05
 const CUSTSPAWNRATE = 5
@@ -44,10 +46,24 @@ func _ready():
 
 	shop.connect("ItemsBought", itemsBought)
 	truck.connect("item_for_truck", updateTruckStorage)
-	
+	var customer1 = customerResource.instantiate()
+	customer1.position = Vector2(576, 456)
+	customer1.connect("findAppliance", customerApplinace)
+	customers.add_child(customer1)
 	day()
-	
 	pass # Replace with function body.
+
+func customerApplinace(item:Item, customer : CharacterBody2D):
+	print("Siganl recieved")
+	for applianceNode in appliances.get_children():
+		print(applianceNode.appliance.storage)
+		if applianceNode.appliance.hasItem(item):
+			print("has Item")
+			customer.getItemFromAppliance(applianceNode)
+			return
+	print("does not have item")
+	customer.goThroughShopingList()
+
 
 func itemsBought(items):
 	truck.addToCart(items)
@@ -95,8 +111,8 @@ func day():
 	
 func night():
 	truck.night()
-	for customer in customers.get_children():
-		customer.queue_free()
+	for customerN in customers.get_children():
+		customerN.queue_free()
 	shop.get_node("Button").disabled = false
 		
 	#canvas_modulate.visible = true
