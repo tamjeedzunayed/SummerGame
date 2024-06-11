@@ -15,9 +15,12 @@ extends Panel
 @onready var total_label = %TotalLabel
 @onready var seller_name_label = %SellerNameLabel
 @onready var add_to_cart = %"Add to Cart"
+var balance: float
 
 signal ItemsBought(Items : Dictionary)
 signal StorageFull
+signal balanceChanged(newBalance)
+
 var ItemButtonGroup = ButtonGroup.new()
 var SellerButtonGroup :=  ButtonGroup.new()
 const MULTIPLYER = 1
@@ -124,28 +127,30 @@ func _on_discount_button_pressed():
 		exp_points.text = "EXP Points: " + str(SellerButtonGroup.get_pressed_button().expPoints)
 
 func _on_buy_pressed():
-	var totalXpAdded := 0.
-	for item in cart.keys():
-		totalXpAdded += item.expe * cart[item]
-	for itemButton in ItemButtonGroup.get_buttons():
-		itemButton.amount = 0
-	currentSeller.cred += totalXpAdded
-	cred_bar.value += totalXpAdded
-	
-	if (cred_bar.value >= cred_bar.max_value):
-		currentSeller.expPoints += int(cred_bar.value/cred_bar.max_value)
-		currentSeller.level += int(cred_bar.value/cred_bar.max_value)
-		cred_bar.value = int(cred_bar.value) % int(cred_bar.max_value)
-		cred_bar.max_value *= MULTIPLYER
-		exp_points.text = "EXP Points: " + str(currentSeller.expPoints)
-		exp_icon.texture = preload("res://Assets/Exp.png")
-	currentSeller.cred = currentSeller.cred % int(cred_bar.max_value)
-	
-	ItemsBought.emit(cart)
-	
-	cart.clear()
-	
-	cartTotal = 0
+	if (balance >= cartTotal):
+		balanceChanged.emit(balance - cartTotal)
+		var totalXpAdded := 0.
+		for item in cart.keys():
+			totalXpAdded += item.expe * cart[item]
+		for itemButton in ItemButtonGroup.get_buttons():
+			itemButton.amount = 0
+		currentSeller.cred += totalXpAdded
+		cred_bar.value += totalXpAdded
+		
+		if (cred_bar.value >= cred_bar.max_value):
+			currentSeller.expPoints += int(cred_bar.value/cred_bar.max_value)
+			currentSeller.level += int(cred_bar.value/cred_bar.max_value)
+			cred_bar.value = int(cred_bar.value) % int(cred_bar.max_value)
+			cred_bar.max_value *= MULTIPLYER
+			exp_points.text = "EXP Points: " + str(currentSeller.expPoints)
+			exp_icon.texture = preload("res://Assets/Exp.png")
+		currentSeller.cred = currentSeller.cred % int(cred_bar.max_value)
+		
+		ItemsBought.emit(cart)
+		
+		cart.clear()
+		
+		cartTotal = 0
 	pass # Replace with function body.
 
 

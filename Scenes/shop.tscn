@@ -490,10 +490,10 @@ theme = ExtResource("2_h2720")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")
+speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_tt3mk")
 }
-speed_scale = 2.0
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsjolhbn3kocc"]
+[gd_scene load_steps=9 format=3 uid="uid://dsjolhbn3kocc"]
 
 [ext_resource type="Script" path="res://_Scripts/Customer.gd" id="1_3klsv"]
 [ext_resource type="Texture2D" uid="uid://cfg5nynjdkbv1" path="res://Assets/NicePng_prison-architect-png_3739415_upscaled.png" id="2_n50m4"]
+[ext_resource type="Theme" uid="uid://cp0lnwbtq41j5" path="res://CustomerItemList.tres" id="3_xkhnp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f5lkr"]
 atlas = ExtResource("2_n50m4")
@@ -55,7 +56,7 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_3klsv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -14)
+position = Vector2(0, -15.5844)
 scale = Vector2(0.64, 0.64)
 sprite_frames = SubResource("SpriteFrames_o57ov")
 animation = &"left"
@@ -66,5 +67,34 @@ shape = SubResource("CapsuleShape2D_7s6lh")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 6.0
+offset_top = -162.0
+offset_right = 352.0
+offset_bottom = 321.0
+scale = Vector2(0.25, 0.25)
+theme = ExtResource("3_xkhnp")
+
+[node name="MarginContainer" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_left = 33.0
+offset_top = 30.0
+offset_right = 314.0
+offset_bottom = 409.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+offset_right = 116.0
+offset_bottom = 152.0
+scale = Vector2(2.5, 2.5)
+
+[node name="ShoppingList" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]

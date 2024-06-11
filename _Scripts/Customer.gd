@@ -7,10 +7,14 @@ var heldItems: Array[Item] = []
 const SPEED : float = 130.0
 var currentItemTarget : Item
 var currentApplianceTarget
-
+const itemInShoppingList = preload("res://Scenes/Item_in_ShoppingList.tscn")
+@onready var shopping_list = %ShoppingList
+var checkBoxIndex = 0
+var numItemsInShoppingList = 0
 signal findAppliance(item: Item, customer : CharacterBody2D)
 
 func _ready():
+	createCheckBoxes()
 	goThroughShopingList()
 
 func _physics_process(_delta):
@@ -49,8 +53,6 @@ func goThroughShopingList():
 	findAppliance.emit(currentItemTarget, self)
 
 func goHome():
-	print("going home")
-	
 	navigation_agent.target_position = Vector2(200, 200)
 
 func getItemFromAppliance(appliance):
@@ -62,6 +64,19 @@ func _on_navigation_agent_2d_navigation_finished():
 	if currentItemTarget != null:
 		var itemFromAppliance = currentApplianceTarget.appliance.retrieveItem(currentItemTarget)  
 		if itemFromAppliance != null:
+			
 			heldItems.append(itemFromAppliance)
+		if(checkBoxIndex < numItemsInShoppingList):	
+			var checkBox : CheckBox = shopping_list.get_child(checkBoxIndex)
+			checkBox.button_pressed = true
+			checkBoxIndex += 1
 		goThroughShopingList()
 	pass # Replace with function body.
+
+func createCheckBoxes():
+	for item in shopingList:
+		var shopingListItem = itemInShoppingList.instantiate()
+		shopping_list.add_child(shopingListItem)
+		shopingListItem.text = item.name
+		numItemsInShoppingList += 1
+	pass

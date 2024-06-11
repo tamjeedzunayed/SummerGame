@@ -273,9 +273,9 @@ size_flags_vertical = 3
 columns = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_mgdo0")
 }
-speed_scale = 1.5
 
 [connection signal="pressed" from="Truck Storage Button" to="." method="_on_truck_storage_button_pressed"]

@@ -5,15 +5,13 @@ res://_Scripts/GameState.gd
 res://_Scripts/Seller.gd
 res://_Scripts/shop.gd
 res://new_theme.tres
+res://CustomerItemList.tres
 res://Scenes/Seller.tscn
 res://Scenes/Item_in_shop_button.tscn
 res://Scenes/shop.tscn
 res://Scenes/truck.tscn
 res://Scenes/TruckStorage.tscn
-res://Scenes/customer.tscn
 res://Scenes/appliance.tscn
-res://_Scripts/applianceSceneScript.gd
-res://Scenes/furniture.tscn
-res://_Scripts/Item.gd
-res://_Scripts/Appliance.gd
-res://_Scripts/TruckStorage.gd
+res://Scenes/customer.tscn
+res://Scenes/Item_in_ShoppingList.tscn
+res://_Scripts/Supply Connections.gd

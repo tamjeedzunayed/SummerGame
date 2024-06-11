@@ -4,10 +4,9 @@ extends Node
 @onready var furnitures = $Furnitures
 @onready var customers = %Customers
 @onready var cust_spawn_rate = $CustSpawnRate
-
 @onready var clock = $Timer
 @onready var clockButton = $CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button
-
+@onready var balance_display = %balanceDisplay
 @onready var canvas_modulate : CanvasModulate = $CanvasModulate
 @onready var Canvas_animation_player : AnimationPlayer = canvas_modulate.get_child(0)
 @onready var ground_tile_map : TileMap = $GroundTileMap
@@ -16,6 +15,11 @@ extends Node
 @onready var truck_storage = $"Truck Storage"
 @onready var appliances = $Appliances
 
+var balance: 
+	set(value):
+		balance_display.text = str(value)
+		balance = value
+		shop.supply_connections.balance = value
 const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 
 
@@ -37,6 +41,7 @@ var furnitureResource = preload("res://Scenes/furniture.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	balance = 200
 	shop.offset = Vector2(64, -546)
 	cust_spawn_rate.wait_time = CUSTSPAWNRATE
 	clock.wait_time = DAY_TIME_LENGTH
@@ -45,6 +50,7 @@ func _ready():
 	Canvas_animation_player.play("Day animation")
 
 	shop.connect("ItemsBought", itemsBought)
+	shop.supply_connections.connect("balanceChanged", changeBalance)
 	truck.connect("item_for_truck", updateTruckStorage)
 	var customer1 = customerResource.instantiate()
 	customer1.position = Vector2(576, 456)
@@ -142,4 +148,15 @@ func _input(_event):
 		ground_tile_map.set_cell(1, click_pos_on_map - Vector2i(18, 10), 1, ground_tile_map.get_cell_atlas_coords(0, click_pos_on_map - Vector2i(18, 10)))
 		ground_tile_map.erase_cell(0, click_pos_on_map - Vector2i(18, 10))
 
-	
+func changeBalance(newBalance):
+	balance = newBalance
+
+
+func _on_buy_region_body_entered(body):
+	if body is CharacterBody2D:
+		var totalItemPrice = 0
+		var heldItems: Array[Item] = body.heldItems
+		for item in heldItems:
+			totalItemPrice += item.sellPrice
+		balance += totalItemPrice
+	pass # Replace with function body.
