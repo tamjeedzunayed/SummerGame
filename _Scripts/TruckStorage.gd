@@ -7,7 +7,7 @@ var truck_storage_in_display = false
 @onready var driver_salary = %"Driver Salary"
 @onready var capacity = %Capacity
 @onready var used_capacity = %"Used Capacity"
-@onready var item_displayed = %ItemDisplayed
+@onready var item_displayed = %ItemInfo
 
 var ItemButtonGroup = ButtonGroup.new()
 
@@ -32,7 +32,7 @@ const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	animation_player.play("Panel_Out")	
+	#animation_player.play("Panel_Out")	
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,6 +56,7 @@ func _on_truck_storage_button_pressed():
 	else:
 		animation_player.play("Panel_Out")
 		truck_storage_in_display = false
+	print(truck_storage_in_display)
 	pass # Replace with function body.
 
 func setItemInfo(_toggled):

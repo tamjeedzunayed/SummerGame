@@ -352,7 +352,8 @@ theme_override_constants/margin_bottom = 10
 [node name="Item container" type="GridContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
+size_flags_vertical = 0
 size_flags_stretch_ratio = 2.0
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
@@ -490,10 +491,10 @@ theme = ExtResource("2_h2720")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")
-speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_tt3mk")
 }
+speed_scale = 2.0
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1

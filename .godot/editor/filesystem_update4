@@ -1,17 +1,18 @@
 res://default_env.tres
-res://Scenes/Game.tscn
+res://Scenes/TruckStorage.tscn
 res://_Scripts/Customer.gd
 res://_Scripts/GameState.gd
+res://CustomerItemList.tres
 res://_Scripts/Seller.gd
 res://_Scripts/shop.gd
 res://new_theme.tres
-res://CustomerItemList.tres
+res://Scenes/Game.tscn
 res://Scenes/Seller.tscn
 res://Scenes/Item_in_shop_button.tscn
 res://Scenes/shop.tscn
 res://Scenes/truck.tscn
-res://Scenes/TruckStorage.tscn
-res://Scenes/appliance.tscn
 res://Scenes/customer.tscn
+res://Scenes/appliance.tscn
 res://Scenes/Item_in_ShoppingList.tscn
-res://_Scripts/Supply Connections.gd
+res://Scenes/TruckStorage2.tscn
+res://_Scripts/TruckStorage.gd

@@ -12,7 +12,7 @@ extends Node
 @onready var ground_tile_map : TileMap = $GroundTileMap
 @onready var shop = $Shop
 @onready var truck = $Truck
-@onready var truck_storage = $"Truck Storage"
+@onready var truck_storage = $"TruckStorage"
 @onready var appliances = $Appliances
 
 var balance: 
