@@ -16,3 +16,6 @@ res://Scenes/appliance.tscn
 res://Scenes/Item_in_ShoppingList.tscn
 res://Scenes/TruckStorage2.tscn
 res://_Scripts/TruckStorage.gd
+res://_Scripts/Item_in_shop_button.gd
+res://_Scripts/Supply Connections.gd
+res://_Scripts/Truck.gd

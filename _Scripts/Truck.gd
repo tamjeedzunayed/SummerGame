@@ -5,7 +5,7 @@ var health := 10
 var storage : Dictionary  = {} 
 var cart : Dictionary = {}
 var onSupplyRun : bool = true
-var supplyRunDuration := 0
+var supplyRunDuration := 1
 @onready var truck_body = %TruckBody
 @onready var animation_player = $AnimationPlayer
 
@@ -14,6 +14,7 @@ signal item_for_truck(storage)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_player.speed_scale = 0.5
+	#animation_player.play("Drive_Truck_in")
 	pass # Replace with function body.
 
 func addToCart(items : Dictionary):
@@ -45,10 +46,10 @@ func add_item(item: Item, amount: int):
 		storage[item] =  amount
 
 func day():
-	if !cart.is_empty():
-		supplyRun()
 	if onSupplyRun:
 		supplyRunDuration -= 1
+	if !cart.is_empty():
+		supplyRun()
 	pass
 
 func night():

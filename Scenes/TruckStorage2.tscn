@@ -29,7 +29,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(472, 0), Vector2(1152, 0)]
+"values": [Vector2(472, 34), Vector2(1152, 34)]
 }
 
 [sub_resource type="Animation" id="Animation_8uh80"]
@@ -44,7 +44,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1152, 0), Vector2(472, 0)]
+"values": [Vector2(1152, 34), Vector2(472, 34)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgdo0"]
@@ -58,7 +58,7 @@ _data = {
 offset_left = 1148.0
 offset_top = 8.0
 offset_right = 1818.0
-offset_bottom = 332.0
+offset_bottom = 324.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_2x54h")
@@ -66,7 +66,7 @@ script = ExtResource("1_2x54h")
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 offset_right = 670.0
-offset_bottom = 324.0
+offset_bottom = 316.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 7
 theme_override_constants/margin_right = 10
@@ -82,7 +82,7 @@ size_flags_horizontal = 3
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel"]
 layout_mode = 1
 offset_right = 323.0
-offset_bottom = 310.0
+offset_bottom = 304.0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -150,11 +150,13 @@ Buy Cost: 000
 Appliance Type: ######"
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2/HBoxContainer"]
-custom_minimum_size = Vector2(0, 115)
+[node name="ItemPicture" type="TextureRect" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 135)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+expand_mode = 1
 
 [node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -163,7 +165,7 @@ size_flags_horizontal = 3
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Panel2"]
 layout_mode = 1
 offset_right = 323.0
-offset_bottom = 310.0
+offset_bottom = 304.0
 horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel2/ScrollContainer"]
@@ -193,9 +195,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0470588
 anchor_right = -0.047
-offset_top = 324.0
-offset_right = 323.49
-offset_bottom = 356.0
+offset_left = 0.000413895
+offset_top = 316.0
+offset_right = 315.961
+offset_bottom = 348.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5708

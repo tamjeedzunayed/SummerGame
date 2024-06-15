@@ -61,10 +61,9 @@ func getItemFromAppliance(appliance):
 	
 
 func _on_navigation_agent_2d_navigation_finished():
-	if currentItemTarget != null:
+	if currentItemTarget != null && currentApplianceTarget != null:
 		var itemFromAppliance = currentApplianceTarget.appliance.retrieveItem(currentItemTarget)  
 		if itemFromAppliance != null:
-			
 			heldItems.append(itemFromAppliance)
 		if(checkBoxIndex < numItemsInShoppingList):	
 			var checkBox : CheckBox = shopping_list.get_child(checkBoxIndex)

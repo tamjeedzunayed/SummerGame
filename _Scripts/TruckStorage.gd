@@ -8,6 +8,7 @@ var truck_storage_in_display = false
 @onready var capacity = %Capacity
 @onready var used_capacity = %"Used Capacity"
 @onready var item_displayed = %ItemInfo
+@onready var item_picture = %ItemPicture
 
 var ItemButtonGroup = ButtonGroup.new()
 
@@ -46,6 +47,8 @@ func setItems(storage):
 		var newButton = ITEM_IN_SHOP_BUTTON.instantiate()
 		newButton.itemHeld = item 
 		truck_item_list.add_child(newButton)
+		newButton.limit = -1
+		newButton.amount = storage[item]
 		newButton.button_group = ItemButtonGroup
 		newButton.connect("toggled", setItemInfo)
 
@@ -56,11 +59,15 @@ func _on_truck_storage_button_pressed():
 	else:
 		animation_player.play("Panel_Out")
 		truck_storage_in_display = false
-	print(truck_storage_in_display)
 	pass # Replace with function body.
 
 func setItemInfo(_toggled):
-	var itemToggled = ItemButtonGroup.get_pressed_button()
-	item_displayed.text = "Item Name: " + str(itemToggled.itemHeld.name) + "\n" + "Sell Price: " + str(itemToggled.itemHeld.sellPrice)
+	var itemToggled : Item = ItemButtonGroup.get_pressed_button().itemHeld
+	
+	item_displayed.text = "Item Name: " + itemToggled.name + " 
+	 SalePrice: " + str(itemToggled.sellPrice) + "
+	 Buy Cost: " + str(itemToggled.price)+ "
+	 Appliance Type: " + itemToggled.applianceType 
+	item_picture.texture = itemToggled.icon
 	pass
 	

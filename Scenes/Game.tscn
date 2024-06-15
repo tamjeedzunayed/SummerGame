@@ -13102,6 +13102,7 @@ text = "0:00"
 unique_name_in_owner = true
 
 [node name="BuyRegion" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("10_gp5fo")

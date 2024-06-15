@@ -8,24 +8,30 @@ extends CanvasLayer
 var storageCapacity :
 	get:
 		return supply_connections.storageCapacity
-		
+
 var storageCapacityUsed :
 	get: 
 		return supply_connections.storageCapacityUsed
-		
+
 signal ItemsBought(items)
 
+
 func _ready():
-	supply_connections.connect("ItemsBought", itemsBought)
 	supply_connections.connect("StorageFull", storageFull)
+
+func day():
+	button.disabled = true
+	if (inView):
+		animation_player.play("TransOut")
+		inView = false
+
+func night():
+	button.disabled = false
 
 func storageFull():
 	if animation_player.is_playing():
 		animation_player.stop()
 	animation_player.play("StorageFull")
-
-func itemsBought(items):
-	ItemsBought.emit(items)
 
 func _on_button_pressed():
 	if(inView):
@@ -34,5 +40,4 @@ func _on_button_pressed():
 	else:
 		animation_player.play("TransIn")
 		inView = true
-	pass # Replace with function body.
 

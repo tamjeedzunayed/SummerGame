@@ -28,6 +28,7 @@ const CUSTSPAWNRATE = 5
 const CUSINCRATE = 1
 const QUOTINCRATE = 100
 @export var DAY_TIME_LENGTH : float = 10.
+@export var NIGHT_TIME_LENGTH : float = 10.
 
 var isDay:bool = true
 var numCustomers = 0
@@ -49,13 +50,9 @@ func _ready():
 	Canvas_animation_player.speed_scale = 1./DAY_TIME_LENGTH
 	Canvas_animation_player.play("Day animation")
 
-	shop.connect("ItemsBought", itemsBought)
+	shop.supply_connections.connect("ItemsBought", itemsBought)
 	shop.supply_connections.connect("balanceChanged", changeBalance)
 	truck.connect("item_for_truck", updateTruckStorage)
-	var customer1 = customerResource.instantiate()
-	customer1.position = Vector2(576, 456)
-	customer1.connect("findAppliance", customerApplinace)
-	customers.add_child(customer1)
 	day()
 	pass # Replace with function body.
 
@@ -93,36 +90,34 @@ func _process(_delta):
 
 func _on_timer_timeout():
 	isDay = !isDay
-	shop.itsDay = isDay
-	if (shop.inView && isDay):
-		#shop.get_child(1).play("TransOut")
-		shop.inView = false
 	if (isDay):
 		clock.wait_time = DAY_TIME_LENGTH
 		day()
 	else:
-		clock.wait_time = DAY_TIME_LENGTH/3
+		clock.wait_time = NIGHT_TIME_LENGTH
 		night()
 	clock.start()
 	pass # Replace with function body.
 
 func day():
+	
+	var customer1 = customerResource.instantiate()
+	customer1.position = Vector2(1286, 451)
+	customer1.connect("findAppliance", customerApplinace)
+	customers.add_child(customer1)
+	
 	truck.day()
+	shop.day()
 	DriverSalary = DriverSalary*incRate
 	numCustomers += CUSINCRATE
 	endOfDayQuota += QUOTINCRATE
 	Canvas_animation_player.play("Day animation")
-	shop.get_node("Button").disabled = true
-	
-	
+
 func night():
 	truck.night()
 	for customerN in customers.get_children():
 		customerN.queue_free()
-	shop.get_node("Button").disabled = false
-		
-	#canvas_modulate.visible = true
-		
+	shop.night()
 
 func _on_cust_spawn_rate_timeout():
 	if (isDay):
