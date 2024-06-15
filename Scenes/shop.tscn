@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://ctvukuon84qhw"]
+[gd_scene load_steps=18 format=3 uid="uid://kmaggbxlo5iv"]
 
 [ext_resource type="Script" path="res://_Scripts/shop.gd" id="1_tf1v1"]
-[ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://new_theme.tres" id="2_h2720"]
+[ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://Themes/new_theme.tres" id="2_527pq"]
 [ext_resource type="Script" path="res://_Scripts/Supply Connections.gd" id="3_8pclh"]
-[ext_resource type="PackedScene" uid="uid://ckcnikthw33yf" path="res://Scenes/Seller.tscn" id="3_jd3nf"]
+[ext_resource type="PackedScene" path="res://Scenes/Seller.tscn" id="3_jd3nf"]
 [ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="3_st4tx"]
 [ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://Assets/DiscountIcon.png" id="5_868tk"]
 [ext_resource type="Texture2D" uid="uid://dra4q88xff4ge" path="res://Assets/Construction_Guy.png" id="5_j18lq"]
@@ -191,19 +191,19 @@ anchor_right = 0.444
 offset_left = -511.488
 offset_right = 438.512
 offset_bottom = 576.0
-theme = ExtResource("2_h2720")
+theme = ExtResource("2_527pq")
 
 [node name="TabContainer" type="TabContainer" parent="Panel"]
 layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 544.0
-theme = ExtResource("2_h2720")
+theme = ExtResource("2_527pq")
 tab_alignment = 1
 drag_to_rearrange_enabled = true
 
 [node name="Supply Connections" type="Panel" parent="Panel/TabContainer"]
 layout_mode = 2
-theme = ExtResource("2_h2720")
+theme = ExtResource("2_527pq")
 script = ExtResource("3_8pclh")
 
 [node name="Supply Connections" type="MarginContainer" parent="Panel/TabContainer/Supply Connections"]
@@ -212,7 +212,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 8.0
 offset_bottom = 8.0
-theme = ExtResource("2_h2720")
+theme = ExtResource("2_527pq")
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -227,12 +227,12 @@ columns = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer"]
 custom_minimum_size = Vector2(250, 470)
 layout_mode = 2
-theme = ExtResource("2_h2720")
+theme = ExtResource("2_527pq")
 
 [node name="SellerList" type="VBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("2_h2720")
+theme = ExtResource("2_527pq")
 theme_override_constants/separation = 10
 
 [node name="Seller" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/SellerList" instance=ExtResource("3_jd3nf")]
@@ -487,14 +487,14 @@ text = "Unlock New Item"
 visible = false
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
-theme = ExtResource("2_h2720")
+theme = ExtResource("2_527pq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")
+speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_tt3mk")
 }
-speed_scale = 2.0
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1

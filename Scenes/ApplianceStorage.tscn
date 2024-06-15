@@ -1,0 +1,149 @@
+[gd_scene load_steps=6 format=3 uid="uid://qmswhxweinl8"]
+
+[ext_resource type="Script" path="res://_Scripts/TruckStorage.gd" id="1_5wof8"]
+
+[sub_resource type="Animation" id="Animation_8uh80"]
+resource_name = "Panel_In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1148, 318), Vector2(548, 318)]
+}
+
+[sub_resource type="Animation" id="Animation_kndj8"]
+resource_name = "Panel_Out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(548, 318), Vector2(1148, 318)]
+}
+
+[sub_resource type="Animation" id="Animation_knwe0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1148, 318)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mgdo0"]
+_data = {
+"Panel_In": SubResource("Animation_8uh80"),
+"Panel_Out": SubResource("Animation_kndj8"),
+"RESET": SubResource("Animation_knwe0")
+}
+
+[node name="Appliances" type="Panel"]
+offset_left = 1148.0
+offset_top = 318.0
+offset_right = 1818.0
+offset_bottom = 634.0
+scale = Vector2(0.9, 0.9)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_5wof8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 670.0
+offset_bottom = 316.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/Panel2"]
+layout_mode = 1
+offset_right = 406.0
+offset_bottom = 193.0
+scale = Vector2(0.75, 0.75)
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Truck Health" type="Label" parent="MarginContainer/HBoxContainer/Panel2/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Truck Health: 000"
+
+[node name="Used Capacity" type="Label" parent="MarginContainer/HBoxContainer/Panel2/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Used Capacity: 000
+"
+
+[node name="Driver Salary" type="Label" parent="MarginContainer/HBoxContainer/Panel2/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Driver Salary:
+"
+
+[node name="Capacity" type="Label" parent="MarginContainer/HBoxContainer/Panel2/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Capacity:
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 1.5
+libraries = {
+"": SubResource("AnimationLibrary_mgdo0")
+}
+
+[node name="Appliance Storage Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0470588
+anchor_right = -0.047
+offset_left = 0.000413895
+offset_top = 316.0
+offset_right = 315.961
+offset_bottom = 348.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+text = "Appliance Storage
+"
+
+[connection signal="pressed" from="Appliance Storage Button" to="." method="_on_truck_storage_button_pressed"]
