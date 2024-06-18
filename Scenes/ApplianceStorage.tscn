@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://qmswhxweinl8"]
+[gd_scene load_steps=8 format=3 uid="uid://cljxhlhn5sb75"]
 
-[ext_resource type="Script" path="res://_Scripts/TruckStorage.gd" id="1_5wof8"]
+[ext_resource type="Script" path="res://_Scripts/ApplianceStorage.gd" id="1_rq2qh"]
+[ext_resource type="Texture2D" uid="uid://em281ebdmsqh" path="res://Assets/5159ccf9afc9b30b1630042cb83ec043.jpg" id="2_m0jyd"]
+[ext_resource type="Texture2D" uid="uid://ctwjh3y4cp5xn" path="res://Assets/mcol-open-box.png" id="3_b8xg5"]
 
 [sub_resource type="Animation" id="Animation_8uh80"]
 resource_name = "Panel_In"
@@ -62,68 +64,75 @@ offset_bottom = 634.0
 scale = Vector2(0.9, 0.9)
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_5wof8")
+script = ExtResource("1_rq2qh")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 offset_right = 670.0
 offset_bottom = 316.0
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 7
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 7
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Panel"]
 custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ScrollContainer"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/Panel2"]
 layout_mode = 1
-offset_right = 406.0
-offset_bottom = 193.0
-scale = Vector2(0.75, 0.75)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Appliance List" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Panel/ScrollContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Appliance Details" type="Panel" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(322, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Appliance Detail Container" type="GridContainer" parent="MarginContainer/HBoxContainer/Appliance Details"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/v_separation = 30
 columns = 2
 
-[node name="Truck Health" type="Label" parent="MarginContainer/HBoxContainer/Panel2/GridContainer"]
-unique_name_in_owner = true
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Truck Health: 000"
+size_flags_vertical = 3
 
-[node name="Used Capacity" type="Label" parent="MarginContainer/HBoxContainer/Panel2/GridContainer"]
-unique_name_in_owner = true
+[node name="Trash" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Used Capacity: 000
-"
+size_flags_vertical = 3
+texture_normal = ExtResource("2_m0jyd")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Driver Salary" type="Label" parent="MarginContainer/HBoxContainer/Panel2/GridContainer"]
-unique_name_in_owner = true
+[node name="Save" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Driver Salary:
-"
-
-[node name="Capacity" type="Label" parent="MarginContainer/HBoxContainer/Panel2/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Capacity:
-"
+size_flags_vertical = 3
+texture_normal = ExtResource("3_b8xg5")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 speed_scale = 1.5

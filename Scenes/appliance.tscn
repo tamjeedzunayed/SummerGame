@@ -21,7 +21,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="Appliance" type="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_6moga")
 

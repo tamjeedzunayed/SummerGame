@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddw1rndx66v5j"]
+
+[ext_resource type="Texture2D" uid="uid://cxwbu2n6mty54" path="res://Assets/shovel Appliance.png" id="1_3dhoh"]
+[ext_resource type="Script" path="res://_Scripts/ApplianceInStorageList.gd" id="1_ra8ky"]
+
+[node name="ApplianceInStorageList" type="Button"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1052.0
+offset_bottom = -598.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Appliance"
+icon = ExtResource("1_3dhoh")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_ra8ky")

@@ -1,4 +1,4 @@
-extends Control
+extends Panel
 @onready var truck_storage_button = $"Truck Storage Button"
 @onready var truck_health = %"Truck Health"
 @onready var animation_player = $AnimationPlayer

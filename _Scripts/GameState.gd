@@ -14,6 +14,9 @@ extends Node
 @onready var truck = $Truck
 @onready var truck_storage = $"TruckStorage"
 @onready var appliances = $Appliances
+const applianceScene = preload("res://Scenes/appliance.tscn")
+var ready_done = false
+@onready var appliances_storage = $AppliancesStorage
 
 var balance: 
 	set(value):
@@ -42,6 +45,7 @@ var furnitureResource = preload("res://Scenes/furniture.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	ready_done = true
 	balance = 200
 	shop.offset = Vector2(64, -546)
 	cust_spawn_rate.wait_time = CUSTSPAWNRATE
@@ -49,11 +53,14 @@ func _ready():
 	clock.start()
 	Canvas_animation_player.speed_scale = 1./DAY_TIME_LENGTH
 	Canvas_animation_player.play("Day animation")
-
+	
 	shop.supply_connections.connect("ItemsBought", itemsBought)
 	shop.supply_connections.connect("balanceChanged", changeBalance)
 	truck.connect("item_for_truck", updateTruckStorage)
+	for child in appliances.get_children():
+		appliances_storage.addAppliance(child)
 	day()
+	
 	pass # Replace with function body.
 
 func customerApplinace(item:Item, customer : CharacterBody2D):
@@ -154,4 +161,20 @@ func _on_buy_region_body_entered(body):
 		for item in heldItems:
 			totalItemPrice += item.sellPrice
 		balance += totalItemPrice
+	pass # Replace with function body.
+
+func readyToGo():
+	ready_done = true
+	print("ran")
+	
+	
+func _on_button_pressed():
+	var newAppliance = applianceScene.instantiate()
+	appliances.add_child(newAppliance)
+	pass # Replace with function body.
+
+
+func _on_appliances_child_entered_tree(node):
+	if ready_done == true:
+		appliances_storage.addAppliance(node)
 	pass # Replace with function body.
