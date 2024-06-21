@@ -18,7 +18,7 @@ var truckHealth:
 		truckHealth = value
 var DriverSalary:
 	set(value):
-		driver_salary.text = "Driver Salary: " + str(value)
+		driver_salary.text = "Driver Salary: " + str(round(value * pow(10, 5)) / pow(10, 5))
 		DriverSalary = value
 var UsedCapacity:
 	set(value):

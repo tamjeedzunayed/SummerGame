@@ -3,13 +3,12 @@ extends StaticBody2D
 const SHOVEL_APPLIANCE = preload("res://Assets/shovel Appliance.png")
 #@onready var appliance_texture = %ApplianceTexture
 #@onready var label = $Label
-@export var appliance : Appliance 
+@export var appliance : Appliance = Appliance.new("appliance", 10.0, 10, SHOVEL_APPLIANCE, "ShovelHolder")
 @onready var appliance_storage_bar = %ApplianceStorageBar
 signal capacity_changed(new_capacity) # this will be called when the appliance.capacity gets changed
 signal usedCapacity_changed(new_capacity)
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	appliance = Appliance.new("appliance", 10.0, 10, SHOVEL_APPLIANCE, "ShovelHolder")
+func _ready(): 
 	#appliance_texture.texture = appliance.icon
 	appliance.connect("capacity_changed", _on_capacity_changed)
 	appliance.connect("usedCapacity_changed", _on_usedCapacity_changed) # connects the signal "usedCapacity_changed" to the function _on_usedCapacity_changed

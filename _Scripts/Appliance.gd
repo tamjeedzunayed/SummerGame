@@ -1,9 +1,8 @@
-extends Node
+extends Button
 class_name Appliance
 
 #attributes:
 @export var price: float 
-@export var icon: CompressedTexture2D
 @export var capacity: int
 @export var usedCapacity: int = 0
 @export var type: String

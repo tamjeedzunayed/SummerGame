@@ -95,9 +95,7 @@ func setItemInfo(_toggled):
 	
 	Price: $" + str(itemButton.itemHeld.price) + "
 	Sell Value: $" + str(itemButton.itemHeld.sellPrice) +"
-	Exp: " + str(itemButton.itemHeld.expe) + "xp
-	
-	"
+	Exp: " + str(itemButton.itemHeld.expe) + "xp"
 
 func _on_add_to_cart_pressed():
 	if (ItemButtonGroup.get_pressed_button().amount != 10):

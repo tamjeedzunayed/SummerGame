@@ -38,7 +38,7 @@ var numCustomers = 0
 var rating = 5
 var endOfDayQuota = 0
 
-var DriverSalary := 10
+var DriverSalary := 10.0
 
 var customerResource = preload("res://Scenes/customer.tscn")
 var furnitureResource = preload("res://Scenes/furniture.tscn")
@@ -155,6 +155,7 @@ func changeBalance(newBalance):
 
 
 func _on_buy_region_body_entered(body):
+	
 	if body is CharacterBody2D:
 		var totalItemPrice = 0
 		var heldItems: Array[Item] = body.heldItems

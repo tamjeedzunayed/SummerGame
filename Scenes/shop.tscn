@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://_Scripts/shop.gd" id="1_tf1v1"]
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://Themes/new_theme.tres" id="2_527pq"]
 [ext_resource type="Script" path="res://_Scripts/Supply Connections.gd" id="3_8pclh"]
-[ext_resource type="PackedScene" path="res://Scenes/Seller.tscn" id="3_jd3nf"]
+[ext_resource type="PackedScene" uid="uid://bqwqs88d114v5" path="res://Scenes/Seller.tscn" id="3_jd3nf"]
 [ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="3_st4tx"]
 [ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://Assets/DiscountIcon.png" id="5_868tk"]
 [ext_resource type="Texture2D" uid="uid://dra4q88xff4ge" path="res://Assets/Construction_Guy.png" id="5_j18lq"]
@@ -296,6 +296,7 @@ theme_override_constants/separation = 25
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.72
+theme_override_constants/separation = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -345,7 +346,8 @@ size_flags_vertical = 3
 [node name="MarginContainer" type="MarginContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_top = 30
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
@@ -355,13 +357,14 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 size_flags_stretch_ratio = 2.0
-theme_override_constants/h_separation = 20
+theme_override_constants/h_separation = 13
 theme_override_constants/v_separation = 20
 columns = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList"]
 custom_minimum_size = Vector2(143, 0)
 layout_mode = 2
+alignment = 1
 
 [node name="Item Information" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer"]
 unique_name_in_owner = true
@@ -371,13 +374,16 @@ text = "Tool
 Price:
 Sell Value:
 Exp:
-
 "
 
 [node name="TotalLabel" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Total: $0"
+
+[node name="Control" type="Control" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
 
 [node name="Add to Cart" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer"]
 unique_name_in_owner = true
@@ -401,6 +407,28 @@ text = "Buy"
 
 [node name="Control" type="Control" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 0
+offset_left = 363.0
+offset_top = -357.0
+offset_right = 510.0
+offset_bottom = -199.0
+mouse_filter = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 3.2
+editor_only = false
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -357.0
+offset_right = 356.0
+offset_bottom = -12.0
+mouse_filter = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 3.0
+editor_only = false
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -491,10 +519,10 @@ theme = ExtResource("2_527pq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")
-speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_tt3mk")
 }
+speed_scale = 2.0
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1

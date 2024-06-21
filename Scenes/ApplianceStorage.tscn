@@ -1,9 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://cljxhlhn5sb75"]
+[gd_scene load_steps=14 format=3 uid="uid://cljxhlhn5sb75"]
 
 [ext_resource type="Script" path="res://_Scripts/ApplianceStorage.gd" id="1_rq2qh"]
+[ext_resource type="Texture2D" uid="uid://ed4a03s3brwk" path="res://Assets/Panels.png" id="1_vktq8"]
 [ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://Assets/DiscountIcon.png" id="2_1xvpy"]
 [ext_resource type="Texture2D" uid="uid://em281ebdmsqh" path="res://Assets/5159ccf9afc9b30b1630042cb83ec043.jpg" id="2_m0jyd"]
 [ext_resource type="Texture2D" uid="uid://ctwjh3y4cp5xn" path="res://Assets/mcol-open-box.png" id="3_b8xg5"]
+[ext_resource type="Texture2D" uid="uid://c1msr5cs37nid" path="res://Assets/side buttons.png" id="6_27x3c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qjkab"]
+texture = ExtResource("1_vktq8")
+texture_margin_left = 76.0
+texture_margin_top = 76.0
+texture_margin_right = 80.0
+texture_margin_bottom = 84.0
+region_rect = Rect2(313, 312, 1495, 1499)
 
 [sub_resource type="Animation" id="Animation_8uh80"]
 resource_name = "Panel_In"
@@ -32,7 +42,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(548, 318), Vector2(1148, 318)]
+"values": [Vector2(548, 318), Vector2(1152, 318)]
 }
 
 [sub_resource type="Animation" id="Animation_knwe0"]
@@ -47,7 +57,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1148, 318)]
+"values": [Vector2(1152, 318)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgdo0"]
@@ -57,41 +67,59 @@ _data = {
 "RESET": SubResource("Animation_knwe0")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cy313"]
+texture = ExtResource("6_27x3c")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(1127, 394, 899, 103)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oh87r"]
+texture = ExtResource("6_27x3c")
+texture_margin_left = 3.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(1122, 281, 899, 102)
+
 [node name="Appliances" type="Panel"]
-offset_left = 1148.0
+offset_left = 1152.0
 offset_top = 318.0
-offset_right = 1818.0
-offset_bottom = 634.0
-scale = Vector2(0.9, 0.9)
+offset_right = 3564.0
+offset_bottom = 1455.6
+scale = Vector2(0.25, 0.25)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_qjkab")
 script = ExtResource("1_rq2qh")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-offset_right = 670.0
-offset_bottom = 316.0
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 7
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 7
+offset_right = 2412.0
+offset_bottom = 1137.6
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 68
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 80
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(110, 0)
+custom_minimum_size = Vector2(440, 0)
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Panel"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+offset_right = 109.0
+offset_bottom = 247.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(4, 4)
 
 [node name="Appliance List" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Panel/ScrollContainer"]
 unique_name_in_owner = true
@@ -125,6 +153,7 @@ theme_override_constants/separation = 50
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
 text = "Appliance Capacity:
 Used Capacity: "
 
@@ -168,24 +197,25 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_mgdo0")
 }
+speed_scale = 1.5
 
 [node name="Appliance Storage Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0470588
 anchor_right = -0.047
-offset_left = 0.000413895
-offset_top = 316.0
-offset_right = 315.961
-offset_bottom = 348.0
+offset_left = 9.50579
+offset_top = 1136.0
+offset_right = 325.466
+offset_bottom = 1168.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5708
-text = "Appliance Storage
-"
+scale = Vector2(3.6, 3.6)
+theme_override_styles/normal = SubResource("StyleBoxTexture_cy313")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oh87r")
 
 [connection signal="pressed" from="Appliance Storage Button" to="." method="_on_truck_storage_button_pressed"]

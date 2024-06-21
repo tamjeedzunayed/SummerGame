@@ -66,7 +66,6 @@ position = Vector2(0, -0.31)
 shape = SubResource("CapsuleShape2D_7s6lh")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 6.0

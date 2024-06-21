@@ -1,5 +1,5 @@
 res://default_env.tres
-res://Scenes/ApplianceStorage.tscn
+res://Scenes/TruckStorage2.tscn
 res://_Scripts/ApplianceInStorageList.gd
 res://_Scripts/Customer.gd
 res://_Scripts/GameState.gd
@@ -8,9 +8,11 @@ res://_Scripts/Seller.gd
 res://_Scripts/shop.gd
 res://ApplianceInStorageList.gd
 res://Themes/new_theme.tres
-res://Scenes/Item_in_shop_button.tscn
-res://Scenes/TruckStorage2.tscn
+res://Scenes/ApplianceStorage.tscn
 res://Scenes/Game.tscn
-res://Scenes/customer.tscn
 res://Scenes/appliance.tscn
 res://Scenes/appliance_in_storage_list.tscn
+res://Scenes/customer.tscn
+res://Scenes/shop.tscn
+res://_Scripts/Supply Connections.gd
+res://Scenes/Seller.tscn
