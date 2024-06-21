@@ -7,6 +7,7 @@ const SHOVEL_APPLIANCE = preload("res://Assets/shovel Appliance.png")
 @onready var appliance_storage_bar = %ApplianceStorageBar
 signal capacity_changed(new_capacity) # this will be called when the appliance.capacity gets changed
 signal usedCapacity_changed(new_capacity)
+var appStorage : Dictionary
 # Called when the node enters the scene tree for the first time.
 func _ready(): 
 	#appliance_texture.texture = appliance.icon

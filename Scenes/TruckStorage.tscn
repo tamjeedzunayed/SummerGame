@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://nujcxl8y63in"]
+[gd_scene load_steps=14 format=3 uid="uid://2gsy6ed0omdq"]
 
 [ext_resource type="Script" path="res://_Scripts/TruckStorage.gd" id="1_2x54h"]
 [ext_resource type="Texture2D" uid="uid://ed4a03s3brwk" path="res://Assets/Panels.png" id="1_ip474"]
+[ext_resource type="PackedScene" uid="uid://bux2jwdwfjilg" path="res://Scenes/Item_Dragging/Item_in_truck_storage.tscn" id="3_on5uy"]
 [ext_resource type="Texture2D" uid="uid://c1msr5cs37nid" path="res://Assets/side buttons.png" id="3_yfrcr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1vqbb"]
@@ -12,6 +13,8 @@ texture_margin_right = 71.0686
 texture_margin_bottom = 81.4436
 axis_stretch_horizontal = 1
 region_rect = Rect2(312.234, 311.533, 1492.42, 1494.21)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_t4pw3"]
 
 [sub_resource type="Animation" id="Animation_8uh80"]
 resource_name = "Panel_In"
@@ -186,7 +189,7 @@ offset_bottom = 484.0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 50
 text = "Item Name: ###
 Sale Price: 000
@@ -200,6 +203,20 @@ custom_minimum_size = Vector2(0, 135)
 layout_mode = 2
 size_flags_horizontal = 3
 stretch_mode = 2
+
+[node name="Drag Amount" type="LineEdit" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -117.0
+offset_right = 528.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Insert Drag Amount Here"
 
 [node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -233,11 +250,15 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 columns = 4
 
+[node name="Button" parent="MarginContainer/HBoxContainer/Panel2/ScrollContainer/MarginContainer/TruckItemList" instance=ExtResource("3_on5uy")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_t4pw3")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_mgdo0")
 }
-speed_scale = 1.5
 
 [node name="Truck Storage Button" type="Button" parent="."]
 layout_mode = 1
@@ -257,4 +278,5 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ah35w")
 theme_override_styles/hover = SubResource("StyleBoxTexture_v1k7y")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_uo4or")
 
+[connection signal="text_submitted" from="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2/Drag Amount" to="." method="_on_drag_amount_text_submitted"]
 [connection signal="pressed" from="Truck Storage Button" to="." method="_on_truck_storage_button_pressed"]

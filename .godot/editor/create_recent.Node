@@ -1,3 +1,6 @@
+LineEdit
+Label
+TextureRect
 ReferenceRect
 Control
 Container
@@ -5,8 +8,6 @@ MarginContainer
 HBoxContainer
 VBoxContainer
 TextureButton
-TextureRect
-Label
 Button
 Panel
 ScrollContainer

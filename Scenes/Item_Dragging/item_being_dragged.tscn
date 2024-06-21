@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyub37afhsw71"]
+
+[ext_resource type="Texture2D" uid="uid://dhjhlaagihgka" path="res://Assets/Shovel.png" id="1_a2ipk"]
+[ext_resource type="Script" path="res://_Scripts/item_being_dragged.gd" id="2_w0plc"]
+
+[node name="TextureRect" type="TextureRect"]
+top_level = true
+z_index = 10
+anchors_preset = -1
+anchor_right = 0.046
+anchor_bottom = 0.046
+offset_right = 3.008
+offset_bottom = 31.192
+texture = ExtResource("1_a2ipk")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_w0plc")
+
+[node name="numItems" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_bottom = 26.0
+grow_horizontal = 0
+text = "0"
+vertical_alignment = 2

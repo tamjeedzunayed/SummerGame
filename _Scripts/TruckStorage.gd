@@ -9,8 +9,10 @@ var truck_storage_in_display = false
 @onready var used_capacity = %"Used Capacity"
 @onready var item_displayed = %ItemInfo
 @onready var item_picture = %ItemPicture
+@onready var drag_amount = %"Drag Amount"
 
 var ItemButtonGroup = ButtonGroup.new()
+
 
 var truckHealth: 
 	set(value): 
@@ -29,7 +31,7 @@ var Capacity:
 		capacity.text = "Capacity: " + str(value)
 		Capacity = value
 		
-const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
+const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_Dragging/Item_in_truck_storage.tscn")
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -71,3 +73,19 @@ func setItemInfo(_toggled):
 	item_picture.texture = itemToggled.icon
 	pass
 	
+
+
+func _on_drag_amount_text_submitted(new_text):
+	if (OnlyNumbers(new_text)):
+		drag_amount.text = new_text
+		var dragAmount : int = int(new_text)
+		ItemButtonGroup.get_pressed_button().dragItemAmount = dragAmount 
+		print(new_text)
+#		for item in truck_item_list.get_children(): # items should be of type item_in_truck_storage
+#			item.dragItemAmount = dragAmount
+	pass # Replace with function body.
+	
+func OnlyNumbers(new_text):
+	if typeof(new_text) == TYPE_INT:
+		return true 
+	return false
