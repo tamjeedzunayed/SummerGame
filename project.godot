@@ -41,6 +41,7 @@ RMB={
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="Customers"
+2d_physics/layer_12="Items_Being_Dragged"
 
 [navigation]
 

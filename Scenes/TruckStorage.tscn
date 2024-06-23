@@ -14,7 +14,7 @@ texture_margin_bottom = 81.4436
 axis_stretch_horizontal = 1
 region_rect = Rect2(312.234, 311.533, 1492.42, 1494.21)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_t4pw3"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_1kxi3"]
 
 [sub_resource type="Animation" id="Animation_8uh80"]
 resource_name = "Panel_In"
@@ -204,19 +204,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 stretch_mode = 2
 
-[node name="Drag Amount" type="LineEdit" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2"]
+[node name="Drag Amount" type="SpinBox" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 12.0
-offset_top = -117.0
-offset_right = 528.0
-offset_bottom = -10.0
+offset_top = -137.0
+offset_right = 95.0625
+offset_bottom = -106.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 50
-placeholder_text = "Insert Drag Amount Here"
+scale = Vector2(4, 4)
 
 [node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -252,7 +251,7 @@ columns = 4
 
 [node name="Button" parent="MarginContainer/HBoxContainer/Panel2/ScrollContainer/MarginContainer/TruckItemList" instance=ExtResource("3_on5uy")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_t4pw3")
+button_group = SubResource("ButtonGroup_1kxi3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 speed_scale = 1.5
@@ -278,5 +277,5 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ah35w")
 theme_override_styles/hover = SubResource("StyleBoxTexture_v1k7y")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_uo4or")
 
-[connection signal="text_submitted" from="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2/Drag Amount" to="." method="_on_drag_amount_text_submitted"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2/Drag Amount" to="." method="_on_drag_amount_value_changed"]
 [connection signal="pressed" from="Truck Storage Button" to="." method="_on_truck_storage_button_pressed"]

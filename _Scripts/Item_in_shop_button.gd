@@ -8,22 +8,25 @@ extends Button
 var limit : int
 const DRAGGINGITEM = preload("res://Scenes/Item_Dragging/item_being_dragged.tscn")
 var of = Vector2(0,0)
-var draggingItem : TextureRect = null
+var draggingItem : CharacterBody2D = null
 var dragItemAmount = 0
 var dragging = false :
 	set(value):
 		if value && amount >= dragItemAmount:
 			dragging = value
 			draggingItem = DRAGGINGITEM.instantiate()
+			draggingItem.TruckStorageParent = self
 			draggingItem.position = position
 			draggingItem.itemHeld = itemHeld
-			draggingItem.num_items = dragItemAmount
 			add_child(draggingItem)
+			draggingItem.numItems = dragItemAmount
+			amount = amount - dragItemAmount
 		elif draggingItem:
 			remove_child(draggingItem)
 			draggingItem = null
+			amount = amount + dragItemAmount
 			
-var amount := 0 :
+var amount := 10 :
 	set(value):
 		amount = value
 		label.text = str(amount)
@@ -49,5 +52,9 @@ func _on_button_up():
 	dragging = false
 	pass # Replace with function body.
 
+func trashItem():
+	dragging = false
+	amount = amount - dragItemAmount
 
-	
+func storeItem():
+	pass

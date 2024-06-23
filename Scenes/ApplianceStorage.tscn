@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://cljxhlhn5sb75"]
+[gd_scene load_steps=18 format=3 uid="uid://cljxhlhn5sb75"]
 
 [ext_resource type="Script" path="res://_Scripts/ApplianceStorage.gd" id="1_rq2qh"]
 [ext_resource type="Texture2D" uid="uid://ed4a03s3brwk" path="res://Assets/Panels.png" id="1_vktq8"]
 [ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://Assets/DiscountIcon.png" id="2_1xvpy"]
 [ext_resource type="Texture2D" uid="uid://em281ebdmsqh" path="res://Assets/5159ccf9afc9b30b1630042cb83ec043.jpg" id="2_m0jyd"]
 [ext_resource type="Texture2D" uid="uid://ctwjh3y4cp5xn" path="res://Assets/mcol-open-box.png" id="3_b8xg5"]
+[ext_resource type="Script" path="res://Scenes/TrashArea2d.gd" id="5_k7xub"]
 [ext_resource type="Texture2D" uid="uid://c1msr5cs37nid" path="res://Assets/side buttons.png" id="6_27x3c"]
+[ext_resource type="Script" path="res://Scenes/Collect Region.gd" id="7_o68uh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qjkab"]
 texture = ExtResource("1_vktq8")
@@ -14,6 +16,12 @@ texture_margin_top = 76.0
 texture_margin_right = 80.0
 texture_margin_bottom = 84.0
 region_rect = Rect2(313, 312, 1495, 1499)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fi7ec"]
+size = Vector2(260, 274)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux76o"]
+size = Vector2(329, 254)
 
 [sub_resource type="Animation" id="Animation_8uh80"]
 resource_name = "Panel_In"
@@ -189,12 +197,30 @@ texture_normal = ExtResource("2_m0jyd")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="Area2D" type="Area2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/Trash"]
+position = Vector2(456, 308)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("5_k7xub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/Trash/Area2D"]
+shape = SubResource("RectangleShape2D_fi7ec")
+
 [node name="Save" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("3_b8xg5")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="Collect Region" type="Area2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/Save"]
+position = Vector2(472, 236)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("7_o68uh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/Save/Collect Region"]
+shape = SubResource("RectangleShape2D_ux76o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 speed_scale = 1.5
@@ -218,4 +244,6 @@ scale = Vector2(3.6, 3.6)
 theme_override_styles/normal = SubResource("StyleBoxTexture_cy313")
 theme_override_styles/hover = SubResource("StyleBoxTexture_oh87r")
 
+[connection signal="body_entered" from="MarginContainer/HBoxContainer/VBoxContainer2/Trash/Area2D" to="MarginContainer/HBoxContainer/VBoxContainer2/Trash/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="MarginContainer/HBoxContainer/VBoxContainer2/Save/Collect Region" to="MarginContainer/HBoxContainer/VBoxContainer2/Save/Collect Region" method="_on_body_entered"]
 [connection signal="pressed" from="Appliance Storage Button" to="." method="_on_truck_storage_button_pressed"]

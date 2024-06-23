@@ -39,3 +39,9 @@ func set_capacity(new_capacity):
 func set_usedCapacity(new_capacity):
 	usedCapacity = new_capacity
 	emit_signal("usedCapacity_changed", usedCapacity)
+	
+func addItem(item:Item, numItem):
+	if (storage.has(item)):
+		storage[item] = storage[item] + numItem
+	else:
+		storage[item] = numItem
