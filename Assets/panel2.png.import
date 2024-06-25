@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpaj0ria7avkj"
-path="res://.godot/imported/Shovel.png-9d1391a069fa4e40961a19f08ac4eec8.ctex"
+uid="uid://ckxt81u7yc8ls"
+path="res://.godot/imported/panel2.png-5b1c43800708777fe878df95364689ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Shovel.png"
-dest_files=["res://.godot/imported/Shovel.png-9d1391a069fa4e40961a19f08ac4eec8.ctex"]
+source_file="res://Assets/panel2.png"
+dest_files=["res://.godot/imported/panel2.png-5b1c43800708777fe878df95364689ea.ctex"]
 
 [params]
 

@@ -12,6 +12,7 @@ offset_right = -1052.0
 offset_bottom = -598.0
 grow_horizontal = 2
 grow_vertical = 2
+toggle_mode = true
 text = "Appliance"
 icon = ExtResource("1_3dhoh")
 icon_alignment = 1

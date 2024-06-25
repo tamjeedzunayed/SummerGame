@@ -1,5 +1,5 @@
 res://default_env.tres
-res://Scenes/Item_Dragging/item_being_dragged.tscn
+res://Scenes/Item_Dragging/Item_in_truck_storage.tscn
 res://_Scripts/ApplianceInStorageList.gd
 res://_Scripts/Customer.gd
 res://_Scripts/GameState.gd
@@ -8,13 +8,19 @@ res://_Scripts/Seller.gd
 res://_Scripts/shop.gd
 res://ApplianceInStorageList.gd
 res://Themes/new_theme.tres
-res://Scenes/Item_Dragging/Item_in_truck_storage.tscn
+res://Scenes/Item_Dragging/item_being_dragged.tscn
 res://Scenes/Game.tscn
 res://Scenes/TruckStorage.tscn
 res://Scenes/ApplianceStorage.tscn
 res://Scenes/appliance_in_storage_list.tscn
 res://Scenes/appliance.tscn
+res://_Scripts/ApplianceStorage.gd
 res://Scenes/Collect Region.gd
+res://Scenes/TrashArea2d.gd
+res://Scenes/shop.tscn
+res://Scenes/customer.tscn
 res://_Scripts/Appliance.gd
-res://_Scripts/item_being_dragged.gd
+res://_Scripts/TruckStorage.gd
 res://_Scripts/Item_in_shop_button.gd
+res://_Scripts/Supply Connections.gd
+res://_Scripts/item_being_dragged.gd

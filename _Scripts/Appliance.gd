@@ -9,6 +9,7 @@ class_name Appliance
 @export var storage : Dictionary = {Item.new("Shovel", 10.0, 10.0, 10.0, null, "ShovelHolder"): 1}
 signal capacity_changed(new_capacity)
 signal usedCapacity_changed(new_capacity)
+signal update
 
 func _init (appliance_name: String, priceC: float, storage_capacity: int, iconC: CompressedTexture2D,  appliance_type: String):
 	name = appliance_name
@@ -27,9 +28,11 @@ func retrieveItem(item:Item) -> Item:
 	for storageItem in storage:
 		if storageItem.name == item.name:
 			storage[storageItem] -= 1
+			usedCapacity -= 1
 			if storage[storageItem] == 0:
 				storage.erase(storageItem)
-			print(storage)
+			update.emit()
+			print(item.name, " retrieved")
 			return storageItem
 	return null
 
@@ -45,3 +48,5 @@ func addItem(item:Item, numItem):
 		storage[item] = storage[item] + numItem
 	else:
 		storage[item] = numItem
+	usedCapacity += numItem
+	update.emit()

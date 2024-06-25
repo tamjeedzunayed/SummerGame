@@ -73,7 +73,6 @@ func setSellerInfo():
 		newButton.itemHeld = item 
 		newButton.button_group = ItemButtonGroup
 		item_container.add_child(newButton)
-		newButton.limit = 10
 		newButton.amount = 0
 		newButton.connect("toggled", setItemInfo)
 	

@@ -1,8 +1,11 @@
 extends CharacterBody2D
-
+@onready var collision_shape_2d = $CollisionShape2D
 @onready var item_image = $ItemImage
+@onready var animation_player = $AnimationPlayer
 @onready var num_items = $numItems
 var TruckStorageParent
+var appliancePlacedInto
+var trashed := false
 var numItems: 
 	set(value):
 		numItems = value

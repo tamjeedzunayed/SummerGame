@@ -1,33 +1,89 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyub37afhsw71"]
+[gd_scene load_steps=7 format=3 uid="uid://cyub37afhsw71"]
 
 [ext_resource type="Texture2D" uid="uid://dhjhlaagihgka" path="res://Assets/Shovel.png" id="1_a2ipk"]
 [ext_resource type="Script" path="res://_Scripts/item_being_dragged.gd" id="2_w0plc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ik0nl"]
-size = Vector2(1696, 1884.3)
+size = Vector2(67, 72)
+
+[sub_resource type="Animation" id="Animation_o3b3p"]
+resource_name = "Place"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.155986, 0.5),
+"transitions": PackedFloat32Array(0.466517, 1.68179, 1),
+"update": 0,
+"values": [Vector2(0.87, 0.87), Vector2(1, 1), Vector2(0.265, 0.265)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gpdhy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.87, 0.87)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4jgl2"]
+_data = {
+"Place": SubResource("Animation_o3b3p"),
+"RESET": SubResource("Animation_gpdhy")
+}
 
 [node name="ItemBeingDragged" type="CharacterBody2D"]
 top_level = true
 z_index = 10
 position = Vector2(-3.8147e-06, 0)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.87, 0.87)
 collision_layer = 2048
 collision_mask = 2048
 script = ExtResource("2_w0plc")
 
 [node name="ItemImage" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_a2ipk")
 
 [node name="numItems" type="Label" parent="."]
-offset_left = 120.0
-offset_top = -350.0
-offset_right = 400.0
-offset_bottom = -70.0
-theme_override_font_sizes/font_size = 100
+offset_left = 17.0
+offset_top = -41.0
+offset_right = 74.0
+offset_bottom = -6.0
+theme_override_font_sizes/font_size = 25
 text = "0"
 vertical_alignment = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.05176e-05, 0)
-scale = Vector2(0.25, 0.25)
+process_priority = 2
 shape = SubResource("RectangleShape2D_ik0nl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4jgl2")
+}

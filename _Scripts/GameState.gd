@@ -30,7 +30,7 @@ var incRate : float = 1.05
 const CUSTSPAWNRATE = 5
 const CUSINCRATE = 1
 const QUOTINCRATE = 100
-@export var DAY_TIME_LENGTH : float = 10.
+@export var DAY_TIME_LENGTH : float = 20.
 @export var NIGHT_TIME_LENGTH : float = 10.
 
 var isDay:bool = true
@@ -64,14 +64,10 @@ func _ready():
 	pass # Replace with function body.
 
 func customerApplinace(item:Item, customer : CharacterBody2D):
-	print("Siganl recieved")
 	for applianceNode in appliances.get_children():
-		print(applianceNode.appliance.storage)
 		if applianceNode.appliance.hasItem(item):
-			print("has Item")
 			customer.getItemFromAppliance(applianceNode)
 			return
-	print("does not have item")
 	customer.goThroughShopingList()
 
 

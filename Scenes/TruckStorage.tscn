@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://2gsy6ed0omdq"]
+[gd_scene load_steps=16 format=3 uid="uid://2gsy6ed0omdq"]
 
 [ext_resource type="Script" path="res://_Scripts/TruckStorage.gd" id="1_2x54h"]
 [ext_resource type="Texture2D" uid="uid://ed4a03s3brwk" path="res://Assets/Panels.png" id="1_ip474"]
+[ext_resource type="Texture2D" uid="uid://ckxt81u7yc8ls" path="res://Assets/panel2.png" id="3_5vdpb"]
 [ext_resource type="PackedScene" uid="uid://bux2jwdwfjilg" path="res://Scenes/Item_Dragging/Item_in_truck_storage.tscn" id="3_on5uy"]
 [ext_resource type="Texture2D" uid="uid://c1msr5cs37nid" path="res://Assets/side buttons.png" id="3_yfrcr"]
 
@@ -13,6 +14,14 @@ texture_margin_right = 71.0686
 texture_margin_bottom = 81.4436
 axis_stretch_horizontal = 1
 region_rect = Rect2(312.234, 311.533, 1492.42, 1494.21)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d668s"]
+texture = ExtResource("3_5vdpb")
+texture_margin_left = 82.0
+texture_margin_top = 82.0
+texture_margin_right = 82.0
+texture_margin_bottom = 84.0
+region_rect = Rect2(1045, 295, 811, 812)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_1kxi3"]
 
@@ -216,31 +225,37 @@ offset_right = 95.0625
 offset_bottom = -106.0
 grow_vertical = 0
 scale = Vector2(4, 4)
+tooltip_text = "give me head bb girl"
+min_value = 1.0
+value = 1.0
 
 [node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_d668s")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Panel2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -620.0
-offset_bottom = -645.0
+offset_left = 4.0
+offset_top = 13.0
+offset_right = -592.0
+offset_bottom = -632.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.8, 2.8)
+scale = Vector2(2.7, 2.7)
 horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel2/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="TruckItemList" type="GridContainer" parent="MarginContainer/HBoxContainer/Panel2/ScrollContainer/MarginContainer"]
 unique_name_in_owner = true
@@ -254,10 +269,10 @@ layout_mode = 2
 button_group = SubResource("ButtonGroup_1kxi3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_mgdo0")
 }
+speed_scale = 1.5
 
 [node name="Truck Storage Button" type="Button" parent="."]
 layout_mode = 1

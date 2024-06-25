@@ -1,13 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://cljxhlhn5sb75"]
+[gd_scene load_steps=31 format=3 uid="uid://cljxhlhn5sb75"]
 
 [ext_resource type="Script" path="res://_Scripts/ApplianceStorage.gd" id="1_rq2qh"]
 [ext_resource type="Texture2D" uid="uid://ed4a03s3brwk" path="res://Assets/Panels.png" id="1_vktq8"]
 [ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://Assets/DiscountIcon.png" id="2_1xvpy"]
 [ext_resource type="Texture2D" uid="uid://em281ebdmsqh" path="res://Assets/5159ccf9afc9b30b1630042cb83ec043.jpg" id="2_m0jyd"]
 [ext_resource type="Texture2D" uid="uid://ctwjh3y4cp5xn" path="res://Assets/mcol-open-box.png" id="3_b8xg5"]
-[ext_resource type="Script" path="res://Scenes/TrashArea2d.gd" id="5_k7xub"]
+[ext_resource type="Texture2D" uid="uid://ckxt81u7yc8ls" path="res://Assets/panel2.png" id="4_uptod"]
+[ext_resource type="PackedScene" uid="uid://bux2jwdwfjilg" path="res://Scenes/Item_Dragging/Item_in_truck_storage.tscn" id="5_awt82"]
 [ext_resource type="Texture2D" uid="uid://c1msr5cs37nid" path="res://Assets/side buttons.png" id="6_27x3c"]
-[ext_resource type="Script" path="res://Scenes/Collect Region.gd" id="7_o68uh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qjkab"]
 texture = ExtResource("1_vktq8")
@@ -17,11 +17,43 @@ texture_margin_right = 80.0
 texture_margin_bottom = 84.0
 region_rect = Rect2(313, 312, 1495, 1499)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7tya8"]
+texture = ExtResource("4_uptod")
+texture_margin_left = 80.0
+texture_margin_top = 81.0
+texture_margin_right = 83.0
+texture_margin_bottom = 84.0
+region_rect = Rect2(1046, 296, 811, 811)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ljdku"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_tgbae"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_e5ge0"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_lxrp0"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_bb3we"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_5t1mm"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_otaub"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_5qhk0"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_krnqa"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ng4ic"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_j1kfj"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_wkl1c"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fi7ec"]
-size = Vector2(260, 274)
+size = Vector2(172, 208)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ux76o"]
-size = Vector2(329, 254)
+size = Vector2(156, 175)
 
 [sub_resource type="Animation" id="Animation_8uh80"]
 resource_name = "Panel_In"
@@ -108,7 +140,7 @@ offset_right = 2412.0
 offset_bottom = 1137.6
 theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 68
-theme_override_constants/margin_right = 40
+theme_override_constants/margin_right = 62
 theme_override_constants/margin_bottom = 80
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
@@ -157,23 +189,43 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer/Appliance Detail Container"]
+[node name="CapacityLabel" type="Label" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer/Appliance Detail Container"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 text = "Appliance Capacity:
-Used Capacity: "
+"
+
+[node name="UsedCapacityLabel" type="Label" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer/Appliance Detail Container"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Used Capacity: "
+
+[node name="TypeLabel" type="Label" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer/Appliance Detail Container"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Appliance Type: "
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer/Appliance Detail Container"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 3.32
 theme_override_constants/separation = 50
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer/Appliance Detail Container/HBoxContainer"]
+[node name="ApplianceIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer/Appliance Detail Container/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+expand_mode = 4
 
 [node name="TextureButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer/Appliance Detail Container/HBoxContainer"]
 layout_mode = 2
@@ -184,49 +236,157 @@ texture_normal = ExtResource("2_1xvpy")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="DragAmount" type="SpinBox" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer/Appliance Detail Container"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Trash" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Panel" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Items in Appliance:"
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_7tya8")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = 55.0
+offset_right = -508.0
+offset_bottom = -358.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.4, 2.4)
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ItemsInAppliance" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+columns = 4
+
+[node name="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_ljdku")
+
+[node name="Button2" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_tgbae")
+
+[node name="Button3" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_e5ge0")
+
+[node name="Button4" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_lxrp0")
+
+[node name="Button5" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_bb3we")
+
+[node name="Button6" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_5t1mm")
+
+[node name="Button9" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_otaub")
+
+[node name="Button10" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_5qhk0")
+
+[node name="Button11" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_krnqa")
+
+[node name="Button12" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_ng4ic")
+
+[node name="Button7" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_j1kfj")
+
+[node name="Button8" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_wkl1c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Trash" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource("2_m0jyd")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Area2D" type="Area2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/Trash"]
+[node name="Area2D" type="Area2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash"]
 position = Vector2(456, 308)
 collision_layer = 2048
 collision_mask = 2048
-script = ExtResource("5_k7xub")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/Trash/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D"]
+position = Vector2(-239, -159)
 shape = SubResource("RectangleShape2D_fi7ec")
 
-[node name="Save" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Save" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource("3_b8xg5")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Collect Region" type="Area2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/Save"]
+[node name="Collect Region" type="Area2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Save"]
 position = Vector2(472, 236)
 collision_layer = 2048
 collision_mask = 2048
-script = ExtResource("7_o68uh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/Save/Collect Region"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Save/Collect Region"]
+position = Vector2(-243, -107)
 shape = SubResource("RectangleShape2D_ux76o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_mgdo0")
 }
+speed_scale = 1.5
 
 [node name="Appliance Storage Button" type="Button" parent="."]
 layout_mode = 1
@@ -243,7 +403,11 @@ rotation = -1.5708
 scale = Vector2(3.6, 3.6)
 theme_override_styles/normal = SubResource("StyleBoxTexture_cy313")
 theme_override_styles/hover = SubResource("StyleBoxTexture_oh87r")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_oh87r")
 
-[connection signal="body_entered" from="MarginContainer/HBoxContainer/VBoxContainer2/Trash/Area2D" to="MarginContainer/HBoxContainer/VBoxContainer2/Trash/Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="MarginContainer/HBoxContainer/VBoxContainer2/Save/Collect Region" to="MarginContainer/HBoxContainer/VBoxContainer2/Save/Collect Region" method="_on_body_entered"]
+[connection signal="body_entered" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D" to="." method="_on_trash_body_entered"]
+[connection signal="body_entered" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D" to="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D" to="." method="_on_trash_body_exited"]
+[connection signal="body_entered" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Save/Collect Region" to="." method="_on_collect_region_body_entered"]
+[connection signal="body_exited" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Save/Collect Region" to="." method="_on_collect_region_body_exited"]
 [connection signal="pressed" from="Appliance Storage Button" to="." method="_on_truck_storage_button_pressed"]

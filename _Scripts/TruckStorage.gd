@@ -50,7 +50,6 @@ func setItems(storage):
 		newButton.itemHeld = item 
 		newButton.dragItemAmount = drag_amount.value 
 		truck_item_list.add_child(newButton)
-		newButton.limit = -1
 		newButton.amount = storage[item]
 		newButton.button_group = ItemButtonGroup
 		newButton.connect("toggled", setItemInfo)
@@ -73,13 +72,10 @@ func setItemInfo(_toggled):
 	 Appliance Type: " + itemToggled.applianceType 
 	item_picture.texture = itemToggled.icon
 	pass
-	
-
 
 func _on_drag_amount_value_changed(value):
 	drag_amount.value = value
 	var dragAmount = value
 	for iteminlist in truck_item_list.get_children():
 		iteminlist.dragItemAmount = dragAmount 
-	print(value)
 	pass # Replace with function body.

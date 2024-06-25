@@ -69,6 +69,8 @@ func _on_navigation_agent_2d_navigation_finished():
 			var checkBox : CheckBox = shopping_list.get_child(checkBoxIndex)
 			checkBox.button_pressed = true
 			checkBoxIndex += 1
+		currentApplianceTarget = null
+		currentItemTarget = null
 		goThroughShopingList()
 	pass # Replace with function body.
 
