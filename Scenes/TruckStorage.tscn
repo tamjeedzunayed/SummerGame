@@ -23,7 +23,7 @@ texture_margin_right = 82.0
 texture_margin_bottom = 84.0
 region_rect = Rect2(1045, 295, 811, 812)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_1kxi3"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_hyagu"]
 
 [sub_resource type="Animation" id="Animation_8uh80"]
 resource_name = "Panel_In"
@@ -266,13 +266,13 @@ columns = 4
 
 [node name="Button" parent="MarginContainer/HBoxContainer/Panel2/ScrollContainer/MarginContainer/TruckItemList" instance=ExtResource("3_on5uy")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_1kxi3")
+button_group = SubResource("ButtonGroup_hyagu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_mgdo0")
 }
-speed_scale = 1.5
 
 [node name="Truck Storage Button" type="Button" parent="."]
 layout_mode = 1

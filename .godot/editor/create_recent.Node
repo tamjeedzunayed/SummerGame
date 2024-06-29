@@ -1,12 +1,13 @@
+TextureRect
+HBoxContainer
+Control
 AnimationPlayer
 SpinBox
 ScrollContainer
 Panel
-Control
 Container
 Label
 VBoxContainer
-HBoxContainer
 CharacterBody2D
 Area2D
 Node2D
