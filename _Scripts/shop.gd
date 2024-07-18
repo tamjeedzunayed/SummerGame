@@ -5,6 +5,10 @@ extends CanvasLayer
 @export var itsDay = false
 @export var inView = false
 @onready var supply_connections = $"Panel/TabContainer/Supply Connections"
+@onready var appliances = $Panel/TabContainer/Appliances
+
+var balance : float
+
 var storageCapacity :
 	get:
 		return supply_connections.storageCapacity
@@ -13,14 +17,16 @@ var storageCapacityUsed :
 	get: 
 		return supply_connections.storageCapacityUsed
 
-signal ItemsBought(items)
-
-
 func _ready():
 	supply_connections.connect("StorageFull", storageFull)
+	
+
+func buyAppliance(appliance):
+	
+	pass
 
 func day():
-	button.disabled = true
+	#button.disabled = true
 	if (inView):
 		animation_player.play("TransOut")
 		inView = false

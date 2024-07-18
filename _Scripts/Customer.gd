@@ -41,7 +41,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _input(_event):
-	if Input.is_action_just_pressed("RMB"):
+	if Input.is_action_just_pressed("RMB") && false:
 		navigation_agent.target_position = get_global_mouse_position()
 		
 func goThroughShopingList():

@@ -1,12 +1,13 @@
-extends Button
+extends Node
 class_name Appliance
 
 #attributes:
-@export var price: float 
+@export var price: float
 @export var capacity: int
 @export var usedCapacity: int = 0
 @export var type: String
-@export var storage : Dictionary = {Item.new("Shovel", 10.0, 10.0, 10.0, null, "ShovelHolder"): 1}
+@export var storage : Dictionary = {}
+var icon
 signal capacity_changed(new_capacity)
 signal usedCapacity_changed(new_capacity)
 signal update

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqssjk7aw1bph"]
+
+[ext_resource type="Texture2D" uid="uid://cxwbu2n6mty54" path="res://Assets/shovel Appliance.png" id="1_7w4np"]
+[ext_resource type="Script" path="res://applianceToPlace.gd" id="2_d7xhf"]
+
+[node name="ApplianceToPlace" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.631373)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_7w4np")
+script = ExtResource("2_d7xhf")

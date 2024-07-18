@@ -27,6 +27,9 @@ var dragging = false :
 				draggingItem.appliancePlacedInto.usedCapacity + draggingItem.numItems <= draggingItem.appliancePlacedInto.capacity):
 					draggingItem.appliancePlacedInto.addItem(draggingItem.itemHeld, draggingItem.numItems)
 					draggingItem.TruckStorageParent.trashItem()
+					print("placed")
+				else:
+					remove_child(draggingItem)
 			elif draggingItem.trashed == true:
 				draggingItem.TruckStorageParent.trashItem()
 			else:
@@ -61,6 +64,8 @@ func _on_button_up():
 func trashItem():
 	amount = amount - dragItemAmount
 	draggingItem.animation_player.play("Place")
+	if amount == 0:
+		queue_free()
 	
 
 func storeItem():

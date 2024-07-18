@@ -50,8 +50,8 @@ func _ready():
 	SellerButtonGroup = seller_list.get_child(0).button_group
 	seller_list.get_child(0).button_pressed = true
 	
-	var shovel = Item.new("Shovel", 5,7,7, preload("res://Assets/Shovel.png"), "ShovelHolder")
-	var drill = Item.new("Drill", 10,12,10, preload("res://Assets/Drill.png"), "ShovelHolder")
+	var shovel = Item.new("Shovel", 5,7,7, preload("res://Assets/Shovel.png"), "Shelf")
+	var drill = Item.new("Drill", 10,12,10, preload("res://Assets/Drill.png"), "Shelf")
 	currentSeller.items.append(shovel)
 	currentSeller.items.append(drill)
 	

@@ -46,13 +46,13 @@ func add_item(item: Item, amount: int):
 		storage[item] =  amount
 
 func day():
-	if onSupplyRun:
-		supplyRunDuration -= 1
 	if !cart.is_empty():
 		supplyRun()
 	pass
 
 func night():
+	if onSupplyRun:
+		supplyRunDuration -= 1
 	if supplyRunDuration == 0 && onSupplyRun:
 		animation_player.play("Drive_Truck_in")
 		add_items_to_Truck_Storage()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://kmaggbxlo5iv"]
+[gd_scene load_steps=23 format=3 uid="uid://kmaggbxlo5iv"]
 
 [ext_resource type="Script" path="res://_Scripts/shop.gd" id="1_tf1v1"]
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://Themes/new_theme.tres" id="2_527pq"]
@@ -7,7 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="3_st4tx"]
 [ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://Assets/DiscountIcon.png" id="5_868tk"]
 [ext_resource type="Texture2D" uid="uid://dra4q88xff4ge" path="res://Assets/Construction_Guy.png" id="5_j18lq"]
+[ext_resource type="Script" path="res://_Scripts/AppliancesShop.gd" id="8_k3ymg"]
 [ext_resource type="Texture2D" uid="uid://tkqfomqgamvs" path="res://Assets/Shop button.png" id="8_ltib6"]
+[ext_resource type="PackedScene" uid="uid://db786bhjv86sy" path="res://Scenes/ApplianceInShop.tscn" id="9_naofi"]
+[ext_resource type="Texture2D" uid="uid://ed4a03s3brwk" path="res://Assets/Panels.png" id="10_vww7q"]
+[ext_resource type="Texture2D" uid="uid://cxwbu2n6mty54" path="res://Assets/shovel Appliance.png" id="11_pn8ud"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8if7"]
 bg_color = Color(0.419608, 0.556863, 0.682353, 1)
@@ -56,6 +60,10 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mv8el"]
+texture = ExtResource("10_vww7q")
+region_rect = Rect2(315, 316, 1488, 1488)
 
 [sub_resource type="Animation" id="Animation_ggbdo"]
 length = 0.001
@@ -197,9 +205,11 @@ offset_right = 1024.0
 offset_bottom = 544.0
 theme = ExtResource("2_527pq")
 tab_alignment = 1
+current_tab = 1
 drag_to_rearrange_enabled = true
 
 [node name="Supply Connections" type="Panel" parent="Panel/TabContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_527pq")
 script = ExtResource("3_8pclh")
@@ -509,18 +519,197 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_b32sj")
 text = "Unlock New Item"
 
-[node name="Appliances" type="VFlowContainer" parent="Panel/TabContainer"]
-visible = false
+[node name="Appliances" type="Panel" parent="Panel/TabContainer"]
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 theme = ExtResource("2_527pq")
+script = ExtResource("8_k3ymg")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/TabContainer/Appliances"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Appliances/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ApplianceTypeList" type="VBoxContainer" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 18
+text = "Base Shelves
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+layout_mode = 2
+
+[node name="Button3" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+layout_mode = 2
+
+[node name="Button4" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 18
+text = "Refrigerators
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+layout_mode = 2
+
+[node name="Button3" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+layout_mode = 2
+
+[node name="Button4" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 18
+text = "Water/Oxygen Tanks"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+layout_mode = 2
+
+[node name="Button3" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+layout_mode = 2
+
+[node name="Button4" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 18
+text = "Gun Cases"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+layout_mode = 2
+
+[node name="Button3" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+layout_mode = 2
+
+[node name="Button4" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_mv8el")
+
+[node name="AppliancePic" type="TextureRect" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 252.0
+offset_top = 23.0
+offset_right = 467.0
+offset_bottom = 228.0
+texture = ExtResource("11_pn8ud")
+
+[node name="ApplianceNameLabel" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 25.0
+offset_top = 24.0
+offset_right = 72.0
+offset_bottom = 47.0
+text = "NAME"
+
+[node name="CapacityLabel" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 22.0
+offset_top = 57.0
+offset_right = 137.0
+offset_bottom = 80.0
+text = "Initial Capacity: ###"
+
+[node name="PriceLabel" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 22.0
+offset_top = 80.0
+offset_right = 137.0
+offset_bottom = 103.0
+text = "Price: $$$"
+
+[node name="ItemsCapable" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 23.0
+offset_top = 110.0
+offset_right = 156.0
+offset_bottom = 341.0
+text = "Items it can hold:
+- 
+-
+-
+-
+-
+-
+-
+-
+"
+
+[node name="BuyButton" type="Button" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 307.0
+offset_top = 389.0
+offset_right = 463.0
+offset_bottom = 449.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_j6x21")
+text = "BUY"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")
-speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_tt3mk")
 }
+speed_scale = 2.0
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1
@@ -559,4 +748,5 @@ text = "Storage is Full !"
 [connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer/Remove from Cart" to="Panel/TabContainer/Supply Connections" method="_on_remove_from_cart_pressed"]
 [connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer/Buy" to="Panel/TabContainer/Supply Connections" method="_on_buy_pressed"]
 [connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Discount Upgrade/Discount Button" to="Panel/TabContainer/Supply Connections" method="_on_discount_button_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel/BuyButton" to="Panel/TabContainer/Appliances" method="_on_buy_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

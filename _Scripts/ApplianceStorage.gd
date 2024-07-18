@@ -30,11 +30,11 @@ func addAppliance(newAppliance):
 	newApplianceInStorageList.button_pressed = true
 	newApplianceInStorageList.appliance = newAppliance.appliance
 	newApplianceInStorageList.appliance.connect("update", setApplianceInfo)
+	newApplianceInStorageList.connect("pressed", setApplianceInfo)
 	appliance_list.add_child(newApplianceInStorageList)
 	setApplianceInfo()
 
 func setApplianceInfo():
-	print("updated", applianceSelected.storage)
 	capacity_label.text = "Appliance Capacity: " + str( applianceSelected.capacity)
 	used_capacity_label.text = "Used Capacity: " + str( applianceSelected.usedCapacity)
 	type_label.text = "Appliance Type: " + applianceSelected.type

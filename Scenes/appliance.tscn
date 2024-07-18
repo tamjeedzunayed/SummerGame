@@ -1,25 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtnpsxnnisi5i"]
+[gd_scene load_steps=3 format=3 uid="uid://dtnpsxnnisi5i"]
 
 [ext_resource type="Script" path="res://_Scripts/applianceSceneScript.gd" id="1_6moga"]
-[ext_resource type="Texture2D" uid="uid://sdwy04n24suc" path="res://Assets/kljhl2stsf731.webp" id="2_p5152"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w13ty"]
 size = Vector2(64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pajyp"]
-atlas = ExtResource("2_p5152")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_r0lwl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pajyp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="Appliance" type="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -44,5 +28,4 @@ grow_horizontal = 0
 grow_vertical = 0
 rotation = -1.5708
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_r0lwl")
+[node name="Sprite2D" type="Sprite2D" parent="."]

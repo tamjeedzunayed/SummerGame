@@ -15,16 +15,19 @@ extends Node
 @onready var truck_storage = $"TruckStorage"
 @onready var appliances = $Appliances
 const applianceScene = preload("res://Scenes/appliance.tscn")
+const APPLIANCE_TO_PLACE = preload("res://Scenes/appliance_to_place.tscn")
+
 var ready_done = false
 @onready var appliances_storage = $AppliancesStorage
-
+var placingAppliance = false
 var balance: 
 	set(value):
 		balance_display.text = str(value)
 		balance = value
 		shop.supply_connections.balance = value
-const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
+		shop.appliances.balance = value
 
+const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 
 var incRate : float = 1.05
 const CUSTSPAWNRATE = 5
@@ -56,11 +59,13 @@ func _ready():
 	
 	shop.supply_connections.connect("ItemsBought", itemsBought)
 	shop.supply_connections.connect("balanceChanged", changeBalance)
+	shop.appliances.connect("balanceChanged", changeBalance)
+	shop.appliances.connect("applianceBought", createApplianceToPlace)
 	truck.connect("item_for_truck", updateTruckStorage)
 	for child in appliances.get_children():
 		appliances_storage.addAppliance(child)
 	day()
-	
+	updateTruckStorage({Item.new("Shovel", 10.0, 15.0, 10, preload("res://Assets/Shovel.png"),"Shelf"):10})
 	pass # Replace with function body.
 
 func customerApplinace(item:Item, customer : CharacterBody2D):
@@ -70,6 +75,14 @@ func customerApplinace(item:Item, customer : CharacterBody2D):
 			return
 	customer.goThroughShopingList()
 
+func createApplianceToPlace(applianceBought):
+	shop.animation_player.play("TransOut")
+	shop.inView = false
+	placingAppliance = true
+	var applToPlace = APPLIANCE_TO_PLACE.instantiate()
+	applToPlace.applianceHeld = applianceBought
+	add_child(applToPlace)
+	pass
 
 func itemsBought(items):
 	truck.addToCart(items)
@@ -88,6 +101,10 @@ func _process(_delta):
 	var mins = fmod(clock.time_left, 60*60) / 60
 	var time_passed = "%02d : %02d" % [mins,secs]
 	clockButton.text = time_passed
+	
+	if (placingAppliance):
+		get_node("ApplianceToPlace").position = ground_tile_map.map_to_local(ground_tile_map.local_to_map(get_window().get_mouse_position()))
+	
 	pass
 
 
@@ -103,7 +120,6 @@ func _on_timer_timeout():
 	pass # Replace with function body.
 
 func day():
-	
 	var customer1 = customerResource.instantiate()
 	customer1.position = Vector2(1286, 451)
 	customer1.connect("findAppliance", customerApplinace)
@@ -131,27 +147,30 @@ func _on_cust_spawn_rate_timeout():
 	
 	pass # Replace with function body.
 
-func _input(_event):
-	if Input.is_action_just_pressed("LMB") && false:
+func placeAppliance():
+	if Input.is_action_just_pressed("LMB"):
 		var click_pos_on_map = ground_tile_map.local_to_map(get_window().get_mouse_position())
 		
 		if	ground_tile_map.get_cell_tile_data(1, click_pos_on_map - Vector2i(18, 10)) != null:
 			return
 		
-		var furniture : Node2D= furnitureResource.instantiate()
-		furniture.position = ground_tile_map.map_to_local(click_pos_on_map)
-		print(furniture.position.y)
-		furnitures.add_child(furniture) 
-		
+		var appliance = applianceScene.instantiate()
+		appliance.appliance = get_node("ApplianceToPlace").applianceHeld
+		appliance.position = ground_tile_map.map_to_local(click_pos_on_map)
+		appliances.add_child(appliance) 
+		get_node("ApplianceToPlace").queue_free()
+		placingAppliance = false
 		ground_tile_map.set_cell(1, click_pos_on_map - Vector2i(18, 10), 1, ground_tile_map.get_cell_atlas_coords(0, click_pos_on_map - Vector2i(18, 10)))
 		ground_tile_map.erase_cell(0, click_pos_on_map - Vector2i(18, 10))
+
+func _input(_event):
+	if placingAppliance:
+		placeAppliance()
 
 func changeBalance(newBalance):
 	balance = newBalance
 
-
 func _on_buy_region_body_entered(body):
-	
 	if body is CharacterBody2D:
 		var totalItemPrice = 0
 		var heldItems: Array[Item] = body.heldItems
@@ -163,13 +182,11 @@ func _on_buy_region_body_entered(body):
 func readyToGo():
 	ready_done = true
 	print("ran")
-	
-	
+
 func _on_button_pressed():
 	var newAppliance = applianceScene.instantiate()
 	appliances.add_child(newAppliance)
 	pass # Replace with function body.
-
 
 func _on_appliances_child_entered_tree(node):
 	if ready_done == true:
