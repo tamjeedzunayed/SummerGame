@@ -1,10 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://cljxhlhn5sb75"]
+[gd_scene load_steps=18 format=3 uid="uid://cljxhlhn5sb75"]
 
 [ext_resource type="Script" path="res://_Scripts/ApplianceStorage.gd" id="1_rq2qh"]
 [ext_resource type="Texture2D" uid="uid://ed4a03s3brwk" path="res://Assets/Panels.png" id="1_vktq8"]
 [ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://Assets/DiscountIcon.png" id="2_1xvpy"]
 [ext_resource type="Texture2D" uid="uid://ckxt81u7yc8ls" path="res://Assets/panel2.png" id="4_uptod"]
-[ext_resource type="PackedScene" uid="uid://bux2jwdwfjilg" path="res://Scenes/Item_Dragging/Item_in_truck_storage.tscn" id="5_awt82"]
 [ext_resource type="Texture2D" uid="uid://8xp0qfcsycrt" path="res://Assets/TrashIcon.png" id="6_5cbmm"]
 [ext_resource type="Texture2D" uid="uid://c1msr5cs37nid" path="res://Assets/side buttons.png" id="6_27x3c"]
 [ext_resource type="Texture2D" uid="uid://b5g8l2kcos8q3" path="res://Assets/StorageIcon.png" id="7_h7klw"]
@@ -25,35 +24,11 @@ texture_margin_right = 83.0
 texture_margin_bottom = 84.0
 region_rect = Rect2(1046, 296, 811, 811)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_m1uhk"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_pekxl"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_o7nyj"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_xftom"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_lahyi"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_tgwet"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_urdlk"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_ihksf"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_wsrql"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_7q5ye"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_mxp6m"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_807bq"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fi7ec"]
-size = Vector2(172, 208)
+size = Vector2(200, 184)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ux76o"]
-size = Vector2(332, 212)
+size = Vector2(176, 164)
 
 [sub_resource type="Animation" id="Animation_8uh80"]
 resource_name = "Panel_In"
@@ -309,54 +284,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 columns = 4
 
-[node name="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_m1uhk")
-
-[node name="Button2" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_pekxl")
-
-[node name="Button3" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_o7nyj")
-
-[node name="Button4" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_xftom")
-
-[node name="Button5" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_lahyi")
-
-[node name="Button6" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_tgwet")
-
-[node name="Button9" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_urdlk")
-
-[node name="Button10" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_ihksf")
-
-[node name="Button11" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_wsrql")
-
-[node name="Button12" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_7q5ye")
-
-[node name="Button7" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_mxp6m")
-
-[node name="Button8" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer/ItemsInAppliance" instance=ExtResource("5_awt82")]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_807bq")
-
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer"]
 layout_mode = 2
 
@@ -379,7 +306,7 @@ collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D"]
 visible = false
-position = Vector2(-239, -159)
+position = Vector2(-189, -175)
 shape = SubResource("RectangleShape2D_fi7ec")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash"]
@@ -389,7 +316,7 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -160.0
+offset_left = -363.0
 offset_top = -120.0
 offset_bottom = 120.0
 grow_horizontal = 0
@@ -411,7 +338,7 @@ collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Save/Collect Region"]
 visible = false
-position = Vector2(-253, -81)
+position = Vector2(-263, -93)
 shape = SubResource("RectangleShape2D_ux76o")
 debug_color = Color(0, 0.796078, 0.92549, 0.419608)
 
@@ -420,9 +347,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -100.0
-offset_right = 244.0
-offset_bottom = 100.0
+offset_left = 69.0
+offset_top = -144.0
+offset_right = 396.0
+offset_bottom = 124.0
 grow_vertical = 2
 texture = ExtResource("7_h7klw")
 expand_mode = 1

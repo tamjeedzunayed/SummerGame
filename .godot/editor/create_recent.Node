@@ -1,7 +1,9 @@
+AnimationPlayer
+Control
+Label
 Sprite2D
 AnimatedSprite2D
 Button
-Label
 TextureRect
 ScrollContainer
 Container
@@ -9,6 +11,4 @@ Panel
 HBoxContainer
 MarginContainer
 VBoxContainer
-Control
-AnimationPlayer
 SpinBox

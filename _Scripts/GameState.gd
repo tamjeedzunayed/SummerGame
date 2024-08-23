@@ -1,6 +1,6 @@
 extends Node
 
-
+@onready var transaction = $Transaction
 @onready var furnitures = $Furnitures
 @onready var customers = %Customers
 @onready var cust_spawn_rate = $CustSpawnRate
@@ -20,8 +20,16 @@ const APPLIANCE_TO_PLACE = preload("res://Scenes/appliance_to_place.tscn")
 var ready_done = false
 @onready var appliances_storage = $AppliancesStorage
 var placingAppliance = false
-var balance: 
+var balance = 0: 
 	set(value):
+		transaction.text = str(value-balance)
+		if(balance - value > 0):
+			transaction.add_theme_color_override("font_color", Color(255,0,0))
+			transaction.get_child(0).play("Transaction")
+		elif(balance - value < 0):
+			transaction.add_theme_color_override("font_color", Color(0,255,0))
+			transaction.get_child(0).play("Transaction")
+		
 		balance_display.text = str(value)
 		balance = value
 		shop.supply_connections.balance = value
@@ -124,7 +132,7 @@ func day():
 	customer1.position = Vector2(1286, 451)
 	customer1.connect("findAppliance", customerApplinace)
 	customers.add_child(customer1)
-	
+	balance -= DriverSalary+endOfDayQuota
 	truck.day()
 	shop.day()
 	DriverSalary = DriverSalary*incRate
