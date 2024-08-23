@@ -14,6 +14,8 @@ var appliance_storage_in_display = false
 var ApplianceButtonGroup := ButtonGroup.new()
 var applianceSelected:Appliance:
 	get:
+		if ApplianceButtonGroup.get_pressed_button() == null:
+			return null
 		return ApplianceButtonGroup.get_pressed_button().appliance
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -66,6 +68,7 @@ func _on_trash_body_exited(body):
 	pass # Replace with function body.
 
 func _on_collect_region_body_entered(body):
+	if applianceSelected == null: return
 	body.appliancePlacedInto = applianceSelected
 	pass # Replace with function body.
 

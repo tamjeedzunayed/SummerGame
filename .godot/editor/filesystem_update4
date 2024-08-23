@@ -19,3 +19,7 @@ res://Scenes/Item_Dragging/item_being_dragged.tscn
 res://Scenes/Item_Dragging/Item_in_truck_storage.tscn
 res://Scenes/truck.tscn
 res://Scenes/customer.tscn
+res://_Scripts/Supply Connections.gd
+res://_Scripts/ApplianceStorage.gd
+res://_Scripts/Truck.gd
+res://_Scripts/TruckStorage.gd

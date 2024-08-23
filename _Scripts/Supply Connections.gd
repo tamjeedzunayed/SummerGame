@@ -50,7 +50,7 @@ func _ready():
 	SellerButtonGroup = seller_list.get_child(0).button_group
 	seller_list.get_child(0).button_pressed = true
 	
-	var shovel = Item.new("Shovel", 5,7,7, preload("res://Assets/Shovel.png"), "Shelf")
+	var shovel = Item.new("Shovel", 10,15,10, preload("res://Assets/Shovel.png"), "Shelf")
 	var drill = Item.new("Drill", 10,12,10, preload("res://Assets/Drill.png"), "Shelf")
 	currentSeller.items.append(shovel)
 	currentSeller.items.append(drill)
@@ -148,7 +148,7 @@ func _on_buy_pressed():
 		ItemsBought.emit(cart)
 		
 		cart.clear()
-		
+		add_to_cart.disabled = false
 		cartTotal = 0
 	pass # Replace with function body.
 

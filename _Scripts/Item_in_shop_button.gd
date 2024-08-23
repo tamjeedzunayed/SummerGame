@@ -12,7 +12,7 @@ var draggingItem : CharacterBody2D = null
 var dragItemAmount = 1
 var dragging = false :
 	set(value):
-		if value && amount >= dragItemAmount:
+		if value && (amount >= dragItemAmount):
 			dragging = value
 			draggingItem = DRAGGINGITEM.instantiate()
 			draggingItem.TruckStorageParent = self
@@ -30,19 +30,25 @@ var dragging = false :
 					print("placed")
 				else:
 					remove_child(draggingItem)
+					amount = amount + dragItemAmount
 			elif draggingItem.trashed == true:
+				amount = amount - dragItemAmount
 				draggingItem.TruckStorageParent.trashItem()
 			else:
 				remove_child(draggingItem)
+				amount = amount + dragItemAmount
 			draggingItem = null
-			amount = amount + dragItemAmount
 			
 var amount := 10 :
 	set(value):
 		amount = value
+		print(amount)
 		label.text = str(amount)
+		amountChanged.emit(amount)
+signal amountChanged(newAmount)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(amount)
 	pass # Replace with function body.
 	
 func _process(_delta):
@@ -62,8 +68,8 @@ func _on_button_up():
 	pass # Replace with function body.
 
 func trashItem():
-	amount = amount - dragItemAmount
 	draggingItem.animation_player.play("Place")
+	print(amount)
 	if amount == 0:
 		queue_free()
 	

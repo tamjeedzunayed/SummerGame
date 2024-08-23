@@ -38,14 +38,15 @@ var balance = 0:
 const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 
 var incRate : float = 1.05
-const CUSTSPAWNRATE = 5
+var CUSTSPAWNRATE = 0
+var customersSpawnedToday = 0
 const CUSINCRATE = 1
-const QUOTINCRATE = 100
-@export var DAY_TIME_LENGTH : float = 20.
+const QUOTINCRATE = 5
+@export var DAY_TIME_LENGTH : float = 180.
 @export var NIGHT_TIME_LENGTH : float = 10.
-
+var dayNum := 0
 var isDay:bool = true
-var numCustomers = 0
+var numCustomers = 3
 var rating = 5
 var endOfDayQuota = 0
 
@@ -59,7 +60,7 @@ func _ready():
 	ready_done = true
 	balance = 200
 	shop.offset = Vector2(64, -546)
-	cust_spawn_rate.wait_time = CUSTSPAWNRATE
+	
 	clock.wait_time = DAY_TIME_LENGTH
 	clock.start()
 	Canvas_animation_player.speed_scale = 1./DAY_TIME_LENGTH
@@ -128,19 +129,20 @@ func _on_timer_timeout():
 	pass # Replace with function body.
 
 func day():
-	var customer1 = customerResource.instantiate()
-	customer1.position = Vector2(1286, 451)
-	customer1.connect("findAppliance", customerApplinace)
-	customers.add_child(customer1)
+	cust_spawn_rate.start(randf_range((DAY_TIME_LENGTH/1.5)/(numCustomers + 1) - (DAY_TIME_LENGTH)/(5*numCustomers), (DAY_TIME_LENGTH/1.5)/(numCustomers + 1) + (DAY_TIME_LENGTH)/(5*numCustomers)))
+	dayNum+=1
+	$DayLabel.text = "Day " + str(dayNum)
+	$DayLabel/AnimationPlayer.play("FadeInOut")
 	balance -= DriverSalary+endOfDayQuota
 	truck.day()
 	shop.day()
 	DriverSalary = DriverSalary*incRate
-	numCustomers += CUSINCRATE
 	endOfDayQuota += QUOTINCRATE
 	Canvas_animation_player.play("Day animation")
 
 func night():
+	numCustomers += CUSINCRATE
+	customersSpawnedToday = 0
 	truck.night()
 	for customerN in customers.get_children():
 		customerN.queue_free()
@@ -148,11 +150,15 @@ func night():
 
 func _on_cust_spawn_rate_timeout():
 	if (isDay):
-		var newCustomer = customerResource.instantiate()
-		newCustomer.position = Vector2(5, 10)
-		customers.add_child(newCustomer)
+		customersSpawnedToday += 1
+		var customer1 = customerResource.instantiate()
+		customer1.position = Vector2(1286, 451)
+		customer1.connect("findAppliance", customerApplinace)
+		customers.add_child(customer1)
 		
-	
+		if (customersSpawnedToday < numCustomers):
+			cust_spawn_rate.start(randf_range((DAY_TIME_LENGTH/1.5)/(numCustomers + 1) - (DAY_TIME_LENGTH)/(5*numCustomers), (DAY_TIME_LENGTH/1.5)/(numCustomers + 1) + (DAY_TIME_LENGTH)/(5*numCustomers)))
+			
 	pass # Replace with function body.
 
 func placeAppliance():

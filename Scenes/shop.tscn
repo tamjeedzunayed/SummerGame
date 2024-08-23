@@ -205,11 +205,9 @@ offset_right = 1024.0
 offset_bottom = 544.0
 theme = ExtResource("2_527pq")
 tab_alignment = 1
-current_tab = 1
 drag_to_rearrange_enabled = true
 
 [node name="Supply Connections" type="Panel" parent="Panel/TabContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("2_527pq")
 script = ExtResource("3_8pclh")
@@ -520,6 +518,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_b32sj")
 text = "Unlock New Item"
 
 [node name="Appliances" type="Panel" parent="Panel/TabContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 theme = ExtResource("2_527pq")

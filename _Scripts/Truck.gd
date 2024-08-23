@@ -62,4 +62,5 @@ func night():
 func add_items_to_Truck_Storage():
 	if (!storage.is_empty()):
 		emit_signal("item_for_truck", storage)
+		storage.clear()
 	pass

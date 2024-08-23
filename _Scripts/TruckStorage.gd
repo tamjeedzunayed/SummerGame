@@ -43,8 +43,6 @@ func _process(_delta):
 	pass
 
 func setItems(storage):
-	for child in truck_item_list.get_children():
-		child.queue_free()
 	for item in storage.keys():
 		var newButton = ITEM_IN_TRUCK_STORAGE.instantiate()
 		newButton.itemHeld = item 
