@@ -1,5 +1,5 @@
 res://default_env.tres
-res://Scenes/Game.tscn
+res://Scenes/ApplianceInShop.tscn
 res://_Scripts/Appliance.gd
 res://_Scripts/ApplianceInStorageList.gd
 res://_Scripts/Item_in_shop_button.gd
@@ -9,7 +9,9 @@ res://Themes/CustomerItemList.tres
 res://_Scripts/Seller.gd
 res://_Scripts/shop.gd
 res://Themes/new_theme.tres
+res://notes.txt
 res://Scenes/shop.tscn
+res://Scenes/Game.tscn
 res://Scenes/appliance_to_place.tscn
 res://Scenes/appliance.tscn
 res://Scenes/ApplianceStorage.tscn
@@ -19,7 +21,13 @@ res://Scenes/Item_Dragging/item_being_dragged.tscn
 res://Scenes/Item_Dragging/Item_in_truck_storage.tscn
 res://Scenes/truck.tscn
 res://Scenes/customer.tscn
+res://_Scripts/AppliancesShop.gd
+res://Scenes/Item_in_ShoppingList.tscn
 res://_Scripts/Supply Connections.gd
-res://_Scripts/ApplianceStorage.gd
+res://Scenes/Item_in_shop_button.tscn
 res://_Scripts/Truck.gd
 res://_Scripts/TruckStorage.gd
+res://Scenes/furniture.tscn
+res://_Scripts/ApplianceInShop.gd
+res://applianceToPlace.gd
+res://_Scripts/item_being_dragged.gd

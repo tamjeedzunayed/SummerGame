@@ -81,3 +81,9 @@ func createCheckBoxes():
 		shopingListItem.text = item.name
 		numItemsInShoppingList += 1
 	pass
+
+
+func _on_area_2d_mouse_entered():
+	$Panel.visible = true
+func _on_area_2d_mouse_exited():
+	$Panel.visible = false

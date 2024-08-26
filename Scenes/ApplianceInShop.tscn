@@ -4,9 +4,11 @@
 [ext_resource type="Script" path="res://_Scripts/ApplianceInShop.gd" id="2_f657d"]
 
 [node name="Button" type="Button"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(225, 225)
 offset_right = 8.0
 offset_bottom = 8.0
 toggle_mode = true
 icon = ExtResource("1_s0oub")
+icon_alignment = 1
+expand_icon = true
 script = ExtResource("2_f657d")

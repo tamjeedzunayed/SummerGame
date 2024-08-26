@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7boe412veg4o"]
+[gd_scene load_steps=10 format=3 uid="uid://c7boe412veg4o"]
 
 [ext_resource type="Script" path="res://_Scripts/Customer.gd" id="1_3klsv"]
 [ext_resource type="Texture2D" uid="uid://cfg5nynjdkbv1" path="res://Assets/NicePng_prison-architect-png_3739415_upscaled.png" id="2_n50m4"]
@@ -47,6 +47,9 @@ animations = [{
 radius = 8.0
 height = 17.7
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwrjy"]
+size = Vector2(33.7662, 55.8441)
+
 [node name="customer" type="CharacterBody2D"]
 y_sort_enabled = true
 scale = Vector2(0.77, 0.77)
@@ -65,9 +68,19 @@ animation = &"left"
 position = Vector2(0, -0.31)
 shape = SubResource("CapsuleShape2D_7s6lh")
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -0.31)
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(9.28904e-07, -15.9238)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hwrjy")
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 offset_left = 6.0
 offset_top = -162.0
 offset_right = 352.0
@@ -96,4 +109,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]

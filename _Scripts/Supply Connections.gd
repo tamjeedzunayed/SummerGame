@@ -20,15 +20,17 @@ var balance: float
 signal ItemsBought(Items : Dictionary)
 signal StorageFull
 signal balanceChanged(newBalance)
+signal storageUsedChanged(newUsedCapacitiy)
 
 var ItemButtonGroup = ButtonGroup.new()
 var SellerButtonGroup :=  ButtonGroup.new()
 const MULTIPLYER = 1
 const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 var cart : Dictionary
-var storageCapacity := 10
+var storageCapacity := 20
 var storageCapacityUsed := 0:
 	set(value):
+		print_debug(value)
 		if (value) == storageCapacity:
 			add_to_cart.disabled = true
 			StorageFull.emit()
@@ -52,8 +54,14 @@ func _ready():
 	
 	var shovel = Item.new("Shovel", 10,15,10, preload("res://Assets/Shovel.png"), "Shelf")
 	var drill = Item.new("Drill", 10,12,10, preload("res://Assets/Drill.png"), "Shelf")
+	var Hammer = Item.new("Hammer", 10,12,10, preload("res://Assets/Hammer.png"), "Shelf")
+	var Wrench = Item.new("Wrench", 10,12,10, preload("res://Assets/Wrench.png"), "Shelf")
+	var Axe = Item.new("Axe", 10,12,10, preload("res://Assets/Axe.png"), "Shelf")
 	currentSeller.items.append(shovel)
 	currentSeller.items.append(drill)
+	currentSeller.items.append(Hammer)
+	currentSeller.items.append(Wrench)
+	currentSeller.items.append(Axe)
 	
 	for sellerChild in seller_list.get_children():
 		sellerChild.connect("pressed", setSellerInfo)
@@ -104,7 +112,7 @@ func _on_add_to_cart_pressed():
 			cart[ItemButtonGroup.get_pressed_button().itemHeld] = 1
 		ItemButtonGroup.get_pressed_button().amount += 1
 		cartTotal += ItemButtonGroup.get_pressed_button().itemHeld.price
-		storageCapacityUsed += 1
+		storageUsedChanged.emit(storageCapacityUsed + 1)
 	pass # Replace with function body.
 
 func _on_remove_from_cart_pressed():
@@ -114,7 +122,7 @@ func _on_remove_from_cart_pressed():
 			cart.erase(ItemButtonGroup.get_pressed_button().itemHeld)
 		ItemButtonGroup.get_pressed_button().amount -= 1
 		cartTotal -= ItemButtonGroup.get_pressed_button().itemHeld.price
-		storageCapacityUsed -= 1
+		storageUsedChanged.emit(storageCapacityUsed - 1)
 		
 	pass # Replace with function body.
 	
@@ -148,7 +156,6 @@ func _on_buy_pressed():
 		ItemsBought.emit(cart)
 		
 		cart.clear()
-		add_to_cart.disabled = false
 		cartTotal = 0
 	pass # Replace with function body.
 

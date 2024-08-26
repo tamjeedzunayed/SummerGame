@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://kmaggbxlo5iv"]
+[gd_scene load_steps=27 format=3 uid="uid://kmaggbxlo5iv"]
 
 [ext_resource type="Script" path="res://_Scripts/shop.gd" id="1_tf1v1"]
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://Themes/new_theme.tres" id="2_527pq"]
@@ -8,10 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://Assets/DiscountIcon.png" id="5_868tk"]
 [ext_resource type="Texture2D" uid="uid://dra4q88xff4ge" path="res://Assets/Construction_Guy.png" id="5_j18lq"]
 [ext_resource type="Script" path="res://_Scripts/AppliancesShop.gd" id="8_k3ymg"]
-[ext_resource type="Texture2D" uid="uid://tkqfomqgamvs" path="res://Assets/Shop button.png" id="8_ltib6"]
 [ext_resource type="PackedScene" uid="uid://db786bhjv86sy" path="res://Scenes/ApplianceInShop.tscn" id="9_naofi"]
 [ext_resource type="Texture2D" uid="uid://ed4a03s3brwk" path="res://Assets/Panels.png" id="10_vww7q"]
+[ext_resource type="Texture2D" uid="uid://ckxt81u7yc8ls" path="res://Assets/panel2.png" id="11_2jq77"]
 [ext_resource type="Texture2D" uid="uid://cxwbu2n6mty54" path="res://Assets/shovel Appliance.png" id="11_pn8ud"]
+[ext_resource type="Texture2D" uid="uid://brjehyfxe4e0" path="res://Assets/ShopButtonV2.png" id="13_in5i7"]
+[ext_resource type="Texture2D" uid="uid://b82anpwlt0i0a" path="res://Assets/ShopButtonV2 - Copy.png" id="14_6lppv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8if7"]
 bg_color = Color(0.419608, 0.556863, 0.682353, 1)
@@ -61,9 +63,21 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mv8el"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxypo"]
 texture = ExtResource("10_vww7q")
-region_rect = Rect2(315, 316, 1488, 1488)
+texture_margin_left = 306.0
+texture_margin_top = 575.0
+texture_margin_right = 331.0
+texture_margin_bottom = 646.0
+region_rect = Rect2(314, 315, 1490, 1491)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mv8el"]
+texture = ExtResource("11_2jq77")
+texture_margin_left = 86.0
+texture_margin_top = 81.0
+texture_margin_right = 89.0
+texture_margin_bottom = 86.0
+region_rect = Rect2(1044, 295, 811, 813)
 
 [sub_resource type="Animation" id="Animation_ggbdo"]
 length = 0.001
@@ -104,7 +118,44 @@ tracks/2/keys = {
 "values": [Vector2(666, 339)]
 }
 
-[sub_resource type="Animation" id="Animation_xv4di"]
+[sub_resource type="Animation" id="Animation_b7g7h"]
+resource_name = "TransIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, -546), Vector2(64, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a2435"]
+resource_name = "TransOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, 0), Vector2(64, -546)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tt3mk"]
+_data = {
+"RESET": SubResource("Animation_ggbdo"),
+"TransIn": SubResource("Animation_b7g7h"),
+"TransOut": SubResource("Animation_a2435")
+}
+
+[sub_resource type="Animation" id="Animation_ljgvt"]
 resource_name = "StorageFull"
 length = 2.0
 tracks/0/type = "value"
@@ -144,42 +195,9 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_b7g7h"]
-resource_name = "TransIn"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:offset")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(64, -546), Vector2(64, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_a2435"]
-resource_name = "TransOut"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:offset")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(64, 0), Vector2(64, -546)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tt3mk"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qv5dw"]
 _data = {
-"RESET": SubResource("Animation_ggbdo"),
-"StorageFull": SubResource("Animation_xv4di"),
-"TransIn": SubResource("Animation_b7g7h"),
-"TransOut": SubResource("Animation_a2435")
+"StorageFull": SubResource("Animation_ljgvt")
 }
 
 [node name="Shop" type="CanvasLayer"]
@@ -519,169 +537,217 @@ text = "Unlock New Item"
 
 [node name="Appliances" type="Panel" parent="Panel/TabContainer"]
 visible = false
-custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
+
+[node name="Appliances" type="Panel" parent="Panel/TabContainer/Appliances"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2076.0
+offset_bottom = 1048.0
+scale = Vector2(0.33, 0.33)
 theme = ExtResource("2_527pq")
+theme_override_styles/panel = SubResource("StyleBoxTexture_kxypo")
 script = ExtResource("8_k3ymg")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/TabContainer/Appliances"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/TabContainer/Appliances/Appliances"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Appliances/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ApplianceTypeList" type="VBoxContainer" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer"]
+[node name="ApplianceTypeList" type="VBoxContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
 layout_mode = 2
+size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer"]
+[node name="Label" type="Label" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.803922)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 11
+theme_override_font_sizes/font_size = 55
 text = "Base Shelves
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+[node name="Button2" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
 layout_mode = 2
 
-[node name="Button3" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+[node name="Button3" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
 layout_mode = 2
 
-[node name="Button4" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+[node name="Button4" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
 layout_mode = 2
+size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2"]
+[node name="Label" type="Label" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.803922)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 11
+theme_override_font_sizes/font_size = 55
 text = "Refrigerators
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+[node name="Button2" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
 layout_mode = 2
 
-[node name="Button3" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+[node name="Button3" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
 layout_mode = 2
 
-[node name="Button4" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+[node name="Button4" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
 layout_mode = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
 layout_mode = 2
+size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3"]
+[node name="Label" type="Label" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.803922)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 11
+theme_override_font_sizes/font_size = 55
 text = "Water/Oxygen Tanks"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+[node name="Button2" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
 layout_mode = 2
 
-[node name="Button3" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+[node name="Button3" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
 layout_mode = 2
 
-[node name="Button4" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+[node name="Button4" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
 layout_mode = 2
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
 layout_mode = 2
+size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4"]
+[node name="Label" type="Label" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.803922)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 11
+theme_override_font_sizes/font_size = 55
 text = "Gun Cases"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+[node name="Button2" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
 layout_mode = 2
 
-[node name="Button3" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+[node name="Button3" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
 layout_mode = 2
 
-[node name="Button4" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+[node name="Button4" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_mv8el")
 
-[node name="AppliancePic" type="TextureRect" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel"]
+[node name="AppliancePic" type="TextureRect" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 252.0
-offset_top = 23.0
-offset_right = 467.0
-offset_bottom = 228.0
+offset_left = 764.242
+offset_top = 50.3031
+offset_right = 1409.24
+offset_bottom = 665.303
 texture = ExtResource("11_pn8ud")
 
-[node name="ApplianceNameLabel" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel"]
+[node name="ApplianceNameLabel" type="Label" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 25.0
-offset_top = 24.0
-offset_right = 72.0
-offset_bottom = 47.0
+offset_left = 64.2424
+offset_top = 59.3939
+offset_right = 111.242
+offset_bottom = 82.3939
+scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.435294)
 text = "NAME"
 
-[node name="CapacityLabel" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel"]
+[node name="CapacityLabel" type="Label" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 22.0
-offset_top = 57.0
-offset_right = 137.0
-offset_bottom = 80.0
+offset_left = 64.2424
+offset_top = 148.03
+offset_right = 218.242
+offset_bottom = 171.03
+scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.435294)
 text = "Initial Capacity: ###"
 
-[node name="PriceLabel" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel"]
+[node name="PriceLabel" type="Label" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 22.0
-offset_top = 80.0
-offset_right = 137.0
-offset_bottom = 103.0
+offset_left = 64.2424
+offset_top = 213.03
+offset_right = 179.242
+offset_bottom = 236.03
+scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.435294)
 text = "Price: $$$"
 
-[node name="ItemsCapable" type="Label" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel"]
+[node name="ItemsCapable" type="Label" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 23.0
-offset_top = 110.0
-offset_right = 156.0
-offset_bottom = 341.0
+offset_left = 64.2424
+offset_top = 283.03
+offset_right = 197.242
+offset_bottom = 514.03
+scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.435294)
 text = "Items it can hold:
 - 
 -
@@ -693,13 +759,14 @@ text = "Items it can hold:
 -
 "
 
-[node name="BuyButton" type="Button" parent="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel"]
+[node name="BuyButton" type="Button" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 307.0
-offset_top = 389.0
-offset_right = 463.0
-offset_bottom = 449.0
+offset_left = 930.909
+offset_top = 1162.42
+offset_right = 1086.91
+offset_bottom = 1222.42
+scale = Vector2(3, 3)
 theme_override_styles/normal = SubResource("StyleBoxFlat_j6x21")
 text = "BUY"
 
@@ -710,29 +777,15 @@ libraries = {
 }
 speed_scale = 2.0
 
-[node name="Button" type="Button" parent="."]
-anchors_preset = -1
-anchor_left = 0.444
-anchor_right = 0.444
-offset_left = -255.488
-offset_top = 544.0
-offset_right = 256.512
-offset_bottom = 576.0
-
-[node name="TextureRect" type="TextureRect" parent="Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 1.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_ltib6")
-expand_mode = 5
-stretch_mode = 5
+[node name="Button" type="TextureButton" parent="."]
+offset_left = 300.0
+offset_top = 542.0
+offset_right = 1752.0
+offset_bottom = 711.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("13_in5i7")
+texture_pressed = ExtResource("14_6lppv")
+texture_hover = ExtResource("14_6lppv")
 
 [node name="StorageFull" type="Label" parent="."]
 visible = false
@@ -743,9 +796,14 @@ offset_bottom = 365.0
 theme_override_colors/font_color = Color(0.6, 0, 0, 1)
 text = "Storage is Full !"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StorageFull"]
+libraries = {
+"": SubResource("AnimationLibrary_qv5dw")
+}
+
 [connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer/Add to Cart" to="Panel/TabContainer/Supply Connections" method="_on_add_to_cart_pressed"]
 [connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer/Remove from Cart" to="Panel/TabContainer/Supply Connections" method="_on_remove_from_cart_pressed"]
 [connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer/Buy" to="Panel/TabContainer/Supply Connections" method="_on_buy_pressed"]
 [connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Discount Upgrade/Discount Button" to="Panel/TabContainer/Supply Connections" method="_on_discount_button_pressed"]
-[connection signal="pressed" from="Panel/TabContainer/Appliances/MarginContainer/HBoxContainer/Panel/BuyButton" to="Panel/TabContainer/Appliances" method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel/BuyButton" to="Panel/TabContainer/Appliances/Appliances" method="_on_buy_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

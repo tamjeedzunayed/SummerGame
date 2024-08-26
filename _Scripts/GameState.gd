@@ -23,6 +23,7 @@ var placingAppliance = false
 var balance = 0: 
 	set(value):
 		transaction.text = str(value-balance)
+		if (value-balance) > 0: transaction.text = "+" + transaction.text  
 		if(balance - value > 0):
 			transaction.add_theme_color_override("font_color", Color(255,0,0))
 			transaction.get_child(0).play("Transaction")
@@ -35,6 +36,7 @@ var balance = 0:
 		shop.supply_connections.balance = value
 		shop.appliances.balance = value
 
+
 const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 
 var incRate : float = 1.05
@@ -42,10 +44,10 @@ var CUSTSPAWNRATE = 0
 var customersSpawnedToday = 0
 const CUSINCRATE = 1
 const QUOTINCRATE = 5
-@export var DAY_TIME_LENGTH : float = 180.
+@export var DAY_TIME_LENGTH : float = 20.
 @export var NIGHT_TIME_LENGTH : float = 10.
 var dayNum := 0
-var isDay:bool = true
+var isDay:bool = false
 var numCustomers = 3
 var rating = 5
 var endOfDayQuota = 0
@@ -61,20 +63,22 @@ func _ready():
 	balance = 200
 	shop.offset = Vector2(64, -546)
 	
-	clock.wait_time = DAY_TIME_LENGTH
+	clock.wait_time = NIGHT_TIME_LENGTH
 	clock.start()
 	Canvas_animation_player.speed_scale = 1./DAY_TIME_LENGTH
-	Canvas_animation_player.play("Day animation")
 	
 	shop.supply_connections.connect("ItemsBought", itemsBought)
 	shop.supply_connections.connect("balanceChanged", changeBalance)
+	shop.supply_connections.connect("storageUsedChanged", truck_storage.changeCapacityUsed)
 	shop.appliances.connect("balanceChanged", changeBalance)
 	shop.appliances.connect("applianceBought", createApplianceToPlace)
-	truck.connect("item_for_truck", updateTruckStorage)
+	truck_storage.connect("UsedCapacityChanged", shop.usedCapacityChanged)
+	shop.usedCapacityChanged(truck_storage.UsedCapacity)
+	truck.connect("addToStorage", collectSupplyRun)
 	for child in appliances.get_children():
 		appliances_storage.addAppliance(child)
-	day()
-	updateTruckStorage({Item.new("Shovel", 10.0, 15.0, 10, preload("res://Assets/Shovel.png"),"Shelf"):10})
+	night()
+	updateTruckStorage()
 	pass # Replace with function body.
 
 func customerApplinace(item:Item, customer : CharacterBody2D):
@@ -96,14 +100,26 @@ func createApplianceToPlace(applianceBought):
 func itemsBought(items):
 	truck.addToCart(items)
 
-func updateTruckStorage(storage):
-	truck_storage.setItems(storage)
+func collectSupplyRun(newItems):
+	for item in newItems.keys():
+		var added = false
+		for itemInStorage in truck_storage.ItemStorage.keys():
+			if (itemInStorage.name == item.name) && (itemInStorage.sellPrice == item.sellPrice):
+				truck_storage.ItemStorage[itemInStorage] = truck_storage.ItemStorage[itemInStorage] + newItems[item]
+				print("collectSupplyRun ", truck_storage.ItemStorage[itemInStorage])
+				added = true
+				break
+		if added: continue
+		truck_storage.ItemStorage[item] = newItems[item]
+	updateTruckStorage()
+
+func updateTruckStorage():
+	truck_storage.setItems()
 	truck_storage.truckHealth = truck.health
 	truck_storage.DriverSalary = DriverSalary
-	truck_storage.Capacity = shop.storageCapacity
-	truck_storage.UsedCapacity = shop.storageCapacityUsed
 	pass
-	
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var secs = fmod(clock.time_left,60)
@@ -113,6 +129,7 @@ func _process(_delta):
 	
 	if (placingAppliance):
 		get_node("ApplianceToPlace").position = ground_tile_map.map_to_local(ground_tile_map.local_to_map(get_window().get_mouse_position()))
+	
 	
 	pass
 
@@ -136,17 +153,23 @@ func day():
 	balance -= DriverSalary+endOfDayQuota
 	truck.day()
 	shop.day()
-	DriverSalary = DriverSalary*incRate
+	DriverSalary = round_to_digits(DriverSalary*incRate, 2)
+	updateTruckStorage()
 	endOfDayQuota += QUOTINCRATE
 	Canvas_animation_player.play("Day animation")
 
 func night():
+	$NightLabel.get_child(0).play("FadeInOut")
 	numCustomers += CUSINCRATE
 	customersSpawnedToday = 0
 	truck.night()
 	for customerN in customers.get_children():
 		customerN.queue_free()
 	shop.night()
+
+func round_to_digits(value: float, digits: int) -> float:
+	var factor = pow(10, digits)
+	return round(value * factor) / factor
 
 func _on_cust_spawn_rate_timeout():
 	if (isDay):

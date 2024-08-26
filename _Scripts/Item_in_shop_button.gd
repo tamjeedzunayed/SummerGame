@@ -27,28 +27,26 @@ var dragging = false :
 				draggingItem.appliancePlacedInto.usedCapacity + draggingItem.numItems <= draggingItem.appliancePlacedInto.capacity):
 					draggingItem.appliancePlacedInto.addItem(draggingItem.itemHeld, draggingItem.numItems)
 					draggingItem.TruckStorageParent.trashItem()
-					print("placed")
 				else:
 					remove_child(draggingItem)
-					amount = amount + dragItemAmount
+					amount = amount + draggingItem.numItems
 			elif draggingItem.trashed == true:
-				amount = amount - dragItemAmount
+				amount = amount - draggingItem.numItems
 				draggingItem.TruckStorageParent.trashItem()
 			else:
+				amount = amount + draggingItem.numItems
 				remove_child(draggingItem)
-				amount = amount + dragItemAmount
 			draggingItem = null
 			
 var amount := 10 :
 	set(value):
 		amount = value
-		print(amount)
 		label.text = str(amount)
-		amountChanged.emit(amount)
-signal amountChanged(newAmount)
+		updateAmount.emit(itemHeld, amount)
+
+signal updateAmount(itemHeld, amount)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(amount)
 	pass # Replace with function body.
 	
 func _process(_delta):
@@ -56,12 +54,12 @@ func _process(_delta):
 		draggingItem.global_position = get_global_mouse_position() - of
 	pass
 
-
 func _on_button_down():
 	dragging = true
 	of = get_global_mouse_position() - global_position - Vector2(25,25)
+	button_pressed = true
+	emit_signal("toggled", true)
 	pass # Replace with function body.
-
 
 func _on_button_up():
 	dragging = false
@@ -69,7 +67,6 @@ func _on_button_up():
 
 func trashItem():
 	draggingItem.animation_player.play("Place")
-	print(amount)
 	if amount == 0:
 		queue_free()
 	

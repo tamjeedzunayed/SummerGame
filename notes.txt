@@ -1,0 +1,19 @@
+BUGS TO FIX:
+	add to cart button disabling
+	drag amount Dupe glitch
+	Truck Supply run duration
+
+FEATURES TO ADD:
+	Customer shopping list progression
+	Supplier Upgrades
+	more sellers:
+		
+	more items:
+		
+	Loading Phase (night time)
+	Finances tab
+	Timer & Balance on Shop Button
+	Cash Register Queue
+	Number of Customers progression
+	Quota Progression
+	Appliance Storage item dragging

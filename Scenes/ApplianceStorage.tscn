@@ -109,25 +109,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_qjkab")
 script = ExtResource("1_rq2qh")
 
-[node name="DragAmount" type="SpinBox" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 934.0
-offset_top = -1069.6
-offset_right = 1034.0
-offset_bottom = -1031.6
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2, 2)
-size_flags_horizontal = 4
-size_flags_vertical = 8
-tooltip_text = "The amount of items that you drag from items in the appliance."
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 offset_right = 2412.0
@@ -354,6 +335,25 @@ offset_bottom = 124.0
 grow_vertical = 2
 texture = ExtResource("7_h7klw")
 expand_mode = 1
+
+[node name="DragAmount" type="SpinBox" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 934.0
+offset_top = -1069.6
+offset_right = 1034.0
+offset_bottom = -1031.6
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+tooltip_text = "The amount of items that you drag from items in the appliance."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

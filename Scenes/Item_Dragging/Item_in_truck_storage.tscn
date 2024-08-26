@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bux2jwdwfjilg"]
+[gd_scene load_steps=6 format=3 uid="uid://bux2jwdwfjilg"]
 
 [ext_resource type="Texture2D" uid="uid://dhjhlaagihgka" path="res://Assets/Shovel.png" id="1_1kn4x"]
+[ext_resource type="Texture2D" uid="uid://iawy08g84bdu" path="res://Assets/unnamed.png" id="1_yggb1"]
 [ext_resource type="Script" path="res://_Scripts/Item_in_shop_button.gd" id="2_r1tql"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1j2j2"]
+texture = ExtResource("1_yggb1")
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_cn8cc"]
 
@@ -15,6 +19,7 @@ offset_bottom = -0.000167847
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1j2j2")
 toggle_mode = true
 button_mask = 7
 button_group = SubResource("ButtonGroup_cn8cc")
@@ -29,9 +34,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -15.0
-offset_right = -3.0
-offset_bottom = 26.0
+offset_left = -20.0
+offset_top = -2.0
+offset_right = -1.0
+offset_bottom = 24.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)

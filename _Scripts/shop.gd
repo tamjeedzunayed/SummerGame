@@ -5,7 +5,7 @@ extends CanvasLayer
 @export var itsDay = false
 @export var inView = false
 @onready var supply_connections = $"Panel/TabContainer/Supply Connections"
-@onready var appliances = $Panel/TabContainer/Appliances
+@onready var appliances = $Panel/TabContainer/Appliances/Appliances
 
 var balance : float
 
@@ -16,14 +16,15 @@ var storageCapacity :
 var storageCapacityUsed :
 	get: 
 		return supply_connections.storageCapacityUsed
+	set(val):
+		supply_connections.storageCapacityUsed = val
 
 func _ready():
 	supply_connections.connect("StorageFull", storageFull)
 	
 
-func buyAppliance(appliance):
-	
-	pass
+func usedCapacityChanged(newUsedCapactiy):
+	storageCapacityUsed = newUsedCapactiy
 
 func day():
 	#button.disabled = true
@@ -35,9 +36,9 @@ func night():
 	button.disabled = false
 
 func storageFull():
-	if animation_player.is_playing():
-		animation_player.stop()
-	animation_player.play("StorageFull")
+	if $StorageFull/AnimationPlayer.is_playing():
+		$StorageFull/AnimationPlayer.stop()
+	$StorageFull/AnimationPlayer.play("StorageFull")
 
 func _on_button_pressed():
 	if(inView):

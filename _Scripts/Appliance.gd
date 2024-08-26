@@ -33,7 +33,6 @@ func retrieveItem(item:Item) -> Item:
 			if storage[storageItem] == 0:
 				storage.erase(storageItem)
 			update.emit()
-			print(item.name, " retrieved")
 			return storageItem
 	return null
 

@@ -53,20 +53,16 @@ func setApplianceInfo():
 	if selectedButton.applianceHeld.type == "Shelf":
 		itemsArr = ["Shovels", "Drills", "Hammers", "Flashlights"]
 	elif selectedButton.applianceHeld.type ==  "Refrigerator":
-		itemsArr = ["Shovels", "Drills", "Hammers", "Flashlights"]
+		itemsArr = ["Fresh Fruits", "Vegetables", "Jams & Pickles jars", "Fine Cheeses"]
 	elif selectedButton.applianceHeld.type ==  "Fluid Tanks":
-		itemsArr = ["Shovels", "Drills", "Hammers", "Flashlights"]
+		itemsArr = ["Water", "Oxygen", "Propane"]
 	elif selectedButton.applianceHeld.type ==  "Gun Cases":
-		itemsArr = ["Shovels", "Drills", "Hammers", "Flashlights"]
+		itemsArr = ["Handguns", "Rifles", "Shotgun", "Ammo"]
 	items_capable.text = "Items it can hold:"
 	for item in itemsArr:
-		items_capable.text += "-" + item + "\n"
-	items_capable.text += "etc"
+		items_capable.text += "\n-" + item
+	items_capable.text += "\netc"
 	
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
 	pass
 
 
