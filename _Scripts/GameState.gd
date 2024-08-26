@@ -3,6 +3,7 @@ extends Node
 @onready var transaction = $Transaction
 @onready var furnitures = $Furnitures
 @onready var customers = %Customers
+@onready var customers_in_queue = %CustomersInQueue
 @onready var cust_spawn_rate = $CustSpawnRate
 @onready var clock = $Timer
 @onready var clockButton = $CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button
@@ -14,6 +15,8 @@ extends Node
 @onready var truck = $Truck
 @onready var truck_storage = $"TruckStorage"
 @onready var appliances = $Appliances
+@onready var cashier_check_out = $CashierCheckOut
+
 const applianceScene = preload("res://Scenes/appliance.tscn")
 const APPLIANCE_TO_PLACE = preload("res://Scenes/appliance_to_place.tscn")
 
@@ -177,6 +180,7 @@ func _on_cust_spawn_rate_timeout():
 		var customer1 = customerResource.instantiate()
 		customer1.position = Vector2(1286, 451)
 		customer1.connect("findAppliance", customerApplinace)
+		customer1.connect("waitForQueue", queueCustomer)
 		customers.add_child(customer1)
 		
 		if (customersSpawnedToday < numCustomers):
@@ -200,6 +204,13 @@ func placeAppliance():
 		ground_tile_map.set_cell(1, click_pos_on_map - Vector2i(18, 10), 1, ground_tile_map.get_cell_atlas_coords(0, click_pos_on_map - Vector2i(18, 10)))
 		ground_tile_map.erase_cell(0, click_pos_on_map - Vector2i(18, 10))
 
+func queueCustomer(customer):
+	print("signal recieved")
+	customers.remove_child(customer)
+	customers_in_queue.add_child(customer)
+	var numCustomersInQueue = customers_in_queue.get_child_count()
+	print(customers_in_queue.get_child_count())
+	customer.navigation_agent.target_position = Vector2(224 + 32*numCustomersInQueue, 210)
 func _input(_event):
 	if placingAppliance:
 		placeAppliance()
@@ -229,3 +240,24 @@ func _on_appliances_child_entered_tree(node):
 	if ready_done == true:
 		appliances_storage.addAppliance(node)
 	pass # Replace with function body.
+
+
+
+func _on_customers_in_queue_child_entered_tree(node):
+	cashier_check_out.start()
+	pass # Replace with function body.
+
+
+func _on_cashier_check_out_timeout():
+	var firstCustomer = customers_in_queue.get_child(0)
+	if (firstCustomer != null):
+		firstCustomer.goHome()
+		customers_in_queue.remove_child(firstCustomer)
+		customers.add_child(firstCustomer)
+		updateQueue()
+	pass # Replace with function body.
+	
+func updateQueue():
+	var numCustomersInQueue = customers_in_queue.get_child_count()
+	for customer in customers_in_queue.get_children():
+		customer.navigation_agent.target_position = Vector2(224 + 32*numCustomersInQueue, 210)

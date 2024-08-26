@@ -32,6 +32,7 @@ func retrieveItem(item:Item) -> Item:
 			usedCapacity -= 1
 			if storage[storageItem] == 0:
 				storage.erase(storageItem)
+			emit_signal("usedCapacity_changed", usedCapacity)
 			update.emit()
 			return storageItem
 	return null
@@ -39,14 +40,14 @@ func retrieveItem(item:Item) -> Item:
 func set_capacity(new_capacity):
 	capacity = new_capacity
 	emit_signal("capacity_changed", capacity)
-func set_usedCapacity(new_capacity):
-	usedCapacity = new_capacity
-	emit_signal("usedCapacity_changed", usedCapacity)
 	
+
 func addItem(item:Item, numItem):
 	if (storage.has(item)):
 		storage[item] = storage[item] + numItem
 	else:
 		storage[item] = numItem
 	usedCapacity += numItem
+	emit_signal("usedCapacity_changed", usedCapacity)
 	update.emit()
+	

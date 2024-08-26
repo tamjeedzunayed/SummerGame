@@ -30,7 +30,6 @@ var cart : Dictionary
 var storageCapacity := 20
 var storageCapacityUsed := 0:
 	set(value):
-		print_debug(value)
 		if (value) == storageCapacity:
 			add_to_cart.disabled = true
 			StorageFull.emit()

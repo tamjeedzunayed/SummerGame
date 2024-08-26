@@ -12,7 +12,7 @@ const itemInShoppingList = preload("res://Scenes/Item_in_ShoppingList.tscn")
 var checkBoxIndex = 0
 var numItemsInShoppingList = 0
 signal findAppliance(item: Item, customer : CharacterBody2D)
-
+signal waitForQueue(customer : CharacterBody2D)
 func _ready():
 	createCheckBoxes()
 	goThroughShopingList()
@@ -45,13 +45,19 @@ func _input(_event):
 		navigation_agent.target_position = get_global_mouse_position()
 		
 func goThroughShopingList():
-	if shopingList.is_empty():
+	if shopingList.is_empty() && heldItems.is_empty():
 		goHome()
 		return
-	
+	elif shopingList.is_empty():
+		goToQueue()
+		return
 	currentItemTarget = shopingList.pop_front()
 	findAppliance.emit(currentItemTarget, self)
 
+func goToQueue():
+	navigation_agent.target_position = Vector2(878, 211)
+	waitForQueue.emit(self)
+	
 func goHome():
 	navigation_agent.target_position = Vector2(200, 200)
 

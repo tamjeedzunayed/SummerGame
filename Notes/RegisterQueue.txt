@@ -1,0 +1,6 @@
+Cash Register Queue:
+	Use a priority queue. 
+	Need to wait for each other, in a line
+	Position in priority queue determines place that they stand in line.
+	Each customer is 12px
+	
