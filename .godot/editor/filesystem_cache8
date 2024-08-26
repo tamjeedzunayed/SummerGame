@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1724657322
+::res://::1724712731
 applianceToPlace.gd::GDScript::-1::1724650068::0::1::::<>Sprite2D<>::
-default_env.tres::Environment::1010482005889987726::1724657322::0::1::::<><>::
+default_env.tres::Environment::1010482005889987726::1724712731::0::1::::<><>::
 icon.png::CompressedTexture2D::1490490034315510654::1714688269::1714688269::1::::<><>::
 README.md::TextFile::-1::1714688269::0::1::::<><>::
 ::res://Assets/::1724651902
@@ -47,43 +47,43 @@ Wrench.png::CompressedTexture2D::1132758728146646532::1724650067::1724650067::1:
 ::res://Notes/::1724653090
 RegisterQueue.txt::TextFile::-1::1724653090::0::1::::<><>::
 ToDo.txt::TextFile::-1::1724651710::0::1::::<><>::
-::res://Scenes/::1724657322
+::res://Scenes/::1724712733
 appliance.tscn::PackedScene::8520631118908060308::1724652068::0::1::::<><>::res://_Scripts/applianceSceneScript.gd
 ApplianceInShop.tscn::PackedScene::7297570066994889904::1724650067::0::1::::<><>::uid://cxwbu2n6mty54::::res://Assets/shovel Appliance.png<>res://_Scripts/ApplianceInShop.gd
 ApplianceStorage.tscn::PackedScene::5564907627784002098::1724650067::0::1::::<><>::res://_Scripts/ApplianceStorage.gd<>uid://ed4a03s3brwk::::res://Assets/Panels.png<>uid://y0x88bcu3ac::::res://Assets/DiscountIcon.png<>uid://ckxt81u7yc8ls::::res://Assets/panel2.png<>uid://8xp0qfcsycrt::::res://Assets/TrashIcon.png<>uid://c1msr5cs37nid::::res://Assets/side buttons.png<>uid://b5g8l2kcos8q3::::res://Assets/StorageIcon.png
 appliance_in_storage_list.tscn::PackedScene::7416854581416676705::1724561910::0::1::::<><>::uid://cxwbu2n6mty54::::res://Assets/shovel Appliance.png<>res://_Scripts/ApplianceInStorageList.gd
 appliance_to_place.tscn::PackedScene::8320551901573503417::1724561910::0::1::::<><>::uid://cxwbu2n6mty54::::res://Assets/shovel Appliance.png<>res://applianceToPlace.gd
-customer.tscn::PackedScene::7021807487228701904::1724657321::0::1::::<><>::res://_Scripts/Customer.gd<>uid://cfg5nynjdkbv1::::res://Assets/NicePng_prison-architect-png_3739415_upscaled.png<>uid://cp0lnwbtq41j5::::res://Themes/CustomerItemList.tres
+customer.tscn::PackedScene::7021807487228701904::1724712481::0::1::::<><>::res://_Scripts/Customer.gd<>uid://cfg5nynjdkbv1::::res://Assets/NicePng_prison-architect-png_3739415_upscaled.png<>uid://cp0lnwbtq41j5::::res://Themes/CustomerItemList.tres
 furniture.tscn::PackedScene::4832465722402415804::1724652068::0::1::::<><>::uid://sdwy04n24suc::::res://Assets/kljhl2stsf731.webp
-Game.tscn::PackedScene::329549197082554374::1724657321::0::1::::<><>::uid://l7vvuai5pdli::::res://Assets/prison-architect-sprite-space-station-13-prison-c43b8f1941c16edd6cac73192e80d559.png<>res://_Scripts/GameState.gd<>uid://beym3i1li6le2::::res://Assets/Clock.png<>uid://dplyupkvmvj5j::::res://Assets/MoneyBag.png<>uid://sdwy04n24suc::::res://Assets/kljhl2stsf731.webp<>uid://kmaggbxlo5iv::::res://Scenes/shop.tscn<>uid://bddx65vxgottu::::res://Scenes/truck.tscn<>uid://cxwbu2n6mty54::::res://Assets/shovel Appliance.png<>uid://2gsy6ed0omdq::::res://Scenes/TruckStorage.tscn<>uid://cljxhlhn5sb75::::res://Scenes/ApplianceStorage.tscn
+Game.tscn::PackedScene::329549197082554374::1724712733::0::1::::<><>::uid://l7vvuai5pdli::::res://Assets/prison-architect-sprite-space-station-13-prison-c43b8f1941c16edd6cac73192e80d559.png<>res://_Scripts/GameState.gd<>uid://beym3i1li6le2::::res://Assets/Clock.png<>uid://dplyupkvmvj5j::::res://Assets/MoneyBag.png<>uid://sdwy04n24suc::::res://Assets/kljhl2stsf731.webp<>uid://kmaggbxlo5iv::::res://Scenes/shop.tscn<>uid://bddx65vxgottu::::res://Scenes/truck.tscn<>uid://cxwbu2n6mty54::::res://Assets/shovel Appliance.png<>uid://2gsy6ed0omdq::::res://Scenes/TruckStorage.tscn<>uid://cljxhlhn5sb75::::res://Scenes/ApplianceStorage.tscn
 Item_in_ShoppingList.tscn::PackedScene::8802331951870903061::1724650067::0::1::::<><>::
 Item_in_shop_button.tscn::PackedScene::5441933758589530931::1724650067::0::1::::<><>::uid://dhjhlaagihgka::::res://Assets/Shovel.png<>uid://iawy08g84bdu::::res://Assets/unnamed.png<>res://_Scripts/Item_in_shop_button.gd
 Seller.tscn::PackedScene::3555863893086693484::1718943820::0::1::::<><>::uid://cccu7slchsi8h::::res://Themes/new_theme.tres<>uid://bavnr2lckxmnq::::res://Assets/Construction guy.png<>res://_Scripts/Seller.gd<>uid://dplyupkvmvj5j::::res://Assets/MoneyBag.png
-shop.tscn::PackedScene::726672001937675485::1724657322::0::1::::<><>::res://_Scripts/shop.gd<>uid://cccu7slchsi8h::::res://Themes/new_theme.tres<>res://_Scripts/Supply Connections.gd<>uid://bqwqs88d114v5::::res://Scenes/Seller.tscn<>uid://dplyupkvmvj5j::::res://Assets/MoneyBag.png<>uid://y0x88bcu3ac::::res://Assets/DiscountIcon.png<>uid://dra4q88xff4ge::::res://Assets/Construction_Guy.png<>res://_Scripts/AppliancesShop.gd<>uid://db786bhjv86sy::::res://Scenes/ApplianceInShop.tscn<>uid://ed4a03s3brwk::::res://Assets/Panels.png<>uid://ckxt81u7yc8ls::::res://Assets/panel2.png<>uid://cxwbu2n6mty54::::res://Assets/shovel Appliance.png<>uid://brjehyfxe4e0::::res://Assets/ShopButtonV2.png<>uid://b82anpwlt0i0a::::res://Assets/ShopButtonV2 - Copy.png
+shop.tscn::PackedScene::726672001937675485::1724712481::0::1::::<><>::res://_Scripts/shop.gd<>uid://cccu7slchsi8h::::res://Themes/new_theme.tres<>res://_Scripts/Supply Connections.gd<>uid://bqwqs88d114v5::::res://Scenes/Seller.tscn<>uid://dplyupkvmvj5j::::res://Assets/MoneyBag.png<>uid://y0x88bcu3ac::::res://Assets/DiscountIcon.png<>uid://dra4q88xff4ge::::res://Assets/Construction_Guy.png<>res://_Scripts/AppliancesShop.gd<>uid://db786bhjv86sy::::res://Scenes/ApplianceInShop.tscn<>uid://ed4a03s3brwk::::res://Assets/Panels.png<>uid://ckxt81u7yc8ls::::res://Assets/panel2.png<>uid://cxwbu2n6mty54::::res://Assets/shovel Appliance.png<>uid://brjehyfxe4e0::::res://Assets/ShopButtonV2.png<>uid://b82anpwlt0i0a::::res://Assets/ShopButtonV2 - Copy.png
 truck.tscn::PackedScene::2604633807509060694::1724650638::0::1::::<><>::res://_Scripts/Truck.gd<>uid://bjoremrnfpkgx::::res://Assets/truck.png
 TruckStorage.tscn::PackedScene::1908622444248097926::1724652068::0::1::::<><>::res://_Scripts/TruckStorage.gd<>uid://ed4a03s3brwk::::res://Assets/Panels.png<>uid://ckxt81u7yc8ls::::res://Assets/panel2.png<>uid://c1msr5cs37nid::::res://Assets/side buttons.png
 ::res://Scenes/Item_Dragging/::1724650638
 item_being_dragged.tscn::PackedScene::6498773569986748498::1724650638::0::1::::<><>::uid://dhjhlaagihgka::::res://Assets/Shovel.png<>res://_Scripts/item_being_dragged.gd
 Item_in_truck_storage.tscn::PackedScene::3839334836901702964::1724650638::0::1::::<><>::uid://dhjhlaagihgka::::res://Assets/Shovel.png<>uid://iawy08g84bdu::::res://Assets/unnamed.png<>res://_Scripts/Item_in_shop_button.gd
-::res://Themes/::1724650186
-CustomerItemList.tres::Theme::5877975725993709248::1724650183::0::1::::<><>::uid://kyawt0eygibi::::res://Assets/CustomerItem.png
+::res://Themes/::1724707502
+CustomerItemList.tres::Theme::5877975725993709248::1724707499::0::1::::<><>::uid://kyawt0eygibi::::res://Assets/CustomerItem.png
 Item_in_truck_storage.tres::Theme::2660646976990006594::1719293137::0::1::::<><>::
-new_theme.tres::Theme::4918620257944766601::1724650186::0::1::::<><>::
+new_theme.tres::Theme::4918620257944766601::1724707502::0::1::::<><>::
 PanelTheme.tres::Theme::6825860522586702862::1718487245::0::1::::<><>::uid://ed4a03s3brwk::::res://Assets/Panels.png
-::res://_Scripts/::1724657319
-Appliance.gd::GDScript::-1::1724651496::0::1::::Appliance<>Node<>::
+::res://_Scripts/::1724712480
+Appliance.gd::GDScript::-1::1724707499::0::1::::Appliance<>Node<>::
 ApplianceInShop.gd::GDScript::-1::1724650068::0::1::::<>Button<>::
-ApplianceInStorageList.gd::GDScript::-1::1724650183::0::1::::<>Button<>::
+ApplianceInStorageList.gd::GDScript::-1::1724707499::0::1::::<>Button<>::
 applianceSceneScript.gd::GDScript::-1::1724389788::0::1::::<>StaticBody2D<>::
 AppliancesShop.gd::GDScript::-1::1724650068::0::1::::<>Panel<>::
 ApplianceStorage.gd::GDScript::-1::1724561332::0::1::::<>Panel<>::
-Customer.gd::GDScript::-1::1724654958::0::1::::<>CharacterBody2D<>::
-GameState.gd::GDScript::-1::1724657319::0::1::::<>Node<>::
+Customer.gd::GDScript::-1::1724709117::0::1::::<>CharacterBody2D<>::
+GameState.gd::GDScript::-1::1724712480::0::1::::<>Node<>::
 Item.gd::GDScript::-1::1718675344::0::1::::Item<>Node<>::
 item_being_dragged.gd::GDScript::-1::1724650068::0::1::::<>CharacterBody2D<>::
-Item_in_shop_button.gd::GDScript::-1::1724650183::0::1::::<>Button<>::
-Seller.gd::GDScript::-1::1724650183::0::1::::<>Button<>::
-shop.gd::GDScript::-1::1724650183::0::1::::<>CanvasLayer<>::
+Item_in_shop_button.gd::GDScript::-1::1724707499::0::1::::<>Button<>::
+Seller.gd::GDScript::-1::1724707499::0::1::::<>Button<>::
+shop.gd::GDScript::-1::1724707499::0::1::::<>CanvasLayer<>::
 Sprite2D.gd::GDScript::-1::1718675344::0::1::::<>Sprite2D<>::
 Supply Connections.gd::GDScript::-1::1724651710::0::1::::<>Panel<>::
 Truck.gd::GDScript::-1::1724650068::0::1::::<>Node<>::

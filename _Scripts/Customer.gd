@@ -93,3 +93,5 @@ func _on_area_2d_mouse_entered():
 	$Panel.visible = true
 func _on_area_2d_mouse_exited():
 	$Panel.visible = false
+func doNothing():
+	return

@@ -48,10 +48,10 @@ var customersSpawnedToday = 0
 const CUSINCRATE = 1
 const QUOTINCRATE = 5
 @export var DAY_TIME_LENGTH : float = 20.
-@export var NIGHT_TIME_LENGTH : float = 10.
+@export var NIGHT_TIME_LENGTH : float = 20.
 var dayNum := 0
 var isDay:bool = false
-var numCustomers = 3
+var numCustomers = 10
 var rating = 5
 var endOfDayQuota = 0
 
@@ -138,14 +138,17 @@ func _process(_delta):
 
 
 func _on_timer_timeout():
-	isDay = !isDay
-	if (isDay):
-		clock.wait_time = DAY_TIME_LENGTH
-		day()
+	if (customers_in_queue.get_child_count() > 0):
+		clock.wait_time = 5
 	else:
-		clock.wait_time = NIGHT_TIME_LENGTH
-		night()
-	clock.start()
+		isDay = !isDay
+		if (isDay):
+			clock.wait_time = DAY_TIME_LENGTH
+			day()
+		else:
+			clock.wait_time = NIGHT_TIME_LENGTH
+			night()
+		clock.start()
 	pass # Replace with function body.
 
 func day():
@@ -204,13 +207,6 @@ func placeAppliance():
 		ground_tile_map.set_cell(1, click_pos_on_map - Vector2i(18, 10), 1, ground_tile_map.get_cell_atlas_coords(0, click_pos_on_map - Vector2i(18, 10)))
 		ground_tile_map.erase_cell(0, click_pos_on_map - Vector2i(18, 10))
 
-func queueCustomer(customer):
-	print("signal recieved")
-	customers.remove_child(customer)
-	customers_in_queue.add_child(customer)
-	var numCustomersInQueue = customers_in_queue.get_child_count()
-	print(customers_in_queue.get_child_count())
-	customer.navigation_agent.target_position = Vector2(224 + 32*numCustomersInQueue, 210)
 func _input(_event):
 	if placingAppliance:
 		placeAppliance()
@@ -249,15 +245,28 @@ func _on_customers_in_queue_child_entered_tree(node):
 
 
 func _on_cashier_check_out_timeout():
-	var firstCustomer = customers_in_queue.get_child(0)
+	var firstCustomer = findFirstCustomer()
 	if (firstCustomer != null):
 		firstCustomer.goHome()
 		customers_in_queue.remove_child(firstCustomer)
 		customers.add_child(firstCustomer)
-		updateQueue()
+		if (customers_in_queue.get_child_count() > 0):
+			updateQueue()
 	pass # Replace with function body.
+	
+func findFirstCustomer():
+	if (customers_in_queue.get_child_count() > 0):
+		return customers_in_queue.get_child(0)
+	return null
+	
+func queueCustomer(customer):
+	customers.remove_child(customer)
+	customers_in_queue.add_child(customer)
+	var numCustomersInQueue = customers_in_queue.get_child_count()
+	customer.navigation_agent.target_position = Vector2(224 + 32*numCustomersInQueue, 210)
 	
 func updateQueue():
 	var numCustomersInQueue = customers_in_queue.get_child_count()
-	for customer in customers_in_queue.get_children():
-		customer.navigation_agent.target_position = Vector2(224 + 32*numCustomersInQueue, 210)
+	for customerIndex in range(0, numCustomersInQueue, 1):
+		customers_in_queue.get_child(numCustomersInQueue - 1 - customerIndex).navigation_agent.target_position = Vector2(224 + 32*(customerIndex), 210)
+
