@@ -48,7 +48,7 @@ var customersSpawnedToday = 0
 const CUSINCRATE = 1
 const QUOTINCRATE = 5
 @export var DAY_TIME_LENGTH : float = 20.
-@export var NIGHT_TIME_LENGTH : float = 20.
+@export var NIGHT_TIME_LENGTH : float = 10.
 var dayNum := 0
 var isDay:bool = false
 var numCustomers = 10
@@ -85,10 +85,12 @@ func _ready():
 	pass # Replace with function body.
 
 func customerApplinace(item:Item, customer : CharacterBody2D):
+	print_debug(item,customer.checkBoxIndex)
 	for applianceNode in appliances.get_children():
 		if applianceNode.appliance.hasItem(item):
 			customer.getItemFromAppliance(applianceNode)
 			return
+	customer.shopping_list.get_child(customer.checkBoxIndex).disabled = true
 	customer.goThroughShopingList()
 
 func createApplianceToPlace(applianceBought):
@@ -109,7 +111,6 @@ func collectSupplyRun(newItems):
 		for itemInStorage in truck_storage.ItemStorage.keys():
 			if (itemInStorage.name == item.name) && (itemInStorage.sellPrice == item.sellPrice):
 				truck_storage.ItemStorage[itemInStorage] = truck_storage.ItemStorage[itemInStorage] + newItems[item]
-				print("collectSupplyRun ", truck_storage.ItemStorage[itemInStorage])
 				added = true
 				break
 		if added: continue
@@ -139,7 +140,7 @@ func _process(_delta):
 
 func _on_timer_timeout():
 	if (customers_in_queue.get_child_count() > 0):
-		clock.wait_time = 5
+		clock.wait_time = 2
 	else:
 		isDay = !isDay
 		if (isDay):
@@ -148,7 +149,7 @@ func _on_timer_timeout():
 		else:
 			clock.wait_time = NIGHT_TIME_LENGTH
 			night()
-		clock.start()
+	clock.start()
 	pass # Replace with function body.
 
 func day():
@@ -178,13 +179,23 @@ func round_to_digits(value: float, digits: int) -> float:
 	return round(value * factor) / factor
 
 func _on_cust_spawn_rate_timeout():
+	var ItemChances = {
+		Item.new("Shovel", 0, 0, 0, null, "Shelf") : 100,
+		Item.new("Drill", 0, 0, 0, null, "Shelf") : 75,
+		Item.new("Hammer", 0, 0, 0, null, "Shelf") : 0,
+		Item.new("Wrench", 0, 0, 0, null, "Shelf") : 0,
+		Item.new("Axe", 0, 0, 0, null, "Shelf") : 0,
+	}
 	if (isDay):
 		customersSpawnedToday += 1
-		var customer1 = customerResource.instantiate()
-		customer1.position = Vector2(1286, 451)
-		customer1.connect("findAppliance", customerApplinace)
-		customer1.connect("waitForQueue", queueCustomer)
-		customers.add_child(customer1)
+		var customer = customerResource.instantiate()
+		customer.position = Vector2(1286, 451)
+		for item in ItemChances.keys():
+			if randi()% 100 + 1 <= ItemChances[item]:
+				customer.shopingList.append(item)
+		customer.connect("findAppliance", customerApplinace)
+		customer.connect("waitForQueue", queueCustomer)
+		customers.add_child(customer)
 		
 		if (customersSpawnedToday < numCustomers):
 			cust_spawn_rate.start(randf_range((DAY_TIME_LENGTH/1.5)/(numCustomers + 1) - (DAY_TIME_LENGTH)/(5*numCustomers), (DAY_TIME_LENGTH/1.5)/(numCustomers + 1) + (DAY_TIME_LENGTH)/(5*numCustomers)))
@@ -240,7 +251,7 @@ func _on_appliances_child_entered_tree(node):
 
 
 func _on_customers_in_queue_child_entered_tree(node):
-	cashier_check_out.start()
+	cashier_check_out.start() #FIXME
 	pass # Replace with function body.
 
 
@@ -264,9 +275,9 @@ func queueCustomer(customer):
 	customers_in_queue.add_child(customer)
 	var numCustomersInQueue = customers_in_queue.get_child_count()
 	customer.navigation_agent.target_position = Vector2(224 + 32*numCustomersInQueue, 210)
-	
+
 func updateQueue():
 	var numCustomersInQueue = customers_in_queue.get_child_count()
-	for customerIndex in range(0, numCustomersInQueue, 1):
-		customers_in_queue.get_child(numCustomersInQueue - 1 - customerIndex).navigation_agent.target_position = Vector2(224 + 32*(customerIndex), 210)
+	for i in range(0, numCustomersInQueue):
+		customers_in_queue.get_child(i).navigation_agent.target_position = Vector2(224 + 32*i, 210)
 

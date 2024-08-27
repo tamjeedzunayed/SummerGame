@@ -31,7 +31,7 @@ func addAppliance(newAppliance):
 	newApplianceInStorageList.button_group = ApplianceButtonGroup
 	newApplianceInStorageList.button_pressed = true
 	newApplianceInStorageList.appliance = newAppliance.appliance
-	newApplianceInStorageList.appliance.connect("update", setApplianceInfo)
+	newApplianceInStorageList.appliance.connect("update", setApplianceInfo) #FIXME
 	newApplianceInStorageList.connect("pressed", setApplianceInfo)
 	appliance_list.add_child(newApplianceInStorageList)
 	setApplianceInfo()

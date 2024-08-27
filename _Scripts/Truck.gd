@@ -22,6 +22,7 @@ func addToCart(items : Dictionary):
 			cart[item] += items[item]
 		else:
 			cart[item] = items[item]
+	print_debug(cart)
 
 func supplyRun():
 	onSupplyRun = true

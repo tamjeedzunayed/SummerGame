@@ -13286,6 +13286,9 @@ libraries = {
 [node name="CustomersInQueue" type="Node" parent="."]
 unique_name_in_owner = true
 
+[node name="Customers" type="Node" parent="."]
+unique_name_in_owner = true
+
 [node name="Appliances" type="Node" parent="."]
 unique_name_in_owner = true
 
@@ -13421,12 +13424,8 @@ libraries = {
 "": SubResource("AnimationLibrary_far2g")
 }
 
-[node name="Customers" type="Node" parent="."]
-unique_name_in_owner = true
-
 [node name="CashierCheckOut" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 5.0
 
 [connection signal="timeout" from="CustSpawnRate" to="." method="_on_cust_spawn_rate_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

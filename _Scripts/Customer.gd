@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var navigation_agent = $NavigationAgent2D
 @onready var animated_sprite = $AnimatedSprite2D
-var shopingList: Array[Item] = [Item.new("Shovel", 10.0, 10.0, 10.0, null, "ShovelHolder")]
+var shopingList: Array[Item] = []
 var heldItems: Array[Item] = []
 const SPEED : float = 130.0
 var currentItemTarget : Item
@@ -45,11 +45,11 @@ func _input(_event):
 		navigation_agent.target_position = get_global_mouse_position()
 		
 func goThroughShopingList():
-	if shopingList.is_empty() && heldItems.is_empty():
-		goHome()
-		return
-	elif shopingList.is_empty():
-		goToQueue()
+	if shopingList.is_empty():
+		if heldItems.is_empty():
+			goHome()
+		else:
+			goToQueue()
 		return
 	currentItemTarget = shopingList.pop_front()
 	findAppliance.emit(currentItemTarget, self)
@@ -73,7 +73,10 @@ func _on_navigation_agent_2d_navigation_finished():
 			heldItems.append(itemFromAppliance)
 		if(checkBoxIndex < numItemsInShoppingList):	
 			var checkBox : CheckBox = shopping_list.get_child(checkBoxIndex)
-			checkBox.button_pressed = true
+			if itemFromAppliance != null:
+				checkBox.button_pressed = true
+			else:
+				checkBox.disabled = true
 			checkBoxIndex += 1
 		currentApplianceTarget = null
 		currentItemTarget = null

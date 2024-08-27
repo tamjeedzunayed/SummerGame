@@ -53,9 +53,10 @@ func changeCapacityUsed(newUsedCapacity):
 
 func setItems():
 	for item in ItemStorage.keys():
+		if ItemStorage[item] == 0:
+			continue
 		var added = false
 		for child in truck_item_list.get_children():
-			print_debug(child.itemHeld.name, item.name, child.itemHeld.sellPrice, item.sellPrice)
 			if child.itemHeld.name == item.name && child.itemHeld.sellPrice == item.sellPrice:
 				child.amount = ItemStorage[item]
 				added = true
