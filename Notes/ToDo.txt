@@ -1,5 +1,7 @@
 BUGS TO FIX:
-	Multiple Appliance item place bug
+	Appliance Storage Update bug
+	Customer Shopping Checklist checking & disabling bug
+	Cash Register Collision
 
 FEATURES TO ADD:
 	Customer shopping list progression

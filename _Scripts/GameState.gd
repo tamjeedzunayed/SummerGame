@@ -17,7 +17,7 @@ extends Node
 @onready var appliances = $Appliances
 @onready var cashier_check_out = $CashierCheckOut
 var mouseOnFinances : bool = false 
-var dailyIncome = 0
+var dailyIncome = -200
 
 const applianceScene = preload("res://Scenes/appliance.tscn")
 const APPLIANCE_TO_PLACE = preload("res://Scenes/appliance_to_place.tscn")
@@ -88,7 +88,6 @@ func _ready():
 	pass # Replace with function body.
 
 func customerApplinace(item:Item, customer : CharacterBody2D):
-	print_debug(item,customer.checkBoxIndex)
 	for applianceNode in appliances.get_children():
 		if applianceNode.appliance.hasItem(item):
 			customer.getItemFromAppliance(applianceNode)
@@ -136,7 +135,6 @@ func _process(_delta):
 	
 	if (placingAppliance):
 		get_node("ApplianceToPlace").position = ground_tile_map.map_to_local(ground_tile_map.local_to_map(get_window().get_mouse_position()))
-	
 	
 	pass
 
@@ -243,7 +241,7 @@ func _on_buy_region_body_entered(body):
 		for item in heldItems:
 			totalItemPrice += item.sellPrice
 		balance += totalItemPrice
-	body.navigation_agent.target_position = Vector2(0, 191)
+	body.navigation_agent.target_position = $Exit.position
 	pass # Replace with function body.
 
 func readyToGo():
@@ -263,7 +261,8 @@ func _on_appliances_child_entered_tree(node):
 
 
 func _on_customers_in_queue_child_entered_tree(node):
-	cashier_check_out.start() #FIXME
+	if cashier_check_out.is_stopped():
+		cashier_check_out.start() #FIXME
 	pass # Replace with function body.
 
 
@@ -271,6 +270,7 @@ func _on_cashier_check_out_timeout():
 	var firstCustomer = findFirstCustomer()
 	if (firstCustomer != null):
 		firstCustomer.goCashier()
+		cashier_check_out.start()
 		customers_in_queue.remove_child(firstCustomer)
 		customers.add_child(firstCustomer)
 		updateNumberOfCustomers()
@@ -286,14 +286,14 @@ func findFirstCustomer():
 func queueCustomer(customer):
 	customers.remove_child(customer)
 	customers_in_queue.add_child(customer)
-	updateNumberOfCustomers()	
+	updateNumberOfCustomers()
 	var numCustomersInQueue = customers_in_queue.get_child_count()
-	customer.navigation_agent.target_position = Vector2(224 + 32*numCustomersInQueue, 210)
+	customer.navigation_agent.target_position = Vector2(209 + 32*numCustomersInQueue, 210)
 
 func updateQueue():
 	var numCustomersInQueue = customers_in_queue.get_child_count()
 	for i in range(0, numCustomersInQueue):
-		customers_in_queue.get_child(i).navigation_agent.target_position = Vector2(224 + 32*i, 210)
+		customers_in_queue.get_child(i).navigation_agent.target_position = Vector2(237 + 32*i, 210)
 
 func updateNumberOfCustomers():
 	$CustomerDisplay/NumberOfCustomers.text = str($Customers.get_child_count() + customers_in_queue.get_child_count())

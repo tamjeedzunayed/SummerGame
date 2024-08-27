@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwg5u6747xki6"]
+[gd_scene load_steps=2 format=3 uid="uid://br51u0mbgijdq"]
 
-[ext_resource type="Theme" uid="uid://dmaql7vy121qm" path="res://Themes/FinancesPanel.tres" id="1_k2mrb"]
+[ext_resource type="Theme" uid="uid://cdkyr7bjnqey5" path="res://Themes/FinancesPanel.tres" id="1_k2mrb"]
 
 [node name="Finances" type="Panel"]
 anchors_preset = 15
@@ -40,7 +40,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 20
 text = "Daily Income"
 horizontal_alignment = 1
-visible_ratio = -0.0833333
 
 [node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Label"]
 layout_mode = 1
@@ -50,6 +49,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 border_color = Color(1, 1, 1, 1)
+editor_only = false
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
