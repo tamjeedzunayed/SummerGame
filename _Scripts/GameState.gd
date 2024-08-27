@@ -16,15 +16,18 @@ extends Node
 @onready var truck_storage = $"TruckStorage"
 @onready var appliances = $Appliances
 @onready var cashier_check_out = $CashierCheckOut
+var mouseOnFinances : bool = false 
+var dailyIncome = 0
 
 const applianceScene = preload("res://Scenes/appliance.tscn")
 const APPLIANCE_TO_PLACE = preload("res://Scenes/appliance_to_place.tscn")
-
+const DAILYLABELSCENE = preload("res://Scenes/dailyIncome.tscn")
 var ready_done = false
 @onready var appliances_storage = $AppliancesStorage
 var placingAppliance = false
 var balance = 0: 
 	set(value):
+		dailyIncome +=	value-balance
 		transaction.text = str(value-balance)
 		if (value-balance) > 0: transaction.text = "+" + transaction.text  
 		if(balance - value > 0):
@@ -38,7 +41,7 @@ var balance = 0:
 		balance = value
 		shop.supply_connections.balance = value
 		shop.appliances.balance = value
-
+		
 
 const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 
@@ -139,7 +142,7 @@ func _process(_delta):
 
 
 func _on_timer_timeout():
-	if (customers_in_queue.get_child_count() > 0):
+	if (customers_in_queue.get_child_count() + customers.get_child_count() > 0):
 		clock.wait_time = 2
 	else:
 		isDay = !isDay
@@ -147,6 +150,7 @@ func _on_timer_timeout():
 			clock.wait_time = DAY_TIME_LENGTH
 			day()
 		else:
+			saveDailyIncome()
 			clock.wait_time = NIGHT_TIME_LENGTH
 			night()
 	clock.start()
@@ -166,13 +170,16 @@ func day():
 	Canvas_animation_player.play("Day animation")
 
 func night():
+	updateNumberOfCustomers()
 	$NightLabel.get_child(0).play("FadeInOut")
 	numCustomers += CUSINCRATE
 	customersSpawnedToday = 0
 	truck.night()
 	for customerN in customers.get_children():
 		customerN.queue_free()
+	updateNumberOfCustomers()
 	shop.night()
+	
 
 func round_to_digits(value: float, digits: int) -> float:
 	var factor = pow(10, digits)
@@ -199,7 +206,7 @@ func _on_cust_spawn_rate_timeout():
 		
 		if (customersSpawnedToday < numCustomers):
 			cust_spawn_rate.start(randf_range((DAY_TIME_LENGTH/1.5)/(numCustomers + 1) - (DAY_TIME_LENGTH)/(5*numCustomers), (DAY_TIME_LENGTH/1.5)/(numCustomers + 1) + (DAY_TIME_LENGTH)/(5*numCustomers)))
-			
+	updateNumberOfCustomers()	
 	pass # Replace with function body.
 
 func placeAppliance():
@@ -218,9 +225,13 @@ func placeAppliance():
 		ground_tile_map.set_cell(1, click_pos_on_map - Vector2i(18, 10), 1, ground_tile_map.get_cell_atlas_coords(0, click_pos_on_map - Vector2i(18, 10)))
 		ground_tile_map.erase_cell(0, click_pos_on_map - Vector2i(18, 10))
 
-func _input(_event):
+func _input(event):
 	if placingAppliance:
 		placeAppliance()
+	elif event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT and mouseOnFinances:
+		$Finances.visible = !$Finances.visible
+		pass
+	pass
 
 func changeBalance(newBalance):
 	balance = newBalance
@@ -232,6 +243,7 @@ func _on_buy_region_body_entered(body):
 		for item in heldItems:
 			totalItemPrice += item.sellPrice
 		balance += totalItemPrice
+	body.navigation_agent.target_position = Vector2(0, 191)
 	pass # Replace with function body.
 
 func readyToGo():
@@ -258,9 +270,10 @@ func _on_customers_in_queue_child_entered_tree(node):
 func _on_cashier_check_out_timeout():
 	var firstCustomer = findFirstCustomer()
 	if (firstCustomer != null):
-		firstCustomer.goHome()
+		firstCustomer.goCashier()
 		customers_in_queue.remove_child(firstCustomer)
 		customers.add_child(firstCustomer)
+		updateNumberOfCustomers()
 		if (customers_in_queue.get_child_count() > 0):
 			updateQueue()
 	pass # Replace with function body.
@@ -273,6 +286,7 @@ func findFirstCustomer():
 func queueCustomer(customer):
 	customers.remove_child(customer)
 	customers_in_queue.add_child(customer)
+	updateNumberOfCustomers()	
 	var numCustomersInQueue = customers_in_queue.get_child_count()
 	customer.navigation_agent.target_position = Vector2(224 + 32*numCustomersInQueue, 210)
 
@@ -281,3 +295,37 @@ func updateQueue():
 	for i in range(0, numCustomersInQueue):
 		customers_in_queue.get_child(i).navigation_agent.target_position = Vector2(224 + 32*i, 210)
 
+func updateNumberOfCustomers():
+	$CustomerDisplay/NumberOfCustomers.text = str($Customers.get_child_count() + customers_in_queue.get_child_count())
+	pass
+
+func _on_exit_body_entered(body):
+	if body is CharacterBody2D:
+		body.queue_free()
+		updateNumberOfCustomers()
+	pass # Replace with function body.
+
+
+
+func _on_canvas_layer_mouse_entered():
+	mouseOnFinances = true
+func _on_canvas_layer_mouse_exited():
+	mouseOnFinances = false
+func _on_panel_container_mouse_entered():
+	_on_canvas_layer_mouse_entered()
+func _on_panel_container_mouse_exited():
+	_on_canvas_layer_mouse_exited()
+
+func saveDailyIncome():
+	var dailyLabel = DAILYLABELSCENE.instantiate()
+	dailyLabel.get_child(0).text = "Day " + str(dayNum)
+	if (dailyIncome >= 0):
+		dailyLabel.get_child(2).add_theme_color_override("font_color", Color(0,255,0))
+		dailyLabel.get_child(2).text = "+ " + str(dailyIncome)
+	else:
+		dailyLabel.get_child(2).add_theme_color_override("font_color", Color(255,0,0))
+		dailyLabel.get_child(2).text = str(dailyIncome)
+	$Finances/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/DailyIncomeContainer.add_child(dailyLabel)
+	dailyIncome = 0
+	pass
+	

@@ -47,7 +47,7 @@ func _input(_event):
 func goThroughShopingList():
 	if shopingList.is_empty():
 		if heldItems.is_empty():
-			goHome()
+			goCashier()
 		else:
 			goToQueue()
 		return
@@ -58,7 +58,7 @@ func goToQueue():
 	navigation_agent.target_position = Vector2(878, 211)
 	waitForQueue.emit(self)
 	
-func goHome():
+func goCashier():
 	navigation_agent.target_position = Vector2(200, 200)
 
 func getItemFromAppliance(appliance):

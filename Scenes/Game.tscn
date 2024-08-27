@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://exvvk7wadj5o"]
+[gd_scene load_steps=67 format=3 uid="uid://exvvk7wadj5o"]
 
 [ext_resource type="Texture2D" uid="uid://l7vvuai5pdli" path="res://Assets/prison-architect-sprite-space-station-13-prison-c43b8f1941c16edd6cac73192e80d559.png" id="1_bbl8v"]
 [ext_resource type="Script" path="res://_Scripts/GameState.gd" id="1_w6crc"]
@@ -6,10 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="4_yep2v"]
 [ext_resource type="Texture2D" uid="uid://sdwy04n24suc" path="res://Assets/kljhl2stsf731.webp" id="5_0qsa5"]
 [ext_resource type="PackedScene" uid="uid://kmaggbxlo5iv" path="res://Scenes/shop.tscn" id="7_wxqg1"]
+[ext_resource type="Texture2D" uid="uid://dk3ikm0m6it53" path="res://Assets/supermarket-checkout-counter-belt-top-600nw-660919069.jpg" id="8_bmyue"]
 [ext_resource type="PackedScene" uid="uid://bddx65vxgottu" path="res://Scenes/truck.tscn" id="8_fs6jg"]
-[ext_resource type="Texture2D" uid="uid://cxwbu2n6mty54" path="res://Assets/shovel Appliance.png" id="11_glyqn"]
+[ext_resource type="Texture2D" uid="uid://wgyoegdrulis" path="res://Assets/HomeIcon.png" id="9_4eg3n"]
 [ext_resource type="PackedScene" uid="uid://2gsy6ed0omdq" path="res://Scenes/TruckStorage.tscn" id="11_stuwf"]
+[ext_resource type="Texture2D" uid="uid://c6h20vpwexn7" path="res://Assets/Customer Display.png" id="12_alde2"]
 [ext_resource type="PackedScene" uid="uid://cljxhlhn5sb75" path="res://Scenes/ApplianceStorage.tscn" id="12_e73hs"]
+[ext_resource type="PackedScene" uid="uid://dwg5u6747xki6" path="res://Scenes/Finances.tscn" id="13_ckeni"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_p1mti"]
 vertices = PackedVector2Array(7, 7, -7, 7, -7, -7, 7, -7)
@@ -13150,7 +13153,10 @@ func _process(_delta):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3i5o1"]
-size = Vector2(232, 135)
+size = Vector2(119, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1id67"]
+size = Vector2(92.5, 91)
 
 [sub_resource type="Animation" id="Animation_gluo8"]
 length = 0.001
@@ -13294,25 +13300,31 @@ unique_name_in_owner = true
 
 [node name="Truck" parent="." instance=ExtResource("8_fs6jg")]
 
-[node name="CanvasLayer" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1067.0
-offset_top = 76.0
-offset_right = 1067.0
-offset_bottom = 76.0
+[node name="CanvasLayer" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.889
+anchor_top = 0.054
+anchor_right = 0.964
+anchor_bottom = 0.186
+offset_left = -18.1281
+offset_top = 7.008
+offset_right = -15.5281
+offset_bottom = 7.472
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.924
-anchor_top = 0.096
-anchor_right = 0.924
-anchor_bottom = 0.096
-offset_left = -43.448
-offset_top = -41.208
-offset_right = 40.552
-offset_bottom = 37.792
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -41.5
+offset_right = 44.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "View Finances"
 theme_override_styles/panel = SubResource("StyleBoxFlat_5e48h")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
@@ -13357,21 +13369,36 @@ text = "0:00"
 unique_name_in_owner = true
 
 [node name="BuyRegion" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 script = SubResource("GDScript_yrsui")
 
 [node name="Sprite2D" type="Sprite2D" parent="BuyRegion"]
-position = Vector2(203.5, 206.5)
-scale = Vector2(3.05333, 1.72368)
-texture = ExtResource("11_glyqn")
+position = Vector2(162.375, 167.5)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_bmyue")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuyRegion"]
-position = Vector2(204, 207)
+position = Vector2(163, 184)
 shape = SubResource("RectangleShape2D_3i5o1")
 
+[node name="Exit" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="Exit"]
+position = Vector2(0, 185)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_4eg3n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(0, 191)
+shape = SubResource("RectangleShape2D_1id67")
+
 [node name="TruckStorage" parent="." instance=ExtResource("11_stuwf")]
+
+[node name="Finances" parent="." instance=ExtResource("13_ckeni")]
+visible = false
 
 [node name="AppliancesStorage" parent="." instance=ExtResource("12_e73hs")]
 
@@ -13427,9 +13454,34 @@ libraries = {
 [node name="CashierCheckOut" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[node name="CustomerDisplay" type="TextureRect" parent="."]
+unique_name_in_owner = true
+offset_right = 100.0
+offset_bottom = 149.383
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("12_alde2")
+expand_mode = 5
+stretch_mode = 2
+
+[node name="NumberOfCustomers" type="Label" parent="CustomerDisplay"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 493.0
+offset_right = 307.0
+offset_bottom = 596.0
+theme_override_font_sizes/font_size = 75
+text = "0
+"
+horizontal_alignment = 1
+
 [connection signal="timeout" from="CustSpawnRate" to="." method="_on_cust_spawn_rate_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="child_entered_tree" from="CustomersInQueue" to="." method="_on_customers_in_queue_child_entered_tree"]
 [connection signal="child_entered_tree" from="Appliances" to="." method="_on_appliances_child_entered_tree"]
+[connection signal="mouse_entered" from="CanvasLayer" to="." method="_on_canvas_layer_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer" to="." method="_on_canvas_layer_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/PanelContainer" to="." method="_on_panel_container_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/PanelContainer" to="." method="_on_panel_container_mouse_exited"]
 [connection signal="body_entered" from="BuyRegion" to="." method="_on_buy_region_body_entered"]
+[connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
 [connection signal="timeout" from="CashierCheckOut" to="." method="_on_cashier_check_out_timeout"]
