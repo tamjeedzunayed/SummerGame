@@ -13398,7 +13398,6 @@ shape = SubResource("RectangleShape2D_1id67")
 [node name="TruckStorage" parent="." instance=ExtResource("11_stuwf")]
 
 [node name="Finances" parent="." instance=ExtResource("13_ckeni")]
-visible = false
 
 [node name="AppliancesStorage" parent="." instance=ExtResource("12_e73hs")]
 
@@ -13453,6 +13452,7 @@ libraries = {
 
 [node name="CashierCheckOut" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 5.0
 
 [node name="CustomerDisplay" type="TextureRect" parent="."]
 unique_name_in_owner = true
