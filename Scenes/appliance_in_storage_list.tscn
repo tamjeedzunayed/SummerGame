@@ -18,3 +18,5 @@ icon = ExtResource("1_3dhoh")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("1_ra8ky")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

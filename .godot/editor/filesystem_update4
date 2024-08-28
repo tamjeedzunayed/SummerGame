@@ -1,22 +1,26 @@
 res://default_env.tres
-res://Scenes/Game.tscn
+res://Scenes/Item_in_shop_button.tscn
 res://_Scripts/Appliance.gd
 res://_Scripts/ApplianceInStorageList.gd
+res://_Scripts/Item_in_shop_button.gd
 res://_Scripts/Customer.gd
 res://_Scripts/GameState.gd
-res://_Scripts/Item_in_shop_button.gd
 res://Themes/CustomerItemList.tres
 res://_Scripts/Seller.gd
 res://_Scripts/shop.gd
 res://Themes/new_theme.tres
 res://Themes/FinancesPanel.tres
+res://Scenes/Game.tscn
 res://Scenes/shop.tscn
 res://Scenes/customer.tscn
 res://Scenes/truck.tscn
 res://Scenes/TruckStorage.tscn
 res://Scenes/Item_Dragging/Item_in_truck_storage.tscn
-res://_Scripts/Supply Connections.gd
-res://Scenes/Item_in_shop_button.tscn
-res://_Scripts/TruckStorage.gd
 res://Scenes/Finances.tscn
 res://Scenes/dailyIncome.tscn
+res://Scenes/Seller.tscn
+res://_Scripts/ApplianceStorage.gd
+res://Scenes/ApplianceStorage.tscn
+res://Scenes/appliance_in_storage_list.tscn
+res://Notes/ToDo.txt
+res://_Scripts/Supply Connections.gd

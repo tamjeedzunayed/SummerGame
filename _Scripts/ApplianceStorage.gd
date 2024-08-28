@@ -31,13 +31,14 @@ func addAppliance(newAppliance):
 	var newApplianceInStorageList = applianceInStorageList.instantiate()
 	newApplianceInStorageList.button_group = ApplianceButtonGroup
 	newApplianceInStorageList.button_pressed = true
-	newApplianceInStorageList.appliance = newAppliance.appliance
+	newApplianceInStorageList.appliance = newAppliance.appliance 
 	newApplianceInStorageList.appliance.connect("update", setApplianceInfo) #FIXME
-	newApplianceInStorageList.connect("pressed", setApplianceInfo)
+	newApplianceInStorageList.connect("selected", setApplianceInfo)
 	appliance_list.add_child(newApplianceInStorageList)
-	setApplianceInfo()
+	setApplianceInfo(applianceSelected)
 
-func setApplianceInfo():
+func setApplianceInfo(appliance : Appliance):
+	if appliance != applianceSelected: return
 	capacity_label.text = "Appliance Capacity: " + str( applianceSelected.capacity)
 	used_capacity_label.text = "Used Capacity: " + str( applianceSelected.usedCapacity)
 	type_label.text = "Appliance Type: " + applianceSelected.type
@@ -46,9 +47,9 @@ func setApplianceInfo():
 		child.queue_free()
 	for item in applianceSelected.storage.keys():
 		var newButton = itemInStorageButton.instantiate()
-		newButton.itemHeld = item
 		newButton.dragItemAmount = drag_amount.value 
 		items_in_appliance.add_child(newButton)
+		newButton.itemHeld = item
 		newButton.amount = applianceSelected.storage[item]
 
 

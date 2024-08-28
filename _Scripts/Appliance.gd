@@ -10,7 +10,7 @@ class_name Appliance
 var icon
 signal capacity_changed(new_capacity)
 signal usedCapacity_changed(new_capacity)
-signal update
+signal update(appliance)
 
 func _init (appliance_name: String, priceC: float, storage_capacity: int, iconC: CompressedTexture2D,  appliance_type: String):
 	name = appliance_name
@@ -33,7 +33,7 @@ func retrieveItem(item:Item) -> Item:
 			if storage[storageItem] == 0:
 				storage.erase(storageItem)
 			emit_signal("usedCapacity_changed", usedCapacity)
-			update.emit()
+			update.emit(self)
 			return storageItem
 	return null
 
@@ -49,5 +49,5 @@ func addItem(item:Item, numItem):
 		storage[item] = numItem
 	usedCapacity += numItem
 	emit_signal("usedCapacity_changed", usedCapacity)
-	update.emit()
+	update.emit(self)
 	

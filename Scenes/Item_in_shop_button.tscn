@@ -1,11 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://cjsd4be1b5nux"]
 
-[ext_resource type="Texture2D" uid="uid://iawy08g84bdu" path="res://Assets/unnamed.png" id="1_jipls"]
+[ext_resource type="Texture2D" uid="uid://do7kgqi7irfh4" path="res://Assets/ItemHolderV1 - Copy.png" id="1_56hck"]
 [ext_resource type="Script" path="res://_Scripts/Item_in_shop_button.gd" id="2_u76ss"]
 [ext_resource type="Texture2D" uid="uid://cxdlcltj2h2cu" path="res://Assets/Drill.png" id="3_yenv7"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_to4ai"]
-texture = ExtResource("1_jipls")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k5d36"]
+texture = ExtResource("1_56hck")
+region_rect = Rect2(13, 17, 180, 183)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_cn8cc"]
 
@@ -21,7 +22,7 @@ offset_bottom = -1.00017
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_to4ai")
+theme_override_styles/normal = SubResource("StyleBoxTexture_k5d36")
 toggle_mode = true
 button_mask = 7
 button_group = SubResource("ButtonGroup_cn8cc")
@@ -35,21 +36,23 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -19.0
-offset_top = -1.0
-offset_bottom = 22.0
+offset_left = -22.0
+offset_top = 1.0
+offset_right = -3.0
+offset_bottom = 24.0
 grow_horizontal = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.548963, 0.548963, 0.548963, 1)
+theme_override_font_sizes/font_size = 0
 text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Item Image" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 20.0
-offset_right = 55.0
+offset_left = 3.0
+offset_top = 13.0
+offset_right = 63.0
 offset_bottom = 72.0
 texture = ExtResource("3_yenv7")
 expand_mode = 1

@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://bux2jwdwfjilg"]
 
 [ext_resource type="Texture2D" uid="uid://dhjhlaagihgka" path="res://Assets/Shovel.png" id="1_1kn4x"]
-[ext_resource type="Texture2D" uid="uid://ypcipwphandr" path="res://Assets/ItemHolderV1.png" id="1_qrcq2"]
+[ext_resource type="Texture2D" uid="uid://do7kgqi7irfh4" path="res://Assets/ItemHolderV1 - Copy.png" id="1_joblc"]
 [ext_resource type="Script" path="res://_Scripts/Item_in_shop_button.gd" id="2_r1tql"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1j2j2"]
-texture = ExtResource("1_qrcq2")
-region_rect = Rect2(14, 2, 183, 188)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k5d36"]
+texture = ExtResource("1_joblc")
+region_rect = Rect2(13, 17, 180, 183)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_cn8cc"]
 
@@ -17,9 +17,9 @@ offset_bottom = 75.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_1j2j2")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_1j2j2")
-theme_override_styles/focus = SubResource("StyleBoxTexture_1j2j2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_k5d36")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_k5d36")
+theme_override_styles/focus = SubResource("StyleBoxTexture_k5d36")
 toggle_mode = true
 button_mask = 7
 button_group = SubResource("ButtonGroup_cn8cc")

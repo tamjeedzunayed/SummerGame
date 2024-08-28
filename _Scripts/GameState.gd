@@ -43,6 +43,13 @@ var balance = 0:
 		shop.appliances.balance = value
 		
 
+var ItemChances = {
+	Item.new("Shovel", 0, 0, 0, null, "Shelf") : 100.0,
+	Item.new("Drill", 0, 0, 0, null, "Shelf") : 75.0,
+	Item.new("Hammer", 0, 0, 0, null, "Shelf") : 0.0,
+	Item.new("Wrench", 0, 0, 0, null, "Shelf") : 0.0,
+	Item.new("Axe", 0, 0, 0, null, "Shelf") : 0.0,
+}
 const ITEM_IN_SHOP_BUTTON = preload("res://Scenes/Item_in_shop_button.tscn")
 
 var incRate : float = 1.05
@@ -54,7 +61,7 @@ const QUOTINCRATE = 5
 @export var NIGHT_TIME_LENGTH : float = 10.
 var dayNum := 0
 var isDay:bool = false
-var numCustomers = 10
+var numCustomers = 2
 var rating = 5
 var endOfDayQuota = 0
 
@@ -92,6 +99,7 @@ func customerApplinace(item:Item, customer : CharacterBody2D):
 		if applianceNode.appliance.hasItem(item):
 			customer.getItemFromAppliance(applianceNode)
 			return
+	
 	customer.shopping_list.get_child(customer.checkBoxIndex).disabled = true
 	customer.goThroughShopingList()
 
@@ -157,6 +165,7 @@ func _on_timer_timeout():
 func day():
 	cust_spawn_rate.start(randf_range((DAY_TIME_LENGTH/1.5)/(numCustomers + 1) - (DAY_TIME_LENGTH)/(5*numCustomers), (DAY_TIME_LENGTH/1.5)/(numCustomers + 1) + (DAY_TIME_LENGTH)/(5*numCustomers)))
 	dayNum+=1
+	update_item_chances()
 	$DayLabel.text = "Day " + str(dayNum)
 	$DayLabel/AnimationPlayer.play("FadeInOut")
 	balance -= DriverSalary+endOfDayQuota
@@ -183,21 +192,41 @@ func round_to_digits(value: float, digits: int) -> float:
 	var factor = pow(10, digits)
 	return round(value * factor) / factor
 
+func update_item_chances():
+	var items = ItemChances.keys()
+	var total_chance = 100.0 ## Needs to be higher as day goes on
+	var base_increment = .2  # Base increment for each item per day
+	var max_chance = total_chance / float(items.size())
+	
+	for i in range(items.size()):
+		if dayNum > i * 5:  # Delay the introduction of each item by 10 days
+			# Increment the chance slowly
+			ItemChances[items[i]] = min(ItemChances[items[i]] + base_increment * (dayNum - i * 5), max_chance)
+		else:
+			ItemChances[items[i]] = 0.0
+	
+	# Normalize the chances so that their sum is 100.0
+	var total = sum(ItemChances.values())
+	for item in items:
+		ItemChances[item] = (ItemChances[item] / total) * 100.0
+	
+	
+
+func sum(values: Array) -> float:
+	var total = 0.0
+	for value in values:
+		total += value
+	return total
 func _on_cust_spawn_rate_timeout():
-	var ItemChances = {
-		Item.new("Shovel", 0, 0, 0, null, "Shelf") : 100,
-		Item.new("Drill", 0, 0, 0, null, "Shelf") : 75,
-		Item.new("Hammer", 0, 0, 0, null, "Shelf") : 0,
-		Item.new("Wrench", 0, 0, 0, null, "Shelf") : 0,
-		Item.new("Axe", 0, 0, 0, null, "Shelf") : 0,
-	}
 	if (isDay):
 		customersSpawnedToday += 1
 		var customer = customerResource.instantiate()
 		customer.position = Vector2(1286, 451)
 		for item in ItemChances.keys():
-			if randi()% 100 + 1 <= ItemChances[item]:
+			if randi()% 100 + 1 <= floor(ItemChances[item]):
 				customer.shopingList.append(item)
+		if customer.shopingList.is_empty():
+			customer.shopingList.append(ItemChances.keys()[0])
 		customer.connect("findAppliance", customerApplinace)
 		customer.connect("waitForQueue", queueCustomer)
 		customers.add_child(customer)
@@ -215,7 +244,9 @@ func placeAppliance():
 			return
 		
 		var appliance = applianceScene.instantiate()
-		appliance.appliance = get_node("ApplianceToPlace").applianceHeld
+		var newAppl = Appliance.new(get_node("ApplianceToPlace").applianceHeld.name, get_node("ApplianceToPlace").applianceHeld.price, get_node("ApplianceToPlace").applianceHeld.capacity, get_node("ApplianceToPlace").applianceHeld.icon, get_node("ApplianceToPlace").applianceHeld.type)
+			#Appliance.new(newAppliance.appliance)
+		appliance.appliance = newAppl
 		appliance.position = ground_tile_map.map_to_local(click_pos_on_map)
 		appliances.add_child(appliance) 
 		get_node("ApplianceToPlace").queue_free()
@@ -260,9 +291,9 @@ func _on_appliances_child_entered_tree(node):
 
 
 
-func _on_customers_in_queue_child_entered_tree(node):
+func _on_customers_in_queue_child_entered_tree(_node):
 	if cashier_check_out.is_stopped():
-		cashier_check_out.start() #FIXME
+		cashier_check_out.start()
 	pass # Replace with function body.
 
 

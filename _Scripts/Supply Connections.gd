@@ -51,16 +51,12 @@ func _ready():
 	SellerButtonGroup = seller_list.get_child(0).button_group
 	seller_list.get_child(0).button_pressed = true
 	
-	var shovel = Item.new("Shovel", 10,15,10, preload("res://Assets/Shovel.png"), "Shelf")
-	var drill = Item.new("Drill", 10,12,10, preload("res://Assets/Drill.png"), "Shelf")
-	var Hammer = Item.new("Hammer", 10,12,10, preload("res://Assets/Hammer.png"), "Shelf")
-	var Wrench = Item.new("Wrench", 10,12,10, preload("res://Assets/Wrench.png"), "Shelf")
-	var Axe = Item.new("Axe", 10,12,10, preload("res://Assets/Axe.png"), "Shelf")
-	currentSeller.items.append(shovel)
-	currentSeller.items.append(drill)
-	currentSeller.items.append(Hammer)
-	currentSeller.items.append(Wrench)
-	currentSeller.items.append(Axe)
+	var seller1items = [Item.new("Shovel", 10,15,10, preload("res://Assets/Shovel.png"), "Shelf"),
+	Item.new("Drill", 10,12,10, preload("res://Assets/Drill.png"), "Shelf"),
+	Item.new("Hammer", 10,12,10, preload("res://Assets/Hammer.png"), "Shelf"),
+	Item.new("Wrench", 10,12,10, preload("res://Assets/Wrench.png"), "Shelf"),
+	Item.new("Axe", 10,12,10, preload("res://Assets/Axe.png"), "Shelf")]
+	currentSeller.items = seller1items
 	
 	for sellerChild in seller_list.get_children():
 		sellerChild.connect("pressed", setSellerInfo)

@@ -1,16 +1,23 @@
 BUGS TO FIX:
-	Appliance Storage Update bug
 	Customer Shopping Checklist checking & disabling bug
 	Cash Register Collision
 
 FEATURES TO ADD:
-	Customer shopping list progression
 	Supplier Upgrades
 	more sellers:
 	more items:
 
-	Finances tab
+	Finances tab:
+		in depth of Revenue & Costs
 	Timer & Balance on Shop Button
+	Appliance Storage item dragging
+
+FEATURES TO TWEAK:
+	Customer shopping list progression
 	Number of Customers progression
 	Quota Progression
-	Appliance Storage item dragging
+
+ARTWORK TO DO:
+	Seller Profiles
+	Item Icons
+	Appliance Icons
