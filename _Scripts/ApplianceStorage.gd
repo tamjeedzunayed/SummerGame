@@ -18,6 +18,7 @@ var applianceSelected:Appliance:
 			return null
 		return ApplianceButtonGroup.get_pressed_button().appliance
 # Called when the node enters the scene tree for the first time.
+
 func _ready():
 	pass # Replace with function body.
 
@@ -50,14 +51,7 @@ func setApplianceInfo():
 		items_in_appliance.add_child(newButton)
 		newButton.amount = applianceSelected.storage[item]
 
-func _on_truck_storage_button_pressed():
-	if (!appliance_storage_in_display):
-		animation_player.play("Panel_In")
-		appliance_storage_in_display = true
-	else:
-		animation_player.play("Panel_Out")
-		appliance_storage_in_display = false
-	pass # Replace with function body.
+
 	
 func _on_trash_body_entered(body):
 	body.trashed = true
@@ -74,4 +68,14 @@ func _on_collect_region_body_entered(body):
 
 func _on_collect_region_body_exited(body):
 	body.appliancePlacedInto = null
+	pass # Replace with function body.
+
+func _on_appliance_storage_button_pressed():
+	if (!appliance_storage_in_display):
+		animation_player.play("Panel_In")
+		appliance_storage_in_display = true
+	else:
+		animation_player.play("Panel_Out")
+		appliance_storage_in_display = false
+	pass # Replace with function body.
 	pass # Replace with function body.

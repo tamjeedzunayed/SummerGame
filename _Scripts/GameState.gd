@@ -318,14 +318,14 @@ func _on_panel_container_mouse_exited():
 
 func saveDailyIncome():
 	var dailyLabel = DAILYLABELSCENE.instantiate()
-	dailyLabel.get_child(0).text = "Day " + str(dayNum)
+	dailyLabel.get_node("MarginContainer/DailyIncome/Day#").text = "Day " + str(dayNum)
 	if (dailyIncome >= 0):
-		dailyLabel.get_child(2).add_theme_color_override("font_color", Color(0,255,0))
-		dailyLabel.get_child(2).text = "+ " + str(dailyIncome)
+		dailyLabel.get_node("MarginContainer/DailyIncome/MoneyMade").add_theme_color_override("font_color", Color(0,255,0))
+		dailyLabel.get_node("MarginContainer/DailyIncome/MoneyMade").text = "+" + str(dailyIncome)
 	else:
-		dailyLabel.get_child(2).add_theme_color_override("font_color", Color(255,0,0))
-		dailyLabel.get_child(2).text = str(dailyIncome)
-	$Finances/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/DailyIncomeContainer.add_child(dailyLabel)
+		dailyLabel.get_node("MarginContainer/DailyIncome/MoneyMade").add_theme_color_override("font_color", Color(255,0,0))
+		dailyLabel.get_node("MarginContainer/DailyIncome/MoneyMade").text = str(dailyIncome)
+		$Finances/MarginContainer/HBoxContainer/VBoxContainer/Panel2/ScrollContainer/DailyIncomeContainer.add_child(dailyLabel)
 	dailyIncome = 0
 	pass
 	

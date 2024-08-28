@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://duivi6c74ae1p"]
+
+[ext_resource type="FontFile" uid="uid://bkb0ecyvftm8g" path="res://Leander.ttf" id="1_ajbpf"]
+
+[resource]
+base_font = ExtResource("1_ajbpf")

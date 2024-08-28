@@ -1,10 +1,11 @@
 extends Button
 
+@onready var item_image = $"Item Image"
 @onready var label = $Label
 @export var itemHeld : Item = Item.new("Shovel", 5,7,7, preload("res://Assets/Shovel.png"), "ShovelHolder") :
 	set(value):
 		itemHeld = value
-		icon = itemHeld.icon
+		item_image.texture = itemHeld.icon
 const DRAGGINGITEM = preload("res://Scenes/Item_Dragging/item_being_dragged.tscn")
 var of = Vector2(0,0)
 

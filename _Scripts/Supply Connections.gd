@@ -77,10 +77,10 @@ func setSellerInfo():
 	big_seller_pic_display.texture = currentSeller.icon
 	for item in currentSeller.items:
 		var newButton = ITEM_IN_SHOP_BUTTON.instantiate()
-		newButton.itemHeld = item 
 		newButton.button_group = ItemButtonGroup
 		item_container.add_child(newButton)
 		newButton.amount = 0
+		newButton.itemHeld = item 
 		newButton.connect("toggled", setItemInfo)
 	
 	item_container.get_child(0).button_pressed = true

@@ -63,9 +63,9 @@ func setItems():
 				break
 		if added: continue
 		var newButton = ITEM_IN_TRUCK_STORAGE.instantiate()
-		newButton.itemHeld = item 
 		newButton.dragItemAmount = drag_amount.value 
 		truck_item_list.add_child(newButton)
+		newButton.itemHeld = item 
 		newButton.amount = ItemStorage[item]
 		newButton.button_group = ItemButtonGroup
 		newButton.connect("toggled", setItemInfo)

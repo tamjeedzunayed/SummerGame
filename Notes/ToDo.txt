@@ -8,8 +8,7 @@ FEATURES TO ADD:
 	Supplier Upgrades
 	more sellers:
 	more items:
-		
-	Loading Phase (night time)
+
 	Finances tab
 	Timer & Balance on Shop Button
 	Number of Customers progression

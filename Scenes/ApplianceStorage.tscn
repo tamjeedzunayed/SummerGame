@@ -383,4 +383,4 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_oh87r")
 [connection signal="body_exited" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D" to="." method="_on_trash_body_exited"]
 [connection signal="body_entered" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Save/Collect Region" to="." method="_on_collect_region_body_entered"]
 [connection signal="body_exited" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Save/Collect Region" to="." method="_on_collect_region_body_exited"]
-[connection signal="pressed" from="Appliance Storage Button" to="." method="_on_truck_storage_button_pressed"]
+[connection signal="pressed" from="Appliance Storage Button" to="." method="_on_appliance_storage_button_pressed"]

@@ -1,49 +1,57 @@
 [gd_scene load_steps=6 format=3 uid="uid://bux2jwdwfjilg"]
 
 [ext_resource type="Texture2D" uid="uid://dhjhlaagihgka" path="res://Assets/Shovel.png" id="1_1kn4x"]
-[ext_resource type="Texture2D" uid="uid://iawy08g84bdu" path="res://Assets/unnamed.png" id="1_yggb1"]
+[ext_resource type="Texture2D" uid="uid://ypcipwphandr" path="res://Assets/ItemHolderV1.png" id="1_qrcq2"]
 [ext_resource type="Script" path="res://_Scripts/Item_in_shop_button.gd" id="2_r1tql"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1j2j2"]
-texture = ExtResource("1_yggb1")
+texture = ExtResource("1_qrcq2")
+region_rect = Rect2(14, 2, 183, 188)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_cn8cc"]
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(75, 75)
-anchors_preset = -1
-anchor_right = 0.0651042
-anchor_bottom = 0.115741
-offset_right = -3.8147e-05
-offset_bottom = -0.000167847
+offset_right = 75.0
+offset_bottom = 75.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_1j2j2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1j2j2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1j2j2")
 toggle_mode = true
 button_mask = 7
 button_group = SubResource("ButtonGroup_cn8cc")
-icon = ExtResource("1_1kn4x")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_r1tql")
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -20.0
-offset_top = -2.0
-offset_right = -1.0
+offset_left = -22.0
+offset_top = 1.0
+offset_right = -3.0
 offset_bottom = 24.0
 grow_horizontal = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.548963, 0.548963, 0.548963, 1)
+theme_override_font_sizes/font_size = 0
 text = "10
 "
 horizontal_alignment = 2
+
+[node name="Item Image" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 14.0
+offset_right = 62.0
+offset_bottom = 71.0
+texture = ExtResource("1_1kn4x")
+expand_mode = 1
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]
