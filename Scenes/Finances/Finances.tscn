@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://br51u0mbgijdq"]
+[gd_scene load_steps=8 format=3 uid="uid://br51u0mbgijdq"]
 
 [ext_resource type="Theme" uid="uid://cdkyr7bjnqey5" path="res://Themes/FinancesPanel.tres" id="1_k2mrb"]
 [ext_resource type="FontVariation" uid="uid://duivi6c74ae1p" path="res://new_font_variation.tres" id="2_8ljse"]
+[ext_resource type="Script" path="res://_Scripts/Finances.gd" id="2_dj8k2"]
 [ext_resource type="Texture2D" uid="uid://c7a0btkej4ufc" path="res://Assets/Panel4(black).png" id="3_crq4k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yx43"]
@@ -14,6 +15,8 @@ texture_margin_right = 38.0
 texture_margin_bottom = 39.0
 region_rect = Rect2(20, 35, 376, 371)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g21av"]
+
 [node name="Finances" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,6 +28,7 @@ offset_bottom = -119.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_k2mrb")
+script = ExtResource("2_dj8k2")
 metadata/_edit_horizontal_guides_ = [-34.0]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -72,19 +76,32 @@ text = "[center]Daily Income"
 
 [node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_g21av")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel2"]
 custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-offset_top = 10.0
-offset_right = 200.0
-offset_bottom = 270.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 
-[node name="DailyIncomeContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel2/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel2/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="DailyIncomeContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel2/ScrollContainer/MarginContainer"]
 layout_mode = 2
+
+[node name="ExpensesDisplay" type="ScrollContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Details" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ExpensesDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

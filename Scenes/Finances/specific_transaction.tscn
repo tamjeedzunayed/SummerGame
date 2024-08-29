@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1mvhft1880wc"]
+
+[ext_resource type="FontVariation" uid="uid://duivi6c74ae1p" path="res://new_font_variation.tres" id="1_cv5yb"]
+
+[node name="SpecificTransaction" type="HBoxContainer"]
+custom_minimum_size = Vector2(526, 25)
+offset_right = 526.0
+offset_bottom = 25.0
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Specific" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_cv5yb")
+theme_override_font_sizes/font_size = 15
+text = "Specific"
+vertical_alignment = 1
+
+[node name="Amount" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2

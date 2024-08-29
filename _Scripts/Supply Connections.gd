@@ -19,7 +19,7 @@ var balance: float
 
 signal ItemsBought(Items : Dictionary)
 signal StorageFull
-signal balanceChanged(newBalance)
+signal balanceChanged(type : String, specific : String, newBalance)
 signal storageUsedChanged(newUsedCapacitiy)
 
 var ItemButtonGroup = ButtonGroup.new()
@@ -51,7 +51,7 @@ func _ready():
 	SellerButtonGroup = seller_list.get_child(0).button_group
 	seller_list.get_child(0).button_pressed = true
 	
-	var seller1items = [Item.new("Shovel", 10,15,10, preload("res://Assets/Shovel.png"), "Shelf"),
+	var seller1items : Array[Item] = [Item.new("Shovel", 10,15,10, preload("res://Assets/Shovel.png"), "Shelf"),
 	Item.new("Drill", 10,12,10, preload("res://Assets/Drill.png"), "Shelf"),
 	Item.new("Hammer", 10,12,10, preload("res://Assets/Hammer.png"), "Shelf"),
 	Item.new("Wrench", 10,12,10, preload("res://Assets/Wrench.png"), "Shelf"),
@@ -130,9 +130,10 @@ func _on_discount_button_pressed():
 
 func _on_buy_pressed():
 	if (balance >= cartTotal):
-		balanceChanged.emit(balance - cartTotal)
+		
 		var totalXpAdded := 0.
 		for item in cart.keys():
+			balanceChanged.emit("Purchases", item.name , -item.sellPrice)
 			totalXpAdded += item.expe * cart[item]
 		for itemButton in ItemButtonGroup.get_buttons():
 			itemButton.amount = 0

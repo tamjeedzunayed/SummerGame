@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy5n1ghxlk2x6"
-path="res://.godot/imported/Connect2.png-eb39ad2d79b8387b5d989650765856b4.ctex"
+uid="uid://dghfdshfevuen"
+path="res://.godot/imported/buttonStyle1White.png-95788ab507c924b10bb3ea76f5ba0a92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Connect2.png"
-dest_files=["res://.godot/imported/Connect2.png-eb39ad2d79b8387b5d989650765856b4.ctex"]
+source_file="res://buttonStyle1White.png"
+dest_files=["res://.godot/imported/buttonStyle1White.png-95788ab507c924b10bb3ea76f5ba0a92.ctex"]
 
 [params]
 

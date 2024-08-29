@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://kmaggbxlo5iv"]
+[gd_scene load_steps=29 format=3 uid="uid://dmvuwsrm7oxr4"]
 
 [ext_resource type="Script" path="res://_Scripts/shop.gd" id="1_tf1v1"]
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://Themes/new_theme.tres" id="2_527pq"]
@@ -7,13 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="3_st4tx"]
 [ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://Assets/DiscountIcon.png" id="5_868tk"]
 [ext_resource type="Texture2D" uid="uid://dra4q88xff4ge" path="res://Assets/Construction_Guy.png" id="5_j18lq"]
+[ext_resource type="Texture2D" uid="uid://c7c8veqnd1u3e" path="res://Assets/Sellers/Hector.png" id="5_urh6r"]
 [ext_resource type="Script" path="res://_Scripts/AppliancesShop.gd" id="8_k3ymg"]
 [ext_resource type="PackedScene" uid="uid://db786bhjv86sy" path="res://Scenes/ApplianceInShop.tscn" id="9_naofi"]
 [ext_resource type="Texture2D" uid="uid://ed4a03s3brwk" path="res://Assets/Panels.png" id="10_vww7q"]
 [ext_resource type="Texture2D" uid="uid://ckxt81u7yc8ls" path="res://Assets/panel2.png" id="11_2jq77"]
 [ext_resource type="Texture2D" uid="uid://cxwbu2n6mty54" path="res://Assets/shovel Appliance.png" id="11_pn8ud"]
-[ext_resource type="Texture2D" uid="uid://brjehyfxe4e0" path="res://Assets/ShopButtonV2.png" id="13_in5i7"]
-[ext_resource type="Texture2D" uid="uid://b82anpwlt0i0a" path="res://Assets/ShopButtonV2 - Copy.png" id="14_6lppv"]
+[ext_resource type="Texture2D" uid="uid://brjehyfxe4e0" path="res://Assets/Buttons/ShopButtonV2.png" id="14_snkac"]
+[ext_resource type="Texture2D" uid="uid://b82anpwlt0i0a" path="res://Assets/Buttons/ShopButtonV2 - Copy.png" id="15_cc5wj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8if7"]
 bg_color = Color(0.419608, 0.556863, 0.682353, 1)
@@ -285,6 +286,7 @@ cartUpgrade = 1
 [node name="Seller2" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/SellerList" instance=ExtResource("3_jd3nf")]
 layout_mode = 2
 text = "Ahura"
+icon = ExtResource("5_urh6r")
 
 [node name="Seller3" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/SellerList" instance=ExtResource("3_jd3nf")]
 layout_mode = 2
@@ -799,9 +801,9 @@ offset_top = 542.0
 offset_right = 1752.0
 offset_bottom = 711.0
 scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("13_in5i7")
-texture_pressed = ExtResource("14_6lppv")
-texture_hover = ExtResource("14_6lppv")
+texture_normal = ExtResource("14_snkac")
+texture_pressed = ExtResource("15_cc5wj")
+texture_hover = ExtResource("15_cc5wj")
 
 [node name="StorageFull" type="Label" parent="."]
 visible = false

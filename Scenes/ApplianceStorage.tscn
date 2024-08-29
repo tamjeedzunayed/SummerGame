@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://cljxhlhn5sb75"]
+[gd_scene load_steps=18 format=3]
 
 [ext_resource type="Script" path="res://_Scripts/ApplianceStorage.gd" id="1_rq2qh"]
 [ext_resource type="Texture2D" uid="uid://ed4a03s3brwk" path="res://Assets/Panels.png" id="1_vktq8"]
 [ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://Assets/DiscountIcon.png" id="2_1xvpy"]
 [ext_resource type="Texture2D" uid="uid://ckxt81u7yc8ls" path="res://Assets/panel2.png" id="4_uptod"]
 [ext_resource type="Texture2D" uid="uid://8xp0qfcsycrt" path="res://Assets/TrashIcon.png" id="6_5cbmm"]
-[ext_resource type="Texture2D" uid="uid://c1msr5cs37nid" path="res://Assets/side buttons.png" id="6_27x3c"]
+[ext_resource type="Texture2D" uid="uid://c1msr5cs37nid" path="res://Assets/Buttons/side buttons.png" id="6_27x3c"]
 [ext_resource type="Texture2D" uid="uid://b5g8l2kcos8q3" path="res://Assets/StorageIcon.png" id="7_h7klw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qjkab"]
@@ -356,10 +356,10 @@ size_flags_vertical = 8
 tooltip_text = "The amount of items that you drag from items in the appliance."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_mgdo0")
 }
-speed_scale = 1.5
 
 [node name="Appliance Storage Button" type="Button" parent="."]
 layout_mode = 1

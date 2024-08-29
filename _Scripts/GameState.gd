@@ -1,6 +1,6 @@
 extends Node
 
-@onready var transaction = $Transaction
+@onready var transactionLabel = $Transaction
 @onready var furnitures = $Furnitures
 @onready var customers = %Customers
 @onready var customers_in_queue = %CustomersInQueue
@@ -21,21 +21,21 @@ var dailyIncome = -200
 
 const applianceScene = preload("res://Scenes/appliance.tscn")
 const APPLIANCE_TO_PLACE = preload("res://Scenes/appliance_to_place.tscn")
-const DAILYLABELSCENE = preload("res://Scenes/dailyIncome.tscn")
+
 var ready_done = false
 @onready var appliances_storage = $AppliancesStorage
 var placingAppliance = false
 var balance = 0: 
 	set(value):
 		dailyIncome +=	value-balance
-		transaction.text = str(value-balance)
-		if (value-balance) > 0: transaction.text = "+" + transaction.text  
+		transactionLabel.text = str(value-balance)
+		if (value-balance) > 0: transactionLabel.text = "+" + transactionLabel.text  
 		if(balance - value > 0):
-			transaction.add_theme_color_override("font_color", Color(255,0,0))
-			transaction.get_child(0).play("Transaction")
+			transactionLabel.add_theme_color_override("font_color", Color(255,0,0))
+			transactionLabel.get_child(0).play("Transaction")
 		elif(balance - value < 0):
-			transaction.add_theme_color_override("font_color", Color(0,255,0))
-			transaction.get_child(0).play("Transaction")
+			transactionLabel.add_theme_color_override("font_color", Color(0,255,0))
+			transactionLabel.get_child(0).play("Transaction")
 		
 		balance_display.text = str(value)
 		balance = value
@@ -81,9 +81,9 @@ func _ready():
 	Canvas_animation_player.speed_scale = 1./DAY_TIME_LENGTH
 	
 	shop.supply_connections.connect("ItemsBought", itemsBought)
-	shop.supply_connections.connect("balanceChanged", changeBalance)
+	shop.supply_connections.connect("balanceChanged", transaction)
 	shop.supply_connections.connect("storageUsedChanged", truck_storage.changeCapacityUsed)
-	shop.appliances.connect("balanceChanged", changeBalance)
+	shop.appliances.connect("balanceChanged", transaction)
 	shop.appliances.connect("applianceBought", createApplianceToPlace)
 	truck_storage.connect("UsedCapacityChanged", shop.usedCapacityChanged)
 	shop.usedCapacityChanged(truck_storage.UsedCapacity)
@@ -109,6 +109,7 @@ func createApplianceToPlace(applianceBought):
 	placingAppliance = true
 	var applToPlace = APPLIANCE_TO_PLACE.instantiate()
 	applToPlace.applianceHeld = applianceBought
+	transaction("Purchases", applianceBought.name, applianceBought.price)
 	add_child(applToPlace)
 	pass
 
@@ -153,10 +154,10 @@ func _on_timer_timeout():
 	else:
 		isDay = !isDay
 		if (isDay):
+			saveDailyIncome()
 			clock.wait_time = DAY_TIME_LENGTH
 			day()
 		else:
-			saveDailyIncome()
 			clock.wait_time = NIGHT_TIME_LENGTH
 			night()
 	clock.start()
@@ -168,7 +169,8 @@ func day():
 	update_item_chances()
 	$DayLabel.text = "Day " + str(dayNum)
 	$DayLabel/AnimationPlayer.play("FadeInOut")
-	balance -= DriverSalary+endOfDayQuota
+	transaction("Expenses", "Driver's Salary", -DriverSalary)
+	transaction("Expenses", "End Of Day Quota", -endOfDayQuota)
 	truck.day()
 	shop.day()
 	DriverSalary = round_to_digits(DriverSalary*incRate, 2)
@@ -262,8 +264,6 @@ func _input(event):
 		pass
 	pass
 
-func changeBalance(newBalance):
-	balance = newBalance
 
 func _on_buy_region_body_entered(body):
 	if body is CharacterBody2D:
@@ -271,7 +271,9 @@ func _on_buy_region_body_entered(body):
 		var heldItems: Array[Item] = body.heldItems
 		for item in heldItems:
 			totalItemPrice += item.sellPrice
+			transaction("Sales", item.name, item.sellPrice)
 		balance += totalItemPrice
+		
 	body.navigation_agent.target_position = $Exit.position
 	pass # Replace with function body.
 
@@ -348,15 +350,15 @@ func _on_panel_container_mouse_exited():
 	_on_canvas_layer_mouse_exited()
 
 func saveDailyIncome():
-	var dailyLabel = DAILYLABELSCENE.instantiate()
-	dailyLabel.get_node("MarginContainer/DailyIncome/Day#").text = "Day " + str(dayNum)
-	if (dailyIncome >= 0):
-		dailyLabel.get_node("MarginContainer/DailyIncome/MoneyMade").add_theme_color_override("font_color", Color(0,255,0))
-		dailyLabel.get_node("MarginContainer/DailyIncome/MoneyMade").text = "+" + str(dailyIncome)
-	else:
-		dailyLabel.get_node("MarginContainer/DailyIncome/MoneyMade").add_theme_color_override("font_color", Color(255,0,0))
-		dailyLabel.get_node("MarginContainer/DailyIncome/MoneyMade").text = str(dailyIncome)
-		$Finances/MarginContainer/HBoxContainer/VBoxContainer/Panel2/ScrollContainer/DailyIncomeContainer.add_child(dailyLabel)
-	dailyIncome = 0
-	pass
+	$Finances.instantiateDailyIncome(dayNum)
 	
+#all transactions should happen through this function
+func transaction(type : String, specific : String, amount : float):
+	balance = balance + amount
+	if ($Finances.dailyIncome != null):
+		$Finances.dailyIncome.updateDailyIncome(type, specific, amount)
+		balance += amount
+	else:
+		$Finances.instantiateDailyIncome(dayNum)
+		transaction(type, specific, amount)
+

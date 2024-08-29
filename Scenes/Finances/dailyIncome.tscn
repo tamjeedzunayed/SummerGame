@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4lc5vjmtv64a"]
+
+[ext_resource type="Script" path="res://_Scripts/dailyIncome.gd" id="1_aayuf"]
+[ext_resource type="FontVariation" uid="uid://duivi6c74ae1p" path="res://new_font_variation.tres" id="2_5hc6q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f03tl"]
+bg_color = Color(0.0784314, 0.101961, 0.133333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r2mf"]
+bg_color = Color(0.0784314, 0.101961, 0.133333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxmkc"]
+bg_color = Color(0.192157, 0.231373, 0.294118, 1)
+
+[node name="ReferenceRect" type="Button"]
+custom_minimum_size = Vector2(0, 40)
+offset_left = -1.0
+offset_right = 178.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_f03tl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2r2mf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dxmkc")
+toggle_mode = true
+button_pressed = true
+script = ExtResource("1_aayuf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = 91.0
+offset_right = -30.0743
+offset_bottom = -87.5037
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="DailyIncome" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Day#" type="Label" parent="MarginContainer/DailyIncome"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_5hc6q")
+theme_override_font_sizes/font_size = 20
+text = "Day X"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/DailyIncome"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoneyMade" type="Label" parent="MarginContainer/DailyIncome"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0.729412, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "+100"
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

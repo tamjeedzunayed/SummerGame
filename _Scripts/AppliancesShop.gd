@@ -69,5 +69,5 @@ func setApplianceInfo():
 func _on_buy_button_pressed():
 	if (balance >= selectedButton.applianceHeld.price):
 		applianceBought.emit(selectedButton.applianceHeld)
-		balanceChanged.emit(balance - selectedButton.applianceHeld.price)
+		# balanceChanged.emit("Purchases", selectedButton.applianceHeld.name, -selectedButton.applianceHeld.price)
 	pass # Replace with function body.

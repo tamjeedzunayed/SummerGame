@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d30jk178yditc"
-path="res://.godot/imported/Seller.png-62d8061bd49980280d61051219a16255.ctex"
+uid="uid://bajibyl3t33ve"
+path="res://.godot/imported/Construction guy.png-1351e98d3390a1a211a69bcac87458e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Seller.png"
-dest_files=["res://.godot/imported/Seller.png-62d8061bd49980280d61051219a16255.ctex"]
+source_file="res://Assets/Sellers/Construction guy.png"
+dest_files=["res://.godot/imported/Construction guy.png-1351e98d3390a1a211a69bcac87458e7.ctex"]
 
 [params]
 

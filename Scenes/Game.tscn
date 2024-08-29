@@ -5,14 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://beym3i1li6le2" path="res://Assets/Clock.png" id="3_n1d2p"]
 [ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="4_yep2v"]
 [ext_resource type="Texture2D" uid="uid://sdwy04n24suc" path="res://Assets/kljhl2stsf731.webp" id="5_0qsa5"]
-[ext_resource type="PackedScene" uid="uid://kmaggbxlo5iv" path="res://Scenes/shop.tscn" id="7_wxqg1"]
+[ext_resource type="PackedScene" uid="uid://dmvuwsrm7oxr4" path="res://Scenes/shop.tscn" id="7_wxqg1"]
 [ext_resource type="Texture2D" uid="uid://dk3ikm0m6it53" path="res://Assets/supermarket-checkout-counter-belt-top-600nw-660919069.jpg" id="8_bmyue"]
 [ext_resource type="PackedScene" uid="uid://bddx65vxgottu" path="res://Scenes/truck.tscn" id="8_fs6jg"]
 [ext_resource type="Texture2D" uid="uid://wgyoegdrulis" path="res://Assets/HomeIcon.png" id="9_4eg3n"]
-[ext_resource type="PackedScene" uid="uid://2gsy6ed0omdq" path="res://Scenes/TruckStorage.tscn" id="11_stuwf"]
+[ext_resource type="PackedScene" path="res://Scenes/TruckStorage.tscn" id="11_stuwf"]
 [ext_resource type="Texture2D" uid="uid://c6h20vpwexn7" path="res://Assets/Customer Display.png" id="12_alde2"]
-[ext_resource type="PackedScene" uid="uid://cljxhlhn5sb75" path="res://Scenes/ApplianceStorage.tscn" id="12_e73hs"]
-[ext_resource type="PackedScene" uid="uid://br51u0mbgijdq" path="res://Scenes/Finances.tscn" id="13_ckeni"]
+[ext_resource type="PackedScene" path="res://Scenes/ApplianceStorage.tscn" id="12_e73hs"]
+[ext_resource type="PackedScene" uid="uid://br51u0mbgijdq" path="res://Scenes/Finances/Finances.tscn" id="13_ckeni"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_p1mti"]
 vertices = PackedVector2Array(7, 7, -7, 7, -7, -7, 7, -7)
@@ -37,7 +37,6 @@ vertices = PackedVector2Array(7, 7, -7, 7, -7, -7, 7, -7)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-6.85714, 6.85714, -6.85714, -6.85714, 6.85714, -6.85714, 6.85714, 6.85714)])
 source_geometry_group_name = &"navigation_polygon_source_group"
-agent_radius = 0.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dr3uq"]
 vertices = PackedVector2Array(7, 7, -7, 7, -7, -7, 7, -7)
@@ -13336,7 +13335,6 @@ shape = SubResource("RectangleShape2D_1id67")
 [node name="TruckStorage" parent="." instance=ExtResource("11_stuwf")]
 
 [node name="Finances" parent="." instance=ExtResource("13_ckeni")]
-visible = false
 
 [node name="AppliancesStorage" parent="." instance=ExtResource("12_e73hs")]
 
@@ -13345,7 +13343,7 @@ z_index = 3
 offset_left = 1043.0
 offset_top = 64.0
 offset_right = 1166.0
-offset_bottom = 104.0
+offset_bottom = 107.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10

@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://hhm8i06m6lw7"]
+
+[ext_resource type="FontVariation" uid="uid://duivi6c74ae1p" path="res://new_font_variation.tres" id="1_0tjkk"]
+
+[node name="typeTransaction" type="HBoxContainer"]
+custom_minimum_size = Vector2(526, 30)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="type" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_0tjkk")
+theme_override_font_sizes/font_size = 20
+text = "Purchases"
+vertical_alignment = 1
+
+[node name="amount" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2

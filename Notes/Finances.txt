@@ -1,0 +1,20 @@
+Daily Charges are on the left hand side of the screen. Each day's income is viewable so you can click on it
+and see the things you spent your money on in the left hand side of the finances. 
+
+Types of things you transactions happen on:
+	Sales:	  $$
+		Item1 $$
+		Item2 $$
+		...
+	Purchases: $$
+		Item1  $$
+		...
+	Upgrades:    $$
+		techTree $$
+		TruckDriver $$
+		...
+	Expenses:         $$
+		Driver Salary $$
+		Rent          $$
+		
+	Total: $$
