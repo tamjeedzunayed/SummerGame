@@ -17,7 +17,6 @@ extends Node
 @onready var appliances = $Appliances
 @onready var cashier_check_out = $CashierCheckOut
 var mouseOnFinances : bool = false 
-var dailyIncome = -200
 
 const applianceScene = preload("res://Scenes/appliance.tscn")
 const APPLIANCE_TO_PLACE = preload("res://Scenes/appliance_to_place.tscn")
@@ -27,7 +26,6 @@ var ready_done = false
 var placingAppliance = false
 var balance = 0: 
 	set(value):
-		dailyIncome +=	value-balance
 		transactionLabel.text = str(value-balance)
 		if (value-balance) > 0: transactionLabel.text = "+" + transactionLabel.text  
 		if(balance - value > 0):
@@ -347,7 +345,6 @@ func saveDailyIncome():
 	
 #all transactions should happen through this function
 func transaction(type : String, specific : String, amount : float):
-	balance = balance + amount
 	if (%Finances.dailyIncome != null):
 		%Finances.dailyIncome.updateDailyIncome(type, specific, amount)
 		balance += amount

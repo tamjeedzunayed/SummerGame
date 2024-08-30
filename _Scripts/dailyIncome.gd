@@ -10,7 +10,7 @@ var total = 0 :
 		else:
 			money_made.add_theme_color_override("font_color", Color(255,0,0))
 			money_made.text = str(value)
-			total = value
+		total = value
 		emit_signal("gotPressed", self)
 
 var Sales  		= {}
@@ -25,7 +25,6 @@ func setDayNum(dayNum):
 	day_.text = "Day " + str(dayNum)
 	
 func updateDailyIncome(type : String, specific : String, amount : float):
-	total += amount
 	if (type == "Sales"):
 		if (Sales.has(specific)):
 			Sales[specific] += amount
@@ -48,7 +47,7 @@ func updateDailyIncome(type : String, specific : String, amount : float):
 			Expenses[specific] = amount
 	else: 
 		print("Not Valid Transaction")
-
+	total += amount
 
 
 func _on_pressed():

@@ -1,11 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://hhm8i06m6lw7"]
+[gd_scene load_steps=4 format=3 uid="uid://hhm8i06m6lw7"]
 
 [ext_resource type="FontVariation" uid="uid://duivi6c74ae1p" path="res://new_font_variation.tres" id="1_0tjkk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28fjc"]
+bg_color = Color(0.643137, 0.862745, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3i7tp"]
+bg_color = Color(0.643137, 0.862745, 1, 1)
 
 [node name="typeTransaction" type="HBoxContainer"]
 custom_minimum_size = Vector2(526, 30)
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/separation = 0
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(10, 0)
@@ -15,8 +22,10 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_0tjkk")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_28fjc")
 text = "Purchases"
 vertical_alignment = 1
 
@@ -25,6 +34,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_3i7tp")
 horizontal_alignment = 2
 vertical_alignment = 1
 

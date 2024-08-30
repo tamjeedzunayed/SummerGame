@@ -40,6 +40,11 @@ func makeTypeSection(typeSection, typeName : String):
 			total += type[key]
 	type_transaction.get_child(1).text = typeName
 	type_transaction.get_child(2).text = str(total)
+	if (total >= 0):
+		type_transaction.get_child(2).add_theme_color_override("font_color", Color(0,0,0))
+	else:
+		type_transaction.get_child(2).add_theme_color_override("font_color", Color(255,0,0))
+
 	details.add_child(type_transaction)
 	if (!type.is_empty()):
 		for key in type.keys():
@@ -47,4 +52,8 @@ func makeTypeSection(typeSection, typeName : String):
 			transactionView.get_child(1).text = "     " + key
 			transactionView.get_child(2).text = str(type[key])
 			details.add_child(transactionView)
-	
+			#coloring label red or green
+			if (type[key] >= 0):
+				transactionView.get_child(2).add_theme_color_override("font_color", Color(0,0,0))
+			else:
+				transactionView.get_child(2).add_theme_color_override("font_color", Color(255,0,0))

@@ -126,10 +126,9 @@ func _on_remove_from_cart_pressed():
 
 func _on_buy_pressed():
 	if (balance >= cartTotal):
-		
 		var totalXpAdded := 0.
 		for item in cart.keys():
-			balanceChanged.emit("Purchases", item.name , -item.sellPrice)
+			balanceChanged.emit("Purchases", item.name , -item.price*cart[item])
 			totalXpAdded += item.expe * cart[item]
 		for itemButton in ItemButtonGroup.get_buttons():
 			itemButton.amount = 0
@@ -144,7 +143,6 @@ func _on_buy_pressed():
 			exp_points.text = "EXP Points: " + str(currentSeller.expPoints)
 			exp_icon.texture = preload("res://Assets/Exp.png")
 		currentSeller.cred = currentSeller.cred % int(cred_bar.max_value)
-		
 		ItemsBought.emit(cart)
 		
 		cart.clear()

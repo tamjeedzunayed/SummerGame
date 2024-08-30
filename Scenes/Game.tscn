@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://exvvk7wadj5o"]
+[gd_scene load_steps=61 format=3 uid="uid://exvvk7wadj5o"]
 
 [ext_resource type="Texture2D" uid="uid://l7vvuai5pdli" path="res://Assets/prison-architect-sprite-space-station-13-prison-c43b8f1941c16edd6cac73192e80d559.png" id="1_bbl8v"]
 [ext_resource type="Script" path="res://_Scripts/GameState.gd" id="1_w6crc"]
@@ -13142,7 +13142,7 @@ func _process(_delta):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3i5o1"]
-size = Vector2(119, 88)
+size = Vector2(119.5, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1id67"]
 size = Vector2(92.5, 91)
@@ -13191,6 +13191,9 @@ region_rect = Rect2(14, 6, 148, 148)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mkxbr"]
 texture = ExtResource("11_yygse")
 region_rect = Rect2(173, 7, 148, 148)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmlbq"]
+size = Vector2(120, 56)
 
 [node name="GameState" type="Node"]
 script = ExtResource("1_w6crc")
@@ -13305,13 +13308,8 @@ collision_layer = 0
 collision_mask = 2
 script = SubResource("GDScript_yrsui")
 
-[node name="Sprite2D" type="Sprite2D" parent="BuyRegion"]
-position = Vector2(162.375, 167.5)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("8_bmyue")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuyRegion"]
-position = Vector2(163, 184)
+position = Vector2(162.25, 210.5)
 shape = SubResource("RectangleShape2D_3i5o1")
 
 [node name="Exit" type="Area2D" parent="."]
@@ -13414,6 +13412,20 @@ visible = false
 
 [node name="AppliancesStorage" parent="CanvasLayer2" instance=ExtResource("12_e73hs")]
 unique_name_in_owner = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(162.188, 165.25)
+scale = Vector2(0.253421, 0.252193)
+texture = ExtResource("8_bmyue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(162, 165)
+shape = SubResource("RectangleShape2D_hmlbq")
+debug_color = Color(0.870696, 0.000496902, 0.848258, 0.42)
 
 [connection signal="timeout" from="CustSpawnRate" to="." method="_on_cust_spawn_rate_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
