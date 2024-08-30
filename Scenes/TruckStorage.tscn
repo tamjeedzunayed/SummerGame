@@ -1,26 +1,27 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=13 format=3 uid="uid://2gsy6ed0omdq"]
 
 [ext_resource type="Script" path="res://_Scripts/TruckStorage.gd" id="1_2x54h"]
-[ext_resource type="Texture2D" uid="uid://ed4a03s3brwk" path="res://Assets/Panels.png" id="1_ip474"]
-[ext_resource type="Texture2D" uid="uid://ckxt81u7yc8ls" path="res://Assets/panel2.png" id="3_5vdpb"]
-[ext_resource type="Texture2D" uid="uid://c1msr5cs37nid" path="res://Assets/Buttons/side buttons.png" id="3_yfrcr"]
+[ext_resource type="Texture2D" uid="uid://dejm0xb0oh7jl" path="res://Assets/UI/MainPanels.png" id="1_4esl8"]
+[ext_resource type="Texture2D" uid="uid://cakcquumm7qgm" path="res://Assets/UI/InnerPanels.png" id="3_so8k2"]
+[ext_resource type="Texture2D" uid="uid://d0n0akgc5d6j" path="res://Assets/UI/SideButtons.png" id="5_nqycx"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1vqbb"]
-texture = ExtResource("1_ip474")
-texture_margin_left = 74.0612
-texture_margin_top = 71.2081
-texture_margin_right = 71.0686
-texture_margin_bottom = 81.4436
-axis_stretch_horizontal = 1
-region_rect = Rect2(312.234, 311.533, 1492.42, 1494.21)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jgjrj"]
+texture = ExtResource("1_4esl8")
+texture_margin_left = 30.0
+texture_margin_top = 31.0
+texture_margin_right = 30.0
+texture_margin_bottom = 31.0
+region_rect = Rect2(550, 141, 377, 370)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d668s"]
-texture = ExtResource("3_5vdpb")
-texture_margin_left = 82.0
-texture_margin_top = 82.0
-texture_margin_right = 82.0
-texture_margin_bottom = 84.0
-region_rect = Rect2(1045, 295, 811, 812)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6egpo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5p8n"]
+texture = ExtResource("3_so8k2")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 17.0
+region_rect = Rect2(25, 40, 236, 176)
 
 [sub_resource type="Animation" id="Animation_8uh80"]
 resource_name = "Panel_In"
@@ -34,7 +35,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1152, 34), Vector2(548, 34)]
+"values": [Vector2(1145, 34), Vector2(548, 34)]
 }
 
 [sub_resource type="Animation" id="Animation_kndj8"]
@@ -49,7 +50,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(548, 34), Vector2(1152, 34)]
+"values": [Vector2(548, 34), Vector2(1145, 34)]
 }
 
 [sub_resource type="Animation" id="Animation_knwe0"]
@@ -64,7 +65,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1152, 34)]
+"values": [Vector2(1145, 34)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgdo0"]
@@ -74,49 +75,28 @@ _data = {
 "RESET": SubResource("Animation_knwe0")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ah35w"]
-texture = ExtResource("3_yfrcr")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(1124, 624, 899, 102)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v1k7y"]
-texture = ExtResource("3_yfrcr")
-texture_margin_left = 3.0
-texture_margin_top = 4.0
-texture_margin_right = 5.0
-texture_margin_bottom = 3.0
-region_rect = Rect2(1120, 511, 899, 102)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uo4or"]
-texture = ExtResource("3_yfrcr")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(1119, 510, 899, 104)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aj5fu"]
+texture = ExtResource("5_nqycx")
+region_rect = Rect2(507, 17, 502, 53)
 
 [node name="TruckStorage" type="Panel"]
-offset_left = 1152.0
+offset_left = 1145.0
 offset_top = 34.0
-offset_right = 3564.0
-offset_bottom = 1171.0
-scale = Vector2(0.25, 0.25)
+offset_right = 1748.0
+offset_bottom = 318.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_1vqbb")
+theme_override_styles/panel = SubResource("StyleBoxTexture_jgjrj")
 script = ExtResource("1_2x54h")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-offset_right = 2412.0
-offset_bottom = 1137.0
-theme_override_constants/margin_left = 75
-theme_override_constants/margin_top = 75
-theme_override_constants/margin_right = 60
-theme_override_constants/margin_bottom = 75
+offset_right = 603.0
+offset_bottom = 284.0
+theme_override_constants/margin_left = 21
+theme_override_constants/margin_top = 19
+theme_override_constants/margin_right = 19
+theme_override_constants/margin_bottom = 19
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -125,6 +105,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.38
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6egpo")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel"]
 layout_mode = 1
@@ -145,70 +126,86 @@ theme_override_constants/separation = 10
 [node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_w5p8n")
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel"]
-layout_mode = 1
-offset_right = 1307.0
-offset_bottom = 483.0
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_right = 309.0
+offset_bottom = 111.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
 theme_override_constants/v_separation = 30
 columns = 2
 
-[node name="Truck Health" type="Label" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel/GridContainer"]
+[node name="Truck Health" type="Label" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 12
 text = "Truck Health: 000"
 
-[node name="Used Capacity" type="Label" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel/GridContainer"]
+[node name="Used Capacity" type="Label" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 12
 text = "Used Capacity: 000
 "
 
-[node name="Driver Salary" type="Label" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel/GridContainer"]
+[node name="Driver Salary" type="Label" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 12
 text = "Driver Salary:
 "
 
-[node name="Capacity" type="Label" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel/GridContainer"]
+[node name="Capacity" type="Label" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 12
 text = "Capacity:
 "
 
 [node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_w5p8n")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2"]
-layout_mode = 1
-offset_right = 1307.0
-offset_bottom = 484.0
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2"]
+layout_mode = 0
+offset_right = 310.0
+offset_bottom = 112.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="ItemInfo" type="Label" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="ItemInfo" type="Label" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 12
 text = "Item Name: ###
 Sale Price: 000
 Buy Cost: 000
 Appliance Type: ######"
 autowrap_mode = 2
 
-[node name="ItemPicture" type="TextureRect" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2/HBoxContainer"]
+[node name="ItemPicture" type="TextureRect" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 135)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-stretch_mode = 2
+size_flags_horizontal = 2
+expand_mode = 5
 
 [node name="Drag Amount" type="SpinBox" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2"]
 unique_name_in_owner = true
@@ -216,12 +213,12 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = -137.0
-offset_right = 95.0625
-offset_bottom = -106.0
+offset_left = 238.0
+offset_top = -101.0
+offset_right = 321.063
+offset_bottom = -70.0
 grow_vertical = 0
-scale = Vector2(4, 4)
+scale = Vector2(0.7, 0.7)
 tooltip_text = "give me head bb girl"
 min_value = 1.0
 value = 1.0
@@ -229,30 +226,27 @@ value = 1.0
 [node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_d668s")
+theme_override_styles/panel = SubResource("StyleBoxTexture_w5p8n")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Panel2"]
+custom_minimum_size = Vector2(0, 350)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 28.0
-offset_top = 33.0
-offset_right = -531.0
-offset_bottom = -613.0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 100.0
+offset_bottom = 118.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.7, 2.7)
+scale = Vector2(0.65, 0.65)
 horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel2/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
 
 [node name="TruckItemList" type="GridContainer" parent="MarginContainer/HBoxContainer/Panel2/ScrollContainer/MarginContainer"]
 unique_name_in_owner = true
@@ -262,28 +256,28 @@ size_flags_vertical = 0
 columns = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_mgdo0")
 }
+speed_scale = 1.5
 
 [node name="Truck Storage Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0470588
 anchor_right = -0.047
-offset_left = 9.50582
-offset_top = 1136.0
-offset_right = 325.466
-offset_bottom = 1168.0
+offset_left = 10.3764
+offset_top = 268.0
+offset_right = 326.337
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5708
-scale = Vector2(3.6, 3.6)
+scale = Vector2(0.8, 0.8)
 theme_override_font_sizes/font_size = 55
-theme_override_styles/normal = SubResource("StyleBoxTexture_ah35w")
-theme_override_styles/hover = SubResource("StyleBoxTexture_v1k7y")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_uo4or")
+theme_override_styles/normal = SubResource("StyleBoxTexture_aj5fu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_aj5fu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_aj5fu")
 
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2/Drag Amount" to="." method="_on_drag_amount_value_changed"]
 [connection signal="pressed" from="Truck Storage Button" to="." method="_on_truck_storage_button_pressed"]

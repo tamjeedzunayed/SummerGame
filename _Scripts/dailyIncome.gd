@@ -12,7 +12,7 @@ var total = 0 :
 			money_made.text = str(value)
 			total = value
 		emit_signal("gotPressed", self)
-\
+
 var Sales  		= {}
 var Purchases 	= {}
 var Upgrades 	= {}
@@ -49,9 +49,6 @@ func updateDailyIncome(type : String, specific : String, amount : float):
 	else: 
 		print("Not Valid Transaction")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _on_pressed():

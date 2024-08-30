@@ -1,20 +1,32 @@
-[gd_scene load_steps=29 format=3 uid="uid://dmvuwsrm7oxr4"]
+[gd_scene load_steps=36 format=3 uid="uid://dmvuwsrm7oxr4"]
 
 [ext_resource type="Script" path="res://_Scripts/shop.gd" id="1_tf1v1"]
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://Themes/new_theme.tres" id="2_527pq"]
 [ext_resource type="Script" path="res://_Scripts/Supply Connections.gd" id="3_8pclh"]
+[ext_resource type="Texture2D" uid="uid://dejm0xb0oh7jl" path="res://Assets/UI/MainPanels.png" id="3_a5oda"]
 [ext_resource type="PackedScene" uid="uid://bqwqs88d114v5" path="res://Scenes/Seller.tscn" id="3_jd3nf"]
-[ext_resource type="Texture2D" uid="uid://dplyupkvmvj5j" path="res://Assets/MoneyBag.png" id="3_st4tx"]
-[ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://Assets/DiscountIcon.png" id="5_868tk"]
 [ext_resource type="Texture2D" uid="uid://dra4q88xff4ge" path="res://Assets/Construction_Guy.png" id="5_j18lq"]
 [ext_resource type="Texture2D" uid="uid://c7c8veqnd1u3e" path="res://Assets/Sellers/Hector.png" id="5_urh6r"]
+[ext_resource type="Texture2D" uid="uid://cybahb3d146n3" path="res://Assets/UI/ProgressBarUnder.png" id="7_h3lsq"]
+[ext_resource type="Texture2D" uid="uid://vjckudfsxi4g" path="res://Assets/UI/ProgressBarOver.png" id="8_5lxl4"]
+[ext_resource type="Texture2D" uid="uid://c6oofd41rym2s" path="res://Assets/UI/UpgradeButtons.png" id="8_gvlas"]
 [ext_resource type="Script" path="res://_Scripts/AppliancesShop.gd" id="8_k3ymg"]
+[ext_resource type="Texture2D" uid="uid://64xjwlk0r8e5" path="res://Assets/UI/ProgressBarFill.png" id="9_fgbwr"]
 [ext_resource type="PackedScene" uid="uid://db786bhjv86sy" path="res://Scenes/ApplianceInShop.tscn" id="9_naofi"]
-[ext_resource type="Texture2D" uid="uid://ed4a03s3brwk" path="res://Assets/Panels.png" id="10_vww7q"]
-[ext_resource type="Texture2D" uid="uid://ckxt81u7yc8ls" path="res://Assets/panel2.png" id="11_2jq77"]
 [ext_resource type="Texture2D" uid="uid://cxwbu2n6mty54" path="res://Assets/shovel Appliance.png" id="11_pn8ud"]
-[ext_resource type="Texture2D" uid="uid://brjehyfxe4e0" path="res://Assets/Buttons/ShopButtonV2.png" id="14_snkac"]
-[ext_resource type="Texture2D" uid="uid://b82anpwlt0i0a" path="res://Assets/Buttons/ShopButtonV2 - Copy.png" id="15_cc5wj"]
+[ext_resource type="Texture2D" uid="uid://cakcquumm7qgm" path="res://Assets/UI/InnerPanels.png" id="12_bxug6"]
+[ext_resource type="Texture2D" uid="uid://uwyudxd7hldm" path="res://Assets/UI/ColorButtons.png" id="14_oulka"]
+[ext_resource type="Texture2D" uid="uid://hw42to1hx847" path="res://Assets/UI/ShopButtonV2.png" id="15_6od7w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8yq72"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1im2p"]
+texture = ExtResource("3_a5oda")
+texture_margin_left = 38.0
+texture_margin_top = 37.0
+texture_margin_right = 38.0
+texture_margin_bottom = 38.0
+region_rect = Rect2(142, 143, 382, 381)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8if7"]
 bg_color = Color(0.419608, 0.556863, 0.682353, 1)
@@ -52,6 +64,18 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gavbc"]
+texture = ExtResource("8_gvlas")
+region_rect = Rect2(16, 11, 153, 153)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6d5x0"]
+texture = ExtResource("8_gvlas")
+region_rect = Rect2(212, 11, 148, 148)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1a4rx"]
+texture = ExtResource("8_gvlas")
+region_rect = Rect2(391, 12, 148, 148)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b32sj"]
 bg_color = Color(0.419608, 0.556863, 0.682353, 1)
 border_width_left = 5
@@ -64,21 +88,21 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxypo"]
-texture = ExtResource("10_vww7q")
-texture_margin_left = 306.0
-texture_margin_top = 575.0
-texture_margin_right = 331.0
-texture_margin_bottom = 646.0
-region_rect = Rect2(314, 315, 1490, 1491)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pwth4"]
+texture = ExtResource("12_bxug6")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(27, 42, 232, 173)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mv8el"]
-texture = ExtResource("11_2jq77")
-texture_margin_left = 86.0
-texture_margin_top = 81.0
-texture_margin_right = 89.0
-texture_margin_bottom = 86.0
-region_rect = Rect2(1044, 295, 811, 813)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qgy37"]
+texture = ExtResource("14_oulka")
+texture_margin_left = 45.0
+texture_margin_top = 48.0
+texture_margin_right = 45.0
+texture_margin_bottom = 48.0
+region_rect = Rect2(29, 30, 656, 212)
 
 [sub_resource type="Animation" id="Animation_ggbdo"]
 length = 0.001
@@ -233,6 +257,7 @@ offset_left = -511.488
 offset_right = 438.512
 offset_bottom = 576.0
 theme = ExtResource("2_527pq")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8yq72")
 
 [node name="TabContainer" type="TabContainer" parent="Panel"]
 layout_mode = 0
@@ -245,6 +270,7 @@ drag_to_rearrange_enabled = true
 [node name="Supply Connections" type="Panel" parent="Panel/TabContainer"]
 layout_mode = 2
 theme = ExtResource("2_527pq")
+theme_override_styles/panel = SubResource("StyleBoxTexture_1im2p")
 script = ExtResource("3_8pclh")
 
 [node name="Supply Connections" type="MarginContainer" parent="Panel/TabContainer/Supply Connections"]
@@ -281,7 +307,6 @@ layout_mode = 2
 text = "Andrew Tate"
 discountUpgrade = 3
 itemQualityUpgrade = 2
-cartUpgrade = 1
 
 [node name="Seller2" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/ScrollContainer/SellerList" instance=ExtResource("3_jd3nf")]
 layout_mode = 2
@@ -371,15 +396,15 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 expand_mode = 1
 
-[node name="CredBar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="CredBar" type="TextureProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
 size_flags_stretch_ratio = 3.1
-step = 1.0
-value = 89.0
 allow_greater = true
+texture_under = ExtResource("7_h3lsq")
+texture_over = ExtResource("8_5lxl4")
+texture_progress = ExtResource("9_fgbwr")
 
 [node name="ItemList" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -504,7 +529,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 3
-icon = ExtResource("5_868tk")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gavbc")
 expand_icon = true
 
 [node name="Discount Bar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Discount Upgrade"]
@@ -518,11 +543,12 @@ max_value = 10.0
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="TextureRect2" type="TextureRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Sell Value Upgrade"]
+[node name="SellValueUpgradeButton" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Sell Value Upgrade"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("3_st4tx")
-expand_mode = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_6d5x0")
 
 [node name="Sell Value Bar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Sell Value Upgrade"]
 unique_name_in_owner = true
@@ -535,11 +561,12 @@ max_value = 10.0
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="TextureRect2" type="TextureRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Shopping Cart Upgrade"]
+[node name="BundleUpgradeButton" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Shopping Cart Upgrade"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("3_st4tx")
-expand_mode = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_1a4rx")
 
 [node name="Shopping Cart Bar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Shopping Cart Upgrade"]
 unique_name_in_owner = true
@@ -561,11 +588,7 @@ layout_mode = 2
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 2076.0
-offset_bottom = 1048.0
-scale = Vector2(0.33, 0.33)
-theme = ExtResource("2_527pq")
-theme_override_styles/panel = SubResource("StyleBoxTexture_kxypo")
+theme_override_styles/panel = SubResource("StyleBoxTexture_1im2p")
 script = ExtResource("8_k3ymg")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/TabContainer/Appliances/Appliances"]
@@ -573,17 +596,22 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = 24.0
+offset_right = -11.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 60
-theme_override_constants/margin_top = 60
-theme_override_constants/margin_right = 60
-theme_override_constants/margin_bottom = 60
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer"]
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -604,19 +632,22 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.803922)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_outline_size = 11
-theme_override_font_sizes/font_size = 55
+theme_override_font_sizes/font_size = 17
 text = "Base Shelves
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button2" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="Button3" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="Button4" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
@@ -631,19 +662,22 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.803922)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_outline_size = 11
-theme_override_font_sizes/font_size = 55
+theme_override_font_sizes/font_size = 17
 text = "Refrigerators
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button2" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="Button3" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="Button4" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer2" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
@@ -658,18 +692,21 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.803922)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_outline_size = 11
-theme_override_font_sizes/font_size = 55
+theme_override_font_sizes/font_size = 17
 text = "Water/Oxygen Tanks"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button2" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="Button3" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="Button4" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer3" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList"]
@@ -684,88 +721,95 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.803922)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_outline_size = 11
-theme_override_font_sizes/font_size = 55
+theme_override_font_sizes/font_size = 17
 text = "Gun Cases"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button2" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="Button3" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="Button4" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/ScrollContainer/ApplianceTypeList/HBoxContainer4" groups=["ApplianceButton"] instance=ExtResource("9_naofi")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(1500, 0)
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
 [node name="Panel" type="Panel" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_mv8el")
+theme_override_styles/panel = SubResource("StyleBoxTexture_pwth4")
 
 [node name="AppliancePic" type="TextureRect" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 764.242
-offset_top = 50.3031
-offset_right = 1409.24
-offset_bottom = 665.303
+offset_left = 317.0
+offset_top = 20.0
+offset_right = 475.0
+offset_bottom = 180.0
 texture = ExtResource("11_pn8ud")
 
 [node name="ApplianceNameLabel" type="Label" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 64.2424
-offset_top = 59.3939
-offset_right = 111.242
-offset_bottom = 82.3939
-scale = Vector2(3, 3)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.435294)
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 77.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.843137)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 text = "NAME"
 
 [node name="CapacityLabel" type="Label" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 64.2424
-offset_top = 148.03
-offset_right = 218.242
-offset_bottom = 171.03
-scale = Vector2(3, 3)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.435294)
+offset_left = 30.0
+offset_top = 67.0
+offset_right = 184.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.843137)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 text = "Initial Capacity: ###"
 
 [node name="PriceLabel" type="Label" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 64.2424
-offset_top = 213.03
-offset_right = 179.242
-offset_bottom = 236.03
-scale = Vector2(3, 3)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.435294)
+offset_left = 30.0
+offset_top = 103.0
+offset_right = 145.0
+offset_bottom = 126.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.843137)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 text = "Price: $$$"
 
 [node name="ItemsCapable" type="Label" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 64.2424
-offset_top = 283.03
-offset_right = 197.242
-offset_bottom = 514.03
-scale = Vector2(3, 3)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.435294)
+offset_left = 32.0
+offset_top = 144.0
+offset_right = 165.0
+offset_bottom = 375.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.843137)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 text = "Items it can hold:
 - 
 -
@@ -780,12 +824,13 @@ text = "Items it can hold:
 [node name="BuyButton" type="Button" parent="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 930.909
-offset_top = 1162.42
-offset_right = 1086.91
-offset_bottom = 1222.42
-scale = Vector2(3, 3)
-theme_override_styles/normal = SubResource("StyleBoxFlat_j6x21")
+offset_left = 268.0
+offset_top = 318.0
+offset_right = 568.0
+offset_bottom = 456.0
+scale = Vector2(0.7, 0.7)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_qgy37")
 text = "BUY"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -797,13 +842,14 @@ speed_scale = 2.0
 
 [node name="Button" type="TextureButton" parent="."]
 offset_left = 300.0
-offset_top = 542.0
+offset_top = 538.0
 offset_right = 1752.0
-offset_bottom = 711.0
+offset_bottom = 707.0
 scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("14_snkac")
-texture_pressed = ExtResource("15_cc5wj")
-texture_hover = ExtResource("15_cc5wj")
+texture_normal = ExtResource("15_6od7w")
+texture_pressed = ExtResource("15_6od7w")
+texture_hover = ExtResource("15_6od7w")
+stretch_mode = 0
 
 [node name="StorageFull" type="Label" parent="."]
 visible = false
@@ -823,5 +869,7 @@ libraries = {
 [connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer/Remove from Cart" to="Panel/TabContainer/Supply Connections" method="_on_remove_from_cart_pressed"]
 [connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer/Buy" to="Panel/TabContainer/Supply Connections" method="_on_buy_pressed"]
 [connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Discount Upgrade/Discount Button" to="Panel/TabContainer/Supply Connections" method="_on_discount_button_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Sell Value Upgrade/SellValueUpgradeButton" to="Panel/TabContainer/Supply Connections" method="_on_sell_value_upgrade_button_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Shopping Cart Upgrade/BundleUpgradeButton" to="Panel/TabContainer/Supply Connections" method="_on_bundle_upgrade_button_pressed"]
 [connection signal="pressed" from="Panel/TabContainer/Appliances/Appliances/MarginContainer/HBoxContainer/MarginContainer/Panel/BuyButton" to="Panel/TabContainer/Appliances/Appliances" method="_on_buy_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

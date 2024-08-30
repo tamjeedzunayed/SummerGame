@@ -14,6 +14,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_fkctf")
+theme_override_font_sizes/font_size = 0
 toggle_mode = true
 button_group = SubResource("ButtonGroup_ctw10")
 text = "Name"

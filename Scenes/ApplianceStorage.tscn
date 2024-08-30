@@ -1,34 +1,34 @@
-[gd_scene load_steps=18 format=3]
+[gd_scene load_steps=17 format=3 uid="uid://cljxhlhn5sb75"]
 
+[ext_resource type="Texture2D" uid="uid://dejm0xb0oh7jl" path="res://Assets/UI/MainPanels.png" id="1_bjkc7"]
 [ext_resource type="Script" path="res://_Scripts/ApplianceStorage.gd" id="1_rq2qh"]
-[ext_resource type="Texture2D" uid="uid://ed4a03s3brwk" path="res://Assets/Panels.png" id="1_vktq8"]
 [ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://Assets/DiscountIcon.png" id="2_1xvpy"]
-[ext_resource type="Texture2D" uid="uid://ckxt81u7yc8ls" path="res://Assets/panel2.png" id="4_uptod"]
+[ext_resource type="Texture2D" uid="uid://cakcquumm7qgm" path="res://Assets/UI/InnerPanels.png" id="4_venqg"]
 [ext_resource type="Texture2D" uid="uid://8xp0qfcsycrt" path="res://Assets/TrashIcon.png" id="6_5cbmm"]
-[ext_resource type="Texture2D" uid="uid://c1msr5cs37nid" path="res://Assets/Buttons/side buttons.png" id="6_27x3c"]
 [ext_resource type="Texture2D" uid="uid://b5g8l2kcos8q3" path="res://Assets/StorageIcon.png" id="7_h7klw"]
+[ext_resource type="Texture2D" uid="uid://d0n0akgc5d6j" path="res://Assets/UI/SideButtons.png" id="7_iclcq"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qjkab"]
-texture = ExtResource("1_vktq8")
-texture_margin_left = 76.0
-texture_margin_top = 76.0
-texture_margin_right = 80.0
-texture_margin_bottom = 84.0
-region_rect = Rect2(313, 312, 1495, 1499)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jgjrj"]
+texture = ExtResource("1_bjkc7")
+texture_margin_left = 30.0
+texture_margin_top = 31.0
+texture_margin_right = 30.0
+texture_margin_bottom = 31.0
+region_rect = Rect2(550, 141, 377, 370)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7tya8"]
-texture = ExtResource("4_uptod")
-texture_margin_left = 80.0
-texture_margin_top = 81.0
-texture_margin_right = 83.0
-texture_margin_bottom = 84.0
-region_rect = Rect2(1046, 296, 811, 811)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5p8n"]
+texture = ExtResource("4_venqg")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 17.0
+region_rect = Rect2(25, 40, 236, 176)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fi7ec"]
-size = Vector2(200, 184)
+size = Vector2(92, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ux76o"]
-size = Vector2(176, 164)
+size = Vector2(86.5, 61)
 
 [sub_resource type="Animation" id="Animation_8uh80"]
 resource_name = "Panel_In"
@@ -42,7 +42,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1148, 318), Vector2(548, 318)]
+"values": [Vector2(1145, 318), Vector2(548, 318)]
 }
 
 [sub_resource type="Animation" id="Animation_kndj8"]
@@ -57,7 +57,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(548, 318), Vector2(1152, 318)]
+"values": [Vector2(548, 318), Vector2(1145, 318)]
 }
 
 [sub_resource type="Animation" id="Animation_knwe0"]
@@ -72,7 +72,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1152, 318)]
+"values": [Vector2(1145, 318)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgdo0"]
@@ -82,49 +82,38 @@ _data = {
 "RESET": SubResource("Animation_knwe0")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cy313"]
-texture = ExtResource("6_27x3c")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(1127, 394, 899, 103)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oh87r"]
-texture = ExtResource("6_27x3c")
-texture_margin_left = 3.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 3.0
-region_rect = Rect2(1122, 281, 899, 102)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i18x7"]
+texture = ExtResource("7_iclcq")
+region_rect = Rect2(6, 16, 500, 54)
 
 [node name="Appliances" type="Panel"]
-offset_left = 1152.0
+offset_left = 1145.0
 offset_top = 318.0
-offset_right = 3564.0
-offset_bottom = 1455.6
-scale = Vector2(0.25, 0.25)
+offset_right = 1748.0
+offset_bottom = 602.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_qjkab")
+theme_override_styles/panel = SubResource("StyleBoxTexture_jgjrj")
 script = ExtResource("1_rq2qh")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-offset_right = 2412.0
-offset_bottom = 1137.6
-theme_override_constants/margin_left = 80
-theme_override_constants/margin_top = 68
-theme_override_constants/margin_right = 62
-theme_override_constants/margin_bottom = 80
+offset_left = 7.0
+offset_right = 603.0
+offset_bottom = 284.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 17
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(440, 0)
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w5p8n")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Panel"]
 custom_minimum_size = Vector2(90, 0)
@@ -134,9 +123,16 @@ offset_right = 109.0
 offset_bottom = 247.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(4, 4)
 
-[node name="Appliance List" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Panel/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+
+[node name="Appliance List" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Panel/ScrollContainer/MarginContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
@@ -144,32 +140,37 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Appliance Details" type="Panel" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(322, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_w5p8n")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Appliance Details"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -6.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="Appliance Detail Container" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 12
 
 [node name="CapacityLabel" type="Label" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer/Appliance Detail Container"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 12
 text = "Appliance Capacity:
 "
 
@@ -178,7 +179,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 12
 text = "Used Capacity: "
 
 [node name="TypeLabel" type="Label" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer/Appliance Detail Container"]
@@ -186,14 +187,14 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 12
 text = "Appliance Type: "
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer/Appliance Detail Container"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.32
-theme_override_constants/separation = 50
+theme_override_constants/separation = 12
 
 [node name="ApplianceIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Appliance Details/MarginContainer/Appliance Detail Container/HBoxContainer"]
 unique_name_in_owner = true
@@ -222,7 +223,8 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel"]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -231,32 +233,36 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 12
 text = "Items in Appliance:"
 
 [node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_7tya8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_w5p8n")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 75.0
-offset_top = 55.0
-offset_right = -508.0
-offset_bottom = -358.0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.4, 2.4)
+scale = Vector2(0.6, 0.6)
 horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="ItemsInAppliance" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Panel/ScrollContainer/MarginContainer"]
 unique_name_in_owner = true
@@ -281,13 +287,12 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Area2D" type="Area2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash"]
-position = Vector2(456, 308)
 collision_layer = 2048
 collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D"]
 visible = false
-position = Vector2(-189, -175)
+position = Vector2(47, 31.5)
 shape = SubResource("RectangleShape2D_fi7ec")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash"]
@@ -297,9 +302,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -363.0
-offset_top = -120.0
-offset_bottom = 120.0
+offset_left = -107.0
+offset_top = -35.0
+offset_right = -13.0
+offset_bottom = 25.0
 grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("6_5cbmm")
@@ -313,26 +319,21 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Collect Region" type="Area2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Save"]
-position = Vector2(472, 236)
 collision_layer = 2048
 collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Save/Collect Region"]
 visible = false
-position = Vector2(-263, -93)
+position = Vector2(55, 31)
 shape = SubResource("RectangleShape2D_ux76o")
 debug_color = Color(0, 0.796078, 0.92549, 0.419608)
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Save"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 69.0
-offset_top = -144.0
-offset_right = 396.0
-offset_bottom = 124.0
-grow_vertical = 2
+layout_mode = 0
+offset_left = 18.0
+offset_top = 1.0
+offset_right = 92.0
+offset_bottom = 61.0
 texture = ExtResource("7_h7klw")
 expand_mode = 1
 
@@ -344,39 +345,39 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 934.0
-offset_top = -1069.6
-offset_right = 1034.0
-offset_bottom = -1031.6
+offset_left = 197.5
+offset_top = -266.0
+offset_right = 280.562
+offset_bottom = -235.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(2, 2)
+scale = Vector2(0.7, 0.7)
 size_flags_horizontal = 4
 size_flags_vertical = 8
 tooltip_text = "The amount of items that you drag from items in the appliance."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_mgdo0")
 }
+speed_scale = 1.5
 
 [node name="Appliance Storage Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0470588
 anchor_right = -0.047
-offset_left = 9.50579
-offset_top = 1136.0
-offset_right = 325.466
-offset_bottom = 1168.0
+offset_left = 10.3764
+offset_top = 268.0
+offset_right = 326.337
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5708
-scale = Vector2(3.6, 3.6)
-theme_override_styles/normal = SubResource("StyleBoxTexture_cy313")
-theme_override_styles/hover = SubResource("StyleBoxTexture_oh87r")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_oh87r")
+scale = Vector2(0.8, 0.8)
+theme_override_styles/normal = SubResource("StyleBoxTexture_i18x7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i18x7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i18x7")
 
 [connection signal="body_entered" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D" to="." method="_on_trash_body_entered"]
 [connection signal="body_entered" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D" to="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D" method="_on_body_entered"]

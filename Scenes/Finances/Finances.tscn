@@ -1,19 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://br51u0mbgijdq"]
+[gd_scene load_steps=10 format=3 uid="uid://br51u0mbgijdq"]
 
 [ext_resource type="Theme" uid="uid://cdkyr7bjnqey5" path="res://Themes/FinancesPanel.tres" id="1_k2mrb"]
 [ext_resource type="FontVariation" uid="uid://duivi6c74ae1p" path="res://new_font_variation.tres" id="2_8ljse"]
 [ext_resource type="Script" path="res://_Scripts/Finances.gd" id="2_dj8k2"]
-[ext_resource type="Texture2D" uid="uid://c7a0btkej4ufc" path="res://Assets/Panel4(black).png" id="3_crq4k"]
+[ext_resource type="Texture2D" uid="uid://dejm0xb0oh7jl" path="res://Assets/UI/MainPanels.png" id="2_ye7cy"]
+[ext_resource type="Texture2D" uid="uid://cakcquumm7qgm" path="res://Assets/UI/InnerPanels.png" id="5_rgnwv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jgjrj"]
+texture = ExtResource("2_ye7cy")
+texture_margin_left = 30.0
+texture_margin_top = 31.0
+texture_margin_right = 30.0
+texture_margin_bottom = 31.0
+region_rect = Rect2(550, 141, 377, 370)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yx43"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5p8n"]
-texture = ExtResource("3_crq4k")
-texture_margin_left = 39.0
-texture_margin_top = 40.0
-texture_margin_right = 38.0
-texture_margin_bottom = 39.0
-region_rect = Rect2(20, 35, 376, 371)
+texture = ExtResource("5_rgnwv")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 17.0
+region_rect = Rect2(25, 40, 236, 176)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g21av"]
 
@@ -28,6 +37,7 @@ offset_bottom = -119.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_k2mrb")
+theme_override_styles/panel = SubResource("StyleBoxTexture_jgjrj")
 script = ExtResource("2_dj8k2")
 metadata/_edit_horizontal_guides_ = [-34.0]
 
@@ -62,14 +72,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 467.0
-offset_bottom = 120.0
+offset_right = -1.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.3, 0.3)
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("2_8ljse")
-theme_override_font_sizes/normal_font_size = 75
+theme_override_font_sizes/normal_font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxTexture_w5p8n")
 bbcode_enabled = true
 text = "[center]Daily Income"

@@ -1,15 +1,17 @@
 BUGS TO FIX:
 	Customer Shopping Checklist checking & disabling bug
 	Cash Register Collision
+	Finances Total update bug
+	Finances Sales update bug
 
 FEATURES TO ADD:
-	Supplier Upgrades
+	Supplier Upgrades:
+		Bundle Upgrade
 	more sellers:
 	more items:
 
 	Finances tab:
 		in depth of Revenue & Costs
-	Timer & Balance on Shop Button
 	Appliance Storage item dragging
 
 FEATURES TO TWEAK:

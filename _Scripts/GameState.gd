@@ -1,19 +1,19 @@
 extends Node
 
-@onready var transactionLabel = $Transaction
+@onready var transactionLabel = %TransactionLabel
 @onready var furnitures = $Furnitures
 @onready var customers = %Customers
 @onready var customers_in_queue = %CustomersInQueue
 @onready var cust_spawn_rate = $CustSpawnRate
 @onready var clock = $Timer
-@onready var clockButton = $CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button
+@onready var clockButton = %ClockButton
 @onready var balance_display = %balanceDisplay
 @onready var canvas_modulate : CanvasModulate = $CanvasModulate
 @onready var Canvas_animation_player : AnimationPlayer = canvas_modulate.get_child(0)
 @onready var ground_tile_map : TileMap = $GroundTileMap
 @onready var shop = $Shop
 @onready var truck = $Truck
-@onready var truck_storage = $"TruckStorage"
+@onready var truck_storage = %TruckStorage
 @onready var appliances = $Appliances
 @onready var cashier_check_out = $CashierCheckOut
 var mouseOnFinances : bool = false 
@@ -23,7 +23,7 @@ const applianceScene = preload("res://Scenes/appliance.tscn")
 const APPLIANCE_TO_PLACE = preload("res://Scenes/appliance_to_place.tscn")
 
 var ready_done = false
-@onready var appliances_storage = $AppliancesStorage
+@onready var appliances_storage = %AppliancesStorage
 var placingAppliance = false
 var balance = 0: 
 	set(value):
@@ -109,7 +109,7 @@ func createApplianceToPlace(applianceBought):
 	placingAppliance = true
 	var applToPlace = APPLIANCE_TO_PLACE.instantiate()
 	applToPlace.applianceHeld = applianceBought
-	transaction("Purchases", applianceBought.name, applianceBought.price)
+	transaction("Purchases", applianceBought.name, -applianceBought.price)
 	add_child(applToPlace)
 	pass
 
@@ -139,7 +139,7 @@ func updateTruckStorage():
 func _process(_delta):
 	var secs = fmod(clock.time_left,60)
 	var mins = fmod(clock.time_left, 60*60) / 60
-	var time_passed = "%02d : %02d" % [mins,secs]
+	var time_passed = "%01d : %02d" % [mins,secs]
 	clockButton.text = time_passed
 	
 	if (placingAppliance):
@@ -154,7 +154,7 @@ func _on_timer_timeout():
 	else:
 		isDay = !isDay
 		if (isDay):
-			saveDailyIncome()
+			
 			clock.wait_time = DAY_TIME_LENGTH
 			day()
 		else:
@@ -179,6 +179,8 @@ func day():
 	Canvas_animation_player.play("Day animation")
 
 func night():
+	saveDailyIncome()
+	
 	updateNumberOfCustomers()
 	$NightLabel.get_child(0).play("FadeInOut")
 	numCustomers += CUSINCRATE
@@ -260,7 +262,7 @@ func _input(event):
 	if placingAppliance:
 		placeAppliance()
 	elif event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT and mouseOnFinances:
-		$Finances.visible = !$Finances.visible
+		%Finances.visible = !%Finances.visible
 		pass
 	pass
 
@@ -340,25 +342,19 @@ func _on_exit_body_entered(body):
 
 
 
-func _on_canvas_layer_mouse_entered():
-	mouseOnFinances = true
-func _on_canvas_layer_mouse_exited():
-	mouseOnFinances = false
-func _on_panel_container_mouse_entered():
-	_on_canvas_layer_mouse_entered()
-func _on_panel_container_mouse_exited():
-	_on_canvas_layer_mouse_exited()
-
 func saveDailyIncome():
-	$Finances.instantiateDailyIncome(dayNum)
+	%Finances.instantiateDailyIncome(dayNum)
 	
 #all transactions should happen through this function
 func transaction(type : String, specific : String, amount : float):
 	balance = balance + amount
-	if ($Finances.dailyIncome != null):
-		$Finances.dailyIncome.updateDailyIncome(type, specific, amount)
+	if (%Finances.dailyIncome != null):
+		%Finances.dailyIncome.updateDailyIncome(type, specific, amount)
 		balance += amount
 	else:
-		$Finances.instantiateDailyIncome(dayNum)
+		%Finances.instantiateDailyIncome(dayNum)
 		transaction(type, specific, amount)
 
+func _on_Finances_button_pressed():
+	%Finances.visible = !%Finances.visible
+	pass # Replace with function body.

@@ -16,10 +16,13 @@ func instantiateDailyIncome(dayNum):
 	dailyIncome.connect("gotPressed", setDailyInfo)
 	dailyIncome.setDayNum(dayNum)
 	dailyIncome.total = 0
+	dailyIncome.button_group = dailyButtonGroup
+	dailyIncome.button_pressed = true
 	
 
 
 func setDailyInfo(buttonPressed):
+	if (buttonPressed != dailyButtonGroup.get_pressed_button()): return
 	for child in details.get_children():
 		child.queue_free()
 	makeTypeSection(buttonPressed.Sales, "Sales")	
@@ -27,9 +30,6 @@ func setDailyInfo(buttonPressed):
 	makeTypeSection(buttonPressed.Upgrades, "Upgrades")
 	makeTypeSection(buttonPressed.Expenses, "Expenses")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
 func makeTypeSection(typeSection, typeName : String):
 	var type : Dictionary = typeSection
@@ -44,7 +44,7 @@ func makeTypeSection(typeSection, typeName : String):
 	if (!type.is_empty()):
 		for key in type.keys():
 			var transactionView = SPECIFIC_TRANSACTION.instantiate()
-			transactionView.get_child(1).text = key
+			transactionView.get_child(1).text = "     " + key
 			transactionView.get_child(2).text = str(type[key])
 			details.add_child(transactionView)
 	

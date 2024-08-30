@@ -6,9 +6,11 @@ extends Panel
 @onready var big_seller_pic_display = %BigSellerPicDisplay
 @onready var item_container = %"Item container"
 @onready var discount_bar = %"Discount Bar"
+@onready var sell_value_upgrade_button = %SellValueUpgradeButton
+@onready var bundle_upgrade_button = %BundleUpgradeButton
 @onready var discount_button = %"Discount Button"
 @onready var sell_value_bar = %"Sell Value Bar"
-@onready var shopping_cart_bar = %"Shopping Cart Bar"
+@onready var bundleUpgrade_bar = %"Shopping Cart Bar"
 @onready var exp_points = %"EXP points"
 @onready var exp_icon = %EXPIcon
 @onready var expPoints = 0
@@ -82,7 +84,7 @@ func setSellerInfo():
 	item_container.get_child(0).button_pressed = true
 	discount_bar.value = currentSeller.discountUpgrade
 	sell_value_bar.value = currentSeller.itemQualityUpgrade
-	shopping_cart_bar.value = currentSeller.cartUpgrade
+	bundleUpgrade_bar.value = currentSeller.bundleUpgrade
 	expPoints = currentSeller.expPoints
 	
 	if (currentSeller.expPoints):
@@ -121,12 +123,6 @@ func _on_remove_from_cart_pressed():
 		
 	pass # Replace with function body.
 	
-func _on_discount_button_pressed():
-	if(currentSeller.discountUpgrade < 10 && currentSeller.expPoints > 0):
-		currentSeller.discountUpgrade += 1
-		currentSeller.expPoints -= 1
-		discount_bar.value = currentSeller.discountUpgrade
-		exp_points.text = "EXP Points: " + str(SellerButtonGroup.get_pressed_button().expPoints)
 
 func _on_buy_pressed():
 	if (balance >= cartTotal):
@@ -155,4 +151,30 @@ func _on_buy_pressed():
 		cartTotal = 0
 	pass # Replace with function body.
 
+func _on_discount_button_pressed():
+	if(currentSeller.discountUpgrade < 10 && currentSeller.expPoints > 0):
+		currentSeller.discountUpgrade += 1
+		currentSeller.expPoints -= 1
+		discount_bar.value = currentSeller.discountUpgrade
+		exp_points.text = "EXP Points: " + str(SellerButtonGroup.get_pressed_button().expPoints)
+		currentSeller.upgradeItemDiscount()
+		setSellerInfo()
+func _on_sell_value_upgrade_button_pressed():
+	if(currentSeller.itemQualityUpgrade < 10 && currentSeller.expPoints > 0):
+		currentSeller.itemQualityUpgrade += 1
+		currentSeller.expPoints -= 1
+		sell_value_bar.value = currentSeller.itemQualityUpgrade
+		exp_points.text = "EXP Points: " + str(SellerButtonGroup.get_pressed_button().expPoints)
+		currentSeller.upgradeItemQuality()
+		setSellerInfo()
+	pass # Replace with function body.
 
+func _on_bundle_upgrade_button_pressed():
+	if(currentSeller.bundleUpgrade < 10 && currentSeller.expPoints > 0):
+		currentSeller.bundleUpgrade += 1
+		currentSeller.expPoints -= 1
+		bundleUpgrade_bar.value = currentSeller.bundleUpgrade
+		exp_points.text = "EXP Points: " + str(SellerButtonGroup.get_pressed_button().expPoints)
+		currentSeller.upgradeBundleDiscount()
+		setSellerInfo()
+	pass # Replace with function body.
