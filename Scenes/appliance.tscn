@@ -12,6 +12,7 @@ script = ExtResource("1_6moga")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
 shape = SubResource("RectangleShape2D_w13ty")
+disabled = true
 
 [node name="ApplianceStorageBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
@@ -29,3 +30,7 @@ grow_vertical = 0
 rotation = -1.5708
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+avoidance_enabled = false

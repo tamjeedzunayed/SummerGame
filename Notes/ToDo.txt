@@ -2,12 +2,10 @@ BUGS TO FIX:
 	Customer Shopping Checklist checking & disabling bug
 
 FEATURES TO ADD:
-	Cash Register Collision
 	Supplier Upgrades:
 		Bundle Upgrade
 	more sellers:
 	more items:
-	Appliance Storage item dragging
 
 FEATURES TO TWEAK:
 	Customer shopping list progression

@@ -35,8 +35,14 @@ func _physics_process(_delta):
 		animated_sprite.flip_h = false
 	else:
 		animated_sprite.play("down")
-		
-	velocity = lerp(velocity, dir * SPEED, 0.1);
+	
+	
+	var new_velocity = lerp(velocity, dir * SPEED, 0.1);
+	
+	if navigation_agent.avoidance_enabled:
+		navigation_agent.velocity = new_velocity
+	else:
+		velocity = new_velocity
 	
 	move_and_slide()
 
@@ -101,3 +107,8 @@ func _on_area_2d_mouse_exited():
 	$Panel.visible = false
 func doNothing():
 	return
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity):
+	velocity = safe_velocity
+	pass # Replace with function body.

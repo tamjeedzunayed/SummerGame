@@ -456,12 +456,14 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_t8if7")
 text = "Add to Cart"
 
 [node name="Remove from Cart" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_rkuuu")
 text = "Remove from Cart"
@@ -469,6 +471,7 @@ text = "Remove from Cart"
 [node name="Buy" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_j6x21")
 text = "Buy"
 
@@ -529,6 +532,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_gavbc")
 expand_icon = true
 
@@ -548,6 +552,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_6d5x0")
 
 [node name="Sell Value Bar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Sell Value Upgrade"]
@@ -566,6 +571,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_1a4rx")
 
 [node name="Shopping Cart Bar" type="ProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2/Shopping Cart Upgrade"]
@@ -577,6 +583,7 @@ max_value = 10.0
 [node name="New Item" type="Button" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_b32sj")
 text = "Unlock New Item"
 
@@ -829,6 +836,7 @@ offset_top = 318.0
 offset_right = 568.0
 offset_bottom = 456.0
 scale = Vector2(0.7, 0.7)
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_qgy37")
 text = "BUY"
@@ -846,6 +854,7 @@ offset_top = 538.0
 offset_right = 1752.0
 offset_bottom = 707.0
 scale = Vector2(0.3, 0.3)
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("15_6od7w")
 texture_pressed = ExtResource("15_6od7w")
 texture_hover = ExtResource("15_6od7w")

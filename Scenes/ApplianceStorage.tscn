@@ -375,6 +375,7 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5708
 scale = Vector2(0.8, 0.8)
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_i18x7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_i18x7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_i18x7")
@@ -384,4 +385,5 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_i18x7")
 [connection signal="body_exited" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D" to="." method="_on_trash_body_exited"]
 [connection signal="body_entered" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Save/Collect Region" to="." method="_on_collect_region_body_entered"]
 [connection signal="body_exited" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Save/Collect Region" to="." method="_on_collect_region_body_exited"]
+[connection signal="value_changed" from="DragAmount" to="." method="_on_drag_amount_value_changed"]
 [connection signal="pressed" from="Appliance Storage Button" to="." method="_on_appliance_storage_button_pressed"]

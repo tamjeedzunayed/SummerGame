@@ -21,17 +21,15 @@ func _init (appliance_name: String, priceC: float, storage_capacity: int, iconC:
 
 func hasItem(item : Item) -> bool:
 	for storageItem in storage:
-		if storageItem.name == item.name:
+		if storageItem.name == item.name && storage[storageItem] > 0:
 			return true
 	return false
 
 func retrieveItem(item:Item) -> Item:
 	for storageItem in storage:
-		if storageItem.name == item.name:
+		if storageItem.name == item.name && storage[storageItem] > 0:
 			storage[storageItem] -= 1
 			usedCapacity -= 1
-			if storage[storageItem] == 0:
-				storage.erase(storageItem)
 			emit_signal("usedCapacity_changed", usedCapacity)
 			update.emit(self)
 			return storageItem

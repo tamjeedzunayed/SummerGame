@@ -7,6 +7,7 @@
 custom_minimum_size = Vector2(225, 225)
 offset_right = 8.0
 offset_bottom = 8.0
+mouse_default_cursor_shape = 2
 toggle_mode = true
 icon = ExtResource("1_s0oub")
 icon_alignment = 1

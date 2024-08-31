@@ -253,6 +253,7 @@ func placeAppliance():
 		appliances.add_child(appliance) 
 		get_node("ApplianceToPlace").queue_free()
 		placingAppliance = false
+		
 		ground_tile_map.set_cell(1, click_pos_on_map - Vector2i(18, 10), 1, ground_tile_map.get_cell_atlas_coords(0, click_pos_on_map - Vector2i(18, 10)))
 		ground_tile_map.erase_cell(0, click_pos_on_map - Vector2i(18, 10))
 
