@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c7boe412veg4o"]
 
-[ext_resource type="Script" path="res://_Scripts/Customer.gd" id="1_3klsv"]
+[ext_resource type="Script" uid="uid://ddabs27f5v06y" path="res://_Scripts/Customer.gd" id="1_3klsv"]
 [ext_resource type="Texture2D" uid="uid://cfg5nynjdkbv1" path="res://Assets/NicePng_prison-architect-png_3739415_upscaled.png" id="2_n50m4"]
 [ext_resource type="Theme" uid="uid://cp0lnwbtq41j5" path="res://Themes/CustomerItemList.tres" id="3_um3qr"]
 

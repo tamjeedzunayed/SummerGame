@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cjsd4be1b5nux"]
 
 [ext_resource type="Texture2D" uid="uid://do7kgqi7irfh4" path="res://Assets/ItemHolderV1 - Copy.png" id="1_56hck"]
-[ext_resource type="Script" path="res://_Scripts/Item_in_shop_button.gd" id="2_u76ss"]
+[ext_resource type="Script" uid="uid://b6v55m0ympt2l" path="res://_Scripts/Item_in_shop_button.gd" id="2_u76ss"]
 [ext_resource type="Texture2D" uid="uid://cxdlcltj2h2cu" path="res://Assets/Drill.png" id="3_yenv7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k5d36"]

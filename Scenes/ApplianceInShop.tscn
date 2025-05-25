@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://db786bhjv86sy"]
 
 [ext_resource type="Texture2D" uid="uid://cxwbu2n6mty54" path="res://Assets/shovel Appliance.png" id="1_s0oub"]
-[ext_resource type="Script" path="res://_Scripts/ApplianceInShop.gd" id="2_f657d"]
+[ext_resource type="Script" uid="uid://clseqsvfu6u0m" path="res://_Scripts/ApplianceInShop.gd" id="2_f657d"]
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(225, 225)

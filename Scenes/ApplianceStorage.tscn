@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://cljxhlhn5sb75"]
 
 [ext_resource type="Texture2D" uid="uid://dejm0xb0oh7jl" path="res://Assets/UI/MainPanels.png" id="1_bjkc7"]
-[ext_resource type="Script" path="res://_Scripts/ApplianceStorage.gd" id="1_rq2qh"]
+[ext_resource type="Script" uid="uid://c2ofxjso1ljtb" path="res://_Scripts/ApplianceStorage.gd" id="1_rq2qh"]
 [ext_resource type="Texture2D" uid="uid://y0x88bcu3ac" path="res://Assets/DiscountIcon.png" id="2_1xvpy"]
 [ext_resource type="Texture2D" uid="uid://cakcquumm7qgm" path="res://Assets/UI/InnerPanels.png" id="4_venqg"]
 [ext_resource type="Texture2D" uid="uid://8xp0qfcsycrt" path="res://Assets/TrashIcon.png" id="6_5cbmm"]
@@ -77,9 +77,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgdo0"]
 _data = {
-"Panel_In": SubResource("Animation_8uh80"),
-"Panel_Out": SubResource("Animation_kndj8"),
-"RESET": SubResource("Animation_knwe0")
+&"Panel_In": SubResource("Animation_8uh80"),
+&"Panel_Out": SubResource("Animation_kndj8"),
+&"RESET": SubResource("Animation_knwe0")
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i18x7"]

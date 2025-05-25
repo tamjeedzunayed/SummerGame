@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sdwy04n24suc"
-path="res://.godot/imported/kljhl2stsf731.webp-0aaa5439117bc565ef27b8e38d43bbed.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Assets/kljhl2stsf731.webp"
-dest_files=["res://.godot/imported/kljhl2stsf731.webp-0aaa5439117bc565ef27b8e38d43bbed.ctex"]
 
 [params]
 

@@ -1,0 +1,133 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1748184166
+applianceToPlace.gd::GDScript/GDScript::7461178930773010599::1747582494::0::1::::<>Sprite2D<><>0<>0<><>::
+buttonStyle1White.png::CompressedTexture2D/CompressedTexture2D::7595155655998767533::1747582494::1748183910::1::::<><><>0<>0<>94df36bfaab7868b763eb8effc09be62<>res://.godot/imported/buttonStyle1White.png-95788ab507c924b10bb3ea76f5ba0a92.ctex::
+default_env.tres::Environment/Environment::1010482005889987726::1747582494::0::1::::<><><>0<>0<><>::
+Hand TypeWriter.ttf::FontFile/FontFile::6110584880166212385::1747582494::1748183908::1::::<><><>0<>0<>6de5b2da566f8cc9424fdef1db9a54b3<>res://.godot/imported/Hand TypeWriter.ttf-5cfdd39d9c8c47cc49ed4bacb5fc3d3e.fontdata::
+icon.png::CompressedTexture2D/CompressedTexture2D::1490490034315510654::1747582494::1748183910::1::::<><><>0<>0<>b29e08795f78a7b5effe8eb3e6cab2ce<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
+Leander.ttf::FontFile/FontFile::3091898708905859488::1747582494::1748183908::1::::<><><>0<>0<>369662bf80d3ee1735cc7ab152b1c0ba<>res://.godot/imported/Leander.ttf-8ebc93047ace5e81e7d70e9c82a751b8.fontdata::
+NeoBulletin Trash.ttf::FontFile/FontFile::3413930029920238547::1747582494::1748183908::1::::<><><>0<>0<>e2703dc0ebebf3dd25d2c0d733f528be<>res://.godot/imported/NeoBulletin Trash.ttf-3e6200a50d293db0428a0cdc5bbcc5aa.fontdata::
+new_font_variation.tres::FontVariation/FontVariation::8580844921877920099::1747582494::0::1::::<><><>0<>0<><>::uid://bkb0ecyvftm8g::::res://Leander.ttf
+README.md::TextFile/TextFile::-1::1747582494::0::1::::<><><>0<>0<><>::
+::res://_Scripts/::1748183908
+Appliance.gd::GDScript/GDScript::3873371542860213897::1747582494::0::1::::Appliance<>Node<><>0<>0<><>::
+ApplianceInShop.gd::GDScript/GDScript::5582349865767520070::1747582494::0::1::::<>Button<><>0<>0<><>::
+ApplianceInStorageList.gd::GDScript/GDScript::4726633429061762637::1748183304::0::1::::<>Button<><>0<>0<><>::
+applianceSceneScript.gd::GDScript/GDScript::3532549840184145692::1747582494::0::1::::<>StaticBody2D<><>0<>0<><>::
+AppliancesShop.gd::GDScript/GDScript::8041448539168873386::1747582494::0::1::::<>Panel<><>0<>0<><>::
+ApplianceStorage.gd::GDScript/GDScript::6697186593581473123::1747582494::0::1::::<>Panel<><>0<>0<><>::
+Customer.gd::GDScript/GDScript::7369922911108772674::1748183304::0::1::::<>CharacterBody2D<><>0<>0<><>::
+dailyIncome.gd::GDScript/GDScript::4676683734188797251::1747582494::0::1::::<>Button<><>0<>0<><>::
+Finances.gd::GDScript/GDScript::403856602054115507::1747582494::0::1::::<>Panel<><>0<>0<><>::
+GameState.gd::GDScript/GDScript::6928691062089148848::1748183304::0::1::::<>Node<><>0<>0<><>::
+Item.gd::GDScript/GDScript::4009495335918946183::1747582494::0::1::::Item<>Node<><>0<>0<><>::
+item_being_dragged.gd::GDScript/GDScript::837240305100614687::1747582494::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Item_in_shop_button.gd::GDScript/GDScript::4607502522914911845::1748183304::0::1::::<>Button<><>0<>0<><>::
+Seller.gd::GDScript/GDScript::4139397288672355917::1748183304::0::1::::<>Button<><>0<>0<><>::
+shop.gd::GDScript/GDScript::1253214621666203502::1748183304::0::1::::<>CanvasLayer<><>0<>0<><>::
+Sprite2D.gd::GDScript/GDScript::4677044423934354103::1747582494::0::1::::<>Sprite2D<><>0<>0<><>::
+Supply Connections.gd::GDScript/GDScript::1101529379388855471::1747582494::0::1::::<>Panel<><>0<>0<><>::
+Truck.gd::GDScript/GDScript::7624857812881757412::1747582494::0::1::::<>Node<><>0<>0<><>::
+TruckStorage.gd::GDScript/GDScript::259014912587671018::1747582494::0::1::::<>Panel<><>0<>0<><>::
+::res://Assets/::1748183913
+Assets.png::CompressedTexture2D/CompressedTexture2D::718800287304590009::1747582493::1748183913::1::::<><><>0<>0<>fb5b5da8e16b52d58eafc50db661cbec<>res://.godot/imported/Assets.png-3d459932e3c7bb887b69c02b3917a1aa.ctex::
+Axe.png::CompressedTexture2D/CompressedTexture2D::7536805118737208527::1747582494::1748183912::1::::<><><>0<>0<>3734a53e9ca7ca01c1e6db7e170ea639<>res://.godot/imported/Axe.png-ef8b1230cac334707065e3fc71dffa83.ctex::
+Clock.png::CompressedTexture2D/CompressedTexture2D::2717500191348627495::1747582494::1748183911::1::::<><><>0<>0<>b31b6526d43abf2bd6abc2e2eea746a2<>res://.godot/imported/Clock.png-a6848794cb21d62ed480f25eb6a1b78f.ctex::
+Construction_Guy.png::CompressedTexture2D/CompressedTexture2D::8354263543719586652::1747582494::1748183911::1::::<><><>0<>0<>b21f3956a97fbfee638957d6e7c2a0bd<>res://.godot/imported/Construction_Guy.png-738333e9e2e274ed9f2494387a6e893b.ctex::
+Customer Display.png::CompressedTexture2D/CompressedTexture2D::204847979272476630::1747582494::1748183911::1::::<><><>0<>0<>c5834b160fe98d230e88131de122e909<>res://.godot/imported/Customer Display.png-c50e09a6583395884121286bcb61aec4.ctex::
+CustomerItem.png::CompressedTexture2D/CompressedTexture2D::751473826721488186::1747582494::1748183911::1::::<><><>0<>0<>d36b0ba0c2c7d6dfab29363c6f9a1e6d<>res://.godot/imported/CustomerItem.png-4056125d36459f1ef56b264ff1105167.ctex::
+DiscountIcon.png::CompressedTexture2D/CompressedTexture2D::51105848474435858::1747582494::1748183911::1::::<><><>0<>0<>ed03c6b7335692a5cd13218c6d936ee2<>res://.godot/imported/DiscountIcon.png-015cbdf270802e9ee06d430ebdd1786d.ctex::
+Drill.png::CompressedTexture2D/CompressedTexture2D::6394049970384808972::1747582494::1748183911::1::::<><><>0<>0<>66be1783c6ae657f8a7f387078e86ec4<>res://.godot/imported/Drill.png-000ad14aefba1db5b319506383a5cde4.ctex::
+Exp.png::CompressedTexture2D/CompressedTexture2D::4643494046043888335::1747582494::1748183911::1::::<><><>0<>0<>e8e08747a913e6ad302345845dc206ba<>res://.godot/imported/Exp.png-95ff2bc0c1643a6fd8ed4644d0cf5b64.ctex::
+Hammer.png::CompressedTexture2D/CompressedTexture2D::1095352581039426236::1747582494::1748183911::1::::<><><>0<>0<>773441dcf15a0f1317c657c930701203<>res://.godot/imported/Hammer.png-0ecade54784dc4e6d626dc755307e6a7.ctex::
+Hector Salamanca.png::CompressedTexture2D/CompressedTexture2D::4583477459367112190::1747582494::1748183910::1::::<><><>0<>0<>1853fa758e49a4ee4fafb544957b8927<>res://.godot/imported/Hector Salamanca.png-82f6bbef43bb8d68dbad896cfa8083f2.ctex::
+HomeIcon.png::CompressedTexture2D/CompressedTexture2D::1558023255024184926::1747582494::1748183908::1::::<><><>0<>0<>22728da591dd781f9dc8a9c8c7b9db15<>res://.godot/imported/HomeIcon.png-6f39258c8b1a4ed101dc5da9cd20e9f5.ctex::
+IMG_0329.png::CompressedTexture2D/CompressedTexture2D::6119947275260908010::1747582494::1748183908::0::::<><><>0<>0<>b8661f950cf58082d367a153ae6fade4<>::
+ItemHolderV1 - Copy.png::CompressedTexture2D/CompressedTexture2D::8208584689030099495::1747582494::1748183908::1::::<><><>0<>0<>c02f46b4254b2619ddc7db4edb5a1929<>res://.godot/imported/ItemHolderV1 - Copy.png-7fa6418df8212750efe770b934aec39d.ctex::
+ItemHolderV1.png::CompressedTexture2D/CompressedTexture2D::1715634456487296123::1747582494::1748183908::1::::<><><>0<>0<>2c180480a4871dc88f5d000bbe4803bf<>res://.godot/imported/ItemHolderV1.png-b134ef4293cc208a0794a2cc3bd32c3e.ctex::
+kljhl2stsf731.webp::CompressedTexture2D/CompressedTexture2D::1270972310152326506::1747582494::1748183908::0::::<><><>0<>0<>bc270fa0298a01a5a3dc92fcb56bc9b0<>::
+mcol-open-box.png::CompressedTexture2D/CompressedTexture2D::6152406169640399947::1747582494::1748183908::1::::<><><>0<>0<>ce82d293f9c45be07ee39d3ab62c8f36<>res://.godot/imported/mcol-open-box.png-8d990395367eef18545292a78f0eefac.ctex::
+MoneyBag.png::CompressedTexture2D/CompressedTexture2D::8236296588918252593::1747582494::1748183908::1::::<><><>0<>0<>09028df1d270618f30e056148409eeed<>res://.godot/imported/MoneyBag.png-4035df821a61dbebe238f881af430ab4.ctex::
+NeoBulletin Trash.ttf::FontFile/FontFile::3988827846470805008::1747582494::1748183908::1::::<><><>0<>0<>84e6c372263854c91c53b0ce72dd3904<>res://.godot/imported/NeoBulletin Trash.ttf-9844f878b32889ec85743d3daf5218ba.fontdata::
+NicePng_prison-architect-png_3739415.png::CompressedTexture2D/CompressedTexture2D::2637625587369472960::1747582494::1748183909::1::::<><><>0<>0<>50b2c58d4779439d67f7522ead6f422a<>res://.godot/imported/NicePng_prison-architect-png_3739415.png-9d3019e68d04795645b05112ea7fbda0.ctex::
+NicePng_prison-architect-png_3739415_upscaled.png::CompressedTexture2D/CompressedTexture2D::5138017858260663880::1747582494::1748183911::1::::<><><>0<>0<>55e9912debd9ebc232c161c5da91b8b7<>res://.godot/imported/NicePng_prison-architect-png_3739415_upscaled.png-41fd7a560ba3fb8d9425ed58fefb4d0c.ctex::
+panel2.png::CompressedTexture2D/CompressedTexture2D::5523424444160640028::1747582494::1748183909::1::::<><><>0<>0<>8c891f1b72de0af2bee1fbcf9c130fc3<>res://.godot/imported/panel2.png-5b1c43800708777fe878df95364689ea.ctex::
+panel3v3.png::CompressedTexture2D/CompressedTexture2D::6004309177685341529::1747582494::1748183908::1::::<><><>0<>0<>66dc5c8f79e44f5fbb4b932efa470ca3<>res://.godot/imported/panel3v3.png-99ea146459c6726cb72e9d3926e55805.ctex::
+Panel4(black).png::CompressedTexture2D/CompressedTexture2D::7020405088002933620::1747582494::1748183908::1::::<><><>0<>0<>1a137f5df8912ef150195ffa138fee6b<>res://.godot/imported/Panel4(black).png-e5bafb11d440862f8ec2bac78a75667d.ctex::
+Panel4.png::CompressedTexture2D/CompressedTexture2D::3060480353352107074::1747582494::1748183908::1::::<><><>0<>0<>66abdeb1eb242eb59ae9c61d85f7e857<>res://.godot/imported/Panel4.png-b4166ff0f8372a01dc600e0e7a30a42f.ctex::
+Panels.png::CompressedTexture2D/CompressedTexture2D::288710657798128322::1747582494::1748183910::1::::<><><>0<>0<>003e400fbd1c4b8e2cca20fbcafdcc36<>res://.godot/imported/Panels.png-988f9b37f4977dcd8a41381b1d103f13.ctex::
+prison-architect-sprite-space-station-13-prison-c43b8f1941c16edd6cac73192e80d559.png::CompressedTexture2D/CompressedTexture2D::839450977539537378::1747582494::1748183909::1::::<><><>0<>0<>f4b0fb78718197c8002eb4b38cb5f625<>res://.godot/imported/prison-architect-sprite-space-station-13-prison-c43b8f1941c16edd6cac73192e80d559.png-328ab7f2e158529d995ddc886f89f69a.ctex::
+Shovel and seller.png::CompressedTexture2D/CompressedTexture2D::3524113322113200130::1747582494::1748183910::1::::<><><>0<>0<>2a91640e0aaae15acf51c0e275a9a9ff<>res://.godot/imported/Shovel and seller.png-19462783938f9dc93565f72e3aef9863.ctex::
+shovel Appliance.png::CompressedTexture2D/CompressedTexture2D::6432698954159347441::1747582494::1748183909::1::::<><><>0<>0<>60a6fbe11e7266a2652cad05f0b5aeb1<>res://.godot/imported/shovel Appliance.png-a6f060fec7c71f943f05106936af02a3.ctex::
+Shovel.png::CompressedTexture2D/CompressedTexture2D::7669608019297972580::1747582494::1748183909::1::::<><><>0<>0<>9b153f9694fdfecd2b3933fd021f1b58<>res://.godot/imported/Shovel.png-6588815894ca59ab7ae12746e7e8a942.ctex::
+StorageIcon.png::CompressedTexture2D/CompressedTexture2D::4506496997541502192::1747582494::1748183909::1::::<><><>0<>0<>d9c0ff540b7783781e6ea0feeae69a4c<>res://.godot/imported/StorageIcon.png-3a4a25dcfacfe434efdd0689a601ebea.ctex::
+supermarket-checkout-counter-belt-top-600nw-660919069.jpg::CompressedTexture2D/CompressedTexture2D::7919457327941782484::1747582494::1748183909::1::::<><><>0<>0<>4e3d6c4ec2b71373cb7a0d852f8021b7<>res://.godot/imported/supermarket-checkout-counter-belt-top-600nw-660919069.jpg-f4010958fb6c6176f180f099d8000cdc.ctex::
+supermarket-checkout-counter-belt-top-600nw-660919069.webp::CompressedTexture2D/CompressedTexture2D::698941401484851036::1747582494::1748183909::1::::<><><>0<>0<>dc2731cf2a2821f85d995d30de4a52ba<>res://.godot/imported/supermarket-checkout-counter-belt-top-600nw-660919069.webp-a44fa71ecf0386f5728b3ff5faebd9dc.ctex::
+ToolsSheet.png::CompressedTexture2D/CompressedTexture2D::1192473914476546818::1747582494::1748183911::1::::<><><>0<>0<>9956c9d5ea702c5396286fc98f1f8964<>res://.godot/imported/ToolsSheet.png-d29b67936f39e9a724fa0e1d0bc1e1b7.ctex::
+TrashIcon.png::CompressedTexture2D/CompressedTexture2D::2364668776351058365::1747582494::1748183909::1::::<><><>0<>0<>38dd3faccee35221851bfd05beffe275<>res://.godot/imported/TrashIcon.png-3673c80c8f494e0207b898185eebd900.ctex::
+Truck Display.png::CompressedTexture2D/CompressedTexture2D::1483559822925571809::1747582494::1748183909::1::::<><><>0<>0<>676c21c962f2bb31e6a2e13cc2b587db<>res://.godot/imported/Truck Display.png-31e1d385244dbda1285dfa81766855b5.ctex::
+truck.png::CompressedTexture2D/CompressedTexture2D::3048061554184699187::1747582494::1748183909::1::::<><><>0<>0<>2dda8f096587d5855de780033b049968<>res://.godot/imported/truck.png-af6ee91213ba20fb5101204dce981e9f.ctex::
+unnamed (1).png::CompressedTexture2D/CompressedTexture2D::807371085106061708::1747582494::1748183911::1::::<><><>0<>0<>2245e8555a1826351d254d91dcb5c88a<>res://.godot/imported/unnamed (1).png-b0ca6a49a0810566c73a27c8d31eb36d.ctex::
+unnamed.png::CompressedTexture2D/CompressedTexture2D::562890746378990838::1747582494::1748183910::1::::<><><>0<>0<>6f4ead2a50fe98b966e4f2f9d9b38f18<>res://.godot/imported/unnamed.png-48fd703a613305df11e349a8d5dcf31b.ctex::
+Wrench.png::CompressedTexture2D/CompressedTexture2D::1132758728146646532::1747582494::1748183910::1::::<><><>0<>0<>e88a05ecd2c9c5165927545cf036d4b0<>res://.godot/imported/Wrench.png-d0701884ead55fb15c818a10ccb307f5.ctex::
+::res://Assets/Buttons/::1748183912
+button.png::CompressedTexture2D/CompressedTexture2D::167873666538175567::1747582494::1748183911::1::::<><><>0<>0<>17d525b40c3c9be57acc1bdd8e7cb76e<>res://.godot/imported/button.png-b33e2e53b1e8a0e9026fab03668d0012.ctex::
+buttonStyle1White.png::CompressedTexture2D/CompressedTexture2D::5839776535335971004::1747582494::1748183911::1::::<><><>0<>0<>e390a77f1e5eed78b5bb8a8ae2aded22<>res://.godot/imported/buttonStyle1White.png-a35f9f97b2a3cc3797f1eccc90790555.ctex::
+buttonStyle1Yellow.png::CompressedTexture2D/CompressedTexture2D::8474193265414525336::1747582494::1748183911::1::::<><><>0<>0<>4a1c40d127f7c5eecebcedddd44e153b<>res://.godot/imported/buttonStyle1Yellow.png-fb7c5666b36cd53cc02e67eceffac473.ctex::
+Shop button.png::CompressedTexture2D/CompressedTexture2D::1355212962116555372::1747582494::1748183911::1::::<><><>0<>0<>658ddd707b87f165b220924a74cb12d2<>res://.godot/imported/Shop button.png-9db9fd72cdaf0ca5f0c5027b49a7e3ec.ctex::
+ShopButtonV2 - Copy.png::CompressedTexture2D/CompressedTexture2D::4758414760790669386::1747582494::1748183911::1::::<><><>0<>0<>824580c900cce6d5d94022f6629f7363<>res://.godot/imported/ShopButtonV2 - Copy.png-ef8764aa03d1f459c3d56bd3db3fe772.ctex::
+ShopButtonV2.png::CompressedTexture2D/CompressedTexture2D::105837266564427077::1747582494::1748183911::1::::<><><>0<>0<>f780e6ce12b8c8f0edcf0b27992cbe4c<>res://.godot/imported/ShopButtonV2.png-5481abe7ecf99f1640264f6b3336979b.ctex::
+side buttons.png::CompressedTexture2D/CompressedTexture2D::6623648679036582215::1747582494::1748183912::1::::<><><>0<>0<>461d8bcf4a033476e7eee90b9c92942b<>res://.godot/imported/side buttons.png-74cae0771ca08840108908e0ecec3a39.ctex::
+::res://Assets/Sellers/::1748183912
+Connect1.png::CompressedTexture2D/CompressedTexture2D::3343921574653184598::1747582494::1748183910::1::::<><><>0<>0<>81ca17be357c1cfdf4add4e57c18e662<>res://.godot/imported/Connect1.png-ef69d0597139c87a75a8b75a826f8135.ctex::
+Connect2.png::CompressedTexture2D/CompressedTexture2D::6520141025882135225::1747582494::1748183910::1::::<><><>0<>0<>2d7f8cea3b489bf2c26b0cc1fdfa7171<>res://.godot/imported/Connect2.png-05b84a951e2fe66aaf8590271eff23f2.ctex::
+Construction guy.png::CompressedTexture2D/CompressedTexture2D::2405488884067643534::1747582494::1748183912::1::::<><><>0<>0<>e804ff16116f7653f4df0b30d86dcaa3<>res://.godot/imported/Construction guy.png-1351e98d3390a1a211a69bcac87458e7.ctex::
+Hector.png::CompressedTexture2D/CompressedTexture2D::7025054517150640812::1747582494::1748183912::1::::<><><>0<>0<>fec66b9785a16bcae82bf97b8af095e0<>res://.godot/imported/Hector.png-f55eb437dfd8572cd7bd2ca5d6fa7666.ctex::
+Seller.png::CompressedTexture2D/CompressedTexture2D::9176724844242065376::1747582494::1748183910::1::::<><><>0<>0<>0c4dcc7f184b6b79f59c6facf90fb882<>res://.godot/imported/Seller.png-b2c88400905ff0bfbe3b7a3fe3355356.ctex::
+::res://Assets/UI/::1748183912
+buttonStyle1.png::CompressedTexture2D/CompressedTexture2D::1900831210115352504::1747582494::1748183910::1::::<><><>0<>0<>143ed577153f9b0012c8f6a5c83c4896<>res://.godot/imported/buttonStyle1.png-1e6a9429866368aa537f96e0b41d6496.ctex::
+ColorButtons.png::CompressedTexture2D/CompressedTexture2D::1450686300334364790::1747582494::1748183910::1::::<><><>0<>0<>b2d10bec497c1f325688830cab73d38f<>res://.godot/imported/ColorButtons.png-5d9905cc6f59062c96923ee2960a6874.ctex::
+GameTabButtons.png::CompressedTexture2D/CompressedTexture2D::8757991787502425326::1747582494::1748183910::1::::<><><>0<>0<>d04454a73f7e5194339fbeac3b250da7<>res://.godot/imported/GameTabButtons.png-8b68a23021db02869e803d35e7026338.ctex::
+InnerPanels.png::CompressedTexture2D/CompressedTexture2D::4793636233540439896::1747582494::1748183910::1::::<><><>0<>0<>848b14769d57da5ebd1062016dac0651<>res://.godot/imported/InnerPanels.png-7bd6fdf34484e2410b62766c2c818109.ctex::
+ItemHolderV1.png::CompressedTexture2D/CompressedTexture2D::634753212197039903::1747582494::1748183910::1::::<><><>0<>0<>71aa5e1c6c7577f35ba5b8e2ae6afe5c<>res://.godot/imported/ItemHolderV1.png-24c4600ef149da5f4d49e42ed235d73d.ctex::
+MainPanels.png::CompressedTexture2D/CompressedTexture2D::7459371284915555125::1747582494::1748183912::1::::<><><>0<>0<>87719b43e98897c649c151c7b70073fa<>res://.godot/imported/MainPanels.png-105653c6b10b8b4975734b936f62a7c0.ctex::
+ProgressBar.png::CompressedTexture2D/CompressedTexture2D::8381904692525694543::1747582494::1748183912::1::::<><><>0<>0<>8851b2103e73342a3a89ea2363fbf042<>res://.godot/imported/ProgressBar.png-09a8ed963419fd5047603e4e4ff52b0f.ctex::
+ProgressBarFill.png::CompressedTexture2D/CompressedTexture2D::2237134843620531010::1747582494::1748183912::1::::<><><>0<>0<>0b2fc39878720c69083e96d771012c83<>res://.godot/imported/ProgressBarFill.png-dfcccfb4199af33878cae0fe87c0defe.ctex::
+ProgressBarOver.png::CompressedTexture2D/CompressedTexture2D::1492685463463361464::1747582494::1748183912::1::::<><><>0<>0<>51815bf0762dec62468f9a7b68971839<>res://.godot/imported/ProgressBarOver.png-6815360fb3691470f2a21bc86db582e4.ctex::
+ProgressBarUnder.png::CompressedTexture2D/CompressedTexture2D::6459450588960474298::1747582494::1748183912::1::::<><><>0<>0<>459e6aa2d1e407735c845611f6bca3ef<>res://.godot/imported/ProgressBarUnder.png-93ffce4b5ee90c2591335467f454013a.ctex::
+ShopButtonV2.png::CompressedTexture2D/CompressedTexture2D::538548246043734502::1747582494::1748183912::1::::<><><>0<>0<>f26fc72d6eb18fe8dcdb63c5095b4629<>res://.godot/imported/ShopButtonV2.png-5ba9d3da3f555f7f189168ea84d62a80.ctex::
+SideButtons.png::CompressedTexture2D/CompressedTexture2D::263009956243691011::1747582494::1748183912::1::::<><><>0<>0<>73da5b66b2cbe051aa32e12965b79432<>res://.godot/imported/SideButtons.png-9c82ce34b02d53ab374c8ee0f5afb2bb.ctex::
+UpgradeButtons.png::CompressedTexture2D/CompressedTexture2D::6978455979164673192::1747582494::1748183911::1::::<><><>0<>0<>70963d38ea00d69e762d099160f250e8<>res://.godot/imported/UpgradeButtons.png-83bb3b126ddfcd1091266d919ffe0c13.ctex::
+::res://Notes/::1747582494
+Finances.txt::TextFile/TextFile::-1::1747582494::0::1::::<><><>0<>0<><>::
+RegisterQueue.txt::TextFile/TextFile::-1::1747582494::0::1::::<><><>0<>0<><>::
+ToDo.txt::TextFile/TextFile::-1::1747582494::0::1::::<><><>0<>0<><>::
+::res://Scenes/::1748183808
+appliance.tscn::PackedScene::8520631118908060308::1748184168::0::1::::<><><>0<>0<><>::uid://bqlgtygyurb3y::::res://_Scripts/applianceSceneScript.gd
+ApplianceInShop.tscn::PackedScene::7297570066994889904::1748184168::0::1::::<><><>0<>0<><>::uid://cxwbu2n6mty54::::res://Assets/shovel Appliance.png<>uid://clseqsvfu6u0m::::res://_Scripts/ApplianceInShop.gd
+ApplianceStorage.tscn::PackedScene::5564907627784002098::1748184168::0::1::::<><><>0<>0<><>::uid://dejm0xb0oh7jl::::res://Assets/UI/MainPanels.png<>uid://c2ofxjso1ljtb::::res://_Scripts/ApplianceStorage.gd<>uid://y0x88bcu3ac::::res://Assets/DiscountIcon.png<>uid://cakcquumm7qgm::::res://Assets/UI/InnerPanels.png<>uid://8xp0qfcsycrt::::res://Assets/TrashIcon.png<>uid://b5g8l2kcos8q3::::res://Assets/StorageIcon.png<>uid://d0n0akgc5d6j::::res://Assets/UI/SideButtons.png
+appliance_in_storage_list.tscn::PackedScene::7416854581416676705::1748184168::0::1::::<><><>0<>0<><>::uid://cxwbu2n6mty54::::res://Assets/shovel Appliance.png<>uid://b8lu7ycynuywr::::res://_Scripts/ApplianceInStorageList.gd
+appliance_to_place.tscn::PackedScene::8320551901573503417::1748184168::0::1::::<><><>0<>0<><>::uid://cxwbu2n6mty54::::res://Assets/shovel Appliance.png<>uid://dekir6dgxvuux::::res://applianceToPlace.gd
+customer.tscn::PackedScene::7021807487228701904::1748184168::0::1::::<><><>0<>0<><>::uid://ddabs27f5v06y::::res://_Scripts/Customer.gd<>uid://cfg5nynjdkbv1::::res://Assets/NicePng_prison-architect-png_3739415_upscaled.png<>uid://cp0lnwbtq41j5::::res://Themes/CustomerItemList.tres
+furniture.tscn::PackedScene::4832465722402415804::1748184168::0::1::::<><><>0<>0<><>::
+Game.tscn::PackedScene::329549197082554374::1748184175::0::1::::<><><>0<>0<><>::uid://l7vvuai5pdli::::res://Assets/prison-architect-sprite-space-station-13-prison-c43b8f1941c16edd6cac73192e80d559.png<>uid://c5yksadnqdm1u::::res://_Scripts/GameState.gd<>uid://beym3i1li6le2::::res://Assets/Clock.png<>uid://dplyupkvmvj5j::::res://Assets/MoneyBag.png<>uid://dmvuwsrm7oxr4::::res://Scenes/shop.tscn<>uid://dk3ikm0m6it53::::res://Assets/supermarket-checkout-counter-belt-top-600nw-660919069.jpg<>uid://bddx65vxgottu::::res://Scenes/truck.tscn<>uid://wgyoegdrulis::::res://Assets/HomeIcon.png<>uid://2gsy6ed0omdq::::res://Scenes/TruckStorage.tscn<>uid://dw1o30baseqfe::::res://Assets/UI/GameTabButtons.png<>uid://c6h20vpwexn7::::res://Assets/Customer Display.png<>uid://cljxhlhn5sb75::::res://Scenes/ApplianceStorage.tscn<>uid://br51u0mbgijdq::::res://Scenes/Finances/Finances.tscn
+Item_in_ShoppingList.tscn::PackedScene::8802331951870903061::1748184175::0::1::::<><><>0<>0<><>::
+Item_in_shop_button.tscn::PackedScene::5441933758589530931::1748184175::0::1::::<><><>0<>0<><>::uid://do7kgqi7irfh4::::res://Assets/ItemHolderV1 - Copy.png<>uid://b6v55m0ympt2l::::res://_Scripts/Item_in_shop_button.gd<>uid://cxdlcltj2h2cu::::res://Assets/Drill.png
+Seller.tscn::PackedScene::3555863893086693484::1748184180::0::1::::<><><>0<>0<><>::uid://cccu7slchsi8h::::res://Themes/new_theme.tres<>uid://bavnr2lckxmnq::::res://Assets/Construction guy.png<>uid://by8fjep58w5tp::::res://_Scripts/Seller.gd<>uid://dplyupkvmvj5j::::res://Assets/MoneyBag.png
+shop.tscn::PackedScene::8046134707162727019::1748184186::0::1::::<><><>0<>0<><>::uid://r4ci5synixac::::res://_Scripts/shop.gd<>uid://cccu7slchsi8h::::res://Themes/new_theme.tres<>uid://pxua7kjluktr::::res://_Scripts/Supply Connections.gd<>uid://dejm0xb0oh7jl::::res://Assets/UI/MainPanels.png<>uid://bqwqs88d114v5::::res://Scenes/Seller.tscn<>uid://dra4q88xff4ge::::res://Assets/Construction_Guy.png<>uid://c7c8veqnd1u3e::::res://Assets/Sellers/Hector.png<>uid://cybahb3d146n3::::res://Assets/UI/ProgressBarUnder.png<>uid://vjckudfsxi4g::::res://Assets/UI/ProgressBarOver.png<>uid://c6oofd41rym2s::::res://Assets/UI/UpgradeButtons.png<>uid://dmtlqn36mnnwc::::res://_Scripts/AppliancesShop.gd<>uid://64xjwlk0r8e5::::res://Assets/UI/ProgressBarFill.png<>uid://db786bhjv86sy::::res://Scenes/ApplianceInShop.tscn<>uid://cxwbu2n6mty54::::res://Assets/shovel Appliance.png<>uid://cakcquumm7qgm::::res://Assets/UI/InnerPanels.png<>uid://uwyudxd7hldm::::res://Assets/UI/ColorButtons.png<>uid://hw42to1hx847::::res://Assets/UI/ShopButtonV2.png
+truck.tscn::PackedScene::2604633807509060694::1748184186::0::1::::<><><>0<>0<><>::uid://dgvskacfkaiwy::::res://_Scripts/Truck.gd<>uid://bjoremrnfpkgx::::res://Assets/truck.png
+TruckStorage.tscn::PackedScene::1908622444248097926::1748184186::0::1::::<><><>0<>0<><>::uid://dxp65ca3dbti::::res://_Scripts/TruckStorage.gd<>uid://dejm0xb0oh7jl::::res://Assets/UI/MainPanels.png<>uid://cakcquumm7qgm::::res://Assets/UI/InnerPanels.png<>uid://d0n0akgc5d6j::::res://Assets/UI/SideButtons.png
+::res://Scenes/Finances/::1748183808
+dailyIncome.tscn::PackedScene::6831202113451549038::1748184168::0::1::::<><><>0<>0<><>::uid://b7vokej6amnap::::res://_Scripts/dailyIncome.gd<>uid://duivi6c74ae1p::::res://new_font_variation.tres
+Finances.tscn::PackedScene::3643178047526655834::1748184168::0::1::::<><><>0<>0<><>::uid://cdkyr7bjnqey5::::res://Themes/FinancesPanel.tres<>uid://duivi6c74ae1p::::res://new_font_variation.tres<>uid://f0vpu4v1orpb::::res://_Scripts/Finances.gd<>uid://dejm0xb0oh7jl::::res://Assets/UI/MainPanels.png<>uid://cakcquumm7qgm::::res://Assets/UI/InnerPanels.png
+specific_transaction.tscn::PackedScene::9010232369317073898::1748184168::0::1::::<><><>0<>0<><>::uid://duivi6c74ae1p::::res://new_font_variation.tres
+type_transaction.tscn::PackedScene::506560545089381904::1748184168::0::1::::<><><>0<>0<><>::uid://duivi6c74ae1p::::res://new_font_variation.tres
+::res://Scenes/Item_Dragging/::1748183808
+item_being_dragged.tscn::PackedScene::6498773569986748498::1748184168::0::1::::<><><>0<>0<><>::uid://dhjhlaagihgka::::res://Assets/Shovel.png<>uid://l6thwxflk4f8::::res://_Scripts/item_being_dragged.gd
+Item_in_truck_storage.tscn::PackedScene::3839334836901702964::1748184168::0::1::::<><><>0<>0<><>::uid://dhjhlaagihgka::::res://Assets/Shovel.png<>uid://do7kgqi7irfh4::::res://Assets/ItemHolderV1 - Copy.png<>uid://b6v55m0ympt2l::::res://_Scripts/Item_in_shop_button.gd
+::res://Themes/::1748183808
+CustomerItemList.tres::Theme/Theme::5877975725993709248::1748183304::0::1::::<><><>0<>0<><>::uid://kyawt0eygibi::::res://Assets/CustomerItem.png
+FinancesPanel.tres::Theme/Theme::5005540924882609934::1747582494::0::1::::<><><>0<>0<><>::uid://crssdhytto18p::::res://Assets/panel3v3.png
+Item_in_truck_storage.tres::Theme/Theme::2660646976990006594::1747582494::0::1::::<><><>0<>0<><>::
+new_theme.tres::Theme/Theme::4918620257944766601::1748183808::0::1::::<><><>0<>0<><>::
+PanelTheme.tres::Theme/Theme::6825860522586702862::1747582494::0::1::::<><><>0<>0<><>::uid://ed4a03s3brwk::::res://Assets/Panels.png

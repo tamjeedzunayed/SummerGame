@@ -1,8 +1,8 @@
 [gd_scene load_steps=36 format=3 uid="uid://dmvuwsrm7oxr4"]
 
-[ext_resource type="Script" path="res://_Scripts/shop.gd" id="1_tf1v1"]
+[ext_resource type="Script" uid="uid://r4ci5synixac" path="res://_Scripts/shop.gd" id="1_tf1v1"]
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://Themes/new_theme.tres" id="2_527pq"]
-[ext_resource type="Script" path="res://_Scripts/Supply Connections.gd" id="3_8pclh"]
+[ext_resource type="Script" uid="uid://pxua7kjluktr" path="res://_Scripts/Supply Connections.gd" id="3_8pclh"]
 [ext_resource type="Texture2D" uid="uid://dejm0xb0oh7jl" path="res://Assets/UI/MainPanels.png" id="3_a5oda"]
 [ext_resource type="PackedScene" uid="uid://bqwqs88d114v5" path="res://Scenes/Seller.tscn" id="3_jd3nf"]
 [ext_resource type="Texture2D" uid="uid://dra4q88xff4ge" path="res://Assets/Construction_Guy.png" id="5_j18lq"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cybahb3d146n3" path="res://Assets/UI/ProgressBarUnder.png" id="7_h3lsq"]
 [ext_resource type="Texture2D" uid="uid://vjckudfsxi4g" path="res://Assets/UI/ProgressBarOver.png" id="8_5lxl4"]
 [ext_resource type="Texture2D" uid="uid://c6oofd41rym2s" path="res://Assets/UI/UpgradeButtons.png" id="8_gvlas"]
-[ext_resource type="Script" path="res://_Scripts/AppliancesShop.gd" id="8_k3ymg"]
+[ext_resource type="Script" uid="uid://dmtlqn36mnnwc" path="res://_Scripts/AppliancesShop.gd" id="8_k3ymg"]
 [ext_resource type="Texture2D" uid="uid://64xjwlk0r8e5" path="res://Assets/UI/ProgressBarFill.png" id="9_fgbwr"]
 [ext_resource type="PackedScene" uid="uid://db786bhjv86sy" path="res://Scenes/ApplianceInShop.tscn" id="9_naofi"]
 [ext_resource type="Texture2D" uid="uid://cxwbu2n6mty54" path="res://Assets/shovel Appliance.png" id="11_pn8ud"]
@@ -175,9 +175,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tt3mk"]
 _data = {
-"RESET": SubResource("Animation_ggbdo"),
-"TransIn": SubResource("Animation_b7g7h"),
-"TransOut": SubResource("Animation_a2435")
+&"RESET": SubResource("Animation_ggbdo"),
+&"TransIn": SubResource("Animation_b7g7h"),
+&"TransOut": SubResource("Animation_a2435")
 }
 
 [sub_resource type="Animation" id="Animation_ubxxe"]
@@ -237,8 +237,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qv5dw"]
 _data = {
-"RESET": SubResource("Animation_ubxxe"),
-"StorageFull": SubResource("Animation_ljgvt")
+&"RESET": SubResource("Animation_ubxxe"),
+&"StorageFull": SubResource("Animation_ljgvt")
 }
 
 [node name="Shop" type="CanvasLayer"]
