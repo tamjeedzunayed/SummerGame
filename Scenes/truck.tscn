@@ -1,10 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bddx65vxgottu"]
 
-[ext_resource type="Script" path="res://_Scripts/Truck.gd" id="1_00r2n"]
+[ext_resource type="Script" uid="uid://dgvskacfkaiwy" path="res://_Scripts/Truck.gd" id="1_00r2n"]
 [ext_resource type="Texture2D" uid="uid://bjoremrnfpkgx" path="res://Assets/truck.png" id="2_0efcm"]
 
 [sub_resource type="Animation" id="Animation_unjym"]
 resource_name = "Drive_Truck_in"
+capture_included = true
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -78,9 +79,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nw75j"]
 _data = {
-"Drive_Truck_in": SubResource("Animation_unjym"),
-"Drive_Truck_out": SubResource("Animation_abjsc"),
-"RESET": SubResource("Animation_hlhv7")
+&"Drive_Truck_in": SubResource("Animation_unjym"),
+&"Drive_Truck_out": SubResource("Animation_abjsc"),
+&"RESET": SubResource("Animation_hlhv7")
 }
 
 [node name="Truck" type="Node2D"]

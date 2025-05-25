@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4lc5vjmtv64a"]
 
-[ext_resource type="Script" path="res://_Scripts/dailyIncome.gd" id="1_aayuf"]
+[ext_resource type="Script" uid="uid://b7vokej6amnap" path="res://_Scripts/dailyIncome.gd" id="1_aayuf"]
 [ext_resource type="FontVariation" uid="uid://duivi6c74ae1p" path="res://new_font_variation.tres" id="2_5hc6q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f03tl"]

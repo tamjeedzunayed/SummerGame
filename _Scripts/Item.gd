@@ -16,5 +16,3 @@ func _init (item_name: String, priceC: float, sellPriceC: float, expC: float, ic
 	expe = expC
 	icon = iconC
 	applianceType = appliance_type
-
-

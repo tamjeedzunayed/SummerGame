@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cdkyr7bjnqey5" path="res://Themes/FinancesPanel.tres" id="1_k2mrb"]
 [ext_resource type="FontVariation" uid="uid://duivi6c74ae1p" path="res://new_font_variation.tres" id="2_8ljse"]
-[ext_resource type="Script" path="res://_Scripts/Finances.gd" id="2_dj8k2"]
+[ext_resource type="Script" uid="uid://f0vpu4v1orpb" path="res://_Scripts/Finances.gd" id="2_dj8k2"]
 [ext_resource type="Texture2D" uid="uid://dejm0xb0oh7jl" path="res://Assets/UI/MainPanels.png" id="2_ye7cy"]
 [ext_resource type="Texture2D" uid="uid://cakcquumm7qgm" path="res://Assets/UI/InnerPanels.png" id="5_rgnwv"]
 

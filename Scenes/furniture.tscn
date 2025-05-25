@@ -1,9 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca35afdtd28tk"]
-
-[ext_resource type="Texture2D" uid="uid://sdwy04n24suc" path="res://Assets/kljhl2stsf731.webp" id="1_vsn2k"]
+[gd_scene load_steps=3 format=3 uid="uid://ca35afdtd28tk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4unf"]
-atlas = ExtResource("1_vsn2k")
 region = Rect2(0, 320, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vx5ha"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cyub37afhsw71"]
 
 [ext_resource type="Texture2D" uid="uid://dhjhlaagihgka" path="res://Assets/Shovel.png" id="1_a2ipk"]
-[ext_resource type="Script" path="res://_Scripts/item_being_dragged.gd" id="2_w0plc"]
+[ext_resource type="Script" uid="uid://l6thwxflk4f8" path="res://_Scripts/item_being_dragged.gd" id="2_w0plc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ik0nl"]
 size = Vector2(67, 72)
@@ -53,8 +53,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4jgl2"]
 _data = {
-"Place": SubResource("Animation_o3b3p"),
-"RESET": SubResource("Animation_gpdhy")
+&"Place": SubResource("Animation_o3b3p"),
+&"RESET": SubResource("Animation_gpdhy")
 }
 
 [node name="ItemBeingDragged" type="CharacterBody2D"]
