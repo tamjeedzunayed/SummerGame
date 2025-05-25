@@ -257,7 +257,7 @@ columns = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_mgdo0")
+&"": SubResource("AnimationLibrary_mgdo0")
 }
 speed_scale = 1.5
 
@@ -276,9 +276,9 @@ rotation = -1.5708
 scale = Vector2(0.8, 0.8)
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 55
-theme_override_styles/normal = SubResource("StyleBoxTexture_aj5fu")
 theme_override_styles/hover = SubResource("StyleBoxTexture_aj5fu")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_aj5fu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_aj5fu")
 
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel2/Drag Amount" to="." method="_on_drag_amount_value_changed"]
 [connection signal="pressed" from="Truck Storage Button" to="." method="_on_truck_storage_button_pressed"]

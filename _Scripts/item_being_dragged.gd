@@ -19,5 +19,3 @@ var numItems:
 func _ready():
 	item_image.texture = itemHeld.icon
 	pass # Replace with function body.
-
-

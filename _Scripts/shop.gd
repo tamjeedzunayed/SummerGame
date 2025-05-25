@@ -47,4 +47,3 @@ func _on_button_pressed():
 	else:
 		animation_player.play("TransIn")
 		inView = true
-

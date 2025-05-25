@@ -358,7 +358,7 @@ tooltip_text = "The amount of items that you drag from items in the appliance."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_mgdo0")
+&"": SubResource("AnimationLibrary_mgdo0")
 }
 speed_scale = 1.5
 
@@ -376,9 +376,9 @@ grow_vertical = 2
 rotation = -1.5708
 scale = Vector2(0.8, 0.8)
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_i18x7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_i18x7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_i18x7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_i18x7")
 
 [connection signal="body_entered" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D" to="." method="_on_trash_body_entered"]
 [connection signal="body_entered" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D" to="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Trash/Area2D" method="_on_body_entered"]

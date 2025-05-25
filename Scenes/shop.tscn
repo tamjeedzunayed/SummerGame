@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dmvuwsrm7oxr4"]
+[gd_scene load_steps=37 format=3 uid="uid://dmvuwsrm7oxr4"]
 
 [ext_resource type="Script" uid="uid://r4ci5synixac" path="res://_Scripts/shop.gd" id="1_tf1v1"]
 [ext_resource type="Theme" uid="uid://cccu7slchsi8h" path="res://Themes/new_theme.tres" id="2_527pq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bqwqs88d114v5" path="res://Scenes/Seller.tscn" id="3_jd3nf"]
 [ext_resource type="Texture2D" uid="uid://dra4q88xff4ge" path="res://Assets/Construction_Guy.png" id="5_j18lq"]
 [ext_resource type="Texture2D" uid="uid://c7c8veqnd1u3e" path="res://Assets/Sellers/Hector.png" id="5_urh6r"]
+[ext_resource type="Texture2D" uid="uid://b7flwy2lfnhgp" path="res://Assets/Exp.png" id="7_cuuv1"]
 [ext_resource type="Texture2D" uid="uid://cybahb3d146n3" path="res://Assets/UI/ProgressBarUnder.png" id="7_h3lsq"]
 [ext_resource type="Texture2D" uid="uid://vjckudfsxi4g" path="res://Assets/UI/ProgressBarOver.png" id="8_5lxl4"]
 [ext_resource type="Texture2D" uid="uid://c6oofd41rym2s" path="res://Assets/UI/UpgradeButtons.png" id="8_gvlas"]
@@ -265,6 +266,7 @@ offset_right = 1024.0
 offset_bottom = 544.0
 theme = ExtResource("2_527pq")
 tab_alignment = 1
+current_tab = 0
 drag_to_rearrange_enabled = true
 
 [node name="Supply Connections" type="Panel" parent="Panel/TabContainer"]
@@ -272,6 +274,7 @@ layout_mode = 2
 theme = ExtResource("2_527pq")
 theme_override_styles/panel = SubResource("StyleBoxTexture_1im2p")
 script = ExtResource("3_8pclh")
+metadata/_tab_index = 0
 
 [node name="Supply Connections" type="MarginContainer" parent="Panel/TabContainer/Supply Connections"]
 layout_mode = 2
@@ -345,15 +348,18 @@ size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 34.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 20
+scale = Vector2(0.85, 0.85)
+theme_override_constants/margin_left = 30
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer"]
 layout_mode = 2
@@ -361,18 +367,22 @@ theme_override_constants/separation = 25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
+size_flags_vertical = 0
 size_flags_stretch_ratio = 3.72
 theme_override_constants/separation = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = "
-Reputation Level:                                                                                                               
-"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Reputation Level:            "
 vertical_alignment = 2
 
 [node name="Control" type="Control" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
@@ -394,6 +404,7 @@ custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+texture = ExtResource("7_cuuv1")
 expand_mode = 1
 
 [node name="CredBar" type="TextureProgressBar" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
@@ -409,8 +420,10 @@ texture_progress = ExtResource("9_fgbwr")
 [node name="ItemList" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 20
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList"]
+custom_minimum_size = Vector2(355.53, 369)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
@@ -480,10 +493,10 @@ layout_mode = 2
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/Control"]
 layout_mode = 0
-offset_left = 363.0
-offset_top = -357.0
-offset_right = 510.0
-offset_bottom = -199.0
+offset_left = 373.0
+offset_top = -382.0
+offset_right = 536.0
+offset_bottom = -179.0
 mouse_filter = 2
 border_color = Color(0, 0, 0, 1)
 border_width = 3.2
@@ -492,9 +505,9 @@ editor_only = false
 [node name="ReferenceRect2" type="ReferenceRect" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/Control"]
 layout_mode = 0
 offset_left = 1.0
-offset_top = -357.0
-offset_right = 356.0
-offset_bottom = -12.0
+offset_top = -381.0
+offset_right = 367.0
+offset_bottom = 5.0
 mouse_filter = 2
 border_color = Color(0, 0, 0, 1)
 border_width = 3.0
@@ -513,15 +526,15 @@ size_flags_horizontal = 3
 texture = ExtResource("5_j18lq")
 expand_mode = 5
 
+[node name="Control" type="Control" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+
 [node name="SellerNameLabel" type="Label" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Andrew Tate"
 horizontal_alignment = 1
-
-[node name="Control" type="Control" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(0, 46)
-layout_mode = 2
 
 [node name="Discount Upgrade" type="HBoxContainer" parent="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -590,6 +603,7 @@ text = "Unlock New Item"
 [node name="Appliances" type="Panel" parent="Panel/TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="Appliances" type="Panel" parent="Panel/TabContainer/Appliances"]
 layout_mode = 2
@@ -844,7 +858,7 @@ text = "BUY"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")
 libraries = {
-"": SubResource("AnimationLibrary_tt3mk")
+&"": SubResource("AnimationLibrary_tt3mk")
 }
 speed_scale = 2.0
 
@@ -871,7 +885,7 @@ text = "Storage is Full !"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StorageFull"]
 libraries = {
-"": SubResource("AnimationLibrary_qv5dw")
+&"": SubResource("AnimationLibrary_qv5dw")
 }
 
 [connection signal="pressed" from="Panel/TabContainer/Supply Connections/Supply Connections/GridContainer/Items On Sale/MarginContainer/HBoxContainer/VBoxContainer/ItemList/VBoxContainer/Add to Cart" to="Panel/TabContainer/Supply Connections" method="_on_add_to_cart_pressed"]
